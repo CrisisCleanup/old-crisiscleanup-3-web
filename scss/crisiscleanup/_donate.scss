@@ -1,0 +1,42 @@
+$coal: #222;
+$slime: #4dbd74;
+//Crisis Cleanup Color Scheme
+$cc-grey: #242424;
+$cc-blue: #41B7D8;
+$cc-white: #FFFFFF;
+$cc-black: #000000;
+$cc-yellow: #FFCC44;
+$cc-pearl: #F0F0F0;
+$cc-gold: #DDA100;
+
+.main-window {
+
+  padding: 6em;
+  margin: 3em;
+}
+
+.donor-cards {
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, .3);
+  border: 0;
+  .card-header {
+    text-align: center;
+    background: $cc-grey;
+    color: $cc-pearl;
+    font-weight: bold;
+  }
+  .card-text {
+    color: $cc-grey;
+    padding: 2em;
+
+  }
+
+}
+
+.donation-amount {
+  max-width: 150px;
+  text-align: center;
+  color: $cc-gold;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 0em;
+}

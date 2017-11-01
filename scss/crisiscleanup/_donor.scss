@@ -1,0 +1,340 @@
+$coal: #222;
+$slime: #4dbd74;
+//Crisis Cleanup Color Scheme
+$cc-grey: #242424;
+$cc-grey-light: #404040;
+$cc-blue: #41B7D8;
+$cc-white: #FFFFFF;
+$cc-black: #000000;
+$cc-yellow: #FFCC44;
+$cc-pearl: #F0F0F0;
+$cc-gold: #DDA100;
+
+@import "./scss/bootstrap/bootstrap-grid.scss";
+@import "./scss/components/parallax";
+
+.main-window {
+
+  padding: 0em;
+  margin-top: 55px;
+}
+
+//  --------------------------  Donations  ---------------------------
+.donation {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1vh;
+  color: $cc-grey-light;
+  padding-left: 1em;
+  padding-right: 1em;
+  @include media-breakpoint-up(sm) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    color: $cc-grey-light;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    color: $cc-grey-light;
+    padding-left: 8em;
+    padding-right: 8em;
+  }
+
+}
+
+.volunteer-subtext {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0.9em;
+}
+
+.donor-box {
+  background-color: $cc-grey;
+  color: $cc-pearl;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.donor-levels {
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-bottom: 3em;
+  @include media-breakpoint-up(lg) {
+    padding-left: 6em;
+    padding-right: 6em;
+  }
+
+}
+
+.donor-level {
+  width: 4em;
+  text-align: right;
+  margin-left: 0.7em;
+  color: $cc-gold;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.workers {
+  width: 38px;
+  margin-right: -0.5em;
+}
+
+.bobcat {
+  width: 68px;
+  margin-right: -0.5em;
+}
+
+.donation-amount {
+  max-width: 150px;
+  text-align: center;
+  color: $cc-gold;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 0em;
+}
+
+.hr-style {
+  margin-top: 0em;
+  border-top: 8px double $cc-black;
+
+}
+
+//  --------------------------  Powered By  ---------------------------
+
+.powered-by {
+  z-index: 100;
+  background-color: $cc-grey;
+  color: $cc-yellow;
+  padding-top: 2em;
+  padding-bottom: 5em;
+  margin-bottom: 0vh;
+
+  padding-left: 2em;
+  padding-right: 2em;
+  @include media-breakpoint-up(sm) {
+    padding-top: 4em;
+    padding-bottom: 5em;
+    margin-bottom: 0vh;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: 2em;
+    padding-bottom: 5em;
+    margin-bottom: 0vh;
+    padding-left: 8em;
+    padding-right: 8em;
+  }
+}
+
+.major-cards {
+  border: -0px;
+  width: 7em;
+  height: 7em;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.card-joinus {
+  margin-left: 3em;
+}
+
+.minor-cards {
+  border: -0px;
+  width: 4em;
+  height: 4em;
+  text-align: center;
+  margin-bottom: 4em;
+}
+
+.the-card-footer {
+  background: $cc-grey;
+  padding: 0em;
+}
+
+.major-joinus {
+  min-height: 98px;
+  text-align: center;
+}
+
+.minor-joinus {
+  min-height: 56px;
+  text-align: center;
+}
+
+//  --------------------------  Who We Serve  ---------------------------
+.who-we-serve {
+  background: transparent;
+  z-index: 1000;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1vh;
+  color: $cc-grey-light;
+  padding-left: 1em;
+  padding-right: 1em;
+  @include media-breakpoint-up(sm) {
+
+    background: transparent;
+    //   margin-top: -90vmax;
+    z-index: 1000;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    color: $cc-grey-light;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+
+    background: transparent;
+    //   margin-top: -90vmax;
+    z-index: 1000;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    color: $cc-grey-light;
+    padding-left: 8em;
+    padding-right: 8em;
+  }
+
+}
+
+.who-card-columns {
+  @include media-breakpoint-up(sm) {
+    column-count: 2;
+  }
+  @include media-breakpoint-up(md) {
+    column-count: 3;
+  }
+  @include media-breakpoint-up(lg) {
+    column-count: 4;
+  }
+
+}
+
+.org-cards {
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, .3);
+  border: 0;
+  .card-header {
+    background: $cc-black;
+    color: $cc-pearl;
+    font-weight: bold;
+  }
+  .card-text {
+    color: $cc-grey;
+    font-size: x-small;
+  }
+}
+
+.org-testimonial {
+  border: 0;
+  box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, .3);
+  .card-header {
+    background: $cc-pearl;
+    color: $cc-black;
+    font-weight: bold;
+  }
+  .card-text {
+    color: $cc-gold;
+    font-size: x-small;
+  }
+}
+
+//  --------------------------  Why We Do  ---------------------------
+
+.why-we-do {
+  z-index: 100;
+  background-color: $cc-grey;
+  color: $cc-gold;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  @include media-breakpoint-up(sm) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 1vh;
+    padding-left: 1em;
+    padding-right: 8em;
+  }
+  .why-image {
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .5);
+  }
+
+}
+
+//I may delete this if i cant figure out how to rotate an image.
+@media (max-width: 10000px) {
+
+  .rotatemobileleft {
+    transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg); /* IE 9 */
+    -moz-transform: rotate(-10deg); /* Firefox */
+    -webkit-transform: rotate(-10deg); /* Safari and Chrome */
+    -o-transform: rotate(-10deg); /* Opera */
+  }
+
+  .rotatemobileright {
+    transform: rotate(10deg);
+    -ms-transform: rotate(10deg); /* IE 9 */
+    -moz-transform: rotate(10deg); /* Firefox */
+    -webkit-transform: rotate(10deg); /* Safari and Chrome */
+    -o-transform: rotate(10deg); /* Opera */
+  }
+
+}
+
+// I use this to make the next and previous buttons position closer to the edge
+.carouselp {
+  margin-left: -4em;
+  @include media-breakpoint-down(xs) {
+    margin-left: -1em;
+  }
+}
+
+.carouseln {
+  margin-right: -4em;
+  @include media-breakpoint-down(xs) {
+    margin-right: -1em;
+  }
+}
+
+//  --------------------------  How to Join  ---------------------------
+.how-to-join {
+  margin-top: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1vh;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.how-card {
+  @include media-breakpoint-up(md) {
+    min-height: 22em;
+  }
+  @include media-breakpoint-up(lg) {
+    min-height: 30em;
+  }
+}
+
+.join-header {
+  background-color: $cc-grey;
+  color: $cc-white;
+}
+

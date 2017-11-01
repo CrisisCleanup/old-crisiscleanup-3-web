@@ -1,0 +1,21 @@
+.parallax{
+    height: 15vmax;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 0;
+    display: block;
+  @include media-breakpoint-up(sm){
+    height: 20vmax;
+
+  }
+
+}
+
+.parallax-donor {
+  background-image: url("/static/img/front_end/roadmap-social.png");
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+
+
+}
