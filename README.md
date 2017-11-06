@@ -2,9 +2,9 @@
 
 
 ## Pre-reqs
-- Node 8.8.1
-- NPM 5.4.2
-- YARN 1.1+
+- Node 9.0.0
+- NPM 5.5.1
+- YARN 1.3.2
 
 ## Quick Setup
 
@@ -34,7 +34,7 @@ npm run e2e
 npm test
 ```
 
-## Full Setup
+## Full Setup (OSX)
 1. `brew install nvm` (OSX)
 2. `brew install yarn` (OSX)
 3. `mkdir -p ~/.nvm`
@@ -44,8 +44,16 @@ npm test
   . "/usr/local/opt/nvm/nvm.sh"
   ```
 5. Open new terminal
-6. `nvm install 8.8.1`
+6. `nvm install 9.0.0`
 7. Clone `git@github.com:tsanders/crisiscleanup-web.git`
 8. `cd crisiscleanup3-web`
 9. `yarn install`
 10. `yarn run dev` (It will automatically load and launch a new browser tab)
+
+## Full Setup (Windows)
+1. `choco install yarn --version 1.3.2` (requires that chocolately already been installed and configured)
+2. `choco install python2`
+3. Clone `git@github.com:tsanders/crisiscleanup-web.git`
+4. `cd crisiscleanup3-web`
+5. `yarn install`
+6. `yarn run dev` (It will automatically load and launch a new browser tab)
