@@ -9,6 +9,7 @@ import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
 import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
+import Phone from '@/views/phone/Welcome';
 
 import Page404 from '@/views/pages/Page404'
 import Page500 from '@/views/pages/Page500'
@@ -26,12 +27,12 @@ Vue.use(Router);
 const router = new Router({
   mode: 'history',
   linkActiveClass: 'open active',
-  scrollBehavior: () => ({y: 0}),
+  scrollBehavior: () => ({ y: 0 }),
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return $('html,body').stop().animate({scrollTop: $(to.hash).offset().top - 70}, 1000);
+      return $('html,body').stop().animate({ scrollTop: $(to.hash).offset().top - 70 }, 1000);
     } else {
-      return $('html,body').stop().animate({scrollTop: 0}, 500);
+      return $('html,body').stop().animate({ scrollTop: 0 }, 500);
     }
   },
   routes: [
@@ -83,31 +84,37 @@ const router = new Router({
       redirect: '/worker/dashboard',
       name: 'Worker',
       component: Full,
-      meta: {auth: true, title: 'Vue.Authenticate'},
+      meta: { auth: true, title: 'Vue.Authenticate' },
       children: [
         {
           path: 'dashboard',
           name: 'Dashboard',
           component: WorkerDashboard,
-          meta: {auth: true, title: 'Dashboard'},
+          meta: { auth: true, title: 'Dashboard' },
         },
         {
           path: 'map',
           name: 'WorkerMap',
           component: WorkerMapView,
-          meta: {auth: true, title: 'Worker Map'},
+          meta: { auth: true, title: 'Worker Map' },
         },
         {
           path: 'my-organization',
           name: 'MyOrganization',
           component: MyOrganization,
-          meta: {auth: true, title: 'My Organization'},
+          meta: { auth: true, title: 'My Organization' },
         },
         {
           path: 'charts',
           name: 'Charts',
           component: Charts,
-          meta: {auth: true, title: 'Charts'},
+          meta: { auth: true, title: 'Charts' },
+        },
+        {
+          path: 'phone',
+          name: 'Phone',
+          component: Phone,
+          meta: { auth: true, title: 'Phone' },
         },
       ]
     },
@@ -131,11 +138,11 @@ router.beforeEach(function (to, from, next) {
       if (vueAuthInstance.isAuthenticated()) {
         next()
       } else {
-        router.push({name: 'Login'})
+        router.push({ name: 'Login' })
       }
     } else {
       if (vueAuthInstance.isAuthenticated()) {
-        router.push({name: 'Home'})
+        router.push({ name: 'Home' })
       } else {
         next()
       }

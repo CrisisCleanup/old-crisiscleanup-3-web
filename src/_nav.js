@@ -50,6 +50,11 @@ export default {
       icon: 'icon-speedometer',
     },
     {
+      name: 'Phone',
+      url: '/worker/phone',
+      icon: 'icon-phone',
+    },
+    {
       title: true,
       name: 'UI elements',
       class: '',
