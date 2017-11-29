@@ -27,7 +27,7 @@ describe('InviteTeammates.vue', function() {
 
     it('single email invite with vuenit', async function() {
       const $http = mockHttp();
-      $http.when('post', `${process.env.API_ENDPOINT}/api/invites/`).return('this is a test');
+      $http.when('post', `${process.env.API_ENDPOINT}/invites`).return('this is a test');
       const wrapper = shallow(InviteTeammates, { mocks: { $http } });
       // wrapper.vm.$http = http;
 
