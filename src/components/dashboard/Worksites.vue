@@ -7,7 +7,6 @@
 </template>
 
 <script>
-  //  import Modal from './sites/Modal.vue';
   import WorkSite from '../sites/WorkSite.vue';
   import { mapActions } from 'vuex';
   import Vue from 'vue';
@@ -16,13 +15,10 @@
     name: 'worksites',
     computed: {
       sites() {
-        return [] //this.$store.getters.getWorksites;
+        return this.$store.getters.getWorksites;
       }
     },
-    mounted() {
-//      this.$store.dispatch('getWorksites');
-      this.getWorksites();
-    },
+    mounted() {},
     components: {
       WorkSite
     },
