@@ -45,7 +45,7 @@
       },
       sendMessage: function () {
         var that = this;
-        this.$http.post('/api/messages/send_sms.json',
+        this.$http.post('messages/send_sms.json',
           JSON.stringify({type: 'site-info', siteId: this.siteId, numbers: this.smsNumbers}),
           {
             headers: {'content-type': 'application/json'}

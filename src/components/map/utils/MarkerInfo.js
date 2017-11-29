@@ -6,7 +6,7 @@ export default function (mark) {
   return `<div id="content" style="text-align: center">
 <h3>${mark.helped_at} days ago</h3>
 <h5>${mark.first_name}</h5> in ${mark.city} was helped by<br> 
-<h6 style="color: limegreen;">${mark.reported_by.name}</h6>
+<h6 style="color: limegreen;">${mark.organization ? mark.organization.name : ""}</h6>
 </div>
 `
 

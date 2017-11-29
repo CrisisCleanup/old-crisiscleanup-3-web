@@ -49,7 +49,7 @@ export default {
 
   actions: {
     getSite({ commit, state }, siteId) {
-      Vue.http.get(`${process.env.API_ENDPOINT}/api/worksites/${siteId}/`).then(resp => {
+      Vue.http.get(`${process.env.API_ENDPOINT}/worksites/${siteId}`).then(resp => {
         commit('setCurrentSiteData', resp.body);
         commit('setCurrentSiteId', resp.body.id);
       });
@@ -59,12 +59,12 @@ export default {
         // claimed_by: state.currentOrgId,
         user: state.currentUserId
       };
-      Vue.http.patch(`${process.env.API_ENDPOINT}/api/worksites/${state.currentSiteId}/`, claim).then(resp => {
+      Vue.http.patch(`${process.env.API_ENDPOINT}/worksites/${state.currentSiteId}`, claim).then(resp => {
         commit('setCurrentSiteData', resp.body);
       });
     },
     getWorksites({ commit, state }) {
-      Vue.http.get(`${process.env.API_ENDPOINT}/api/worksites/`).then((response) => {
+      Vue.http.get(`${process.env.API_ENDPOINT}/worksites`).then((response) => {
         console.log(response.body.results)
         commit('setWorksites', response.body.results)
       }, (error) => {

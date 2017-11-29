@@ -29,7 +29,7 @@
     ],
     methods: {
       setSiteStatus: function () {
-        this.$http.post('/api/update-site-status/' + this.siteId, {status: this.selected}).then(function (response) {
+        this.$http.post('/update-site-status' + this.siteId, {status: this.selected}).then(function (response) {
           DashboardEventHub.$emit('site-status-selected', [this.siteId, this.selected]);
         }, function (error) {
           Raven.captureException(error.toString());

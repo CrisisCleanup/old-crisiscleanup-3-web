@@ -47,7 +47,7 @@
     },
     methods: {
       getData() {
-        this.$http.get(`${process.env.API_ENDPOINT}/api/stats/realtime-ticker/`).then(r => {
+        this.$http.get(`${process.env.API_ENDPOINT}/stats/realtime-ticker`).then(r => {
           this.orgCount = r.body.org_count;
           this.requests = r.body.worksite_count;
           this.completed = r.body.worksite_statuses['Closed, completed'];

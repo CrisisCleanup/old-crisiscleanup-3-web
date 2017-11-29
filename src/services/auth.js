@@ -11,7 +11,7 @@ Vue.url.options.root = process.env.API_ENDPOINT;
 
 const vueAuthInstance = new VueAuthenticate(Vue.http, {
   baseUrl: process.env.API_ENDPOINT,
-  loginUrl: '/api-token-auth/'
+  loginUrl: '/api-token-auth'
 });
 
 export default vueAuthInstance

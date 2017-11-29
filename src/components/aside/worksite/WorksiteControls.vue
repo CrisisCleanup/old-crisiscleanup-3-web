@@ -55,7 +55,7 @@
         const patchedSite = {
           status: this.status
         };
-        this.$http.patch(`${process.env.API_ENDPOINT}/api/worksites/${this.siteId}/`, patchedSite).then(resp => {
+        this.$http.patch(`${process.env.API_ENDPOINT}/worksites/${this.siteId}`, patchedSite).then(resp => {
           const data = resp.body;
           this.claimedBy = data.claimedBy;
           this.status = data.status;
