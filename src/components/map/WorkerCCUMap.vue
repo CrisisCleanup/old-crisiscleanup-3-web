@@ -142,7 +142,7 @@
         */
       },
       pullSites(eventId, lastViewport) {
-        this.$http.get(`${process.env.API_ENDPOINT}/map-sites?legacy_event_id=${eventId}`).then(response => {
+        this.$http.get(`${process.env.API_ENDPOINT}/worksites/worker?legacy_event_id=${eventId}`).then(response => {
           this.renderMarkers(response.body.results, lastViewport);
 //          this.markers = [...this.markers, ...response.body.results];
 
