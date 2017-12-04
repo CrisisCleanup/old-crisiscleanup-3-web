@@ -143,9 +143,9 @@
       },
       pullSites(eventId, lastViewport) {
         const fields = "id,lat,lng,status,claimed_by_uid,work_type,city,reported_by_uid,name"
-        const endpoint = `${process.env.API_ENDPOINT}/worksites?legacy_event_id=${eventId}&fields=${fields}`
+        const endpoint = `/worksites?legacy_event_id=${eventId}&fields=${fields}`
         this.$http.get(endpoint).then(response => {
-          this.renderMarkers(response.body.results, lastViewport);
+          this.renderMarkers(response.data.results, lastViewport);
 //          this.markers = [...this.markers, ...response.body.results];
 
         });

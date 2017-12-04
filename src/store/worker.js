@@ -49,9 +49,9 @@ export default {
 
   actions: {
     getSite({ commit, state }, siteId) {
-      Vue.http.get(`${process.env.API_ENDPOINT}/worksites/${siteId}`).then(resp => {
-        commit('setCurrentSiteData', resp.body);
-        commit('setCurrentSiteId', resp.body.id);
+      Vue.http.get(`/worksites/${siteId}`).then(resp => {
+        commit('setCurrentSiteData', resp.data);
+        commit('setCurrentSiteId', resp.data.id);
       });
     },
     claimSite({commit, state}) {
@@ -59,19 +59,19 @@ export default {
         // claimed_by: state.currentOrgId,
         user: state.currentUserId
       };
-      Vue.http.patch(`${process.env.API_ENDPOINT}/worksites/${state.currentSiteId}`, claim).then(resp => {
+      Vue.http.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
         commit('setCurrentSiteData', resp.body);
       });
     },
     getWorksites({ commit, state }) {
-      Vue.http.get(`${process.env.API_ENDPOINT}/worksites`).then((response) => {
+      Vue.http.get(`/worksites`).then((response) => {
         console.log(response.body.results)
         commit('setWorksites', response.body.results)
       }, (error) => {
       });
     },
     saveSite({commit, state}) {
-      Vue.http.patch(`${process.env.API_ENDPOINT}/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
+      Vue.http.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
         commit('setCurrentSiteData', resp.body);
       });
     }

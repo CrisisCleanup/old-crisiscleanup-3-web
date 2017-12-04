@@ -47,13 +47,13 @@
     },
     methods: {
       getData() {
-        this.$http.get(`${process.env.API_ENDPOINT}/stats/realtime-ticker`).then(r => {
-          this.orgCount = r.body.org_count;
-          this.requests = r.body.worksite_count;
-          this.completed = r.body.worksite_statuses['Closed, completed'];
-          this.completed += r.body.worksite_statuses['Closed, done by others'];
-          this.working = r.body.worksite_statuses['Open, assigned'];
-          this.working += r.body.worksite_statuses['Open, partially completed'];
+        this.$http.get(`/stats/realtime-ticker`).then(r => {
+          this.orgCount = r.data.org_count;
+          this.requests = r.data.worksite_count;
+          this.completed = r.data.worksite_statuses['Closed, completed'];
+          this.completed += r.data.worksite_statuses['Closed, done by others'];
+          this.working = r.data.worksite_statuses['Open, assigned'];
+          this.working += r.data.worksite_statuses['Open, partially completed'];
         });
       }
     }

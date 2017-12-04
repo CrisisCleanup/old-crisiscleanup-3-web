@@ -7197,11 +7197,12 @@ vue-add-globals@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/vue-add-globals/-/vue-add-globals-2.0.1.tgz#c9fba6faac44f679ec15d5a9637f518b181fc44d"
 
-vue-authenticate@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-authenticate/-/vue-authenticate-1.1.0.tgz#b8de304dffafab8517a8541f2f88ebfc130bfe0f"
+vue-authenticate@1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/vue-authenticate/-/vue-authenticate-1.3.4.tgz#e02bbbc9024a057018fa2333576cc76f6efb2154"
   dependencies:
-    vue "^2.2.5"
+    vue "^2.5.2"
+    vue-axios "^2.0.2"
 
 vue-axios@^2.0.2:
   version "2.0.2"
@@ -7289,9 +7290,13 @@ vue2-google-maps@^0.8.3:
     babel-runtime "^5.8.0"
     marker-clusterer-plus "^2.1.4"
 
-vue@^2.2.5, vue@^2.4.2, vue@^2.4.4:
+vue@^2.4.2, vue@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
+
+vue@^2.5.2:
+  version "2.5.9"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.9.tgz#b2380cd040915dca69881dafd121d760952e65f7"
 
 vuenit@^1.1.1:
   version "1.1.1"
