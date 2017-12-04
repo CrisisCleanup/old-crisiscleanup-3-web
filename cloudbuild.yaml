@@ -1,7 +1,7 @@
 steps:
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/$PROJECT_ID/ccu3-build-tools']
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['pull', 'gcr.io/$PROJECT_ID/ccu3-build-tools']
 - name: 'gcr.io/cloud-builders/docker'
   args:
   - 'build'
