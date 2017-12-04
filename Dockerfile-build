@@ -1,0 +1,2 @@
+FROM gcr.io/crisiscleanup-1504117236406/nodejs/yarn
+RUN yarn install

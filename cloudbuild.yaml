@@ -1,10 +1,23 @@
 steps:
-- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-  args: ['install']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'gcr.io/$PROJECT_ID/ccu3-build-tools']
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--cache-from'
+  - 'gcr.io/$PROJECT_ID/ccu3-build-tools'
+  - '-f'
+  - './Dockerfile-build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/ccu3-build-tools'
+  - '.'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-build-tools']
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
   args: ['run', 'unit']
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-  args: ['run', 'build', '--cache-from', 'gcr.io/$PROJECT_ID/ccu3-web:latest']
+  args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/ccu3-web', '.']
 - name: 'gcr.io/cloud-builders/docker'
