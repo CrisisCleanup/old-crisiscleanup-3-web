@@ -69,6 +69,11 @@ export default {
         commit('setWorksites', response.body.results)
       }, (error) => {
       });
+    },
+    saveSite({commit, state}) {
+      Vue.http.patch(`${process.env.API_ENDPOINT}/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
+        commit('setCurrentSiteData', resp.body);
+      });
     }
   }
 };
