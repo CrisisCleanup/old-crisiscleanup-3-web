@@ -8,7 +8,12 @@ export default {
     currentOrgId: 0,
     siteData: {},
     mapViewingArea: {},
-    worksites: []
+    worksites: [],
+    worksiteStats: {
+      worksitesCompleted: 0,
+      worksitesOpenUnassigned: 0,
+      worksitesAssigned: 0
+    }
   },
 
   mutations: {
@@ -34,8 +39,10 @@ export default {
     },
     setWorksites (state, payload) {
       state.worksites = payload;
+    },
+    setWorksiteStats (state, payload) {
+      state.worksiteStats.worksitesCompleted = payload.find(x => x.status === 'Closed, completed')
     }
-
   },
 
   getters: {
@@ -44,7 +51,8 @@ export default {
     getCurrentOrgId: state => state.currentOrgId,
     isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
-    getWorksites: state => state.worksites
+    getWorksites: state => state.worksites,
+    getWorksiteStats: states => state.worksiteStats
   },
 
   actions: {
@@ -60,19 +68,23 @@ export default {
         user: state.currentUserId
       };
       Vue.http.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
-        commit('setCurrentSiteData', resp.body);
+        commit('setCurrentSiteData', resp.data);
       });
     },
     getWorksites({ commit, state }) {
       Vue.http.get(`/worksites`).then((response) => {
-        console.log(response.body.results)
-        commit('setWorksites', response.body.results)
+        commit('setWorksites', response.data.results)
       }, (error) => {
       });
     },
     saveSite({commit, state}) {
       Vue.http.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
-        commit('setCurrentSiteData', resp.body);
+        commit('setCurrentSiteData', resp.data);
+      });
+    },
+    getWorksiteStats({commit, state}) {
+      Vue.http.get('/worksites/stats/statuses').then(resp => {
+        commit('setWorksiteStats', resp.data.results)
       });
     }
   }

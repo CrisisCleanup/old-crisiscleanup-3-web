@@ -7,6 +7,7 @@ import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
 import Switch from './Switch.vue'
 import Worksites from './dashboard/Worksites.vue';
+import QuickStatCard from './dashboard/QuickStatCard.vue';
 
 export {
   Aside,
@@ -17,5 +18,6 @@ export {
   Header,
   Sidebar,
   Switch,
+  QuickStatCard,
   Worksites
 }
