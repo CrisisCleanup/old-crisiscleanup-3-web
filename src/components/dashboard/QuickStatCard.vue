@@ -10,8 +10,8 @@
         <b-dropdown-item>Something else here...</b-dropdown-item>
         <b-dropdown-item disabled>Disabled action</b-dropdown-item>
       </b-dropdown>
-      <h4 class="mb-0">{{ statQuantity }}</h4>
-      <p>{{ statName }}</p>
+      <h4 id="statQuantityId" class="mb-0">{{ statQuantity }}</h4>
+      <p id="statNameId">{{ statName }}</p>
     </div>
     <!--<component :is="chartComponent" class="chart-wrapper px-3" style="height:50px;" height="50"></component>-->
   </b-card>
