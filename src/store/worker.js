@@ -59,7 +59,7 @@ export default {
 
   actions: {
     getSite({ commit, state }, siteId) {
-      Vue.http.get(`/worksites/${siteId}`).then(resp => {
+      Vue.axios.get(`/worksites/${siteId}`).then(resp => {
         commit('setCurrentSiteData', resp.data);
         commit('setCurrentSiteId', resp.data.id);
       });
@@ -69,18 +69,19 @@ export default {
         // claimed_by: state.currentOrgId,
         user: state.currentUserId
       };
-      Vue.http.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
+      Vue.axios.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
         commit('setCurrentSiteData', resp.data);
       });
     },
     getWorksites({ commit, state }) {
-      Vue.http.get(`/worksites`).then((response) => {
+      Vue.axios.get(`/worksites?legacy_event_id=${state.eventId}`).then((response) => {
+        console.log(response.data)
         commit('setWorksites', response.data.results)
       }, (error) => {
       });
     },
     saveSite({commit, state}) {
-      Vue.http.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
+      Vue.axios.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
         commit('setCurrentSiteData', resp.data);
       });
     },
