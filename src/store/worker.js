@@ -41,7 +41,9 @@ export default {
       state.worksites = payload;
     },
     setWorksiteStats (state, payload) {
-      state.worksiteStats.worksitesCompleted = payload.find(x => x.status === 'Closed, completed')
+      state.worksiteStats.worksitesCompleted = payload.find(x => x.status === 'Closed, completed').count;
+      state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
+      state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
     }
   },
 
@@ -52,7 +54,7 @@ export default {
     isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
     getWorksites: state => state.worksites,
-    getWorksiteStats: states => state.worksiteStats
+    getWorksiteStats: state => state.worksiteStats
   },
 
   actions: {
@@ -83,7 +85,7 @@ export default {
       });
     },
     getWorksiteStats({commit, state}) {
-      Vue.http.get('/worksites/stats/statuses').then(resp => {
+      Vue.axios.get(`/worksites/stats/statuses?legacy_event_id=${state.eventId}`).then(resp => {
         commit('setWorksiteStats', resp.data.results)
       });
     }

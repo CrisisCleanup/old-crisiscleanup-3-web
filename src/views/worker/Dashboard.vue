@@ -5,21 +5,21 @@
     <div class="row">
       <div class="col-sm-6 col-lg-3">
         <QuickStatCard stat-name="Sites Completed"
-                       stat-quantity="9,136"
+                       :stat-quantity="getWorksiteStats.worksitesCompleted"
                        card-color-class="bg-primary"
                        chart-component="CardLine1ChartExample"
         ></QuickStatCard>
       </div><!--/.col-->
       <div class="col-sm-6 col-lg-3">
         <QuickStatCard stat-name="Sites Waiting For Work"
-                       stat-quantity="20,135"
+                       :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
                        card-color-class="bg-info"
                        chart-component="CardLine1ChartExample"
         ></QuickStatCard>
       </div><!--/.col-->
       <div class="col-sm-6 col-lg-3">
-        <QuickStatCard stat-name="Organizations Involved"
-                       stat-quantity="138"
+        <QuickStatCard stat-name="Sites Assigned"
+                       :stat-quantity="getWorksiteStats.worksitesAssigned"
                        card-color-class="bg-warning"
                        chart-component="CardLine3ChartExample"
         ></QuickStatCard>
@@ -461,6 +461,7 @@
   import SocialBoxChartExample from '../dashboard/SocialBoxChartExample'
   import CalloutChartExample from '../dashboard/CalloutChartExample'
   import {Callout, InviteTeammates, Worksites, QuickStatCard} from '@/components/'
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     name: 'dashboard',
@@ -553,6 +554,14 @@
           }
         }
       }
+    },
+    computed: {
+      ...mapGetters([
+        'getWorksiteStats'
+      ])
+    },
+    mounted() {
+      this.$store.dispatch('getWorksiteStats');
     },
     methods: {
       variant(value) {

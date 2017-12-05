@@ -13,12 +13,11 @@
       <h4 class="mb-0">{{ statQuantity }}</h4>
       <p>{{ statName }}</p>
     </div>
-    <component :is="chartComponent" class="chart-wrapper px-3" style="height:50px;" height="50"></component>
+    <!--<component :is="chartComponent" class="chart-wrapper px-3" style="height:50px;" height="50"></component>-->
   </b-card>
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
   import Vue from 'vue';
   import CardLine1ChartExample from '@/views/dashboard/CardLine1ChartExample'
   import CardLine3ChartExample from '@/views/dashboard/CardLine3ChartExample'
@@ -30,18 +29,10 @@
       'cardColorClass',
       'chartComponent'
     ],
-//    computed: {
-//      sites() {
-//        return this.$store.getters.getWorksites;
-//      }
-//    },
     mounted() {},
     components: {
       CardLine1ChartExample,
       CardLine3ChartExample,
-    },
-    methods: {
-//      ...mapActions(['getWorksites'])
     }
   }
 </script>
