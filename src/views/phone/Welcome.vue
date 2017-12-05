@@ -1,26 +1,19 @@
 <template>
     <div>
        <h1>Welcome to the Call Center</h1>
-       <table style="width:20%">
-        <tr style="width:20%">
-          <td><input type="checkbox" id="isTrained" value="" v-model="isTrained" disabled readonly></td>
-          <td><label for="isTrained">Get Trained</label></td>
-          <td><button type="button"><i class="fa fa-book"/></button></td>
-        </tr>
-        <tr style="width:60%">
-          <td><input type="checkbox" id="isUpToDate" value="" v-model="isUpToDate" disabled readonly></td>
-          <td><label for="isUpToDate">Get Up To Date</label></td>
-          <td><button type="button"><i class="fa fa-question"/></button></td>
-        </tr>
-        <tr style="width:20%">
-          <td></td>
-          <td>Get Started</td>
-          <td><button type="button"><i class="fa fa-play"/></button></td>
-        </tr>
-        </table>
-      <br>
+    <div class="row">
 
-      <div class="col-lg-4 col-md-6">
+       <!-- ******************** Check-list ********************* -->
+    <div class="col-md-6">
+            <div class="col-md-4">
+            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="isTrained" disabled readonly>Get Trained </button>
+            <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="isUpToDate" disabled readonly>Get Up To Date</button>
+            <button type="button" class="btn-block btn-primary">Get Started</button>
+          </div>   
+      </div>
+      <!-- ******************** Call center experts ********************* --> 
+
+      <div class="col-lg-6"  align="right">
           <div class="card">
             <div class="card-header text-center">Ask a Call Center Expert</div>
             <div class="card-body" >
@@ -36,6 +29,24 @@
             </div>
           </div>
       </div>
+</div>
+    
+
+    <!-- ******************** Call center planning  ********************* -->
+
+    <b-tabs>
+      <b-tab title="Schedule" active>
+        <br>Sling Link
+      </b-tab>
+      <b-tab title="Hours" >
+        <br>A beautiful hours report
+      </b-tab>
+      <b-tab title="Stats">
+        <br>Stats here
+      </b-tab>
+    </b-tabs>
+
+
     </div>
 </template>
 
@@ -50,6 +61,10 @@
             { badge: '../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
             { badge: '../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
             { badge: '../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
+          ],
+          stories: [
+            { description: "xyz"},
+            { description: "xyz"}
           ]
       }
     }
