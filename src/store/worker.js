@@ -1,5 +1,13 @@
 import Vue from 'vue';
 
+function getDashboardWorksites({state, commit}) {
+  const url = `/worksites?legacy_event_id=${state.eventId}&limit=${state.dashboardWorksites.limit}&offset=${state.dashboardWorksites.offset}`;
+  Vue.axios.get(url).then((response) => {
+    commit('setDashboardWorksites', response.data.results)
+  }, (error) => {
+  });
+}
+
 export default {
   state: {
     eventId: 60,
@@ -8,11 +16,16 @@ export default {
     currentOrgId: 0,
     siteData: {},
     mapViewingArea: {},
-    worksites: [],
+    dashboardWorksites: {
+      offset: 0,
+      limit: 4,
+      worksites: []
+    },
     worksiteStats: {
       worksitesCompleted: 0,
       worksitesOpenUnassigned: 0,
-      worksitesAssigned: 0
+      worksitesAssigned: 0,
+      worksitesValueOfServices: 0
     }
   },
 
@@ -37,13 +50,26 @@ export default {
     },
     setClaimInfo (state, payload) {
     },
-    setWorksites (state, payload) {
-      state.worksites = payload;
+    setDashboardWorksites (state, payload) {
+      state.dashboardWorksites.worksites = payload;
+    },
+    incrementDashboardWorksitesOffset (state) {
+      state.dashboardWorksites.offset += state.dashboardWorksites.limit;
+    },
+    decrementDashboardWorksitesOffset (state) {
+      if (state.dashboardWorksites.offset >= state.dashboardWorksites.limit) {
+        state.dashboardWorksites.offset -= state.dashboardWorksites.limit;
+      }
+    },
+    resetDashboardWorksitesOffset (state) {
+      state.dashboardWorksites.offset = 0;
     },
     setWorksiteStats (state, payload) {
-      state.worksiteStats.worksitesCompleted = payload.find(x => x.status === 'Closed, completed').count;
+      const closedCompletedCount = payload.find(x => x.status === 'Closed, completed').count;
+      state.worksiteStats.worksitesCompleted = closedCompletedCount;
       state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
       state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
+      state.worksiteStats.worksitesValueOfServices = closedCompletedCount * 18000;
     }
   },
 
@@ -53,7 +79,7 @@ export default {
     getCurrentOrgId: state => state.currentOrgId,
     isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
-    getWorksites: state => state.worksites,
+    getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats
   },
 
@@ -73,12 +99,17 @@ export default {
         commit('setCurrentSiteData', resp.data);
       });
     },
-    getWorksites({ commit, state }) {
-      Vue.axios.get(`/worksites?legacy_event_id=${state.eventId}`).then((response) => {
-        console.log(response.data)
-        commit('setWorksites', response.data.results)
-      }, (error) => {
-      });
+    nextDashboardWorksites({commit, state}) {
+      commit('incrementDashboardWorksitesOffset');
+      getDashboardWorksites({commit, state});
+    },
+    previousDashboardWorksites({commit, state}) {
+      commit('decrementDashboardWorksitesOffset');
+      getDashboardWorksites({commit, state});
+    },
+    getDashboardWorksites({ commit, state }) {
+      commit('resetDashboardWorksitesOffset');
+      getDashboardWorksites({commit, state});
     },
     saveSite({commit, state}) {
       Vue.axios.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {

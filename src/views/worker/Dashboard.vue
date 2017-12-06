@@ -3,37 +3,6 @@
   <div class="animated fadeIn" id="worker-dashboard">
 
     <div class="row">
-      <div class="col-sm-6 col-lg-3">
-        <QuickStatCard stat-name="Sites Completed"
-                       :stat-quantity="getWorksiteStats.worksitesCompleted"
-                       card-color-class="bg-primary"
-                       chart-component="CardLine1ChartExample"
-        ></QuickStatCard>
-      </div><!--/.col-->
-      <div class="col-sm-6 col-lg-3">
-        <QuickStatCard stat-name="Sites Waiting For Work"
-                       :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
-                       card-color-class="bg-info"
-                       chart-component="CardLine1ChartExample"
-        ></QuickStatCard>
-      </div><!--/.col-->
-      <div class="col-sm-6 col-lg-3">
-        <QuickStatCard stat-name="Sites Assigned"
-                       :stat-quantity="getWorksiteStats.worksitesAssigned"
-                       card-color-class="bg-warning"
-                       chart-component="CardLine3ChartExample"
-        ></QuickStatCard>
-      </div><!--/.col-->
-      <div class="col-sm-6 col-lg-3">
-        <QuickStatCard stat-name="Estimated Value of Services"
-                       stat-quantity="$8.3 million"
-                       card-color-class="bg-danger"
-                       chart-component="CardLine3ChartExample"
-        ></QuickStatCard>
-      </div><!--/.col-->
-    </div><!--/.row-->
-
-    <div class="row">
       <div class="col-md-6">
         <!--<b-card header="Worksites">-->
           <worksites></worksites>
@@ -43,6 +12,41 @@
         <b-card header="Invite Additional Teammates">
           <invite-teammates></invite-teammates>
         </b-card>
+
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard stat-name="Sites Completed"
+                           :stat-quantity="getWorksiteStats.worksitesCompleted"
+                           card-color-class="bg-primary"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard stat-name="Sites Waiting For Work"
+                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
+                           card-color-class="bg-info"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard stat-name="Sites Assigned"
+                           :stat-quantity="getWorksiteStats.worksitesAssigned"
+                           card-color-class="bg-warning"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard stat-name="Estimated Value of Services"
+                           stat-quantity="$8.3 million"
+                           :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
+                           card-color-class="bg-danger"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div><!--/.row-->
+
       </div>
     </div>
 
