@@ -4,10 +4,12 @@ export default {
       name: 'Dashboard',
       url: '/worker/dashboard',
       icon: 'icon-home',
+      /*
       badge: {
         variant: 'primary',
         text: 'NEW'
       }
+      */
     },
     {
       name: 'Map',

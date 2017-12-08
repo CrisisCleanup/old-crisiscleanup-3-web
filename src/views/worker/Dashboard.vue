@@ -93,6 +93,8 @@
         </ul>
       </div>
     </b-card>
+
+    <!--
     <div class="row">
       <div class="col-md-12">
         <b-card header="Traffic &amp; Sales">
@@ -109,7 +111,7 @@
                                              height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
+                </div>
                 <div class="col-sm-6">
                   <Callout variant="danger">
                     <small class="text-muted">Recurring Clients</small>
@@ -120,8 +122,8 @@
                                              height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
-              </div><!--/.row-->
+                </div>
+              </div>
               <hr class="mt-0">
               <ul class="horizontal-bars">
                 <li>
@@ -193,7 +195,7 @@
                   <small>Recurring clients</small>
                 </li>
               </ul>
-            </div><!--/.col-->
+            </div>
             <div class="col-sm-6 col-lg-4">
               <div class="row">
                 <div class="col-sm-6">
@@ -206,7 +208,7 @@
                                              height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
+                </div>
                 <div class="col-sm-6">
                   <Callout variant="success">
                     <small class="text-muted">Organic</small>
@@ -217,8 +219,8 @@
                                              height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
-              </div><!--/.row-->
+                </div>
+              </div>
               <hr class="mt-0">
               <ul class="horizontal-bars type-2">
                 <li>
@@ -274,7 +276,7 @@
                   <button type="button" class="btn btn-sm btn-link text-muted"><i class="icon-options"></i></button>
                 </li>
               </ul>
-            </div><!--/.col-->
+            </div>
             <div class="col-sm-6 col-lg-4">
               <div class="row">
                 <div class="col-sm-6">
@@ -286,7 +288,7 @@
                       <callout-chart-example :data="[78, 81, 80, 45, 34, 12, 40]" width="80px" height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
+                </div>
                 <div class="col-sm-6">
                   <Callout variant="primary">
                     <small class="text-muted">Bounce Rate</small>
@@ -297,8 +299,8 @@
                                              height="30"/>
                     </div>
                   </Callout>
-                </div><!--/.col-->
-              </div><!--/.row-->
+                </div>
+              </div>
               <hr class="mt-0">
               <ul class="icons-list">
                 <li>
@@ -403,8 +405,8 @@
                   <button type="button" class="btn btn-sm btn-link text-muted"><i class="icon-options"></i></button>
                 </li>
               </ul>
-            </div><!--/.col-->
-          </div><!--/.row-->
+            </div>
+          </div>
           <br/>
           <b-table class="table-outline mb-0" hover responsive outline
                    :items="tableItems"
@@ -451,8 +453,9 @@
             </template>
           </b-table>
         </b-card>
-      </div><!--/.col-->
-    </div><!--/.row-->
+      </div>
+    </div>
+    -->
   </div>
 </template>
 
