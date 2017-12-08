@@ -8,8 +8,8 @@
           </div>
           <div class="col-4">
             <div class="text-md-right lead">
-              <a class="btn btn-outline-secondary prev" @click="previousDashboardWorksites" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
-              <a class="btn btn-outline-secondary next" @click="nextDashboardWorksites" title="more"><i
+              <a class="btn btn-outline-secondary prev hand-pointer" @click="previousDashboardWorksites" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
+              <a class="btn btn-outline-secondary next hand-pointer" @click="nextDashboardWorksites" title="more"><i
                 class="fa fa-lg fa-chevron-right"></i></a>
             </div>
           </div>
@@ -62,7 +62,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .row.equal-height {
     display: flex;
     flex-wrap: wrap;
@@ -75,5 +75,9 @@
 
   .card {
     flex: 1;
+  }
+
+  .hand-pointer {
+    cursor: pointer;
   }
 </style>
