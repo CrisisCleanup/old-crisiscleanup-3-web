@@ -35,7 +35,9 @@ export const output = `
                  title="This may be the primary contact, resident, or owner."><i
         class="fa fa-question"></i></span></label> <input class="form-control string optional" type="text"
                                                           v-model="legacy_legacy_site.name"
-                                                          id="legacy_legacy_site_name"/></div>
+                                                          id="legacy_legacy_site_name"/>
+                                                          <div v-show="siteFormErrors.name" class="text-danger">{{siteFormErrors.name ? siteFormErrors.name[0] : ''}}</div>
+                                                          </div>
   </div>
     <div class="form-group string required legacy_legacy_site_phone1"><label class=""
                                                                              for="legacy_legacy_site_phone1"><abbr
@@ -43,7 +45,8 @@ export const output = `
                                                title="At least one phone number is required. Call before helping."><i
       class="fa fa-question"></i></span></label> <input class="form-control string required" type="text"
                                                         v-model="legacy_legacy_site.phone1"
-                                                        id="legacy_legacy_site_phone1"/></div>
+                                                        id="legacy_legacy_site_phone1"/>
+                                                        </div>
     <div class="form-group string optional legacy_legacy_site_phone2"><label class=""
                                                                              for="legacy_legacy_site_phone2">Phone 2</label>
       <input class="form-control string optional" type="text" v-model="legacy_legacy_site.phone2"

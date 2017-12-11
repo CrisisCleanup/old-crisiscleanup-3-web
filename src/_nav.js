@@ -50,15 +50,6 @@ export default {
       name: 'Stats',
       url: '/worker/stats',
       icon: 'icon-speedometer',
-    },
-    {
-      title: true,
-      name: 'UI elements',
-      class: '',
-      wrapper: {
-        element: '',
-        attributes: {}
-      }
     }
   ]
 }

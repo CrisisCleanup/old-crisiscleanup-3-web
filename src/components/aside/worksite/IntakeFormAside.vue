@@ -4,20 +4,26 @@
     <div class="container-fluid" style="padding-top: 75px;">
       <div class="row">
         <div class="col">
-            <button @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
-            <button @click="saveAndClaim" id="save-claim-btn-top" class="btn btn-primary"
+            <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
+            <button type="button" @click="saveAndClaim" id="save-claim-btn-top" class="btn btn-primary"
                     v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
                     v-text="isSiteClaimed ? 'Save & Unclaim' : 'Save & Claim'"></button>
-            <button @click="cancel" id="cancel-btn-top" class="btn btn-primary">Cancel</button>
+            <button type="button" @click="cancel" id="cancel-btn-top" class="btn btn-primary">Cancel</button>
+            <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
+              <ul>
+                <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
+              </ul>
+            </div>
           <form>
 
-            <EventForm :legacy_legacy_site="legacy_site" v-on:formReady="fireFormReady"></EventForm>
+
+            <EventForm :legacy_legacy_site="legacy_site" :site-form-errors="siteFormErrors" v-on:formReady="fireFormReady"></EventForm>
             <div v-if="isFormReady">
-              <button id="save-btn-bottom" @click="saveForm" class="btn btn-primary">Save</button>
-              <button id="save-claim-btn-bottom" @click="saveAndClaim" class="btn btn-primary"
+              <button type="button" id="save-btn-bottom" @click="saveForm" class="btn btn-primary">Save</button>
+              <button type="button" id="save-claim-btn-bottom" @click="saveAndClaim" class="btn btn-primary"
                       v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
                       v-text="isSiteClaimed ? 'Save & Unclaim' : 'Save & Claim'"></button>
-              <button @click="cancel" class="btn btn-primary">Cancel</button>
+              <button type="button" @click="cancel" class="btn btn-primary">Cancel</button>
             </div>
           </form>
         </div>
@@ -38,7 +44,7 @@
     setTimeout(function () {
       resolve({
         template: '<div>' + output + '</div>',
-        props: ['legacy_legacy_site'],
+        props: ['legacy_legacy_site', 'siteFormErrors'],
         mounted() {
           this.$emit('formReady');
         }
@@ -66,6 +72,9 @@
       },
       isCurrentSiteClaimedByUserOrg() {
         return this.$store.getters.isCurrentSiteClaimedByUserOrg;
+      },
+      siteFormErrors() {
+        return this.$store.getters.getSiteFormErrors;
       }
     },
     methods: {

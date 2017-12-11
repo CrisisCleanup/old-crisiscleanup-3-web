@@ -14,7 +14,10 @@ export default {
     currentSiteId: 1,
     currentUserId: 0,
     currentOrgId: 0,
-    siteData: {},
+    siteData: {
+      data: {}
+    },
+    isNewSite: false,
     mapViewingArea: {},
     dashboardWorksites: {
       offset: 0,
@@ -26,6 +29,9 @@ export default {
       worksitesOpenUnassigned: 0,
       worksitesAssigned: 0,
       worksitesValueOfServices: 0
+    },
+    errors: {
+      siteFormErrors: null
     }
   },
 
@@ -43,7 +49,22 @@ export default {
       state.currentSiteId = payload;
     },
     setCurrentSiteData (state, payload) {
+      try {
+        payload.data = JSON.parse("{" + payload.data.replace(/=>/g, ': ').replace(/\"/g, '"') + "}");
+      } catch (e) {
+        console.log(e);
+        console.log("Error parsing currentSiteData");
+      }
       state.siteData = payload;
+    },
+    resetCurrentSiteData (state) {
+      state.siteData = {
+        data: {}
+      };
+      state.isNewSite = true;
+    },
+    setIsNewSite (state, payload) {
+      state.isNewSite = payload;
     },
     setMapViewingArea (state, payload) {
       state.mapViewingArea = payload;
@@ -70,6 +91,9 @@ export default {
       state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
       state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
       state.worksiteStats.worksitesValueOfServices = closedCompletedCount * 18000;
+    },
+    setSiteFormErrors (state, payload) {
+      state.errors.siteFormErrors = payload;
     }
   },
 
@@ -80,7 +104,8 @@ export default {
     isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
     getDashboardWorksites: state => state.dashboardWorksites,
-    getWorksiteStats: state => state.worksiteStats
+    getWorksiteStats: state => state.worksiteStats,
+    getSiteFormErrors: state => state.errors.siteFormErrors
   },
 
   actions: {
@@ -88,6 +113,8 @@ export default {
       Vue.axios.get(`/worksites/${siteId}`).then(resp => {
         commit('setCurrentSiteData', resp.data);
         commit('setCurrentSiteId', resp.data.id);
+        commit('setIsNewSite', false);
+        commit('setSiteFormErrors', {})
       });
     },
     claimSite({commit, state}) {
@@ -97,6 +124,7 @@ export default {
       };
       Vue.axios.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
         commit('setCurrentSiteData', resp.data);
+        commit('setIsNewSite', false);
       });
     },
     nextDashboardWorksites({commit, state}) {
@@ -112,9 +140,20 @@ export default {
       getDashboardWorksites({commit, state});
     },
     saveSite({commit, state}) {
-      Vue.axios.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
-        commit('setCurrentSiteData', resp.data);
-      });
+      state.siteData.data = JSON.stringify(state.siteData.data);
+      if (state.isNewSite) {
+        Vue.axios.post(`/worksites`, state.siteData).then(resp => {
+          commit('setCurrentSiteData', resp.data);
+        }).catch(error => {
+          commit('setSiteFormErrors', error.response.data)
+        });
+      } else {
+        Vue.axios.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
+          commit('setCurrentSiteData', resp.data);
+        }).catch(error => {
+          commit('setSiteFormErrors', error.response.data)
+        })
+      }
     },
     getWorksiteStats({commit, state}) {
       Vue.axios.get(`/worksites/stats/statuses?legacy_event_id=${state.eventId}`).then(resp => {
