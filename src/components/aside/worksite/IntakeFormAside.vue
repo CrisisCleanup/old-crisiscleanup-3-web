@@ -17,7 +17,7 @@
           <form>
 
 
-            <EventForm :legacy_legacy_site="legacy_site" :site-form-errors="siteFormErrors" v-on:formReady="fireFormReady"></EventForm>
+            <EventForm :legacy_legacy_site="legacy_site" :site-form-errors="siteFormErrors" v-on:formReady="fireFormReady" ref="eventFormBase"></EventForm>
             <div v-if="isFormReady">
               <button type="button" id="save-btn-bottom" @click="saveForm" class="btn btn-primary">Save</button>
               <button type="button" id="save-claim-btn-bottom" @click="saveAndClaim" class="btn btn-primary"
@@ -39,6 +39,7 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import WorksiteControls from './WorksiteControls.vue';
+  import {loaded} from 'vue2-google-maps'
 
   const EventForm = Vue.component('EventForm', function (resolve, reject) {
     setTimeout(function () {
@@ -60,7 +61,8 @@
     },
     data() {
       return {
-        isFormReady: false
+        isFormReady: false,
+
       }
     },
     computed: {
@@ -77,9 +79,83 @@
         return this.$store.getters.getSiteFormErrors;
       }
     },
+    mounted() {
+    },
     methods: {
       fireFormReady() {
         this.isFormReady = true;
+        loaded.then(() => {
+          let addressField = this.$refs.eventFormBase.$refs.legacySiteAddress;
+          let cityField = this.$refs.eventFormBase.$refs.cityField;
+          let countyField = this.$refs.eventFormBase.$refs.countyField;
+          let stateField = this.$refs.eventFormBase.$refs.stateField;
+          let countryField = this.$refs.eventFormBase.$refs.countryField;
+          let zipField = this.$refs.eventFormBase.$refs.zipField;
+          let options = {
+            types: ['geocode']
+          };
+          if (addressField) {
+            console.log(this.$refs)
+            console.log("LOADING AUTOCOMPLETE")
+            if(typeof(google.maps.places.Autocomplete) !== 'function'){
+              throw new Error('google.maps.places.Autocomplete is undefined. Did you add \'places\' to libraries when loading Google Maps?')
+            }
+
+            let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
+            // console.log(Vue.prototype.$map2);
+            // addressAutocomplete.bindTo('bounds', Vue.prototype.$map2);
+
+            addressAutocomplete.addListener('place_changed', fillInAddress);
+
+            function fillInAddress() {
+              var place = addressAutocomplete.getPlace();
+              var updateZip = false;
+
+              for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                switch (addressType) {
+                  case 'street_number':
+                    addressField.value = place.address_components[i].long_name;
+                    break;
+                  case 'route':
+                    addressField.value += " " + place.address_components[i].long_name;
+                    break;
+                  case 'locality':
+                    if (cityField && cityField.value === '') {
+                      cityField.value = place.address_components[i].long_name;
+                    }
+                    break;
+                  case 'administrative_area_level_2':
+                    if (countyField && countyField.value === '') {
+                      countyField.value = place.address_components[i].long_name;
+                    }
+                    break;
+                  case 'administrative_area_level_1':
+                    if (stateField && stateField.value === '') {
+                      stateField.value = place.address_components[i].long_name;
+                    }
+                    break;
+                  case 'country':
+                    if (countryField && countryField.value === '') {
+                      countryField.value = place.address_components[i].long_name;
+                    }
+                    break;
+                  case 'postal_code':
+                    if (zipField && zipField.value === '') {
+                      zipField.value = place.address_components[i].long_name;
+                      updateZip = true;
+                    }
+                    break;
+                  case 'postal_code_suffix':
+                    if (zipField && updateZip) {
+                      zipField.value += "-" + place.address_components[i].long_name;
+                    }
+                    break;
+                }
+              }
+            }
+          }
+        })
       },
       saveForm() {
         console.log(this.legacy_site);
@@ -90,7 +166,13 @@
       },
       cancel() {
 
-      }
+      },
     }
   }
 </script>
+
+<style>
+  .pac-container {
+    z-index: 1051 !important;
+  }
+</style>

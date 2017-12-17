@@ -64,14 +64,14 @@ export const output = `
   </div>
 
   <div class="">
-    <div class="form-group string optional legacy_legacy_site_address"><label class="" for="legacy_legacy_site_address">Street
-      Address</label> <input class="form-control string optional" type="text" v-model="legacy_legacy_site.address"
+    <div class="form-group legacy_legacy_site_address"><label class="" for="legacy_legacy_site_address">Street
+      Address</label> <input class="form-control" type="text" ref="legacySiteAddress"
                              id="legacy_legacy_site_address"/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_city"><label class=""
                                                                            for="legacy_legacy_site_city">City</label>
-      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.city"
+      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.city" ref="cityField"
              id="legacy_legacy_site_city"/></div>
   </div>
   <div class="">
@@ -83,18 +83,18 @@ export const output = `
       <small>(<a href="#"
                  onclick="document.getElementById('legacy_legacy_site_county').readOnly=false; document.getElementById('legacy_legacy_site_county').focus(); return false;">edit</a>)
       </small>
-    </label> <input class="form-control string required" type="text" v-model="legacy_legacy_site.county"
+    </label> <input class="form-control string required" type="text" v-model="legacy_legacy_site.county" ref="countyField"
                     id="legacy_legacy_site_county" readonly/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_state"><label class="" for="legacy_legacy_site_state">State</label>
-      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.state"
+      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.state" ref="stateField"
              id="legacy_legacy_site_state"/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_zip_code"><label class=""
                                                                                for="legacy_legacy_site_zip_code">Zip
-      Code</label> <input class="form-control string optional" type="text" v-model="legacy_legacy_site.zip_code"
+      Code</label> <input class="form-control string optional" type="text" v-model="legacy_legacy_site.zip_code" ref="zipField"
                           id="legacy_legacy_site_zip_code"/></div>
   </div>
   <div class="">
