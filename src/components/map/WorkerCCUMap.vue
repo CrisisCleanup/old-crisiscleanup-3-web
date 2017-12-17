@@ -98,7 +98,9 @@
     mounted() {
       loaded.then(() => {
         DashboardEventHub.$emit('open-aside', 'test');
-        Vue.prototype.$map2 = this.$refs.map.$mapObject;
+        Vue.prototype.$map2 = () => {
+          return this.$refs.map.$mapObject;
+        };
         console.log('MOUNTING MAP')
         const eid = this.$store.state.worker.eventId;
         const lastViewport = this.$store.state.worker.mapViewingArea;

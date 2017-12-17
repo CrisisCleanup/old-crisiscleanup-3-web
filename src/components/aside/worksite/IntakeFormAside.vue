@@ -103,7 +103,7 @@
 
             let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
             // console.log(Vue.prototype.$map2);
-            // addressAutocomplete.bindTo('bounds', Vue.prototype.$map2);
+            addressAutocomplete.bindTo('bounds', Vue.prototype.$map2());
 
             addressAutocomplete.addListener('place_changed', fillInAddress);
 
@@ -121,27 +121,27 @@
                     addressField.value += " " + place.address_components[i].long_name;
                     break;
                   case 'locality':
-                    if (cityField && cityField.value === '') {
+                    if (cityField) {
                       cityField.value = place.address_components[i].long_name;
                     }
                     break;
                   case 'administrative_area_level_2':
-                    if (countyField && countyField.value === '') {
+                    if (countyField) {
                       countyField.value = place.address_components[i].long_name;
                     }
                     break;
                   case 'administrative_area_level_1':
-                    if (stateField && stateField.value === '') {
+                    if (stateField) {
                       stateField.value = place.address_components[i].long_name;
                     }
                     break;
                   case 'country':
-                    if (countryField && countryField.value === '') {
+                    if (countryField) {
                       countryField.value = place.address_components[i].long_name;
                     }
                     break;
                   case 'postal_code':
-                    if (zipField && zipField.value === '') {
+                    if (zipField) {
                       zipField.value = place.address_components[i].long_name;
                       updateZip = true;
                     }

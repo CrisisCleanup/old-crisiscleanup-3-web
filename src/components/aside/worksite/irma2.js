@@ -65,7 +65,7 @@ export const output = `
 
   <div class="">
     <div class="form-group legacy_legacy_site_address"><label class="" for="legacy_legacy_site_address">Street
-      Address</label> <input class="form-control" type="text" ref="legacySiteAddress"
+      Address</label> <input class="form-control" type="text" v-model="legacy_legacy_site.address" ref="legacySiteAddress"
                              id="legacy_legacy_site_address"/></div>
   </div>
   <div class="">
