@@ -91,6 +91,8 @@
           let stateField = this.$refs.eventFormBase.$refs.stateField;
           let countryField = this.$refs.eventFormBase.$refs.countryField;
           let zipField = this.$refs.eventFormBase.$refs.zipField;
+          let latitudeField = this.$refs.eventFormBase.$refs.latitudeField;
+          let longitudeField = this.$refs.eventFormBase.$refs.longitudeField;
           let options = {
             types: ['geocode']
           };
@@ -102,10 +104,22 @@
             }
 
             let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
-            // console.log(Vue.prototype.$map2);
-            addressAutocomplete.bindTo('bounds', Vue.prototype.$map2());
+            let workerMapObj = Vue.prototype.$map2();
+            addressAutocomplete.bindTo('bounds', workerMapObj);
 
             addressAutocomplete.addListener('place_changed', fillInAddress);
+
+            function setLatLng(position) {
+              if (latitudeField && longitudeField) {
+                if (typeof position.lat === 'function') {
+                  latitudeField.value = position.lat();
+                  longitudeField.value = position.lng();
+                } else {
+                  latitudeField.value = position.lat;
+                  longitudeField.value = position.lng;
+                }
+              }
+            }
 
             function fillInAddress() {
               var place = addressAutocomplete.getPlace();
@@ -153,6 +167,27 @@
                     break;
                 }
               }
+
+              if (!place.geometry) { return; }
+
+              setLatLng(place.geometry.location);
+
+              if (place.geometry.viewport) {
+                workerMapObj.fitBounds(place.geometry.viewport);
+              } else {
+                workerMapObj.setCenter(place.geometry.location);
+                workerMapObj.setZoom(17);
+              }
+
+              let autocompleteTrackingMarker = new google.maps.Marker({
+                draggable: true,
+                position: place.geometry.location,
+                map: workerMapObj
+              });
+
+              autocompleteTrackingMarker.addListener('drag', function() {
+                setLatLng(this.position);
+              });
             }
           }
         })

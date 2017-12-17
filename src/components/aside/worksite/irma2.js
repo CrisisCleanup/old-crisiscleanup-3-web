@@ -99,13 +99,13 @@ export const output = `
   </div>
   <div class="">
     <div class="input-group float legacy_legacy_site_latitude">
-      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.latitude"
+      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.latitude" ref="latitudeField"
                                                      id="legacy_legacy_site_latitude"/></div>
     </div>
   </div>
   <div class="">
     <div class="input-group float legacy_legacy_site_longitude">
-      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.longitude"
+      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.longitude" ref="longitudeField"
                                                      id="legacy_legacy_site_longitude"/></div>
     </div>
   </div>
