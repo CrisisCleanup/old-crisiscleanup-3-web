@@ -49,18 +49,19 @@ export default {
       state.currentSiteId = payload;
     },
     setCurrentSiteData (state, payload) {
-      try {
-        payload.data = JSON.parse("{" + payload.data.replace(/=>/g, ': ').replace(/\"/g, '"') + "}");
-      } catch (e) {
-        console.log(e);
-        console.log("Error parsing currentSiteData");
+      if (payload.data instanceof String || typeof payload.data === 'string') {
+        try {
+          payload.data = JSON.parse("{" + payload.data.replace(/=>/g, ': ').replace(/\"/g, '"') + "}");
+        } catch (e) {
+          console.log("Error parsing currentSiteData");
+        }
+      } else {
+        payload.data = {}
       }
       state.siteData = payload;
     },
     resetCurrentSiteData (state) {
-      state.siteData = {
-        data: {}
-      };
+      state.siteData = {};
       state.isNewSite = true;
     },
     setIsNewSite (state, payload) {
@@ -94,6 +95,9 @@ export default {
     },
     setSiteFormErrors (state, payload) {
       state.errors.siteFormErrors = payload;
+    },
+    setCurrentSiteDataData (state, payload) {
+      state.siteData.data = payload.data;
     }
   },
 
@@ -140,7 +144,7 @@ export default {
       getDashboardWorksites({commit, state});
     },
     saveSite({commit, state}) {
-      state.siteData.data = JSON.stringify(state.siteData.data);
+      commit('setCurrentSiteDataData', {data: JSON.stringify(state.siteData.data)});
       if (state.isNewSite) {
         Vue.axios.post(`/worksites`, state.siteData).then(resp => {
           commit('setCurrentSiteData', resp.data);

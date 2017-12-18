@@ -34,7 +34,7 @@ export const output = `
       Name <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                  title="This may be the primary contact, resident, or owner."><i
         class="fa fa-question"></i></span></label> <input class="form-control string optional" type="text"
-                                                          v-model="legacy_legacy_site.name"
+                                                          :value="legacy_legacy_site.name" @input="updateValue"
                                                           id="legacy_legacy_site_name"/>
                                                           <div v-show="siteFormErrors.name" class="text-danger">{{siteFormErrors.name ? siteFormErrors.name[0] : ''}}</div>
                                                           </div>
@@ -44,12 +44,12 @@ export const output = `
       title="required">*</abbr> Phone 1 <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                                                title="At least one phone number is required. Call before helping."><i
       class="fa fa-question"></i></span></label> <input class="form-control string required" type="text"
-                                                        v-model="legacy_legacy_site.phone1"
+                                                        @input="updateValue" :value="legacy_legacy_site.phone1"
                                                         id="legacy_legacy_site_phone1"/>
                                                         </div>
     <div class="form-group string optional legacy_legacy_site_phone2"><label class=""
                                                                              for="legacy_legacy_site_phone2">Phone 2</label>
-      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.phone2"
+      <input class="form-control string optional" type="text" @input="updateValue" :value="legacy_legacy_site.phone2"
              id="legacy_legacy_site_phone2"/></div>
 <div class="unhide" id="property_info">
   <div class="">
@@ -59,19 +59,19 @@ export const output = `
       <small>(<a href="#"
                  onclick="document.getElementById('legacy_legacy_site_request_date').readOnly=false; document.getElementById('legacy_legacy_site_request_date').focus(); return false;">edit</a>)
       </small>
-    </label> <input class="form-control datetime-local optional" type="text" v-model="legacy_legacy_site.request_date"
+    </label> <input class="form-control datetime-local optional" type="text" @input="updateValue" :value="legacy_legacy_site.request_date"
                     id="legacy_legacy_site_request_date" readonly/></div>
   </div>
 
   <div class="">
     <div class="form-group legacy_legacy_site_address"><label class="" for="legacy_legacy_site_address">Street
-      Address</label> <input class="form-control" type="text" v-model="legacy_legacy_site.address" ref="legacySiteAddress"
+      Address</label> <input class="form-control" type="text" @input="updateValue" :value="legacy_legacy_site.address" ref="legacySiteAddress"
                              id="legacy_legacy_site_address"/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_city"><label class=""
                                                                            for="legacy_legacy_site_city">City</label>
-      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.city" ref="cityField"
+      <input class="form-control string optional" type="text" @input="updateValue" :value="legacy_legacy_site.city" ref="cityField"
              id="legacy_legacy_site_city"/></div>
   </div>
   <div class="">
@@ -83,29 +83,29 @@ export const output = `
       <small>(<a href="#"
                  onclick="document.getElementById('legacy_legacy_site_county').readOnly=false; document.getElementById('legacy_legacy_site_county').focus(); return false;">edit</a>)
       </small>
-    </label> <input class="form-control string required" type="text" v-model="legacy_legacy_site.county" ref="countyField"
+    </label> <input class="form-control string required" type="text" @input="updateValue" :value="legacy_legacy_site.county" ref="countyField"
                     id="legacy_legacy_site_county" readonly/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_state"><label class="" for="legacy_legacy_site_state">State</label>
-      <input class="form-control string optional" type="text" v-model="legacy_legacy_site.state" ref="stateField"
+      <input class="form-control string optional" type="text" @input="updateValue" :value="legacy_legacy_site.state" ref="stateField"
              id="legacy_legacy_site_state"/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_zip_code"><label class=""
                                                                                for="legacy_legacy_site_zip_code">Zip
-      Code</label> <input class="form-control string optional" type="text" v-model="legacy_legacy_site.zip_code" ref="zipField"
+      Code</label> <input class="form-control string optional" type="text" @input="updateValue" :value="legacy_legacy_site.zip_code" ref="zipField"
                           id="legacy_legacy_site_zip_code"/></div>
   </div>
   <div class="">
     <div class="input-group float legacy_legacy_site_latitude">
-      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.latitude" ref="latitudeField"
+      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" @input="updateValue" :value="legacy_legacy_site.latitude" ref="latitudeField"
                                                      id="legacy_legacy_site_latitude"/></div>
     </div>
   </div>
   <div class="">
     <div class="input-group float legacy_legacy_site_longitude">
-      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" v-model="legacy_legacy_site.longitude" ref="longitudeField"
+      <div class="col-sm-1 col-md-1 col-lg-1"><input class="float" type="hidden" @input="updateValue" :value="legacy_legacy_site.longitude" ref="longitudeField"
                                                      id="legacy_legacy_site_longitude"/></div>
     </div>
   </div>
@@ -113,7 +113,7 @@ export const output = `
     <div class="form-group string optional legacy_legacy_site_cross_street"><label class=""
                                                                                    for="legacy_legacy_site_cross_street">Cross
       Street or Nearby Landmark</label> <input class="form-control string optional" type="text"
-                                               v-model="legacy_legacy_site.cross_street"
+                                               @input="updateValue" :value="legacy_legacy_site.cross_street"
                                                id="legacy_legacy_site_cross_street"/></div>
   </div>
 
@@ -122,7 +122,7 @@ export const output = `
                                                                                 for="legacy_legacy_site_work_type"><abbr
       title="required">*</abbr> Primary help needed <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                                                           title="Chooses the icon that appears on the map. If there is more than one type, choose the type that is most pressing."><i
-      class="fa fa-question"></i></span></label> <select class="form-control" v-model="legacy_legacy_site.work_type"
+      class="fa fa-question"></i></span></label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.work_type"
                                                          id="legacy_legacy_site_work_type">
       <option value="">--Choose One--</option>
       <option value="Muck_Out">Muck Out</option>
@@ -138,7 +138,7 @@ export const output = `
   <div class="">
     <div class="form-group email optional legacy_legacy_site_email"><label class=""
                                                                            for="legacy_legacy_site_email">Email</label>
-      <input class="form-control email optional" type="text" v-model="legacy_legacy_site.email"
+      <input class="form-control email optional" type="text" @input="updateValue" :value="legacy_legacy_site.email"
              id="legacy_legacy_site_email"/></div>
   </div>
   <div class="">
@@ -147,7 +147,7 @@ export const output = `
       Type <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                  title="A person displaced from their primary home, or living in squalid conditions in their primary home are often higher priorities for relief organizations."><i
         class="fa fa-question"></i></span></label> <select class="form-control"
-                                                           v-model="legacy_legacy_site.residence_type"
+                                                           @input="updateValue" :value="legacy_legacy_site.residence_type"
                                                            id="legacy_legacy_site_residence_type">
       <option value="">--Choose One--</option>
       <option value="Primary-Living in Home">Primary-Living in Home</option>
@@ -161,7 +161,7 @@ export const output = `
   <div class="">
     <div class="form-group string optional legacy_legacy_site_dwelling_type"><label class=""
                                                                                     for="legacy_legacy_site_dwelling_type">Structure
-      Type</label> <select class="form-control" v-model="legacy_legacy_site.dwelling_type"
+      Type</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.dwelling_type"
                            id="legacy_legacy_site_dwelling_type">
       <option value="">--Choose One--</option>
       <option value="House">House</option>
@@ -177,7 +177,7 @@ export const output = `
   <div class="">
     <div class="form-group string optional legacy_legacy_site_rent_or_own"><label class=""
                                                                                   for="legacy_legacy_site_rent_or_own">Rent/
-      Own/ Public</label> <select class="form-control" v-model="legacy_legacy_site.rent_or_own"
+      Own/ Public</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.rent_or_own"
                                   id="legacy_legacy_site_rent_or_own">
       <option value="">--Choose One--</option>
       <option value="Rent">Rent</option>
@@ -190,10 +190,10 @@ export const output = `
   <div class="">
     <div class="form-check string optional legacy_legacy_site_older_than_60"><label class="form-check-label"
                                                                                     for="legacy_legacy_site_older_than_60">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.older_than_60"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.older_than_60"
              id="legacy_legacy_site_older_than_60_h" value="n"/> <input class="form-check-input string optional"
                                                                         type="checkbox"
-                                                                        v-model="legacy_legacy_site.older_than_60"
+                                                                        @input="updateValue" :value="legacy_legacy_site.older_than_60"
                                                                         id="legacy_legacy_site_older_than_60"
                                                                         value="y"/>Older than 60 <span data-tooltip
                                                                                                        aria-haspopup="true"
@@ -204,20 +204,20 @@ export const output = `
   <div class="">
     <div class="form-check string optional legacy_legacy_site_children_in_home"><label class="form-check-label"
                                                                                        for="legacy_legacy_site_children_in_home">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.children_in_home"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.children_in_home"
              id="legacy_legacy_site_children_in_home_h" value="n"/> <input class="form-check-input string optional"
                                                                            type="checkbox"
-                                                                           v-model="legacy_legacy_site.children_in_home"
+                                                                           @input="updateValue" :value="legacy_legacy_site.children_in_home"
                                                                            id="legacy_legacy_site_children_in_home"
                                                                            value="y"/>Children In Home </label></div>
   </div>
   <div class="">
     <div class="form-check string optional legacy_legacy_site_first_responder"><label class="form-check-label"
                                                                                       for="legacy_legacy_site_first_responder">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.first_responder"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.first_responder"
              id="legacy_legacy_site_first_responder_h" value="n"/> <input class="form-check-input string optional"
                                                                           type="checkbox"
-                                                                          v-model="legacy_legacy_site.first_responder"
+                                                                          @input="updateValue" :value="legacy_legacy_site.first_responder"
                                                                           id="legacy_legacy_site_first_responder"
                                                                           value="y"/>First Responder <span data-tooltip
                                                                                                            aria-haspopup="true"
@@ -228,19 +228,19 @@ export const output = `
   <div class="">
     <div class="form-check string optional legacy_legacy_site_insured"><label class="form-check-label"
                                                                               for="legacy_legacy_site_insured"> <input
-      class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.insured"
+      class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.insured"
       id="legacy_legacy_site_insured_h" value="n"/> <input class="form-check-input string optional" type="checkbox"
-                                                           v-model="legacy_legacy_site.insured"
+                                                           @input="updateValue" :value="legacy_legacy_site.insured"
                                                            id="legacy_legacy_site_insured" value="y"/>Flood Insurance
     </label></div>
   </div>
   <div class="">
     <div class="form-check string optional legacy_legacy_site_unrestrained_animals"><label class="form-check-label"
                                                                                            for="legacy_legacy_site_unrestrained_animals">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.unrestrained_animals"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.unrestrained_animals"
              id="legacy_legacy_site_unrestrained_animals_h" value="n"/> <input class="form-check-input string optional"
                                                                                type="checkbox"
-                                                                               v-model="legacy_legacy_site.unrestrained_animals"
+                                                                               @input="updateValue" :value="legacy_legacy_site.unrestrained_animals"
                                                                                id="legacy_legacy_site_unrestrained_animals"
                                                                                value="y"/>Unrestrained Animals </label>
     </div>
@@ -248,10 +248,10 @@ export const output = `
   <div class="">
     <div class="form-check string optional legacy_legacy_site_work_without_resident"><label class="form-check-label"
                                                                                             for="legacy_legacy_site_work_without_resident">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.work_without_resident"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.work_without_resident"
              id="legacy_legacy_site_work_without_resident_h" value="n"/> <input class="form-check-input string optional"
                                                                                 type="checkbox"
-                                                                                v-model="legacy_legacy_site.work_without_resident"
+                                                                                @input="updateValue" :value="legacy_legacy_site.work_without_resident"
                                                                                 id="legacy_legacy_site_work_without_resident"
                                                                                 value="y"/>Work without resident
       present? <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
@@ -264,13 +264,13 @@ export const output = `
       needs <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                   title="Please only include special needs that are directly related to service, e.g. 'Wheelchair-bound,' or 'Has difficulty hearing&mdash;knock hard.'"><i
         class="fa fa-question"></i></span></label> <textarea class="form-control string optional"
-                                                             v-model="legacy_legacy_site.special_needs"
+                                                             @input="updateValue" :value="legacy_legacy_site.special_needs"
                                                              id="legacy_legacy_site_special_needs"></textarea></div>
   </div>
   <div class="">
     <div class="input-group string optional legacy_legacy_site_work_requested"><label class=""
                                                                                       for="legacy_legacy_site_work_requested">Work
-      Details</label> <textarea class="form-control string optional" v-model="legacy_legacy_site.work_requested"
+      Details</label> <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.work_requested"
                                 id="legacy_legacy_site_work_requested"></textarea></div>
   </div>
   <div class="">
@@ -280,7 +280,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_water_status"><label class=""
                                                                                      for="legacy_legacy_site_water_status">Water
-        Status</label> <select class="form-control" v-model="legacy_legacy_site.water_status"
+        Status</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.water_status"
                                id="legacy_legacy_site_water_status">
         <option value="">--Choose One--</option>
         <option value="On">On</option>
@@ -290,7 +290,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_gas_status"><label class=""
                                                                                    for="legacy_legacy_site_gas_status">Gas
-        Status</label> <select class="form-control" v-model="legacy_legacy_site.gas_status"
+        Status</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.gas_status"
                                id="legacy_legacy_site_gas_status">
         <option value="">--Choose One--</option>
         <option value="On">On</option>
@@ -300,7 +300,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_power_status"><label class=""
                                                                                      for="legacy_legacy_site_power_status">Power
-        Status</label> <select class="form-control" v-model="legacy_legacy_site.power_status"
+        Status</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.power_status"
                                id="legacy_legacy_site_power_status">
         <option value="">--Choose One--</option>
         <option value="On">On</option>
@@ -323,7 +323,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_floors_affected"><label class=""
                                                                                         for="legacy_legacy_site_floors_affected">Floors
-        Affected</label> <select class="form-control" v-model="legacy_legacy_site.floors_affected"
+        Affected</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.floors_affected"
                                  id="legacy_legacy_site_floors_affected">
         <option value="">--Choose One--</option>
         <option value="Ground Floor Only">Ground Floor Only</option>
@@ -336,7 +336,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_flood_height_select"><label class=""
                                                                                             for="legacy_legacy_site_flood_height_select">Height
-        of Flood</label> <select class="form-control" v-model="legacy_legacy_site.flood_height_select"
+        of Flood</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.flood_height_select"
                                  id="legacy_legacy_site_flood_height_select">
         <option value="">--Choose One--</option>
         <option value="0-3in">0-3in</option>
@@ -358,10 +358,10 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_carpet_removal"><label class="form-check-label"
                                                                                        for="legacy_legacy_site_carpet_removal">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.carpet_removal"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.carpet_removal"
                id="legacy_legacy_site_carpet_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                            type="checkbox"
-                                                                           v-model="legacy_legacy_site.carpet_removal"
+                                                                           @input="updateValue" :value="legacy_legacy_site.carpet_removal"
                                                                            id="legacy_legacy_site_carpet_removal"
                                                                            value="y"/>Carpet Removal </label></div>
     </div>
@@ -369,39 +369,39 @@ export const output = `
       <div class="form-check string optional legacy_legacy_site_hardwood_floor_removal"><label class="form-check-label"
                                                                                                for="legacy_legacy_site_hardwood_floor_removal">
         <input class="form-check-input string optional" type="hidden"
-               v-model="legacy_legacy_site.hardwood_floor_removal" id="legacy_legacy_site_hardwood_floor_removal_h"
+               @input="updateValue" :value="legacy_legacy_site.hardwood_floor_removal" id="legacy_legacy_site_hardwood_floor_removal_h"
                value="n"/> <input class="form-check-input string optional" type="checkbox"
-                                  v-model="legacy_legacy_site.hardwood_floor_removal"
+                                  @input="updateValue" :value="legacy_legacy_site.hardwood_floor_removal"
                                   id="legacy_legacy_site_hardwood_floor_removal" value="y"/>Hardwood Floor Removal
       </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_tile_removal"><label class="form-check-label"
                                                                                      for="legacy_legacy_site_tile_removal">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.tile_removal"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.tile_removal"
                id="legacy_legacy_site_tile_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                          type="checkbox"
-                                                                         v-model="legacy_legacy_site.tile_removal"
+                                                                         @input="updateValue" :value="legacy_legacy_site.tile_removal"
                                                                          id="legacy_legacy_site_tile_removal"
                                                                          value="y"/>Tile </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_drywall_removal"><label class="form-check-label"
                                                                                         for="legacy_legacy_site_drywall_removal">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.drywall_removal"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.drywall_removal"
                id="legacy_legacy_site_drywall_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                             type="checkbox"
-                                                                            v-model="legacy_legacy_site.drywall_removal"
+                                                                            @input="updateValue" :value="legacy_legacy_site.drywall_removal"
                                                                             id="legacy_legacy_site_drywall_removal"
                                                                             value="y"/>Drywall Removal </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_appliance_removal"><label class="form-check-label"
                                                                                           for="legacy_legacy_site_appliance_removal">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.appliance_removal"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.appliance_removal"
                id="legacy_legacy_site_appliance_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.appliance_removal"
+                                                                              @input="updateValue" :value="legacy_legacy_site.appliance_removal"
                                                                               id="legacy_legacy_site_appliance_removal"
                                                                               value="y"/>Appliance Removal </label>
       </div>
@@ -409,10 +409,10 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_heavy_item_removal"><label class="form-check-label"
                                                                                            for="legacy_legacy_site_heavy_item_removal">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.heavy_item_removal"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.heavy_item_removal"
                id="legacy_legacy_site_heavy_item_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                                type="checkbox"
-                                                                               v-model="legacy_legacy_site.heavy_item_removal"
+                                                                               @input="updateValue" :value="legacy_legacy_site.heavy_item_removal"
                                                                                id="legacy_legacy_site_heavy_item_removal"
                                                                                value="y"/>Heavy Item Removal </label>
       </div>
@@ -425,7 +425,7 @@ export const output = `
     <div class="">
       <div class="form-group integer optional legacy_legacy_site_num_trees_down"><label class=""
                                                                                         for="legacy_legacy_site_num_trees_down">Number
-        of trees 1-18 inches wide</label> <select class="form-control" v-model="legacy_legacy_site.num_trees_down"
+        of trees 1-18 inches wide</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.num_trees_down"
                                                   id="legacy_legacy_site_num_trees_down">
         <option value="0">0</option>
         <option value="1">1</option>
@@ -441,7 +441,7 @@ export const output = `
         of trees wider than 18 inches <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                                             title="Many chainsaws have 18-inch blades."><i
           class="fa fa-question"></i></span></label> <select class="form-control"
-                                                             v-model="legacy_legacy_site.num_wide_trees"
+                                                             @input="updateValue" :value="legacy_legacy_site.num_wide_trees"
                                                              id="legacy_legacy_site_num_wide_trees">
         <option value="0">0</option>
         <option value="1">1</option>
@@ -459,10 +459,10 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_house_roof_damage"><label class="form-check-label"
                                                                                           for="legacy_legacy_site_house_roof_damage">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.house_roof_damage"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.house_roof_damage"
                id="legacy_legacy_site_house_roof_damage_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.house_roof_damage"
+                                                                              @input="updateValue" :value="legacy_legacy_site.house_roof_damage"
                                                                               id="legacy_legacy_site_house_roof_damage"
                                                                               value="y"/>House Roof Damage </label>
       </div>
@@ -471,9 +471,9 @@ export const output = `
       <div class="form-check string optional legacy_legacy_site_outbuilding_roof_damage"><label class="form-check-label"
                                                                                                 for="legacy_legacy_site_outbuilding_roof_damage">
         <input class="form-check-input string optional" type="hidden"
-               v-model="legacy_legacy_site.outbuilding_roof_damage" id="legacy_legacy_site_outbuilding_roof_damage_h"
+               @input="updateValue" :value="legacy_legacy_site.outbuilding_roof_damage" id="legacy_legacy_site_outbuilding_roof_damage_h"
                value="n"/> <input class="form-check-input string optional" type="checkbox"
-                                  v-model="legacy_legacy_site.outbuilding_roof_damage"
+                                  @input="updateValue" :value="legacy_legacy_site.outbuilding_roof_damage"
                                   id="legacy_legacy_site_outbuilding_roof_damage" value="y"/>Outbuilding Roof Damage
       </label></div>
     </div>
@@ -481,16 +481,16 @@ export const output = `
       <div class="form-group integer optional legacy_legacy_site_tarps_needed"><label class=""
                                                                                       for="legacy_legacy_site_tarps_needed">Number
         of 20' x 30'Tarps Needed</label> <input class="form-control integer optional" type="text"
-                                                v-model="legacy_legacy_site.tarps_needed"
+                                                @input="updateValue" :value="legacy_legacy_site.tarps_needed"
                                                 id="legacy_legacy_site_tarps_needed"/></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_help_install_tarp"><label class="form-check-label"
                                                                                           for="legacy_legacy_site_help_install_tarp">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.help_install_tarp"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.help_install_tarp"
                id="legacy_legacy_site_help_install_tarp_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.help_install_tarp"
+                                                                              @input="updateValue" :value="legacy_legacy_site.help_install_tarp"
                                                                               id="legacy_legacy_site_help_install_tarp"
                                                                               value="y"/>Need Help Installing </label>
       </div>
@@ -503,19 +503,19 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_nonvegitative_debris_removal"><label
         class="form-check-label" for="legacy_legacy_site_nonvegitative_debris_removal"> <input
-        class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.nonvegitative_debris_removal"
+        class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.nonvegitative_debris_removal"
         id="legacy_legacy_site_nonvegitative_debris_removal_h" value="n"/> <input
         class="form-check-input string optional" type="checkbox"
-        v-model="legacy_legacy_site.nonvegitative_debris_removal" id="legacy_legacy_site_nonvegitative_debris_removal"
+        @input="updateValue" :value="legacy_legacy_site.nonvegitative_debris_removal" id="legacy_legacy_site_nonvegitative_debris_removal"
         value="y"/>Non-vegetative Debris </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_vegitative_debris_removal"><label
         class="form-check-label" for="legacy_legacy_site_vegitative_debris_removal"> <input
-        class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.vegitative_debris_removal"
+        class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.vegitative_debris_removal"
         id="legacy_legacy_site_vegitative_debris_removal_h" value="n"/> <input class="form-check-input string optional"
                                                                                type="checkbox"
-                                                                               v-model="legacy_legacy_site.vegitative_debris_removal"
+                                                                               @input="updateValue" :value="legacy_legacy_site.vegitative_debris_removal"
                                                                                id="legacy_legacy_site_vegitative_debris_removal"
                                                                                value="y"/>Vegetative Debris </label>
       </div>
@@ -524,7 +524,7 @@ export const output = `
       <div class="input-group string optional legacy_legacy_site_debris_description"><label class=""
                                                                                             for="legacy_legacy_site_debris_description">Debris
         Description</label> <textarea class="form-control string optional"
-                                      v-model="legacy_legacy_site.debris_description"
+                                      @input="updateValue" :value="legacy_legacy_site.debris_description"
                                       id="legacy_legacy_site_debris_description"></textarea></div>
     </div>
   </div> <!--debris_info_end-->
@@ -535,7 +535,7 @@ export const output = `
     <div class="">
       <div class="form-group string optional legacy_legacy_site_mold_amount"><label class=""
                                                                                     for="legacy_legacy_site_mold_amount">Mold
-        Amount</label> <select class="form-control" v-model="legacy_legacy_site.mold_amount"
+        Amount</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.mold_amount"
                                id="legacy_legacy_site_mold_amount">
         <option value="">--Choose One--</option>
         <option value="Small Isolated Area">Small Isolated Area</option>
@@ -548,40 +548,40 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_mold_drying"><label class="form-check-label"
                                                                                     for="legacy_legacy_site_mold_drying">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.mold_drying"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.mold_drying"
                id="legacy_legacy_site_mold_drying_h" value="n"/> <input class="form-check-input string optional"
                                                                         type="checkbox"
-                                                                        v-model="legacy_legacy_site.mold_drying"
+                                                                        @input="updateValue" :value="legacy_legacy_site.mold_drying"
                                                                         id="legacy_legacy_site_mold_drying" value="y"/>Drying
         Needed </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_mold_scraping"><label class="form-check-label"
                                                                                       for="legacy_legacy_site_mold_scraping">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.mold_scraping"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.mold_scraping"
                id="legacy_legacy_site_mold_scraping_h" value="n"/> <input class="form-check-input string optional"
                                                                           type="checkbox"
-                                                                          v-model="legacy_legacy_site.mold_scraping"
+                                                                          @input="updateValue" :value="legacy_legacy_site.mold_scraping"
                                                                           id="legacy_legacy_site_mold_scraping"
                                                                           value="y"/>Mold Scraping </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_mold_spraying"><label class="form-check-label"
                                                                                       for="legacy_legacy_site_mold_spraying">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.mold_spraying"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.mold_spraying"
                id="legacy_legacy_site_mold_spraying_h" value="n"/> <input class="form-check-input string optional"
                                                                           type="checkbox"
-                                                                          v-model="legacy_legacy_site.mold_spraying"
+                                                                          @input="updateValue" :value="legacy_legacy_site.mold_spraying"
                                                                           id="legacy_legacy_site_mold_spraying"
                                                                           value="y"/>Mold Spraying </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_mold_replace_studs"><label class="form-check-label"
                                                                                            for="legacy_legacy_site_mold_replace_studs">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.mold_replace_studs"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.mold_replace_studs"
                id="legacy_legacy_site_mold_replace_studs_h" value="n"/> <input class="form-check-input string optional"
                                                                                type="checkbox"
-                                                                               v-model="legacy_legacy_site.mold_replace_studs"
+                                                                               @input="updateValue" :value="legacy_legacy_site.mold_replace_studs"
                                                                                id="legacy_legacy_site_mold_replace_studs"
                                                                                value="y"/>Mold Replace Studs </label>
       </div>
@@ -589,16 +589,16 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_mold_hvac"><label class="form-check-label"
                                                                                   for="legacy_legacy_site_mold_hvac">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.mold_hvac"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.mold_hvac"
                id="legacy_legacy_site_mold_hvac_h" value="n"/> <input class="form-check-input string optional"
                                                                       type="checkbox"
-                                                                      v-model="legacy_legacy_site.mold_hvac"
+                                                                      @input="updateValue" :value="legacy_legacy_site.mold_hvac"
                                                                       id="legacy_legacy_site_mold_hvac" value="y"/>HVAC
       </label></div>
     </div>
     <div class="">
       <div class="input-group string optional legacy_legacy_site_notes"><label class="" for="legacy_legacy_site_notes">Notes</label>
-        <textarea class="form-control string optional" v-model="legacy_legacy_site.notes"
+        <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.notes"
                   id="legacy_legacy_site_notes"></textarea></div>
     </div>
   </div> <!--mold_remediation_info_end-->
@@ -618,80 +618,80 @@ export const output = `
     <div class="">
       <div class="form-check string optional legacy_legacy_site_needs_visual"><label class="form-check-label"
                                                                                      for="legacy_legacy_site_needs_visual">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.needs_visual"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.needs_visual"
                id="legacy_legacy_site_needs_visual_h" value="n"/> <input class="form-check-input string optional"
                                                                          type="checkbox"
-                                                                         v-model="legacy_legacy_site.needs_visual"
+                                                                         @input="updateValue" :value="legacy_legacy_site.needs_visual"
                                                                          id="legacy_legacy_site_needs_visual"
                                                                          value="y"/>Needs Visual </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_furnace"><label class="form-check-label"
                                                                                             for="legacy_legacy_site_maintenance_furnace">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_furnace"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_furnace"
                id="legacy_legacy_site_maintenance_furnace_h" value="n"/> <input class="form-check-input string optional"
                                                                                 type="checkbox"
-                                                                                v-model="legacy_legacy_site.maintenance_furnace"
+                                                                                @input="updateValue" :value="legacy_legacy_site.maintenance_furnace"
                                                                                 id="legacy_legacy_site_maintenance_furnace"
                                                                                 value="y"/>Furnace </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_water_heater"><label
         class="form-check-label" for="legacy_legacy_site_maintenance_water_heater"> <input
-        class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_water_heater"
+        class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_water_heater"
         id="legacy_legacy_site_maintenance_water_heater_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.maintenance_water_heater"
+                                                                              @input="updateValue" :value="legacy_legacy_site.maintenance_water_heater"
                                                                               id="legacy_legacy_site_maintenance_water_heater"
                                                                               value="y"/>Water Heater </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_plumbing"><label class="form-check-label"
                                                                                              for="legacy_legacy_site_maintenance_plumbing">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_plumbing"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_plumbing"
                id="legacy_legacy_site_maintenance_plumbing_h" value="n"/> <input
-        class="form-check-input string optional" type="checkbox" v-model="legacy_legacy_site.maintenance_plumbing"
+        class="form-check-input string optional" type="checkbox" @input="updateValue" :value="legacy_legacy_site.maintenance_plumbing"
         id="legacy_legacy_site_maintenance_plumbing" value="y"/>Plumbing </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_drainage"><label class="form-check-label"
                                                                                              for="legacy_legacy_site_maintenance_drainage">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_drainage"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_drainage"
                id="legacy_legacy_site_maintenance_drainage_h" value="n"/> <input
-        class="form-check-input string optional" type="checkbox" v-model="legacy_legacy_site.maintenance_drainage"
+        class="form-check-input string optional" type="checkbox" @input="updateValue" :value="legacy_legacy_site.maintenance_drainage"
         id="legacy_legacy_site_maintenance_drainage" value="y"/>Drainage </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_sewer_septic"><label
         class="form-check-label" for="legacy_legacy_site_maintenance_sewer_septic"> <input
-        class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_sewer_septic"
+        class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_sewer_septic"
         id="legacy_legacy_site_maintenance_sewer_septic_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.maintenance_sewer_septic"
+                                                                              @input="updateValue" :value="legacy_legacy_site.maintenance_sewer_septic"
                                                                               id="legacy_legacy_site_maintenance_sewer_septic"
                                                                               value="y"/>Sewer Septic </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_caulking"><label class="form-check-label"
                                                                                              for="legacy_legacy_site_maintenance_caulking">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_caulking"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_caulking"
                id="legacy_legacy_site_maintenance_caulking_h" value="n"/> <input
-        class="form-check-input string optional" type="checkbox" v-model="legacy_legacy_site.maintenance_caulking"
+        class="form-check-input string optional" type="checkbox" @input="updateValue" :value="legacy_legacy_site.maintenance_caulking"
         id="legacy_legacy_site_maintenance_caulking" value="y"/>Caulking </label></div>
     </div>
     <div class="">
       <div class="input-group string optional legacy_legacy_site_maintenance_appliances"><label class=""
                                                                                                 for="legacy_legacy_site_maintenance_appliances">Appliances</label>
-        <textarea class="form-control string optional" v-model="legacy_legacy_site.maintenance_appliances"
+        <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.maintenance_appliances"
                   id="legacy_legacy_site_maintenance_appliances"></textarea></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_hvac"><label class="form-check-label"
                                                                                          for="legacy_legacy_site_maintenance_hvac">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_hvac"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_hvac"
                id="legacy_legacy_site_maintenance_hvac_h" value="n"/> <input class="form-check-input string optional"
                                                                              type="checkbox"
-                                                                             v-model="legacy_legacy_site.maintenance_hvac"
+                                                                             @input="updateValue" :value="legacy_legacy_site.maintenance_hvac"
                                                                              id="legacy_legacy_site_maintenance_hvac"
                                                                              value="y"/>HVAC </label></div>
     </div>
@@ -699,55 +699,55 @@ export const output = `
       <div class="form-check string optional legacy_legacy_site_maintenance_electrical"><label class="form-check-label"
                                                                                                for="legacy_legacy_site_maintenance_electrical">
         <input class="form-check-input string optional" type="hidden"
-               v-model="legacy_legacy_site.maintenance_electrical" id="legacy_legacy_site_maintenance_electrical_h"
+               @input="updateValue" :value="legacy_legacy_site.maintenance_electrical" id="legacy_legacy_site_maintenance_electrical_h"
                value="n"/> <input class="form-check-input string optional" type="checkbox"
-                                  v-model="legacy_legacy_site.maintenance_electrical"
+                                  @input="updateValue" :value="legacy_legacy_site.maintenance_electrical"
                                   id="legacy_legacy_site_maintenance_electrical" value="y"/>Electrical </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_roof"><label class="form-check-label"
                                                                                          for="legacy_legacy_site_maintenance_roof">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_roof"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_roof"
                id="legacy_legacy_site_maintenance_roof_h" value="n"/> <input class="form-check-input string optional"
                                                                              type="checkbox"
-                                                                             v-model="legacy_legacy_site.maintenance_roof"
+                                                                             @input="updateValue" :value="legacy_legacy_site.maintenance_roof"
                                                                              id="legacy_legacy_site_maintenance_roof"
                                                                              value="y"/>Roof </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_siding"><label class="form-check-label"
                                                                                            for="legacy_legacy_site_maintenance_siding">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_siding"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_siding"
                id="legacy_legacy_site_maintenance_siding_h" value="n"/> <input class="form-check-input string optional"
                                                                                type="checkbox"
-                                                                               v-model="legacy_legacy_site.maintenance_siding"
+                                                                               @input="updateValue" :value="legacy_legacy_site.maintenance_siding"
                                                                                id="legacy_legacy_site_maintenance_siding"
                                                                                value="y"/>Siding </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_doors"><label class="form-check-label"
                                                                                           for="legacy_legacy_site_maintenance_doors">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_doors"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_doors"
                id="legacy_legacy_site_maintenance_doors_h" value="n"/> <input class="form-check-input string optional"
                                                                               type="checkbox"
-                                                                              v-model="legacy_legacy_site.maintenance_doors"
+                                                                              @input="updateValue" :value="legacy_legacy_site.maintenance_doors"
                                                                               id="legacy_legacy_site_maintenance_doors"
                                                                               value="y"/>Doors </label></div>
     </div>
     <div class="">
       <div class="form-check string optional legacy_legacy_site_maintenance_windows"><label class="form-check-label"
                                                                                             for="legacy_legacy_site_maintenance_windows">
-        <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.maintenance_windows"
+        <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.maintenance_windows"
                id="legacy_legacy_site_maintenance_windows_h" value="n"/> <input class="form-check-input string optional"
                                                                                 type="checkbox"
-                                                                                v-model="legacy_legacy_site.maintenance_windows"
+                                                                                @input="updateValue" :value="legacy_legacy_site.maintenance_windows"
                                                                                 id="legacy_legacy_site_maintenance_windows"
                                                                                 value="y"/>Windows </label></div>
     </div>
     <div class="">
       <div class="input-group string optional legacy_legacy_site_other_needs"><label class=""
                                                                                      for="legacy_legacy_site_other_needs">Other
-        Needs</label> <textarea class="form-control string optional" v-model="legacy_legacy_site.other_needs"
+        Needs</label> <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.other_needs"
                                 id="legacy_legacy_site_other_needs"></textarea></div>
     </div>
   </div> <!--maintenance_reconstruction_info_end-->
@@ -759,7 +759,7 @@ export const output = `
   <div class="">
     <div class="form-group string optional legacy_legacy_site_habitable"><label class=""
                                                                                 for="legacy_legacy_site_habitable">Is
-      the home habitable</label> <select class="form-control" v-model="legacy_legacy_site.habitable"
+      the home habitable</label> <select class="form-control" @input="updateValue" :value="legacy_legacy_site.habitable"
                                          id="legacy_legacy_site_habitable">
       <option value="">--Choose One--</option>
       <option value="Yes">Yes</option>
@@ -769,36 +769,36 @@ export const output = `
   <div class="">
     <div class="form-check string optional legacy_legacy_site_hoarder"><label class="form-check-label"
                                                                               for="legacy_legacy_site_hoarder"> <input
-      class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.hoarder"
+      class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.hoarder"
       id="legacy_legacy_site_hoarder_h" value="n"/> <input class="form-check-input string optional" type="checkbox"
-                                                           v-model="legacy_legacy_site.hoarder"
+                                                           @input="updateValue" :value="legacy_legacy_site.hoarder"
                                                            id="legacy_legacy_site_hoarder" value="y"/>Hoarder </label>
     </div>
   </div>
   <div class="">
     <div class="form-check string optional legacy_legacy_site_possible_asbestos"><label class="form-check-label"
                                                                                         for="legacy_legacy_site_possible_asbestos">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.possible_asbestos"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.possible_asbestos"
              id="legacy_legacy_site_possible_asbestos_h" value="n"/> <input class="form-check-input string optional"
                                                                             type="checkbox"
-                                                                            v-model="legacy_legacy_site.possible_asbestos"
+                                                                            @input="updateValue" :value="legacy_legacy_site.possible_asbestos"
                                                                             id="legacy_legacy_site_possible_asbestos"
                                                                             value="y"/>Possible Asbestos </label></div>
   </div>
   <div class="">
     <div class="form-check string optional legacy_legacy_site_known_lead_paint"><label class="form-check-label"
                                                                                        for="legacy_legacy_site_known_lead_paint">
-      <input class="form-check-input string optional" type="hidden" v-model="legacy_legacy_site.known_lead_paint"
+      <input class="form-check-input string optional" type="hidden" @input="updateValue" :value="legacy_legacy_site.known_lead_paint"
              id="legacy_legacy_site_known_lead_paint_h" value="n"/> <input class="form-check-input string optional"
                                                                            type="checkbox"
-                                                                           v-model="legacy_legacy_site.known_lead_paint"
+                                                                           @input="updateValue" :value="legacy_legacy_site.known_lead_paint"
                                                                            id="legacy_legacy_site_known_lead_paint"
                                                                            value="y"/>Known Lead Paint </label></div>
   </div>
   <div class="">
     <div class="input-group string optional legacy_legacy_site_other_hazards"><label class=""
                                                                                      for="legacy_legacy_site_other_hazards">Other
-      Hazards</label> <textarea class="form-control string optional" v-model="legacy_legacy_site.other_hazards"
+      Hazards</label> <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.other_hazards"
                                 id="legacy_legacy_site_other_hazards"></textarea></div>
   </div>
 </div> <!--hazards_info_end-->
@@ -813,7 +813,7 @@ export const output = `
       To <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                title="Name of the worker with primary responsibility for this request."><i
         class="fa fa-question"></i></span></label> <input class="form-control string optional" type="text"
-                                                          v-model="legacy_legacy_site.assigned_to"
+                                                          @input="updateValue" :value="legacy_legacy_site.assigned_to"
                                                           id="legacy_legacy_site_assigned_to"/></div>
   </div>
   <div class="">
@@ -822,7 +822,7 @@ export const output = `
       <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
             title="Number of volunteers who participated in relief efforts."><i
         class="fa fa-question"></i></span></label> <input class="form-control integer optional" type="text"
-                                                          v-model="legacy_legacy_site.total_volunteers"
+                                                          @input="updateValue" :value="legacy_legacy_site.total_volunteers"
                                                           id="legacy_legacy_site_total_volunteers"/></div>
   </div>
   <div class="">
@@ -831,7 +831,7 @@ export const output = `
       per volunteer <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                           title="Number of hours volunteers worked on this request."><i
         class="fa fa-question"></i></span></label> <input class="form-control float optional" type="text"
-                                                          v-model="legacy_legacy_site.hours_worked_per_volunteer"
+                                                          @input="updateValue" :value="legacy_legacy_site.hours_worked_per_volunteer"
                                                           id="legacy_legacy_site_hours_worked_per_volunteer"/></div>
   </div>
   <div class="">
@@ -840,13 +840,13 @@ export const output = `
       of resident present during work <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                                             title="This may help if there is ever a misunderstanding about the work performed."><i
         class="fa fa-question"></i></span></label> <input class="form-control string optional" type="text"
-                                                          v-model="legacy_legacy_site.initials_of_resident_present"
+                                                          @input="updateValue" :value="legacy_legacy_site.initials_of_resident_present"
                                                           id="legacy_legacy_site_initials_of_resident_present"/></div>
   </div>
   <div class="">
     <div class="input-group string optional legacy_legacy_site_status_notes"><label class=""
                                                                                     for="legacy_legacy_site_status_notes">Status
-      notes</label> <textarea class="form-control string optional" v-model="legacy_legacy_site.status_notes"
+      notes</label> <textarea class="form-control string optional" @input="updateValue" :value="legacy_legacy_site.status_notes"
                               id="legacy_legacy_site_status_notes"></textarea></div>
   </div>
 </div> <!--claim_status_report_info_end-->
@@ -867,14 +867,14 @@ export const output = `
                                                                                   for="legacy_legacy_site_prepared_by">Prepared
       by <span data-tooltip aria-haspopup="true" class="has-tip tip-bottom"
                title="Name of person who created the work request."><i class="fa fa-question"></i></span></label> <input
-      class="form-control string optional" type="text" v-model="legacy_legacy_site.prepared_by"
+      class="form-control string optional" type="text" @input="updateValue" :value="legacy_legacy_site.prepared_by"
       id="legacy_legacy_site_prepared_by"/></div>
   </div>
   <div class="">
     <div class="form-group string optional legacy_legacy_site_do_not_work_before"><label class=""
                                                                                          for="legacy_legacy_site_do_not_work_before">Do
       not work before</label> <input class="form-control string optional" type="text"
-                                     v-model="legacy_legacy_site.do_not_work_before"
+                                     @input="updateValue" :value="legacy_legacy_site.do_not_work_before"
                                      id="legacy_legacy_site_do_not_work_before"/></div>
   </div>
 </div> <!--other_information_info_end-->

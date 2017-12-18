@@ -4,20 +4,21 @@
     <div class="container-fluid" style="padding-top: 75px;">
       <div class="row">
         <div class="col">
-            <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
-            <button type="button" @click="saveAndClaim" id="save-claim-btn-top" class="btn btn-primary"
-                    v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                    v-text="isSiteClaimed ? 'Save & Unclaim' : 'Save & Claim'"></button>
-            <button type="button" @click="cancel" id="cancel-btn-top" class="btn btn-primary">Cancel</button>
-            <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
-              <ul>
-                <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
-              </ul>
-            </div>
+          <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
+          <button type="button" @click="saveAndClaim" id="save-claim-btn-top" class="btn btn-primary"
+                  v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
+                  v-text="isSiteClaimed ? 'Save & Unclaim' : 'Save & Claim'"></button>
+          <button type="button" @click="cancel" id="cancel-btn-top" class="btn btn-primary">Cancel</button>
+          <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
+            <ul>
+              <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
+            </ul>
+          </div>
           <form>
 
 
-            <EventForm :legacy_legacy_site="legacy_site" :site-form-errors="siteFormErrors" v-on:formReady="fireFormReady" ref="eventFormBase"></EventForm>
+            <EventForm :site-form-errors="siteFormErrors"
+                       v-on:formReady="fireFormReady" ref="eventFormBase"></EventForm>
             <div v-if="isFormReady">
               <button type="button" id="save-btn-bottom" @click="saveForm" class="btn btn-primary">Save</button>
               <button type="button" id="save-claim-btn-bottom" @click="saveAndClaim" class="btn btn-primary"
@@ -45,9 +46,25 @@
     setTimeout(function () {
       resolve({
         template: '<div>' + output + '</div>',
-        props: ['legacy_legacy_site', 'siteFormErrors'],
+        props: ['siteFormErrors'],
+        computed: {
+          legacy_legacy_site: {
+            get: function() {
+              return this.$store.getters.getCurrentSiteData;
+            }
+          }
+        },
         mounted() {
           this.$emit('formReady');
+        },
+        methods: {
+          updateValue (e) {
+            let id = e.target.id;
+            let fieldId = id.replace('legacy_legacy_site_', '');
+            let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData);
+            currentSiteData[fieldId] = e.target.value;
+            this.$store.commit('setCurrentSiteData', currentSiteData);
+          }
         }
       });
     }, 1000);
@@ -66,8 +83,10 @@
       }
     },
     computed: {
-      legacy_site() {
-        return this.$store.getters.getCurrentSiteData;
+      legacy_site: {
+        get() {
+          return this.$store.getters.getCurrentSiteData;
+        }
       },
       isSiteClaimed() {
         return this.$store.getters.isCurrentSiteClaimed;
@@ -82,8 +101,13 @@
     mounted() {
     },
     methods: {
+      updateSiteData (obj) {
+        let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData, obj);
+        this.$store.commit('setCurrentSiteData', currentSiteData);
+      },
       fireFormReady() {
         this.isFormReady = true;
+        var self = this;
         loaded.then(() => {
           let addressField = this.$refs.eventFormBase.$refs.legacySiteAddress;
           let cityField = this.$refs.eventFormBase.$refs.cityField;
@@ -97,23 +121,20 @@
             types: ['geocode']
           };
           if (addressField) {
-            console.log(this.$refs)
-            console.log("LOADING AUTOCOMPLETE")
-            if(typeof(google.maps.places.Autocomplete) !== 'function'){
+            if (typeof(google.maps.places.Autocomplete) !== 'function') {
               throw new Error('google.maps.places.Autocomplete is undefined. Did you add \'places\' to libraries when loading Google Maps?')
             }
 
             let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
             let workerMapObj = Vue.prototype.$map2();
             addressAutocomplete.bindTo('bounds', workerMapObj);
-
             addressAutocomplete.addListener('place_changed', fillInAddress);
 
-            function setLatLng(position) {
+            function setLatLng (position) {
               if (latitudeField && longitudeField) {
                 if (typeof position.lat === 'function') {
-                  latitudeField.value = position.lat();
-                  longitudeField.value = position.lng();
+                  self.updateSiteData({latitude: position.lat()});
+                  self.updateSiteData({longitude: position.lng()});
                 } else {
                   latitudeField.value = position.lat;
                   longitudeField.value = position.lng;
@@ -124,51 +145,54 @@
             function fillInAddress() {
               var place = addressAutocomplete.getPlace();
               var updateZip = false;
-
               for (var i = 0; i < place.address_components.length; i++) {
                 var addressType = place.address_components[i].types[0];
                 switch (addressType) {
                   case 'street_number':
-                    addressField.value = place.address_components[i].long_name;
+                    self.updateSiteData({address: place.address_components[i].long_name});
                     break;
                   case 'route':
-                    addressField.value += " " + place.address_components[i].long_name;
+                    const addressCopy = self.legacy_site.address;
+                    self.updateSiteData({address: addressCopy + " " + place.address_components[i].long_name});
                     break;
                   case 'locality':
                     if (cityField) {
-                      cityField.value = place.address_components[i].long_name;
+                      self.updateSiteData({city: place.address_components[i].long_name});
                     }
                     break;
                   case 'administrative_area_level_2':
                     if (countyField) {
-                      countyField.value = place.address_components[i].long_name;
+                      self.updateSiteData({county: place.address_components[i].long_name});
                     }
                     break;
                   case 'administrative_area_level_1':
                     if (stateField) {
-                      stateField.value = place.address_components[i].long_name;
+                      self.updateSiteData({state: place.address_components[i].long_name});
                     }
                     break;
                   case 'country':
                     if (countryField) {
-                      countryField.value = place.address_components[i].long_name;
+                      self.updateSiteData({country: place.address_components[i].long_name});
                     }
                     break;
                   case 'postal_code':
                     if (zipField) {
-                      zipField.value = place.address_components[i].long_name;
+                      self.updateSiteData({zip_code: place.address_components[i].long_name});
                       updateZip = true;
                     }
                     break;
                   case 'postal_code_suffix':
                     if (zipField && updateZip) {
-                      zipField.value += "-" + place.address_components[i].long_name;
+                      const zipcode_copy = self.legacy_site.zip_code;
+                      self.updateSiteData({zip_code: zipcode_copy + "-" + place.address_components[i].long_name});
                     }
                     break;
                 }
               }
 
-              if (!place.geometry) { return; }
+              if (!place.geometry) {
+                return;
+              }
 
               setLatLng(place.geometry.location);
 
@@ -185,7 +209,7 @@
                 map: workerMapObj
               });
 
-              autocompleteTrackingMarker.addListener('drag', function() {
+              autocompleteTrackingMarker.addListener('drag', function () {
                 setLatLng(this.position);
               });
             }
@@ -193,7 +217,6 @@
         })
       },
       saveForm() {
-        console.log(this.legacy_site);
         this.$store.dispatch('saveSite');
       },
       saveAndClaim() {

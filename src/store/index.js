@@ -16,6 +16,7 @@ const store = new Vuex.Store({
     worker,
     publicModule
   },
+  strict: process.env.NODE_ENV !== 'production',
   plugins: [createPersistedState()]
 });
 
