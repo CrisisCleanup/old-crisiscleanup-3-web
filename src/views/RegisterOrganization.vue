@@ -29,7 +29,8 @@
                   <b-form-select
                     :plain="true"
                     :options="['Please select','Option 1', 'Option 2', 'Option 3']"
-                    value="Please select">
+                    value="Please select"
+                    required>
                   </b-form-select>
                 </b-form-fieldset>
               </div>
@@ -40,23 +41,23 @@
 
               </div>
               <div class="col-md-6">
-                <div class="input-group mb-3">
+                <b-form-group class="input-group mb-3" :feedback="feedback">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="text" class="form-control" placeholder="First Name">
-                </div>
+                  <b-form-input type="text" class="form-control"placeholder="First Name" required v-model="contactFirst"> </b-form-input>
+                </b-form-group>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                  <input type="text" class="form-control" placeholder="Email">
+                  <b-form-input type="text" class="form-control" placeholder="Email"  required v-model="contactEmail"> </b-form-input>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Last Name">
+                  <b-form-input type="text" class="form-control" placeholder="Last Name" required v-model="contactLast"> </b-form-input>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-phone"></i></span>
-                  <input type="text" class="form-control" placeholder="Phone Number">
+                  <b-form-input type="tel" class="form-control" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  required v-model="contactPhone"> </b-form-input>
                 </div>
               </div>
             </div>
@@ -70,27 +71,27 @@
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Organization Name">
+                  <b-form-input type="text" class="form-control" placeholder="Organization Name" v-model="orgName" required></b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <input type="text" class="form-control" placeholder="Address">
+                  <b-form-input type="text" class="form-control" placeholder="Address" required v-model="orgAddress"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <input type="password" class="form-control" placeholder="State">
+                  <b-form-input type="text" class="form-control" placeholder="State" required v-model="orgState"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="Referral">
+                  <b-form-input type="text" class="form-control" placeholder="Referral" required v-model="orgReferral"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-social-facebook"></i></span>
-                  <input type="password" class="form-control" placeholder="Facebook">
+                  <b-form-input type="text" class="form-control" placeholder="Facebook" v-model="orgFacebook"> </b-form-input>
                 </div>
 
 
@@ -98,27 +99,27 @@
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                  <input type="text" class="form-control" placeholder="Email">
+                  <b-form-input type="email" class="form-control" placeholder="Email" required v-model="orgEmail"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <input type="text" class="form-control" placeholder="City">
+                  <b-form-input type="text" class="form-control" placeholder="City" required v-model="orgCity"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <input type="text" class="form-control" placeholder="Zip Code">
+                  <b-form-input type="text" class="form-control" placeholder="Zip Code" required pattern="[0-9]{5}" v-model="orgZip"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <input type="text" class="form-control" placeholder="Website">
+                  <b-form-input type="url" class="form-control" placeholder="Website" v-model="orgWebsite"> </b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-social-twitter"></i></span>
-                  <input type="password" class="form-control" placeholder="Twitter">
+                  <b-form-input type="password" class="form-control" placeholder="Twitter" v-model="twitter"> </b-form-input>
                 </div>
               </div>
 
@@ -212,13 +213,45 @@
           </div>
         </div>
 
+          <table>
+            <tr> 
+              <td>{{contactFirst}} </td>
+            </tr>
+          </table>
       </div>
     </div>
   </div>
 </template>
 
+// <script>
+//   export default {
+   
+//   return {
+//      name: 'RegisterOrganization',
+//     contactFirst: 'Test',
+//     contactLast: '' , 
+//     contactPhone: '',
+//     contactEmail: '',
+//   }
+//   }
+
+
+  
+
+// </script>
+
+
+
 <script>
-  export default {
-    name: 'RegisterOrganization'
+export default {
+  
+  data () {
+    return {
+    name: 'RegisterOrganization',
+    contactFirst: '',
+    contactLast: '' , 
+    contactPhone: '',
+    contactEmail: '',    }
   }
+}
 </script>
