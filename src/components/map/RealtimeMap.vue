@@ -154,8 +154,8 @@
         this.autoplay = false;
       },
       pullSites(eventId, lastViewport) {
-        this.$http.get(`${process.env.API_ENDPOINT}/api/maps/realtime/`).then(response => {
-          this.renderMarkers(response.body.results, lastViewport);
+        this.$http.get(`/worksites/realtime`).then(response => {
+          this.renderMarkers(response.data.results, lastViewport);
         });
       },
       checkAutoplay(m) {

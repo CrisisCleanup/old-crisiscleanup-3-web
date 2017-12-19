@@ -38,7 +38,7 @@
         const invites = this.invitees.split(',').map(emailAddress => {
           return {"email": emailAddress}
         });
-        this.$http.post(`${process.env.API_ENDPOINT}/api/invites/`, invites).then(response => {
+        this.$http.post(`/invites`, invites).then(response => {
           console.log(response);
           this.hasErrors = false;
           this.successfulInvites = true;

@@ -55,8 +55,8 @@
         const patchedSite = {
           status: this.status
         };
-        this.$http.patch(`${process.env.API_ENDPOINT}/api/worksites/${this.siteId}/`, patchedSite).then(resp => {
-          const data = resp.body;
+        this.$http.patch(`/worksites/${this.siteId}`, patchedSite).then(resp => {
+          const data = resp.data;
           this.claimedBy = data.claimedBy;
           this.status = data.status;
           this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));

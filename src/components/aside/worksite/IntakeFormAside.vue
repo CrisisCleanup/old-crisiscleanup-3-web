@@ -74,6 +74,7 @@
       },
       saveForm() {
         console.log(this.legacy_site);
+        this.$store.dispatch('saveSite');
       },
       saveAndClaim() {
         console.log(this.legacy_site);
