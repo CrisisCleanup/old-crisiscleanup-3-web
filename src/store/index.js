@@ -9,15 +9,22 @@ Vue.use(Vuex);
 import auth from './auth.js'
 import worker from './worker.js'
 import publicModule from './public.js'
+import map from './map.js'
+
+// https://github.com/robinvdvleuten/vuex-persistedstate
+const persistedStateOptions = {
+  paths: ['auth', 'worker', 'publicModule']
+};
 
 const store = new Vuex.Store({
   modules: {
     auth,
     worker,
-    publicModule
+    publicModule,
+    map
   },
   strict: process.env.NODE_ENV !== 'production',
-  plugins: [createPersistedState()]
+  plugins: [createPersistedState(persistedStateOptions)]
 });
 
 export default store

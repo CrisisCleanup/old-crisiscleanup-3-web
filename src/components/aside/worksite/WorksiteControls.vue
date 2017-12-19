@@ -13,7 +13,7 @@
           <button @click="contactOrg" class="btn btn-secondary">Contact</button>
         </div>
       </div>
-      <!--<PrintWorksite />-->
+      <PrintWorksite />
     </div>
   </div>
 </template>

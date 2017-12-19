@@ -38,7 +38,6 @@
 <script>
   import {output} from './irma2.js';
   import Vue from 'vue';
-  import {mapGetters} from 'vuex';
   import WorksiteControls from './WorksiteControls.vue';
   import {loaded} from 'vue2-google-maps'
 

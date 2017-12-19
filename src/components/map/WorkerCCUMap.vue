@@ -14,100 +14,64 @@
       style="width: 100%; height: 100%;"
       @click="mapIsClicked"
       @bounds_changed="mapBoundsChanged"
-      @zoom_changed="zoomLevel = $event"
-      @dragstart="dragging = true"
-      @dragend="draggingEnded"
+      @zoom_changed="setZoomLevel($event)"
+      @dragstart="setDragging(true)"
+      @dragend="setDragging(false)"
       ref="map"
     >
     </gmap-map>
   </div>
 </template>
-<style>
-  #floating-panel {
-    position: absolute;
-    /*top: px;*/
-    /*left: 50%;*/
-    z-index: 5;
-    /*background-color: #fff;*/
-    padding: 5px;
-    /*border: 1px solid #999;*/
-    text-align: center;
-    font-family: 'Roboto', 'sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
-    width: 10%;
-    right: 0;
-    margin: auto
-  }
-
-  .fullsize-map {
-    height: 100%;
-    width: 100%;
-  }
-</style>
 
 <script>
 
   import * as VueGoogleMaps from 'vue2-google-maps';
   import Vue from 'vue';
   import CCUMapEventHub from '../../events/CCUMapEventHub';
-
-  var lodashArray = require('lodash/array');
-  var lodashCollection = require('lodash/collection');
   import MarkerClusterer from 'marker-clusterer-plus';
-  import {DeferredReadyMixin} from 'vue2-google-maps/src/utils/deferredReady';
   import {loaded} from 'vue2-google-maps'
   import generateMarkerImagePath from './utils/markerImageManager';
   import DashboardEventHub from '@/events/DashboardEventHub';
-
   import {style as mapStyle} from './styles/snowOrange';
+  import { mapState, mapMutations } from 'vuex';
 
-
+  let lodashArray = require('lodash/array');
+  let lodashCollection = require('lodash/collection');
 
   export default {
     data() {
       return {
-        siteId: 1,
-        isPublicMap: false,
-        isFormMap: false,
-        zoomLevel: 5,
-        mapTypeId: 1, // google.maps.MapTypeId.ROADMAP
-        center: {
-          lat: 39.0,
-          lng: -90.0
-        },
         options: {
           scrollwheel: false,
           styles: mapStyle,
           fullscreenControl: false
         },
-        activeMarkers: [],
-        dragging: false,
-        waiting: false,
-        markers: [],
-        bounds: {
-          minLon: null,
-          minLat: null,
-          maxLon: null,
-          maxLat: null
-        },
         heatmap: null,
-        points: []
+        points: [],
+        markers: []
       }
     },
+    computed: mapState('map', {
+      center: state => state.center,
+      zoomLevel: state => state.zoomLevel,
+      dragging: state => state.dragging,
+      // markers: state => state.markers,
+      bounds: state => state.bounds,
+      tempMarkers: state => state.tempMarkers
+    }),
     mounted() {
       loaded.then(() => {
         DashboardEventHub.$emit('open-aside', 'test');
         Vue.prototype.$map2 = () => {
           return this.$refs.map.$mapObject;
         };
-        console.log('MOUNTING MAP')
         const eid = this.$store.state.worker.eventId;
         const lastViewport = this.$store.state.worker.mapViewingArea;
-        this.pullSites(eid, lastViewport);
+        this.$store.dispatch('map/getWorksites', eid).then((resp) => {
+          this.renderMarkers(this.tempMarkers, lastViewport);
+        });
       });
     },
-
     beforeDestroy: function () {
       const a = {
         center: this.center,
@@ -118,36 +82,20 @@
 //      this.$overlay.setMap(null);
     },
     methods: {
+      ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers']),
       mapIsClicked() {
         CCUMapEventHub.$emit('map-is-clicked');
       },
       mapBoundsChanged(event) {
-        this.bounds.minLon = event.b.b;
-        this.bounds.minLat = event.f.b;
-        this.bounds.maxLon = event.b.f;
-        this.bounds.maxLat = event.f.f;
-
+        const bounds = {
+          minLon: event.b.b,
+          minLat: event.f.b,
+          maxLon: event.b.f,
+          maxLat: event.f.f
+        };
+        this.$store.commit('map/setBounds', bounds);
       },
       draggingEnded(event) {
-        /*
-        if (this.zoomLevel >= 5 && !this.waiting) {
-          this.waiting = true;
-          this.renderSites(this.bounds);
-          setTimeout(() => {
-            this.waiting = false;
-          }, 500);
-        }
-        */
-      },
-      pullSites(eventId, lastViewport) {
-        const fields = "id,lat,lng,status,claimed_by_uid,work_type,city,reported_by_uid,name"
-        const endpoint = `/worksites?legacy_event_id=${eventId}&fields=${fields}`
-        this.$http.get(endpoint).then(response => {
-          this.renderMarkers(response.data.results, lastViewport);
-//          this.markers = [...this.markers, ...response.body.results];
-
-        });
-
       },
       changeGradient() {
         const gradient = [
@@ -183,10 +131,9 @@
           this.heatmap.set('radius', 20);
         } else {
           this.heatmap.setMap(this.heatmap.getMap() ? null : this.$refs.map.$mapObject);
-
         }
       },
-      renderMarkers(serverMarkers = [], lastViewport) {
+      renderMarkers(tempMarkers, lastViewport) {
         this.$markerCluster = new MarkerClusterer(
           this.$refs.map.$mapObject,
           []
@@ -204,7 +151,7 @@
           });
         };
         let points = [];
-        let markers = serverMarkers.map((mark, i) => {
+        let markers = tempMarkers.map((mark, i) => {
           const latLng = new google.maps.LatLng(mark.lat, mark.lng);
           points.push(latLng);
           let m = new google.maps.Marker({
@@ -216,8 +163,13 @@
           return m;
         });
         this.points = points;
-        this.markers = markers;
         this.$markerCluster.addMarkers(markers);
+        this.markers = markers;
+
+        this.$store.commit('map/setGetMarkersFunc', function() {
+          return this.markers;
+        })
+
 
 //        this.zoomLevel = lastViewport.zoom;
 
@@ -226,3 +178,27 @@
     }
   }
 </script>
+
+<style>
+  #floating-panel {
+    position: absolute;
+    /*top: px;*/
+    /*left: 50%;*/
+    z-index: 5;
+    /*background-color: #fff;*/
+    padding: 5px;
+    /*border: 1px solid #999;*/
+    text-align: center;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+    width: 10%;
+    right: 0;
+    margin: auto
+  }
+
+  .fullsize-map {
+    height: 100%;
+    width: 100%;
+  }
+</style>

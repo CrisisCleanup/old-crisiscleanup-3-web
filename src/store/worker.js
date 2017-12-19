@@ -31,7 +31,7 @@ export default {
       worksitesValueOfServices: 0
     },
     errors: {
-      siteFormErrors: null
+      siteFormErrors: {}
     }
   },
 
@@ -61,7 +61,9 @@ export default {
       state.siteData = payload;
     },
     resetCurrentSiteData (state) {
-      state.siteData = {};
+      state.siteData = {
+        data: {}
+      };
       state.isNewSite = true;
     },
     setIsNewSite (state, payload) {

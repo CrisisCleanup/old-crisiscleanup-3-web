@@ -22,7 +22,7 @@ describe('WorksiteControls.vue', () => {
     it('can render', () => {
       const wrapper = shallow(WorksiteControls, { mocks: { $store } });
       let allButtons = wrapper.findAll('button');
-      expect(allButtons.length).to.equal(5);
+      expect(allButtons.length).to.equal(4);
     });
 
   })
@@ -45,7 +45,7 @@ describe('WorksiteControls.vue', () => {
 
     it('should allow user to contact org', () => {
       wrapper.setMethods({contactOrg: btnStub});
-      wrapper.findAll('button').at(4).trigger('click');
+      wrapper.findAll('button').at(3).trigger('click');
       expect(btnStub.called).to.be.true
     });
 

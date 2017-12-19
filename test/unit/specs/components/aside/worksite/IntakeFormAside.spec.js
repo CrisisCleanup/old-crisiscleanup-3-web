@@ -11,7 +11,8 @@ describe('IntakeFormAside.vue', () => {
     getters = {
       getCurrentSiteData: '',
       isCurrentSiteClaimed: true,
-      isCurrentSiteClaimedByUserOrg: true
+      isCurrentSiteClaimedByUserOrg: true,
+      getSiteFormErrors: []
     };
 
     $store = {
@@ -105,7 +106,8 @@ describe('IntakeFormAside.vue', () => {
       getters = {
         getCurrentSiteData: '',
         isCurrentSiteClaimed: false,
-        isCurrentSiteClaimedByUserOrg: false
+        isCurrentSiteClaimedByUserOrg: false,
+        getSiteFormErrors: []
       };
     });
 
