@@ -8,7 +8,7 @@
             <div class="col-md-4">
             <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="isTrained" disabled readonly>Get Trained </button>
             <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="isUpToDate" disabled readonly>Get Up To Date</button>
-            <button type="button" class="btn-block btn-primary">Get Started</button>
+            <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
       <!-- ******************** Call center experts ********************* --> 
@@ -57,15 +57,21 @@
           isTrained: true,
           isUpToDate: false,
           callCenterExperts: [
-            { id: 1, badge: '../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
-            { id: 2, badge: '../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
-            { id: 3, badge: '../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
-            { id: 4, badge: '../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
+            { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
+            { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
+            { id: 3, badge: '../../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
+            { id: 4, badge: '../../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
           ],
           stories: [
             { description: "xyz"},
             { description: "xyz"}
           ]
+      }
+    },
+    methods: {
+      getStarted() {
+        this.$store.commit('phone/seenWelcome');
+        this.$router.push({ name: 'Phone' });
       }
     }
   }

@@ -9,7 +9,9 @@ import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
 import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
-import Phone from '@/views/phone/Welcome';
+import Phone from '@/containers/Phone';
+import PhoneWelcome from '@/views/phone/Welcome';
+import PhoneSwitchboard from '@/views/phone/Switchboard';
 
 import Page404 from '@/views/pages/Page404'
 import Page500 from '@/views/pages/Page500'
@@ -112,9 +114,21 @@ const router = new Router({
         },
         {
           path: 'phone',
-          name: 'Phone',
           component: Phone,
           meta: { auth: true, title: 'Phone' },
+          children: [
+            {
+              path: 'welcome',
+              component: PhoneWelcome,
+              meta: { auth: true, title: 'Phone Welcome' },
+            },
+            {
+              path: '',
+              name: 'Phone',
+              component: PhoneSwitchboard,
+              meta: { auth: true, title: 'Phone Home' },
+            },
+          ]
         },
       ]
     },

@@ -8,11 +8,13 @@ Vue.use(Vuex);
 // Modules
 import auth from './auth.js'
 import worker from './worker.js'
+import phone from './phone.js'
 
 const store = new Vuex.Store({
   modules: {
     auth,
-    worker
+    worker,
+    phone
   },
   plugins: [createPersistedState()]
 });
