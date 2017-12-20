@@ -1,5 +1,6 @@
 <template>
     <div>
+      we: {{test}}
        <h1>Welcome to the Call Center</h1>
     <div class="row">
 
@@ -54,8 +55,9 @@
   export default {
       data() {
         return {
-          isTrained: true,
-          isUpToDate: false,
+          test: null,
+          isTrained: null,
+          isUpToDate: null,
           callCenterExperts: [
             { badge: '../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
             { badge: '../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
@@ -66,6 +68,25 @@
             { description: "xyz"},
             { description: "xyz"}
           ]
+      }
+    },
+    created: function() {
+      //Get the current user's id 
+      var userId = this.$store.state.worker.currentUserId;
+      //TODO: Call API to get user's call center information
+      this.isTrained = true
+      this.isUpToDate = false;
+    },
+    methods: {
+      getUserData(){
+        // this.$http.get(`${process.env.API_ENDPOINT}/api/stats/realtime-ticker/`).then(r => {
+        //   this.orgCount = r.body.org_count;
+        //   this.requests = r.body.worksite_count;
+        //   this.completed = r.body.worksite_statuses['Closed, completed'];
+        //   this.completed += r.body.worksite_statuses['Closed, done by others'];
+        //   this.working = r.body.worksite_statuses['Open, assigned'];
+        //   this.working += r.body.worksite_statuses['Open, partially completed'];
+        // });
       }
     }
   }
