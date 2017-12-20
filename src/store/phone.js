@@ -12,7 +12,6 @@ export default {
     },
     needsWelcome(state) {
       state.needsWelcome = true;
-      console.log('needs welcome set');
     },
   },
 
