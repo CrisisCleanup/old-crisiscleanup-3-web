@@ -4,6 +4,11 @@
     <b-link class="navbar-brand" to="#"></b-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-nav is-nav-bar class="d-md-down-none">
+      <b-nav-item class="px-3">Event:&nbsp;&nbsp;
+        <select @change="updateEventContext">
+          <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
+        </select>
+      </b-nav-item>
     </b-nav>
     <b-nav is-nav-bar class="ml-auto">
       <b-nav-item class="d-md-down-none" @click="asideToggle">
@@ -31,9 +36,17 @@
   </header>
 </template>
 <script>
+import { mapState, mapMutations, mapGetters } from 'vuex';
+
 export default {
 
   name: 'Header',
+  computed: mapGetters([
+    'getParticipatingEvents'
+  ]),
+  mounted() {
+    this.$store.dispatch('getParticipatingEvents');
+  },
   methods: {
     sidebarToggle (e) {
       e.preventDefault()
@@ -54,6 +67,9 @@ export default {
     logout (e) {
       this.$store.dispatch('logout');
       this.$router.push({path: '/'});
+    },
+    updateEventContext (e) {
+      this.$store.dispatch('changeEventContext', e.target.value);
     }
   }
 }

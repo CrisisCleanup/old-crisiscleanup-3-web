@@ -1,8 +1,14 @@
 import Vue from 'vue';
+import { createActionHelpers } from 'vuex-loading'
+const { startLoading, endLoading } = createActionHelpers({
+  moduleName: 'loading'
+});
 
-function getDashboardWorksites({state, commit}) {
-  const url = `/worksites?legacy_event_id=${state.eventId}&limit=${state.dashboardWorksites.limit}&offset=${state.dashboardWorksites.offset}`;
+async function getDashboardWorksites({state, commit, dispatch}) {
+  const url = `/worksites?legacy_event_id=${state.event.id}&limit=${state.dashboardWorksites.limit}&offset=${state.dashboardWorksites.offset}`;
+  startLoading(dispatch, 'getDashboardWorksites');
   Vue.axios.get(url).then((response) => {
+    endLoading(dispatch, 'getDashboardWorksites');
     commit('setDashboardWorksites', response.data.results)
   }, (error) => {
   });
@@ -10,7 +16,11 @@ function getDashboardWorksites({state, commit}) {
 
 export default {
   state: {
-    eventId: 60,
+    participatingEvents: [],
+    event: {
+      id: 60,
+      uid: ''
+    },
     currentSiteId: 1,
     currentUserId: 0,
     currentOrgId: 0,
@@ -36,8 +46,14 @@ export default {
   },
 
   mutations: {
+    setParticipatingEvents (state, payload) {
+      state.participatingEvents = payload;
+    },
     setEvent (state, payload) {
-      state.eventId = payload;
+      state.event.id = payload;
+    },
+    setEventContext (state, value) {
+      state.event.id = value;
     },
     setCurrentUserId (state, payload) {
       state.currentUserId = payload;
@@ -89,11 +105,19 @@ export default {
       state.dashboardWorksites.offset = 0;
     },
     setWorksiteStats (state, payload) {
-      const closedCompletedCount = payload.find(x => x.status === 'Closed, completed').count;
-      state.worksiteStats.worksitesCompleted = closedCompletedCount;
-      state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
-      state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
-      state.worksiteStats.worksitesValueOfServices = closedCompletedCount * 18000;
+      if (payload.length > 0) {
+        const closedCompletedObj = payload.find(x => x.status === 'Closed, completed');
+        const closedCompletedCount = closedCompletedObj !== undefined ? closedCompletedObj.count : 0;
+        state.worksiteStats.worksitesCompleted = closedCompletedCount;
+        state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
+        state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
+        state.worksiteStats.worksitesValueOfServices = closedCompletedCount * 18000;
+      } else {
+        state.worksiteStats.worksitesCompleted = 0;
+        state.worksiteStats.worksitesOpenUnassigned = 0;
+        state.worksiteStats.worksitesAssigned = 0;
+        state.worksiteStats.worksitesValueOfServices = 0;
+      }
     },
     setSiteFormErrors (state, payload) {
       state.errors.siteFormErrors = payload;
@@ -111,7 +135,8 @@ export default {
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
     getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats,
-    getSiteFormErrors: state => state.errors.siteFormErrors
+    getSiteFormErrors: state => state.errors.siteFormErrors,
+    getParticipatingEvents: state => state.participatingEvents
   },
 
   actions: {
@@ -133,17 +158,17 @@ export default {
         commit('setIsNewSite', false);
       });
     },
-    nextDashboardWorksites({commit, state}) {
+    nextDashboardWorksites({commit, state, dispatch}) {
       commit('incrementDashboardWorksitesOffset');
-      getDashboardWorksites({commit, state});
+      getDashboardWorksites({commit, state, dispatch});
     },
-    previousDashboardWorksites({commit, state}) {
+    previousDashboardWorksites({commit, state, dispatch}) {
       commit('decrementDashboardWorksitesOffset');
-      getDashboardWorksites({commit, state});
+      getDashboardWorksites({commit, state, dispatch});
     },
-    getDashboardWorksites({ commit, state }) {
+    getDashboardWorksites({ commit, state, dispatch }) {
       commit('resetDashboardWorksitesOffset');
-      getDashboardWorksites({commit, state});
+      getDashboardWorksites({commit, state, dispatch});
     },
     saveSite({commit, state}) {
       commit('setCurrentSiteDataData', {data: JSON.stringify(state.siteData.data)});
@@ -162,9 +187,20 @@ export default {
       }
     },
     getWorksiteStats({commit, state}) {
-      Vue.axios.get(`/worksites/stats/statuses?legacy_event_id=${state.eventId}`).then(resp => {
+      Vue.axios.get(`/worksites/stats/statuses?legacy_event_id=${state.event.id}`).then(resp => {
         commit('setWorksiteStats', resp.data.results)
       });
+    },
+    getParticipatingEvents({commit, state}) {
+      Vue.axios.get(`/events?ordering=-created_at&limit=500`).then(resp => {
+        commit('setParticipatingEvents', resp.data.results)
+      });
+    },
+    async changeEventContext({commit, dispatch, state}, eventId) {
+      commit('setEventContext', eventId);
+      await dispatch('getWorksiteStats');
+      await dispatch('getDashboardWorksites');
+      await dispatch('map/getWorksites');
     }
   }
 };

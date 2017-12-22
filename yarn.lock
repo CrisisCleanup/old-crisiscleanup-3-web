@@ -7179,6 +7179,10 @@ vue-router@2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.7.0.tgz#16d424493aa51c3c8cce8b7c7210ea4c3a89aff1"
 
+vue-spinner@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-spinner/-/vue-spinner-1.0.3.tgz#eecd3f79f63a815b690e9d54b199ab65be695499"
+
 vue-style-loader@3.0.1, vue-style-loader@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.1.tgz#c8b639bb2f24baf9d78274dc17e4f264c1deda08"
@@ -7229,6 +7233,10 @@ vuenit@^1.1.1:
     mock-vuex "^0.2.0"
     vue-inject "^1.0.0"
     vue-template-compiler "^2.4.4"
+
+vuex-loading@^0.1.14:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/vuex-loading/-/vuex-loading-0.1.14.tgz#8f61ecb4b8c7e2893e39137950096bc9dc0bfd0b"
 
 vuex-persistedstate@^2.0.0:
   version "2.0.0"

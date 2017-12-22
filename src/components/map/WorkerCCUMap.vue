@@ -65,7 +65,7 @@
         Vue.prototype.$map2 = () => {
           return this.$refs.map.$mapObject;
         };
-        const eid = this.$store.state.worker.eventId;
+        const eid = this.$store.state.worker.event.id;
         const lastViewport = this.$store.state.worker.mapViewingArea;
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
           this.renderMarkers(this.tempMarkers, lastViewport);
