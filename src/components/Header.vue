@@ -4,7 +4,6 @@
     <b-link class="navbar-brand" to="#"></b-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-nav is-nav-bar class="d-md-down-none">
-      <b-nav-item id="logout-btn" @click="logout" class="px-3">Logout</b-nav-item>
     </b-nav>
     <b-nav is-nav-bar class="ml-auto">
       <b-nav-item class="d-md-down-none" @click="asideToggle">
@@ -25,7 +24,7 @@
         <b-dropdown-item><i class="fa fa-wrench"></i> Settings</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item><i class="fa fa-shield"></i> Lock Account</b-dropdown-item>
-        <b-dropdown-item><i class="fa fa-lock"></i> Logout</b-dropdown-item>
+        <b-dropdown-item @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
     <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button>
