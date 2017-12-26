@@ -48,17 +48,26 @@
         },
         heatmap: null,
         points: [],
-        markers: []
+        markers: [],
+        $markerCluster: null
       }
     },
-    computed: mapState('map', {
-      center: state => state.center,
-      zoomLevel: state => state.zoomLevel,
-      dragging: state => state.dragging,
-      // markers: state => state.markers,
-      bounds: state => state.bounds,
-      tempMarkers: state => state.tempMarkers
-    }),
+    computed: {
+      ...mapState('map', {
+        center: state => state.center,
+        zoomLevel: state => state.zoomLevel,
+        dragging: state => state.dragging,
+        // markers: state => state.markers,
+        bounds: state => state.bounds,
+        tempMarkers: state => state.tempMarkers
+      })
+    },
+    watch: {
+      tempMarkers: function(val) {
+        this.clearMarkers();
+        this.renderMarkers(val, this.$store.state.worker.mapViewingArea);
+      }
+    },
     mounted() {
       loaded.then(() => {
         DashboardEventHub.$emit('open-aside', 'test');
@@ -79,7 +88,6 @@
       };
       this.$store.commit('setMapViewingArea', a);
       this.$markerCluster.clearMarkers();
-//      this.$overlay.setMap(null);
     },
     methods: {
       ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers']),
@@ -133,11 +141,28 @@
           this.heatmap.setMap(this.heatmap.getMap() ? null : this.$refs.map.$mapObject);
         }
       },
+      clearMarkers() {
+        if (this.$markerCluster) {
+          this.$markerCluster.clearMarkers();
+        }
+        if (this.markers.length > 0) {
+          for (let i = 0; i < this.markers.length; i++) {
+            this.markers[i].setMap(null);
+          }
+          this.markers.length = 0;
+        }
+        if (this.points.length > 0) {
+          for (let i = 0; i < this.points.length; i++) {
+            this.points[i] = null;
+          }
+          this.markers.length = 0;
+        }
+      },
       renderMarkers(tempMarkers, lastViewport) {
-        this.$markerCluster = new MarkerClusterer(
-          this.$refs.map.$mapObject,
-          []
-        );
+        // this.$markerCluster = new MarkerClusterer(
+        //   this.$refs.map.$mapObject,
+        //   []
+        // );
 
         const markerCallback = (marker, id) => {
           marker.addListener('click', (e) => {
@@ -151,7 +176,7 @@
           });
         };
         let points = [];
-        let markers = tempMarkers.map((mark, i) => {
+        this.markers = tempMarkers.map((mark, i) => {
           const latLng = new google.maps.LatLng(mark.lat, mark.lng);
           points.push(latLng);
           let m = new google.maps.Marker({
@@ -163,8 +188,8 @@
           return m;
         });
         this.points = points;
-        this.$markerCluster.addMarkers(markers);
-        this.markers = markers;
+        // this.$markerCluster.addMarkers(markers);
+        // this.markers = markers;
 
         this.$store.commit('map/setGetMarkersFunc', function() {
           return this.markers;
@@ -172,7 +197,6 @@
 
 
 //        this.zoomLevel = lastViewport.zoom;
-
 
       },
     }

@@ -202,7 +202,7 @@ export default {
       commit('setEventContext', eventId);
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');
-      await dispatch('map/getWorksites');
+      await dispatch('map/getWorksites', eventId);
     }
   }
 };
