@@ -468,7 +468,7 @@
   import SocialBoxChartExample from '../dashboard/SocialBoxChartExample'
   import CalloutChartExample from '../dashboard/CalloutChartExample'
   import {Callout, InviteTeammates, Worksites, QuickStatCard} from '@/components/'
-  import { mapActions, mapGetters } from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'dashboard',

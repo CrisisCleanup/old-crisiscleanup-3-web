@@ -4,7 +4,7 @@ const { startLoading, endLoading } = createActionHelpers({
   moduleName: 'loading'
 });
 
-async function getDashboardWorksites({state, commit, dispatch}) {
+function getDashboardWorksites({state, commit, dispatch}) {
   const url = `/worksites?legacy_event_id=${state.event.id}&limit=${state.dashboardWorksites.limit}&offset=${state.dashboardWorksites.offset}`;
   startLoading(dispatch, 'getDashboardWorksites');
   Vue.axios.get(url).then((response) => {
@@ -186,9 +186,11 @@ export default {
         })
       }
     },
-    getWorksiteStats({commit, state}) {
+    getWorksiteStats({commit, state, dispatch}) {
+      startLoading(dispatch, 'getWorksiteStats');
       Vue.axios.get(`/worksites/stats/statuses?legacy_event_id=${state.event.id}`).then(resp => {
         commit('setWorksiteStats', resp.data.results)
+        endLoading(dispatch, 'getWorksiteStats');
       });
     },
     getParticipatingEvents({commit, state}) {

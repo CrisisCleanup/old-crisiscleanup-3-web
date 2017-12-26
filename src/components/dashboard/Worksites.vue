@@ -15,13 +15,12 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <v-loading loader="getDashboardWorksites">
       <template slot='spinner'>
         <div class="d-flex d-column justify-content-center align-items-center">
-            <pulse-loader :size="'90px'"></pulse-loader>
+            <grid-loader :size="'90px'" :color="'white'"></grid-loader>
         </div>
       </template>
       <div class="row equal-height">
@@ -39,7 +38,7 @@
 <script>
   import WorkSite from '../sites/WorkSite.vue';
   import {mapActions, mapGetters} from 'vuex';
-  import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+  import GridLoader from "vue-spinner/src/GridLoader.vue";
 
   export default {
     name: 'worksites',
@@ -56,8 +55,9 @@
       this.getDashboardWorksites();
     },
     components: {
+      GridLoader,
       WorkSite,
-      PulseLoader
+      GridLoader
     },
     methods: {
       ...mapActions([
