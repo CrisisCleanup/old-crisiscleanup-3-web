@@ -64,8 +64,7 @@
     },
     watch: {
       tempMarkers: function(val) {
-        this.clearMarkers();
-        this.renderMarkers(val, this.$store.state.worker.mapViewingArea);
+        this.renderMarkers(this.$store.state.worker.mapViewingArea);
       }
     },
     mounted() {
@@ -77,7 +76,7 @@
         const eid = this.$store.state.worker.event.id;
         const lastViewport = this.$store.state.worker.mapViewingArea;
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
-          this.renderMarkers(this.tempMarkers, lastViewport);
+          this.renderMarkers(lastViewport);
         });
       });
     },
@@ -149,34 +148,36 @@
           for (let i = 0; i < this.markers.length; i++) {
             this.markers[i].setMap(null);
           }
-          this.markers.length = 0;
+          this.markers = new Array();
         }
         if (this.points.length > 0) {
           for (let i = 0; i < this.points.length; i++) {
             this.points[i] = null;
           }
-          this.markers.length = 0;
+          this.points = new Array();
         }
       },
-      renderMarkers(tempMarkers, lastViewport) {
-        // this.$markerCluster = new MarkerClusterer(
-        //   this.$refs.map.$mapObject,
-        //   []
-        // );
+      renderMarkers(lastViewport) {
+        this.clearMarkers();
 
-        const markerCallback = (marker, id) => {
-          marker.addListener('click', (e) => {
+        this.$markerCluster = new MarkerClusterer(
+          this.$refs.map.$mapObject,
+          []
+        );
+
+        const markerCallback = (m, id) => {
+          m.addListener('click', (e) => {
             const googleMarker = {
               id: id,
-              marker: marker
+              marker: m
             };
-            this.$refs.map.$mapObject.panTo(marker.getPosition());
+            this.$refs.map.$mapObject.panTo(m.getPosition());
             CCUMapEventHub.$emit('site-clicked', googleMarker);
             this.$store.dispatch('getSite', googleMarker.id);
           });
         };
         let points = [];
-        this.markers = tempMarkers.map((mark, i) => {
+        let markers = this.tempMarkers.map((mark, i) => {
           const latLng = new google.maps.LatLng(mark.lat, mark.lng);
           points.push(latLng);
           let m = new google.maps.Marker({
@@ -188,12 +189,12 @@
           return m;
         });
         this.points = points;
-        // this.$markerCluster.addMarkers(markers);
-        // this.markers = markers;
+        this.$markerCluster.addMarkers(markers);
+        this.markers = markers;
 
-        this.$store.commit('map/setGetMarkersFunc', function() {
-          return this.markers;
-        })
+        // this.$store.commit('map/setGetMarkersFunc', function() {
+        //   return this.markers;
+        // })
 
 
 //        this.zoomLevel = lastViewport.zoom;
