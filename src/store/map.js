@@ -57,7 +57,7 @@ export default {
   actions: {
     getWorksites({ commit, state }, eventId) {
       const fields = "id,lat,lng,status,claimed_by_uid,work_type,city,reported_by_uid,name";
-      const endpoint = `/worksites?legacy_event_id=${eventId}&fields=${fields}`;
+      const endpoint = `/worksites?limit=300&legacy_event_id=${eventId}&fields=${fields}`;
       return Vue.axios.get(endpoint).then(resp => {
         commit('setTempMarkers', resp.data.results);
       });

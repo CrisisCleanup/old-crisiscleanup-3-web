@@ -1,5 +1,13 @@
 <template>
   <div>
+    <v-loading loader="getSite">
+      <template slot='spinner'>
+       <div class="row">
+        <div class="col">
+        <pulse-loader></pulse-loader>
+        </div>
+       </div>
+      </template>
       <div class="row">
         <div class="col">
           <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
@@ -29,6 +37,7 @@
       </div>
       <br/>
       <br/>
+    </v-loading>
   </div>
 </template>
 
@@ -36,6 +45,8 @@
   import {output} from './irma2.js';
   import Vue from 'vue';
   import {loaded} from 'vue2-google-maps'
+  import {mapGetters} from 'vuex';
+  import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
   const EventForm = Vue.component('EventForm', function (resolve, reject) {
     setTimeout(function () {
@@ -47,7 +58,8 @@
             get: function() {
               return this.$store.getters.getCurrentSiteData;
             }
-          }
+          },
+          ...mapGetters('loading', ['isLoading', 'anyLoading'])
         },
         mounted() {
           this.$emit('formReady');
@@ -69,6 +81,7 @@
     name: 'IntakeFormAside',
     components: {
       EventForm,
+      PulseLoader
     },
     data() {
       return {

@@ -199,7 +199,9 @@
           icon: generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
         });
         markerCallback(marker, mark.id);
-        return {m: marker, latLng: latLng};
+        this.markers.push(marker);
+        this.points.push(latLng);
+        return marker;
       },
       renderMarkers(lastViewport) {
         this.clearMarkers();
@@ -209,15 +211,10 @@
           []
         );
 
-        let points = [];
         let markers = this.tempMarkers.map((mark, i) => {
-          let {m, latLng} = this.addMarker(mark);
-          points.push(latLng);
-          return m;
+          return this.addMarker(mark);
         });
-        this.points = points;
         this.$markerCluster.addMarkers(markers);
-        this.markers = markers;
 
         // this.$store.commit('map/setGetMarkersFunc', function() {
         //   return this.markers;

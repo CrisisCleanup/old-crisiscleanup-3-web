@@ -148,12 +148,14 @@ export default {
   },
 
   actions: {
-    getSite({ commit, state }, siteId) {
+    getSite({ commit, state, dispatch }, siteId) {
+      startLoading(dispatch, 'getSite');
       return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
         commit('setCurrentSiteData', resp.data);
         commit('setIsNewSite', false);
         commit('setSiteFormErrors', {})
         commit('setActiveWorksiteView', {view: 'editWorksite'});
+        endLoading(dispatch, 'getSite');
       });
     },
     claimSite({commit, state}) {
