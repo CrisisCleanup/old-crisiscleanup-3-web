@@ -1,7 +1,5 @@
 <template>
   <div>
-    <WorksiteControls class="p-2" style="position:fixed; width: 100%; height: 55px;"></WorksiteControls>
-    <div class="container-fluid" style="padding-top: 75px;">
       <div class="row">
         <div class="col">
           <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">Save</button>
@@ -31,14 +29,12 @@
       </div>
       <br/>
       <br/>
-    </div>
   </div>
 </template>
 
 <script>
   import {output} from './irma2.js';
   import Vue from 'vue';
-  import WorksiteControls from './WorksiteControls.vue';
   import {loaded} from 'vue2-google-maps'
 
   const EventForm = Vue.component('EventForm', function (resolve, reject) {
@@ -73,7 +69,6 @@
     name: 'IntakeFormAside',
     components: {
       EventForm,
-      WorksiteControls
     },
     data() {
       return {

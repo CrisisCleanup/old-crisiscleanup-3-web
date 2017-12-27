@@ -21,7 +21,6 @@ export default {
       id: 60,
       uid: ''
     },
-    currentSiteId: 1,
     currentUserId: 0,
     currentOrgId: 0,
     siteData: {
@@ -42,15 +41,30 @@ export default {
     },
     errors: {
       siteFormErrors: {}
-    }
+    },
+    worksiteViews: {
+      editWorksite: false,
+      searchFilter: false,
+      printWorksite: false,
+      worksiteHistory: false
+    },
+    searchingWorksites: []
   },
 
   mutations: {
+    setSearchingWorksites (state, value) {
+      state.searchingWorksites = value;
+    },
+    setActiveWorksiteView (state, payload) {
+      for (let property in state.worksiteViews) {
+        if (state.worksiteViews.hasOwnProperty(property)) {
+          state.worksiteViews[property] = false;
+        }
+      }
+      state.worksiteViews[payload.view] = true;
+    },
     setParticipatingEvents (state, payload) {
       state.participatingEvents = payload;
-    },
-    setEvent (state, payload) {
-      state.event.id = payload;
     },
     setEventContext (state, value) {
       state.event.id = value;
@@ -60,9 +74,6 @@ export default {
     },
     setCurrentOrgId (state, payload) {
       state.currentOrgId = payload;
-    },
-    setCurrentSiteId (state, payload) {
-      state.currentSiteId = payload;
     },
     setCurrentSiteData (state, payload) {
       if (payload.data instanceof String || typeof payload.data === 'string') {
@@ -87,8 +98,6 @@ export default {
     },
     setMapViewingArea (state, payload) {
       state.mapViewingArea = payload;
-    },
-    setClaimInfo (state, payload) {
     },
     setDashboardWorksites (state, payload) {
       state.dashboardWorksites.worksites = payload;
@@ -128,24 +137,23 @@ export default {
   },
 
   getters: {
-    getCurrentSiteId: state => state.currentSiteId,
     getCurrentSiteData: state => state.siteData,
-    getCurrentOrgId: state => state.currentOrgId,
     isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
     isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
     getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats,
     getSiteFormErrors: state => state.errors.siteFormErrors,
-    getParticipatingEvents: state => state.participatingEvents
+    getParticipatingEvents: state => state.participatingEvents,
+    getWorksiteViews: state => state.worksiteViews
   },
 
   actions: {
     getSite({ commit, state }, siteId) {
-      Vue.axios.get(`/worksites/${siteId}`).then(resp => {
+      return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
         commit('setCurrentSiteData', resp.data);
-        commit('setCurrentSiteId', resp.data.id);
         commit('setIsNewSite', false);
         commit('setSiteFormErrors', {})
+        commit('setActiveWorksiteView', {view: 'editWorksite'});
       });
     },
     claimSite({commit, state}) {
@@ -153,7 +161,7 @@ export default {
         // claimed_by: state.currentOrgId,
         user: state.currentUserId
       };
-      Vue.axios.patch(`/worksites/${state.currentSiteId}`, claim).then(resp => {
+      Vue.axios.patch(`/worksites/${state.siteData.id}`, claim).then(resp => {
         commit('setCurrentSiteData', resp.data);
         commit('setIsNewSite', false);
       });
@@ -179,7 +187,7 @@ export default {
           commit('setSiteFormErrors', error.response.data)
         });
       } else {
-        Vue.axios.patch(`/worksites/${state.currentSiteId}`, state.siteData).then(resp => {
+        Vue.axios.patch(`/worksites/${state.siteData.id}`, state.siteData).then(resp => {
           commit('setCurrentSiteData', resp.data);
         }).catch(error => {
           commit('setSiteFormErrors', error.response.data)
@@ -203,6 +211,11 @@ export default {
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');
       await dispatch('map/getWorksites', eventId);
+    },
+    searchWorksites({commit, dispatch, state}, searchCriteria) {
+      Vue.axios.get(`/worksites?limit=10&legacy_event_id=${state.event.id}&search=${searchCriteria}`).then(resp => {
+        commit('setSearchingWorksites', resp.data.results)
+      });
     }
   }
 };

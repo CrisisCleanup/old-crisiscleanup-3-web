@@ -5,12 +5,13 @@
         <div class="btn-group mx-auto" role="group" aria-label="Basic example">
           <button @click="enterNewSite" class="btn btn-primary">New</button>
           <!--<button @click="firePrintBtn" class="btn btn-secondary">Print</button>-->
+          <button @click="fireSearchFilterBtn" class="btn btn-secondary">Search/Filter</button>
           <b-btn v-b-modal.modal1>Print</b-btn>
           <button class="btn btn-secondary">History</button>
-          <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
-                  v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                  v-text="isSiteClaimed ? 'Unclaim' : 'Claim'"></button>
-          <button @click="contactOrg" class="btn btn-secondary">Contact</button>
+          <!--<button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"-->
+                  <!--v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"-->
+                  <!--v-text="isSiteClaimed ? 'Unclaim' : 'Claim'"></button>-->
+          <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
         </div>
       </div>
       <PrintWorksite />
@@ -38,8 +39,12 @@
     },
     methods: {
       enterNewSite() {
+        this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
         this.$store.commit('resetCurrentSiteData');
         this.$store.commit('setSiteFormErrors', {})
+      },
+      fireSearchFilterBtn() {
+        this.$store.commit('setActiveWorksiteView', {view: 'searchFilter'})
       },
       contactOrg() {
         console.log("Contact org");

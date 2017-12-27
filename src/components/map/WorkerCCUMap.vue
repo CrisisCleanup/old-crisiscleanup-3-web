@@ -33,7 +33,7 @@
   import generateMarkerImagePath from './utils/markerImageManager';
   import DashboardEventHub from '@/events/DashboardEventHub';
   import {style as mapStyle} from './styles/snowOrange';
-  import { mapState, mapMutations } from 'vuex';
+  import { mapState, mapMutations, mapGetters } from 'vuex';
 
   let lodashArray = require('lodash/array');
   let lodashCollection = require('lodash/collection');
@@ -57,15 +57,20 @@
         center: state => state.center,
         zoomLevel: state => state.zoomLevel,
         dragging: state => state.dragging,
-        // markers: state => state.markers,
         bounds: state => state.bounds,
         tempMarkers: state => state.tempMarkers
-      })
+      }),
+      ...mapGetters([
+        'getCurrentSiteData'
+      ])
     },
     watch: {
       tempMarkers: function(val) {
         this.renderMarkers(this.$store.state.worker.mapViewingArea);
-      }
+      },
+      // getCurrentSiteData: function(val) {
+      //   this.centerOnSite();
+      // }
     },
     mounted() {
       loaded.then(() => {
@@ -78,6 +83,12 @@
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
           this.renderMarkers(lastViewport);
         });
+      });
+
+      CCUMapEventHub.$on('site-search', (e) => {
+        const currentSite = this.$store.getters.getCurrentSiteData;
+        this.addMarker(currentSite);
+        this.centerOnSiteWithZoom();
       });
     },
     beforeDestroy: function () {
@@ -140,6 +151,15 @@
           this.heatmap.setMap(this.heatmap.getMap() ? null : this.$refs.map.$mapObject);
         }
       },
+      centerOnSiteWithZoom() {
+        this.centerOnSite();
+        this.$store.commit('map/setZoomLevel', 12);
+      },
+      centerOnSite() {
+        const currentSite = this.$store.getters.getCurrentSiteData;
+        const latLng = new google.maps.LatLng(currentSite.lat, currentSite.lng);
+        this.$refs.map.$mapObject.panTo(latLng);
+      },
       clearMarkers() {
         if (this.$markerCluster) {
           this.$markerCluster.clearMarkers();
@@ -157,6 +177,30 @@
           this.points = new Array();
         }
       },
+      addMarker(mark) {
+        const markerCallback = (m, id) => {
+          m.addListener('click', (e) => {
+            const googleMarker = {
+              id: id,
+              marker: m
+            };
+            CCUMapEventHub.$emit('site-clicked', googleMarker);
+            this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
+            this.$store.dispatch('getSite', googleMarker.id).then(() => {
+              this.centerOnSite();
+            });
+          });
+        };
+
+        const latLng = new google.maps.LatLng(mark.lat, mark.lng);
+        let marker = new google.maps.Marker({
+          position: latLng,
+          map: this.$refs.map.$mapObject,
+          icon: generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
+        });
+        markerCallback(marker, mark.id);
+        return {m: marker, latLng: latLng};
+      },
       renderMarkers(lastViewport) {
         this.clearMarkers();
 
@@ -165,27 +209,10 @@
           []
         );
 
-        const markerCallback = (m, id) => {
-          m.addListener('click', (e) => {
-            const googleMarker = {
-              id: id,
-              marker: m
-            };
-            this.$refs.map.$mapObject.panTo(m.getPosition());
-            CCUMapEventHub.$emit('site-clicked', googleMarker);
-            this.$store.dispatch('getSite', googleMarker.id);
-          });
-        };
         let points = [];
         let markers = this.tempMarkers.map((mark, i) => {
-          const latLng = new google.maps.LatLng(mark.lat, mark.lng);
+          let {m, latLng} = this.addMarker(mark);
           points.push(latLng);
-          let m = new google.maps.Marker({
-            position: latLng,
-            map: this.$refs.map.$mapObject,
-            icon: generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
-          });
-          markerCallback(m, mark.id);
           return m;
         });
         this.points = points;
@@ -195,9 +222,6 @@
         // this.$store.commit('map/setGetMarkersFunc', function() {
         //   return this.markers;
         // })
-
-
-//        this.zoomLevel = lastViewport.zoom;
 
       },
     }
