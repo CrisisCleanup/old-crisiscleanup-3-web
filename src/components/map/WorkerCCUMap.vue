@@ -14,6 +14,7 @@
       style="width: 100%; height: 100%;"
       @click="mapIsClicked"
       @bounds_changed="mapBoundsChanged"
+      @center_changed="mapCenterChanged"
       @zoom_changed="setZoomLevel($event)"
       @dragstart="setDragging(true)"
       @dragend="setDragging(false)"
@@ -68,9 +69,6 @@
       tempMarkers: function(val) {
         this.renderMarkers(this.$store.state.worker.mapViewingArea);
       },
-      // getCurrentSiteData: function(val) {
-      //   this.centerOnSite();
-      // }
     },
     mounted() {
       loaded.then(() => {
@@ -78,10 +76,10 @@
         Vue.prototype.$map2 = () => {
           return this.$refs.map.$mapObject;
         };
-        const eid = this.$store.state.worker.event.id;
-        const lastViewport = this.$store.state.worker.mapViewingArea;
+        const eid = this.$store.state.worker.event.event_id;
+        //this.centerMap(this.$store.state.map.center)
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
-          this.renderMarkers(lastViewport);
+          this.renderMarkers();
         });
       });
 
@@ -100,7 +98,7 @@
       this.$markerCluster.clearMarkers();
     },
     methods: {
-      ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers']),
+      ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers', 'setCenter']),
       mapIsClicked() {
         CCUMapEventHub.$emit('map-is-clicked');
       },
@@ -112,6 +110,9 @@
           maxLat: event.f.f
         };
         this.$store.commit('map/setBounds', bounds);
+      },
+      mapCenterChanged(event) {
+        this.$store.commit('map/setCenter', event);
       },
       draggingEnded(event) {
       },
@@ -160,6 +161,10 @@
         const latLng = new google.maps.LatLng(currentSite.lat, currentSite.lng);
         this.$refs.map.$mapObject.panTo(latLng);
       },
+      centerMap(center) {
+        const latLng = new google.maps.LatLng(center.lat, center.lng);
+        this.$refs.map.$mapObject.panTo(latLng);
+      },
       clearMarkers() {
         if (this.$markerCluster) {
           this.$markerCluster.clearMarkers();
@@ -203,7 +208,7 @@
         this.points.push(latLng);
         return marker;
       },
-      renderMarkers(lastViewport) {
+      renderMarkers() {
         this.clearMarkers();
 
         this.$markerCluster = new MarkerClusterer(

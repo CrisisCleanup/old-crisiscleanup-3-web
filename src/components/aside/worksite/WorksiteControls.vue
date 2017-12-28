@@ -2,19 +2,24 @@
   <div style="background-color: white; z-index: 100; border-bottom: 3px solid gray">
     <div class="row">
       <div class="col">
-        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
-          <button @click="enterNewSite" class="btn btn-primary">New</button>
-          <!--<button @click="firePrintBtn" class="btn btn-secondary">Print</button>-->
-          <button @click="fireSearchFilterBtn" class="btn btn-secondary">Search/Filter</button>
-          <b-btn v-b-modal.modal1>Print</b-btn>
-          <button class="btn btn-secondary">History</button>
-          <!--<button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"-->
-                  <!--v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"-->
-                  <!--v-text="isSiteClaimed ? 'Unclaim' : 'Claim'"></button>-->
-          <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
+        <div class="btn-group mx-auto" role="group">
+          <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">New</button>
+          <button id="searchFilterBtn" @click="fireSearchFilterBtn" class="btn btn-secondary">Search/Filter</button>
+          <b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>
+          <button id="historyBtn" class="btn btn-secondary">History</button>
         </div>
       </div>
       <PrintWorksite />
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="btn-group mx-auto" role="group">
+           <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
+                  v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
+                  v-text="isSiteClaimed ? 'Unclaim' : 'Claim'"></button>
+          <button @click="contactOrg" class="btn btn-secondary">Contact</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -5,7 +5,7 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-nav is-nav-bar class="d-md-down-none">
       <b-nav-item class="px-3">Event:&nbsp;&nbsp;
-        <select @change="updateEventContext">
+        <select @change="updateEventContext" :value="getCurrentEvent.event_id">
           <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
         </select>
       </b-nav-item>
@@ -29,7 +29,7 @@
         <b-dropdown-item><i class="fa fa-wrench"></i> Settings</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item><i class="fa fa-shield"></i> Lock Account</b-dropdown-item>
-        <b-dropdown-item @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
+        <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
     <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button>
@@ -41,9 +41,9 @@ import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
 
   name: 'Header',
-  computed: mapGetters([
-    'getParticipatingEvents'
-  ]),
+  computed: {
+    ...mapGetters([ 'getParticipatingEvents', 'getCurrentEvent' ]),
+  },
   mounted() {
     this.$store.dispatch('getParticipatingEvents');
   },

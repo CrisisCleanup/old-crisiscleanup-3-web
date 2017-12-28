@@ -1,7 +1,7 @@
 <template>
   <div>
-    <WorksiteControls class="p-2" style="position:fixed; width: 100%; height: 55px;"></WorksiteControls>
-    <div class="container-fluid" style="padding-top: 75px;">
+    <WorksiteControls class="p-2" style="position:fixed; width: 100%; height: 90px;"></WorksiteControls>
+    <div class="container-fluid" style="padding-top: 100px;">
       <!--<component :is="activeWorksiteAside"></component>-->
       <IntakeFormAside v-if="activateEditWorksite"></IntakeFormAside>
       <SearchFilterAside v-if="activateSearchFilter"></SearchFilterAside>

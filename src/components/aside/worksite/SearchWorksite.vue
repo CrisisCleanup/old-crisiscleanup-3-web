@@ -66,7 +66,7 @@
       },
       update(text) {
         if (text !== '') {
-          const eventId = this.$store.state.worker.event.id;
+          const eventId = this.$store.state.worker.event.event_id;
           Vue.axios.get(`/worksites?limit=10&legacy_event_id=${eventId}&search=${text}`).then(resp => {
             this.items = resp.data.results;
           });

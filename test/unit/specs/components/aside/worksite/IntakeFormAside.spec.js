@@ -47,8 +47,8 @@ describe('IntakeFormAside.vue', () => {
       const wrapper = shallow(IntakeFormAside, {mocks: {$store}});
       expect(wrapper.isEmpty()).to.not.be.true;
       expect(wrapper.name()).to.equal('IntakeFormAside');
-      const container = wrapper.find('.container-fluid');
-      expect(container.hasStyle('padding-top', '75px')).to.be.true;
+      // const container = wrapper.find('.container-fluid');
+      // expect(container.hasStyle('padding-top', '75px')).to.be.true;
 
       let allButtons = wrapper.findAll('button');
       expect(allButtons.length).to.equal(3);
