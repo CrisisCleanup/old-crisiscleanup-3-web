@@ -14,7 +14,7 @@ import map from './map.js'
 
 // https://github.com/robinvdvleuten/vuex-persistedstate
 const persistedStateOptions = {
-  paths: ['auth', 'worker', 'publicModule']
+  paths: ['auth', 'worker']
 };
 
 const VuexLoading = createVuexLoader({
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
     map
   },
   strict: process.env.NODE_ENV !== 'production',
-  plugins: [VuexLoading.Store, createPersistedState(persistedStateOptions)]
+  plugins: [VuexLoading.Store] //, createPersistedState(persistedStateOptions)]
 });
 
 export default store
