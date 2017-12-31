@@ -1,18 +1,12 @@
 <template>
   <div>
-    <h3>Search Worksites</h3>
-    <SearchWorksite></SearchWorksite>
-    <!--
-    <div class="input-prepend input-group">
-      <span class="input-group-addon"><i class="fa fa-search"></i></span>
-      <input id="prependedInput" class="form-control" size="16" type="text" placeholder="">
-      <span class="input-group-btn">
-          <button class="btn btn-info" type="button">Search</button>
-        </span>
-    </div>
-    -->
-    <br>
-    <h3>Filter Worksites</h3>
+    <Callout class="m-0 py-2 text-muted text-center bg-light text-uppercase">
+      <small><b>Search Worksites</b></small>
+    </Callout>
+    <div class="container" style="padding-top: 10px;">
+      <SearchWorksite></SearchWorksite>
+      <br>
+      <h3>Filter Worksites</h3>
       <b-form-fieldset
         :label-cols="1"
         :horizontal="true">
@@ -52,17 +46,19 @@
           <b>Other</b>
         </b-form-checkbox>
       </b-form-fieldset>
+    </div>
   </div>
 </template>
 
 <script>
-  import Vue from 'vue';
-  import SearchWorksite from './SearchWorksite';
+  import SearchWorksite from './worksite/SearchWorksite';
+  import Callout from '@/components/Callout';
 
   export default {
     name: 'SearchFilterAside',
     components: {
-      SearchWorksite
+      SearchWorksite,
+      Callout
     },
     data() {
       return {}

@@ -36,7 +36,7 @@ const store = new Vuex.Store({
     map
   },
   strict: process.env.NODE_ENV !== 'production',
-  plugins: [VuexLoading.Store] //, createPersistedState(persistedStateOptions)]
+  plugins: [VuexLoading.Store, createPersistedState(persistedStateOptions)]
 });
 
 export default store

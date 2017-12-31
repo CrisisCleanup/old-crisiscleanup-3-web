@@ -3,7 +3,7 @@ import vueAuthInstance from '../services/auth.js'
 export default {
   namespaced: true,
   state: {
-    profile: null,
+    profile: {},
     isAuthenticated: vueAuthInstance.isAuthenticated(),
     loginErrors: null
   },
@@ -22,12 +22,19 @@ export default {
     }
   },
 
+  getters: {
+    getUserName: state => state.profile.name
+  },
+
   actions: {
     login (context, payload) {
       payload = payload || {}
-      return vueAuthInstance.login(payload.user, payload.requestOptions).then(function () {
+      return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
+        });
+        context.commit('setProfile', {
+          profile: resp.data.user
         });
       }, function(error) {
         console.log(error);

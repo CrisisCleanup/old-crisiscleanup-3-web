@@ -4,7 +4,10 @@
       <b-tab  title="<i class='icon-direction'></i>">
         <WorksiteAside/>
       </b-tab>
-      <b-tab title="<i class='icon-list'></i>">
+      <b-tab  title="<i class='icon-magnifier'></i>">
+        <SearchFilterAside></SearchFilterAside>
+      </b-tab>
+      <b-tab title="<i class='icon-printer'></i>">
         <IconListAside/>
       </b-tab>
       <b-tab title="<i class='icon-speech'></i>">
@@ -12,6 +15,8 @@
       </b-tab>
       <b-tab title="<i class='icon-settings'></i>">
         <SettingsAside/>
+      </b-tab>
+      <b-tab title="<i class='icon-folder-alt'></i>">
       </b-tab>
     </b-tabs>
   </aside>
@@ -24,6 +29,7 @@
   import NotificationAside from './aside/NotificationAside.vue';
   import SettingsAside from './aside/SettingsAside.vue';
   import WorksiteAside from './aside/worksite/WorksiteAside.vue';
+  import SearchFilterAside from './aside/SearchFilterAside';
 
   export default {
     name: 'aside',
@@ -35,7 +41,8 @@
       NotificationAside,
       SettingsAside,
       Callout,
-      cSwitch
+      cSwitch,
+      SearchFilterAside
     }
   }
 </script>

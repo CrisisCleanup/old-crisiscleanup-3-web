@@ -135,7 +135,7 @@
 </style>
 
 <template>
-  <b-modal id="modal1" centered="true" size="lg">
+  <b-modal id="modal1" size="lg">
   <div class="WorkOrderPage">
     <table class="mainTable">
       <tbody>
