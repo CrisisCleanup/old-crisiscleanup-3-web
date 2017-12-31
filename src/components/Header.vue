@@ -34,7 +34,7 @@
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
+    <button class="navbar-toggler aside-menu-toggler" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
   </header>
 </template>
 <script>
