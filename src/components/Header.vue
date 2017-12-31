@@ -80,7 +80,7 @@ export default {
       document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {
-      this.$store.dispatch('logout');
+      this.$store.dispatch('auth/logout');
       this.$router.push({path: '/'});
     },
     updateEventContext (e) {

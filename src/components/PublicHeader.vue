@@ -11,15 +11,25 @@
     </b-nav>
     <b-nav is-nav-bar class="ml-auto">
       <b-nav-item class="px-3"><router-link to="register-organization">Register</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="login">Login</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link :to="loginRouteState">{{loginState}}</router-link></b-nav-item>
     </b-nav>
   </header>
 </template>
 <script>
 import vueAuthInstance from '@/services/auth';
+import {mapState} from 'vuex';
 export default {
 
   name: 'header',
+  computed: {
+    ...mapState('auth', ['isAuthenticated']),
+    loginState() {
+      return this.$store.state.auth.isAuthenticated ? 'Dashboard' : 'Login';
+    },
+    loginRouteState() {
+      return this.$store.state.auth.isAuthenticated ? 'worker' : 'login';
+    }
+  },
   methods: {
     sidebarToggle (e) {
       e.preventDefault()
@@ -57,7 +67,6 @@ export default {
         behavior: 'smooth'
       })
     }
-
   }
 }
 </script>

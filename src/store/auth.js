@@ -23,7 +23,8 @@ export default {
   },
 
   getters: {
-    getUserName: state => state.profile.name
+    getUserName: state => state.profile.name,
+    getIsAuthenticated: state => state.isAuthenticated
   },
 
   actions: {
