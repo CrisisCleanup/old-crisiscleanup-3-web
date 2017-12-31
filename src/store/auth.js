@@ -1,9 +1,11 @@
 import vueAuthInstance from '../services/auth.js'
 
 export default {
+  namespaced: true,
   state: {
     profile: null,
-    isAuthenticated: vueAuthInstance.isAuthenticated()
+    isAuthenticated: vueAuthInstance.isAuthenticated(),
+    loginErrors: null
   },
 
   mutations: {
@@ -13,6 +15,10 @@ export default {
 
     setProfile (state, payload) {
       state.profile = payload.profile
+    },
+
+    setLoginErrors (state, payload) {
+      state.loginErrors = payload.hasError;
     }
   },
 
@@ -23,6 +29,9 @@ export default {
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
         });
+      }, function(error) {
+        console.log(error);
+        context.commit('setLoginErrors', {hasError: true});
       })
     },
 
