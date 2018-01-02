@@ -51,9 +51,12 @@ npm test
 10. `yarn run dev` (It will automatically load and launch a new browser tab)
 
 ## Full Setup (Windows)
+0.1 Open an administrator command prompt (https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx)
+0.2 Install choco as administrator `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"` https://chocolatey.org/install
 1. `choco install yarn --version 1.3.2` (requires that chocolately already been installed and configured)
 2. `choco install python2`
 3. Clone `git@github.com:tsanders/crisiscleanup-web.git`
 4. `cd crisiscleanup3-web`
 5. `yarn install`
 6. `yarn run dev` (It will automatically load and launch a new browser tab)
+7. If you run into a `node.js` error, run, `choco install nodejs --version 9.0.0`, reboot, and repeat #6.
