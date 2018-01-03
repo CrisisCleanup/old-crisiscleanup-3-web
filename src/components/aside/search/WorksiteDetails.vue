@@ -11,7 +11,7 @@
       <dt class="col-sm-3">Phone</dt>
       <dd class="col-sm-9">{{ item && item.phone }}</dd>
     </dl>
-    <button @click="viewSite" class="btn btn-primary">View site on Map</button>
+    <button @click="viewSite" class="btn btn-primary">View on Map</button>
   </div>
 </template>
 

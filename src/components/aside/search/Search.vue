@@ -55,6 +55,8 @@
   import OrganizationItemTemplate from './OrganizationItemTemplate';
   import OrganizationDetails from './OrganizationDetails';
   import WorksiteDetails from './WorksiteDetails';
+  import PersonItemTemplate from './PersonItemTemplate';
+  import PersonDetails from './PersonDetails';
 
   import 'v-autocomplete/dist/v-autocomplete.css'
   import CCUMapEventHub from '@/events/CCUMapEventHub'
@@ -73,8 +75,8 @@
         options: [
           {text: 'Worksites', value: 0},
           {text: 'Organizations', value: 1},
-          {text: 'Contacts', value: 2},
-          {text: 'Persons', value: 3},
+          {text: 'Persons', value: 2},
+          {text: 'Contacts', value: 3},
         ],
         selectedSearchOption: 0,
         detailsComponent: WorksiteDetails
@@ -112,10 +114,22 @@
                 this.items = resp.data.results;
               });
               break;
+            case 2:
+              this.template = PersonItemTemplate;
+              Vue.axios.get(`/persons?limit=10&name__icontains=${text}`).then(resp => {
+                this.items = resp.data.results;
+              });
+              break;
           }
         }
       },
       itemSelected(item) {
+        this.genericSelect(item);
+      },
+      itemClicked(item) {
+        this.genericSelect(item);
+      },
+      genericSelect(item) {
         if (item !== null && item.name !== undefined) {
           switch(this.selectedSearchOption) {
             case 0:
@@ -124,11 +138,10 @@
             case 1:
               this.detailsComponent = OrganizationDetails;
               break;
+            case 2:
+              this.detailsComponent = PersonDetails;
+              break;
           }
-        }
-      },
-      itemClicked(item) {
-        if (item !== null && item.case_number !== undefined) {
         }
       }
     }
