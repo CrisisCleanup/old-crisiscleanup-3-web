@@ -116,11 +116,6 @@ const router = new Router({
 
 router.beforeEach(function (to, from, next) {
 
-  // if (Vue.$store.getters.getIsAuthenticated) {
-  //   store.commit('setCurrentUserId', vueAuthInstance.getPayload().user_id);
-  //   store.commit('setCurrentOrgId', vueAuthInstance.getPayload().organization_id);
-  // }
-
   if (to.meta && to.meta.title) {
     document.title = to.meta.title
   }

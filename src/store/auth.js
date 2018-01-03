@@ -37,6 +37,8 @@ export default {
         context.commit('setProfile', {
           profile: resp.data.user
         });
+        context.commit('setCurrentUserId', resp.data.user.id);
+        context.commit('setCurrentOrgId', 1);
       }, function(error) {
         console.log(error);
         context.commit('setLoginErrors', {hasError: true});

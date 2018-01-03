@@ -138,8 +138,8 @@ export default {
 
   getters: {
     getCurrentSiteData: state => state.siteData,
-    isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
-    isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
+    isCurrentSiteClaimed: state => state.siteData.claimed_by_uid !== null,
+    isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by_uid,
     getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats,
     getSiteFormErrors: state => state.errors.siteFormErrors,
