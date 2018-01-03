@@ -4,12 +4,12 @@
       <div class="col">
         <div class="mx-auto" role="group">
           <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">New</button>
-          <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-secondary">Save</button>
+          <button type="button" v-show="getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">Save</button>
           <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
           <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
                   v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed"
                   v-text="isCurrentSiteClaimed ? 'Claim' : 'Unclaim'"></button>
-          <button id="historyBtn" class="btn btn-secondary">History</button>
+          <button id="historyBtn" v-show="getWorksiteViews.editWorksite" class="btn btn-secondary">History</button>
           <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
         </div>
       </div>
@@ -30,7 +30,7 @@
       PrintWorksite
     },
     computed: {
-      ...mapGetters(['isCurrentSiteClaimed', 'isCurrentSiteClaimedByUserOrg'])
+      ...mapGetters(['isCurrentSiteClaimed', 'isCurrentSiteClaimedByUserOrg', 'getWorksiteViews'])
     },
     methods: {
       enterNewSite() {
