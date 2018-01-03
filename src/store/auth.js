@@ -1,10 +1,12 @@
 import vueAuthInstance from '../services/auth.js'
+import jwt from 'jsonwebtoken';
 
 export default {
   namespaced: true,
   state: {
     profile: {},
     isAuthenticated: vueAuthInstance.isAuthenticated(),
+    isTokenExpired: false,
     loginErrors: null
   },
 
@@ -19,6 +21,10 @@ export default {
 
     setLoginErrors (state, payload) {
       state.loginErrors = payload.hasError;
+    },
+
+    setIsTokenExpired (state, payload) {
+      state.isTokenExpired = payload.isTokenExpired;
     }
   },
 
@@ -29,7 +35,7 @@ export default {
 
   actions: {
     login (context, payload) {
-      payload = payload || {}
+      payload = payload || {};
       return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
@@ -70,6 +76,18 @@ export default {
           isAuthenticated: vueAuthInstance.isAuthenticated()
         })
       })
+    },
+
+    checkToken ({state, commit}) {
+      const token = vueAuthInstance.getToken();
+      var decodedToken = jwt.decode(token, {complete: true});
+      var dateNow = new Date();
+
+      if(decodedToken.exp < dateNow.getTime()) {
+        commit('setIsTokenExpired', true)
+      } else {
+        commit('setIsTokenExpired', false)
+      }
     }
   }
 }

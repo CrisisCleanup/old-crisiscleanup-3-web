@@ -121,6 +121,7 @@ router.beforeEach(function (to, from, next) {
   }
 
   if (to.meta && to.meta.auth !== undefined) {
+    store.dispatch('auth/checkToken');
     if (to.meta.auth) {
       if (store.state.auth.isAuthenticated) {
         next()
