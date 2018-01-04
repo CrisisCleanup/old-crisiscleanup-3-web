@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
   args: ['install']
-- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-  args: ['run', 'unit']
+#- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
+#  args: ['run', 'unit']
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
   args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
