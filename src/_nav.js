@@ -55,6 +55,15 @@ export default {
       name: 'Phone',
       url: '/worker/phone',
       icon: 'icon-phone',
+    },
+    {
+      title: true,
+      name: 'UI elements',
+      class: '',
+      wrapper: {
+        element: '',
+        attributes: {}
+      }
     }
   ]
 }

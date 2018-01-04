@@ -9,6 +9,7 @@ Vue.use(Vuex);
 // Modules
 import auth from './auth.js'
 import worker from './worker.js'
+import phone from './phone.js'
 import publicModule from './public.js'
 import map from './map.js'
 import phone from './phone.js'

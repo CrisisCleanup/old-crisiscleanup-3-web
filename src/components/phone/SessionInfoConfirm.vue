@@ -3,7 +3,7 @@
   <div class="col-6">
     <div class="card text-white bg-dark">
       <div class="card-body">
-        <h4 class="card-title">Welcome back {{ userName }}!</h4>
+        <h4 class="card-title">Welcome back {{ userName.first }}!</h4>
 
         <div class="form-group">
           <label>Please confirm the number you would like to use today. Don't worry, we will hide it on all inbound and outbound calls for your protection.
