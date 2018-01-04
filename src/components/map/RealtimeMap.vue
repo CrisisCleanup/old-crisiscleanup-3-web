@@ -133,7 +133,7 @@
           },
           scaleControl: true,
         };
-        const eid = this.$store.state.worker.eventId;
+        const eid = this.$store.state.worker.event.event_id;
         const lastViewport = this.$store.state.worker.mapViewingArea;
         this.pullSites(eid, lastViewport);
       });

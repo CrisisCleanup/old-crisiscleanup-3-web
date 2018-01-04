@@ -1,6 +1,6 @@
 <template>
   <header class="app-header navbar">
-    <b-link class="navbar-brand"><router-link to="public"></router-link></b-link>
+    <router-link class="navbar-brand" to="map"></router-link>
     <b-nav is-nav-bar class="d-md-down-none">
       <b-nav-item class="px-3"><router-link to="map">Realtime Map</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-donate">Donate</router-link></b-nav-item>

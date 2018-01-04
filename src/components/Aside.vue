@@ -2,16 +2,21 @@
   <aside class="aside-menu">
     <b-tabs>
       <b-tab  title="<i class='icon-direction'></i>">
-        <IntakeFormAside/>
+        <WorksiteAside/>
       </b-tab>
-      <b-tab title="<i class='icon-list'></i>">
+      <b-tab  title="<i class='icon-magnifier'></i>">
+        <SearchFilterAside></SearchFilterAside>
+      </b-tab>
+      <b-tab title="<i class='icon-printer'></i>">
         <IconListAside/>
       </b-tab>
-      <b-tab v-if="showNotifications" title="<i class='icon-speech'></i>">
+      <b-tab title="<i class='icon-speech'></i>">
         <NotificationAside/>
       </b-tab>
       <b-tab title="<i class='icon-settings'></i>">
         <SettingsAside/>
+      </b-tab>
+      <b-tab title="<i class='icon-folder-alt'></i>">
       </b-tab>
     </b-tabs>
   </aside>
@@ -23,25 +28,21 @@
   import IconListAside from './aside/IconListAside.vue';
   import NotificationAside from './aside/NotificationAside.vue';
   import SettingsAside from './aside/SettingsAside.vue';
-  import IntakeFormAside from './aside/worksite/IntakeFormAside.vue';
+  import WorksiteAside from './aside/worksite/WorksiteAside.vue';
+  import SearchFilterAside from './aside/SearchFilterAside';
 
   export default {
     name: 'aside',
     computed: {
-      showIntakeForm() {
-        return true;
-      },
-      showNotifications() {
-        return false;
-      }
     },
     components: {
-      IntakeFormAside,
+      WorksiteAside,
       IconListAside,
       NotificationAside,
       SettingsAside,
       Callout,
-      cSwitch
+      cSwitch,
+      SearchFilterAside
     }
   }
 </script>
