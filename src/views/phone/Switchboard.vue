@@ -2,20 +2,23 @@
     <div>
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
-      <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage"/>
+      <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage" v-on:takingCalls="takingIncomingCalls"/>
+      <incoming-call-script :userName="userName" v-if="showIncomingCallScript"/>
       <session-info-confirm :userName="userName" v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo" />
     </div>
 </template>
 
 <script>
-  import { mapMutations, mapState } from 'vuex'
+  import { mapMutations, mapState, mapGetters } from 'vuex'
   import SessionInfoConfirm from '@/components/phone/SessionInfoConfirm'
   import UserInfo from '@/components/phone/UserInfo'
-var a;
+  import IncomingCallScript from '@/components/phone/IncomingCallScript'
+
   export default {
     components: {
       'session-info-confirm': SessionInfoConfirm,
-      'user-info':UserInfo
+      'user-info':UserInfo,
+      'incoming-call-script': IncomingCallScript
     },
     mounted: function() {
       if (this.needsWelcome) {
@@ -24,7 +27,8 @@ var a;
     },
     data() {
       return {
-        showConfirmSessionInfo: true
+        showConfirmSessionInfo: true,
+        showIncomingCallScript: false,
       }
     },
     computed: {
@@ -38,7 +42,8 @@ var a;
         return 'taking calls from Hurricane Irma'
       },
       ...mapState('phone', [
-        'needsWelcome'
+        'needsWelcome',
+        'state',
       ]),
     },
     methods: {
@@ -46,10 +51,23 @@ var a;
         console.log('Session info confirmed', info);
         this.showConfirmSessionInfo = false;
       },
+      takingIncomingCalls() {
+        if (this.state == 'takingIncomingCalls')
+        {
+          this.$store.commit('phone/notTakingCalls');
+          this.showIncomingCallScript = false;
+        }
+        else
+        {
+          this.$store.commit('phone/takingCalls');
+          this.showIncomingCallScript = true;
+        }
+
+      },
       setNeedsWelcome() {
         this.$store.commit('phone/needsWelcome');
         this.$router.push('/worker/phone/welcome');
-      }
+      },
     }
   }
 </script>

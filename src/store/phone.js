@@ -3,7 +3,7 @@ export default {
 
     state: {
         needsWelcome: true,
-        takingCalls: false,
+        state: 'startState',
     },
 
     mutations: {
@@ -13,14 +13,15 @@ export default {
         needsWelcome(state) {
             state.needsWelcome = true;
         },
-        setTakingCalls(takingCallsState) {
-            state.takingCalls = takingCallsState;
+        takingCalls(state) {
+            state.state = 'takingIncomingCalls';
+        },
+        notTakingCalls(state) {
+            state.state = 'startState';
         },
     },
 
-    getters: {
-        getTakingCalls: state => state.takingCalls,
-    },
+    getters: {},
 
     actions: {},
 };
