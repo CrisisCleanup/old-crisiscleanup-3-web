@@ -53,15 +53,18 @@ npm test
 
 
 ## Full Setup (Windows)
-1. Install chocolately
+1. Ensure you have the Microsoft .NET framework 2.0 or greater installed. https://www.microsoft.com/en-us/download/details.aspx?id=55170
+2. Install chocolately
     1. Open an administrator command prompt (https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx)
     2. Install choco as administrator `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"` 
     3. More info: https://chocolatey.org/install
-2. `choco install nodejs-lts -y` (requires that chocolately already been installed and configured. This will not work if node.js has already been installed in some other way.)
-3. `choco install yarn --version 1.3.2 -y` (requires that chocolately already been installed and configured)
-4. `choco install python2 -y`
-5. Clone `git@github.com:tsanders/crisiscleanup-web.git`
-6. `cd crisiscleanup3-web`
-7. `yarn install`
-8. `yarn run dev` (It will automatically load and launch a new browser tab)
+3. `choco install nodejs-lts -y` (requires that chocolately already been installed and configured. This will not work if node.js has already been installed in some other way.)
+4. `choco install yarn --version 1.3.2 -y` (requires that chocolately already been installed and configured)
+5. `choco install python2 -y`
+6. Clone `git@github.com:tsanders/crisiscleanup-web.git`
+7. Refresh or reopen administrative shell. `cd [PATH]/crisiscleanup-web`
+8. `yarn install`
+    1. If this does not work, yarn might not be able to find the Python path, or the correct .NET framework might not be installed.
+    2. See https://stackoverflow.com/a/33047257. Run `get-command python` to find the path, then run `npm config set python [PATH]\python.exe` to manually set the path. Then try `yarn install` again.
+9. `yarn run dev` (It will automatically load and launch a new browser tab)
 
