@@ -63,8 +63,9 @@ npm test
 5. `choco install python2 -y`
 6. Clone `git@github.com:tsanders/crisiscleanup-web.git`
 7. Refresh or reopen administrative shell. `cd [PATH]/crisiscleanup-web`
-8. `yarn install`
-    1. If this does not work, yarn might not be able to find the Python path, or the correct .NET framework might not be installed.
-    2. See https://stackoverflow.com/a/33047257. Run `get-command python` to find the path, then run `npm config set python [PATH]\python.exe` to manually set the path. Then try `yarn install` again.
+8. `yarn install` If this does not work, yarn might not be able to find the Python path, or the correct .NET framework might not be installed.
+    1. If you get a persistent .NET error, and you know it's installed, try running `npm install -g windows-build-tools`, followed by `npm config set msvs_version 2015 -g` (see https://github.com/sass/node-sass/issues/2074).
+    2. See https://stackoverflow.com/a/33047257. Run `get-command python` to find the path, then run `npm config set python [PATH]\python.exe` to manually set the path. Delete `[PATH]/crisiscleanup-web/node_modules`, open a fresh administrative shell, `cd [PATH]/crisiscleanup-web`, and try `yarn install` again.
 9. `yarn run dev` (It will automatically load and launch a new browser tab)
+10. `Ctrl+c` to kill the local server when done. Note: Powershell has a bug where `Ctrl+c` does not work. Try a regular administrative shell. (see https://stackoverflow.com/questions/42039231/ctrl-c-for-quitting-python-in-powershell-now-not-working)
 
