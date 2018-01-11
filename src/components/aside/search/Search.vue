@@ -3,7 +3,7 @@
     <b-form-group label="Search For: ">
       <b-form-radio-group v-model="selectedSearchOption" :options="options"></b-form-radio-group>
     </b-form-group>
-    <v-autocomplete :items="items" v-model="item" :get-label='getLabel' :min-len='0' :component-item='template'
+    <v-autocomplete :items="items" v-model="item" :get-label='getLabel' :wait='0' :component-item='template'
                     @update-items="update" @item-selected="itemSelected" @item-clicked="itemClicked"
                     :input-attrs="{name: 'input-test', id: 'v-my-autocomplete', class: 'form-control', type: 'search'}">
     </v-autocomplete>
@@ -57,6 +57,8 @@
   import WorksiteDetails from './WorksiteDetails';
   import PersonItemTemplate from './PersonItemTemplate';
   import PersonDetails from './PersonDetails';
+  import ContactItemTemplate from './ContactItemTemplate';
+  import ContactDetails from './ContactDetails';
 
   import 'v-autocomplete/dist/v-autocomplete.css'
   import CCUMapEventHub from '@/events/CCUMapEventHub'
@@ -68,7 +70,7 @@
     components: {'v-autocomplete': Autocomplete},
     data() {
       return {
-        item: {},
+        item: "",
         items: [],
         itemsApi: [],
         template: null,
@@ -85,14 +87,18 @@
     methods: {
       getLabel(item) {
         if (item !== null) {
-          switch(this.selectedSearchOption) {
+          switch (this.selectedSearchOption) {
             case 0:
               if (item.name !== undefined) {
                 return `${item.case_number}: ${item.name} ${item.address} ${item.city} ${item.state} ${item.zip_code}`;
               }
-            case 1:
+            case 3:
+              if (item.first_name !== undefined) {
+                return `${item.first_name}`;
+              }
+            default:
               if (item.name !== undefined) {
-                return `${item.name}:`;
+                return `${item.name}`;
               }
           }
         }
@@ -101,7 +107,7 @@
       update(text) {
         if (text !== '') {
           const eventId = this.$store.state.worker.event.event_id;
-          switch(this.selectedSearchOption) {
+          switch (this.selectedSearchOption) {
             case 0:
               this.template = ItemTemplate;
               Vue.axios.get(`/worksites?limit=10&legacy_event_id=${eventId}&search=${text}`).then(resp => {
@@ -120,6 +126,13 @@
                 this.items = resp.data.results;
               });
               break;
+            case 3:
+              this.template = ContactItemTemplate;
+              Vue.axios.get(`/contacts?limit=10&name__icontains=${text}`).then(resp => {
+                console.log(resp.data.results)
+                this.items = resp.data.results;
+              });
+              break;
           }
         }
       },
@@ -131,7 +144,7 @@
       },
       genericSelect(item) {
         if (item !== null && item.name !== undefined) {
-          switch(this.selectedSearchOption) {
+          switch (this.selectedSearchOption) {
             case 0:
               this.detailsComponent = WorksiteDetails;
               break;
@@ -140,6 +153,13 @@
               break;
             case 2:
               this.detailsComponent = PersonDetails;
+              break;
+          }
+        } else (item !== null && item.first_name !== undefined)
+        {
+          switch (this.selectedSearchOption) {
+            case 3:
+              this.detailsComponent = ContactDetails;
               break;
           }
         }
