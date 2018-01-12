@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <div class="text-center">
-          <div><h2>Help Volunteers Help More People</h2></div>
+          <div><h2>{{ $t('donation.t1') }}</h2></div>
           <div class="volunteer-subtext">
             Volunteers waste less time + find more oppportunities + stay longer = HELP MORE PEOPLE
           </div>
