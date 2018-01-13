@@ -83,7 +83,9 @@ export default {
       var decodedToken = jwt.decode(token, {complete: true});
       var dateNow = new Date();
 
-      if(decodedToken.exp < dateNow.getTime()) {
+      if (!decodedToken) {
+        commit('setIsTokenExpired', false)
+      } else if(decodedToken.exp < dateNow.getTime()) {
         commit('setIsTokenExpired', true)
       } else {
         commit('setIsTokenExpired', false)
