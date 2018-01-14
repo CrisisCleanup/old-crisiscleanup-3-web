@@ -6,6 +6,8 @@ import Main from '@/containers/Main'
 
 import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
+import BrowseWorksites from '@/views/worker/BrowseWorksites';
+import BrowseOrganizations from '@/views/worker/BrowseOrganizations';
 import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
 
@@ -101,6 +103,18 @@ const router = new Router({
           name: 'MyOrganization',
           component: MyOrganization,
           meta: {auth: true, title: 'My Organization'},
+        },
+        {
+          path: 'worksites',
+          name: 'BrowseWorksites',
+          component: BrowseWorksites,
+          meta: {auth: true, title: 'Browse Worksites'},
+        },
+        {
+          path: 'organizations',
+          name: 'BrowseOrganizations',
+          component: BrowseOrganizations,
+          meta: {auth: true, title: 'Browse Organizations'},
         },
         {
           path: 'charts',
