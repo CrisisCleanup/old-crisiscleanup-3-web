@@ -205,7 +205,7 @@ export default {
       });
     },
     getParticipatingEvents({commit, state}) {
-      Vue.axios.get(`/events?ordering=-created_at&limit=500`).then(resp => {
+      Vue.axios.get(`/public/events?ordering=-created_at&limit=500`).then(resp => {
         commit('setParticipatingEvents', resp.data.results)
       });
     },
