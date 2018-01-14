@@ -141,19 +141,18 @@
       <tbody>
       <tr>
         <td colspan="28">
-          <h1>Work Order and Assessment: {{site.case_number}}</h1>
+          <h1>{{ $t('printWorksite.title') }}: {{site.case_number}}</h1>
         </td>
       </tr>
       <tr>
         <td colspan="28" class="blackBackground">
-          <p class="whiteSubtitle">When finished, report the case #, volunteers, hours worked, and initials of resident
-            present during work</p>
+          <p class="whiteSubtitle">{{ $t('printWorksite.finished_instructions') }}</p>
         </td>
       </tr>
 
       <tr>
         <td class="allBorders">
-          <p>Case #</p>
+          <p>{{ $t('printWorksite.case_number') }}</p>
         </td>
         <td colspan="3" class="blackBackground">
           <p class="whiteSubtitle">{{site.case_number}}</p>
@@ -162,26 +161,25 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="15" class="allBorders">
-          <p>Entered by: <!--{{reported_by_org.name}}--></p>
+          <p>{{ $t('printWorksite.reported_by') }}: {{reported_by_org.name}}</p>
         </td>
         <td colspan="2">
           <p>&nbsp;</p>
         </td>
         <td class="allBorders" colspan="5">
-          <p>Claimed by: <!--{{claimed_by_org.name}}--></p>
+          <p>{{ $t('printWorksite.claimed_by') }}: {{claimed_by_org.name}}</p>
         </td>
       </tr>
 
       <tr>
         <td colspan="28">
-          <p style="font-size: smaller; font-style: italic;"><strong>Team leaders</strong>: Ask for direct access to the
-            Crisis Cleanup map. <strong>New organizations</strong>: Register at crisiscleanup.org/register.</p>
+          <p style="font-size: smaller; font-style: italic;">{{ $t('printWorksite.register_instructions') }}</p>
         </td>
       </tr>
 
       <tr>
         <td colspan="8" class="topThickBorder">
-          <p class="sectionTitle">Personal Information</p>
+          <p class="sectionTitle">{{ $t('printWorksite.personal_information') }}</p>
         </td>
         <td colspan="20" class="topThickBorder">
           <p>&nbsp;</p>
@@ -190,7 +188,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Today's Date</p>
+          <p>{{ $t('printWorksite.todays_date') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data"></p>
@@ -199,7 +197,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Requested Date</p>
+          <p>{{ $t('printWorksite.request_date') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">{{site.request_date}}</p>
@@ -214,7 +212,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Resident Name</p>
+          <p>{{ $t('printWorksite.name') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data">{{site.name}}</p>
@@ -223,7 +221,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Primary Work Type</p>
+          <p>{{ $t('printWorksite.work_type') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">{{site.work_type}}</p>
@@ -232,7 +230,7 @@
 
       <tr>
         <td rowspan="2" colspan="2" class="allBorders">
-          <p>Address<br>
+          <p>{{ $t('printWorksite.address') }}<br>
 
             &nbsp;&nbsp;&nbsp;<em>({{site.data.rent_or_own}})</em>
 
@@ -246,7 +244,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Cross Street</p>
+          <p>{{ $t('printWorksite.cross_street') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">{{site.data.cross_street}}</p>
@@ -258,7 +256,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Priority (1=high)</p>
+          <p>{{ $t('printWorksite.priority') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">{{site.data.priority}}</p>
@@ -268,7 +266,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Phone Number</p>
+          <p>{{ $t('printWorksite.phone1') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data">{{site.phone1}}</p>
@@ -277,7 +275,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Member</p>
+          <p>{{ $t('printWorksite.member_of_assessing_organization') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">
@@ -288,7 +286,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Best Time to Call</p>
+          <p>{{ $t('printWorksite.time_to_call') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data">{{site.data.time_to_call}}</p>
@@ -297,7 +295,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>First Responder</p>
+          <p>{{ $t('printWorksite.first_responder') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">
@@ -309,7 +307,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Disabled</p>
+          <p>{{ $t('printWorksite.disabled') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data">
@@ -320,7 +318,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p>Over 60 Years Old</p>
+          <p>{{ $t('printWorksite.older_than_60') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p class="data">
@@ -331,7 +329,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Special Needs</p>
+          <p>{{ $t('printWorksite.special_needs') }}</p>
         </td>
         <td colspan="26" class="allBorders">
           <p class="data">{{site.data.special_needs}}</p>
@@ -348,7 +346,7 @@
 
       <tr>
         <td colspan="8" class="topThickBorder">
-          <p class="sectionTitle">Description of Work</p>
+          <p class="sectionTitle">{{ $t('printWorksite.damage_notes') }}</p>
         </td>
         <td colspan="20" class="topThickBorder">
           <p>{{site.data.damage_notes}}</p>
@@ -357,7 +355,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Flood Height (ft)</p>
+          <p>{{ $t('printWorksite.flood_height') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">{{site.data.flood_height}}</p>
@@ -366,7 +364,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Appliance Removal</p>
+          <p>{{ $t('printWorksite.appliance_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -377,7 +375,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="7" class="allBorders">
-          <p>Trees Down</p>
+          <p>{{ $t('printWorksite.num_trees_down') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">{{site.data.num_trees_down}}</p>
@@ -386,7 +384,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="4" class="allBorders">
-          <p>Outside Debris Removal</p>
+          <p>{{ $t('printWorksite.debris_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -398,7 +396,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Carpet Removal</p>
+          <p>{{ $t('printWorksite.carpet_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -409,7 +407,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Standing Water</p>
+          <p>{{ $t('printWorksite.standing_water') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -420,7 +418,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="7" class="allBorders">
-          <p>Large Trees Down (&gt;18")</p>
+          <p>{{ $t('printWorksite.num_wide_trees') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">{{site.data.num_wide_trees}}</p>
@@ -439,7 +437,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Hardwood Floor</p>
+          <p>{{ $t('printWorksite.hardwood_floor_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -450,7 +448,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Mold Remediation</p>
+          <p>{{ $t('printWorksite.mold_remediation') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -461,7 +459,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="7" class="allBorders">
-          <p>Roof Damage</p>
+          <p>{{ $t('printWorksite.house_roof_damage') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -482,7 +480,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Drywall Removal</p>
+          <p>{{ $t('printWorksite.drywall_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -493,7 +491,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Pump Requested</p>
+          <p>{{ $t('printWorksite.pump_needed') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -504,7 +502,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="7" class="allBorders">
-          <p>Tarps Needed</p>
+          <p>{{ $t('printWorksite.tarps_needed') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">{{site.data.tarps_needed}}</p>
@@ -523,7 +521,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Heavy Items</p>
+          <p>{{ $t('printWorksite.heavy_item_removal') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -534,7 +532,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Floors Flooded</p>
+          <p>{{ $t('printWorksite.floors_affected') }}</p>
         </td>
         <td colspan="16" class="allBorders">
           <p class="data">{{site.data.floors_affected}}</p>
@@ -543,7 +541,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Other Work</p>
+          <p>{{ $t('printWorksite.work_requested') }}</p>
         </td>
         <td colspan="26" class="allBorders">
           <p class="data">{{site.work_requested}}</p>
@@ -552,7 +550,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Notes</p>
+          <p>{{ $t('printWorksite.notes') }}</p>
         </td>
         <td colspan="26" class="allBorders">
           <p class="data">{{site.data.notes}} {{site.data.damage_notes}} {{site.data.status_notes}}</p>
@@ -566,14 +564,14 @@
         </td>
       </tr>
       <tr>
-        <td colspan="28"><p class="subSectionTitle">Hazards</p>
+        <td colspan="28"><p class="subSectionTitle">{{ $t('printWorksite.hazards_info') }}</p>
         </td>
       </tr>
 
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Home Habitable</p>
+          <p>{{ $t('printWorksite.habitable') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -584,7 +582,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="8" class="allBorders">
-          <p>Power on</p>
+          <p>{{ $t('printWorksite.electricity') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -595,7 +593,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="7" class="allBorders">
-          <p>Downed Wires</p>
+          <p>{{ $t('printWorksite.electrical_lines') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -606,7 +604,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="4" class="allBorders">
-          <p>Work Without Homeowner</p>
+          <p>{{ $t('printWorksite.work_without_resident') }}</p>
         </td>
         <td class="allBorders">
           <p class="data">
@@ -617,7 +615,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Other Hazards</p>
+          <p>{{ $t('printWorksite.other_hazards') }}</p>
         </td>
         <td colspan="26" class="allBorders">
           <p class="data">{{site.data.other_hazards}}</p>
@@ -634,7 +632,7 @@
 
       <tr>
         <td colspan="8" class="topThickBorder">
-          <p class="sectionTitle">Homeowner Release</p>
+          <p class="sectionTitle">{{ $t('printWorksite.legal_release_title') }}</p>
         </td>
         <td colspan="20" class="topThickBorder">
           <p>&nbsp;</p>
@@ -643,17 +641,12 @@
       </tr>
       <tr>
         <td colspan="28" class="allBorders">
-          <p>I hold the volunteers, their organization, representatives, agents, and service providers, harmless from
-            any damage or injury that may occur on my property, including personal injury. Further, I understand that no
-            warranty or guarantee, express or implied, is provided for work performed on my property. I have taken any
-            photos needed for insurance purposes and give permission for repairs, demolition and/or debris removal.
-            Volunteers (circle one):&nbsp;&nbsp;&nbsp;<strong>May</strong>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<strong>May
-              Not</strong>&nbsp;&nbsp;&nbsp;perform service in my absence.</p>
+          <p>{{ $t('printWorksite.legal_release') }}</p>
         </td>
       </tr>
       <tr>
         <td colspan="28">
-          <p><em>Signature of home owner (or home owner's representative):</em></p>
+          <p><em>{{ $t('printWorksite.homeowner_signature') }}:</em></p>
           <p>&nbsp;</p>
         </td>
       </tr>
@@ -661,26 +654,26 @@
 
       <tr>
         <td colspan="8" class="topThickBorder">
-          <p class="sectionTitle">Report</p>
+          <p class="sectionTitle">{{ $t('printWorksite.report') }}</p>
         </td>
         <td colspan="6" class="topThickBorder">
           <p>&nbsp;</p>
         </td>
         <td colspan="9" class="topThickBorder">
-          <p><em>Initials of Resident Present</em></p>
+          <p><em>{{ $t('printWorksite.initials_of_resident_present') }}</em></p>
         </td>
         <td class="topThickBorder">
           <p>&nbsp;</p>
         </td>
         <td colspan="4" class="topThickBorder">
-          <p><em>Status/Address/Type of Work/Notes</em></p>
+          <p><em>{{ $t('printWorksite.misc_notes') }}</em></p>
         </td>
 
       </tr>
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Hours Worked</p>
+          <p>{{ $t('printWorksite.hours_worked_per_volunteer') }}</p>
         </td>
         <td class="allBorders">
           <p>&nbsp;</p>
@@ -689,7 +682,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p># Volunteers</p>
+          <p>{{ $t('printWorksite.total_volunteers') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -711,7 +704,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Hours (Neighbor)</p>
+          <p>{{ $t('printWorksite.hours_neighbor') }}</p>
         </td>
         <td class="allBorders">
           <p>&nbsp;</p>
@@ -720,7 +713,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p># Volunteers</p>
+          <p>{{ $t('printWorksite.total_volunteers') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -742,7 +735,7 @@
 
       <tr>
         <td colspan="2" class="allBorders">
-          <p>Hours (Neighbor)</p>
+          <p>{{ $t('printWorksite.hours_neighbor') }}</p>
         </td>
         <td class="allBorders">
           <p>&nbsp;</p>
@@ -751,7 +744,7 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="6" class="allBorders">
-          <p># Volunteers</p>
+          <p>{{ $t('printWorksite.total_volunteers') }}</p>
         </td>
         <td colspan="3" class="allBorders">
           <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -772,7 +765,7 @@
 
       <tr>
         <td colspan="10" class="topThickBorder statusLabel">
-          <!--<p>Status as of {{ Time.now.strftime('%F %H:%M')}}:</p>-->
+          <p>{{ $t('printWorksite.status_as_of') }} {{ Time.now.strftime('%F %H:%M')}}:</p>
         </td>
         <td colspan="18" class="topThickBorder">
           <p class="sectionTitle">{{site.status }}</p>

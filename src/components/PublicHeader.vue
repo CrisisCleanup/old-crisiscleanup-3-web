@@ -2,16 +2,16 @@
   <header class="app-header navbar">
     <router-link class="navbar-brand" to="map"></router-link>
     <b-nav is-nav-bar class="d-md-down-none">
-      <b-nav-item class="px-3"><router-link to="map">{{ $t('publicHeader.t1') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="map#go-donate">{{ $t('publicHeader.t2') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="map#go-poweredby">{{ $t('publicHeader.t3') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="map#go-whoweserve">{{ $t('publicHeader.t4') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="map#go-whyccu">{{ $t('publicHeader.t5') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="map#go-join">{{ $t('publicHeader.t6') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map">{{ $t('publicHeader.realtime_map') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map#go-donate">{{ $t('publicHeader.donate') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map#go-poweredby">{{ $t('publicHeader.poweredby') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map#go-whoweserve">{{ $t('publicHeader.who_serve') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map#go-whyccu">{{ $t('publicHeader.testimonials') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="map#go-join">{{ $t('publicHeader.join') }}</router-link></b-nav-item>
     </b-nav>
     <b-nav is-nav-bar class="ml-auto">
-      <b-nav-item class="px-3"><router-link to="register-organization">{{ $t('publicHeader.t7') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="login">{{ $t('publicHeader.t8') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="register-organization">{{ $t('publicHeader.register') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="login">{{ $t('publicHeader.login') }}</router-link></b-nav-item>
     </b-nav>
   </header>
 </template>
