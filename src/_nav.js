@@ -4,15 +4,9 @@ export default {
       name: 'Dashboard',
       url: '/worker/dashboard',
       icon: 'icon-home',
-      /*
-      badge: {
-        variant: 'primary',
-        text: 'NEW'
-      }
-      */
     },
     {
-      name: 'Map',
+      name: 'Event Map',
       url: '/worker/map',
       icon: 'icon-map',
     },
@@ -22,9 +16,9 @@ export default {
       icon: 'icon-people',
     },
     {
-      name: 'My Worksites',
+      name: 'Browse Worksites',
       url: '/worker/worksites',
-      icon: 'icon-briefcase',
+      icon: 'icon-speedometer',
     },
     {
       name: 'Contacts',
@@ -33,14 +27,10 @@ export default {
     },
     {
       name: 'Organizations',
-      url: '/worker/orgs',
+      url: '/worker/organizations',
       icon: 'icon-people',
     },
-    {
-      name: 'Browse',
-      url: '/worker/browse',
-      icon: 'icon-speedometer',
-    },
+
     {
       name: 'Charts',
       url: '/worker/charts',
