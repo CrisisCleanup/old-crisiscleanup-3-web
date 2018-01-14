@@ -124,9 +124,12 @@
             }
 
             let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
-            let workerMapObj = Vue.prototype.$map2();
-            addressAutocomplete.bindTo('bounds', workerMapObj);
-            addressAutocomplete.addListener('place_changed', fillInAddress);
+            let workerMapObj = null;
+            if (Vue.prototype.$map2) {
+              workerMapObj = Vue.prototype.$map2();
+              addressAutocomplete.bindTo('bounds', workerMapObj);
+              addressAutocomplete.addListener('place_changed', fillInAddress);
+            }
 
             function setLatLng (position) {
               if (latitudeField && longitudeField) {

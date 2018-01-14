@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="item">
     <h4>Worksite Details</h4>
     <dl class="row" v-show="item !== null">
       <dt class="col-sm-3">Name</dt>
@@ -26,6 +26,7 @@
     methods: {
       viewSite() {
         this.$store.dispatch('getSite', this.item.id).then(() => {
+          this.$router.push({path: 'map'});
           CCUMapEventHub.$emit('site-search');
         })
       }
