@@ -34,11 +34,10 @@
     },
     mounted() {
       DashboardEventHub.$on('open-aside', (e) => {
-        document.body.classList.toggle('aside-menu-hidden')
-        console.log(e);
+        // document.body.classList.toggle('aside-menu-hidden')
       });
       DashboardEventHub.$on('close-aside', (e) => {
-        document.body.classList.toggle('aside-menu-hidden')
+        // document.body.classList.toggle('aside-menu-hidden')
       });
     },
 
