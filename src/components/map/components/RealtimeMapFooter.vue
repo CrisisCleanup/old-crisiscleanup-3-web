@@ -2,22 +2,22 @@
   <div id="realtime-map-footer" class="row row justify-content-center">
     <div class="col-md-3 col-sm-12">
       <div class="text-center">
-        <StatOdometer starting-value="1" :total="getRealtimeStats.orgCount"></StatOdometer>  Organizations
+        <StatOdometer starting-value="1" :total="getRealtimeStats.orgCount"></StatOdometer>  {{ $t('realtimeMapFooter.organizations') }}
       </div>
     </div>
     <div class="col-md-3 col-sm-12">
       <div class="text-center">
-        <StatOdometer starting-value="1" :total="getRealtimeStats.requests"></StatOdometer>  Requests for Help
+        <StatOdometer starting-value="1" :total="getRealtimeStats.requests"></StatOdometer>  {{ $t('realtimeMapFooter.requests_help') }}
       </div>
     </div>
     <div class="col-md-3 col-sm-12">
       <div class="text-center">
-        <StatOdometer starting-value="1" :total="getRealtimeStats.completed"/>  Completed
+        <StatOdometer starting-value="1" :total="getRealtimeStats.completed"/>  {{ $t('realtimeMapFooter.completed') }}
       </div>
     </div>
     <div class="col-md-3 col-sm-12">
       <div class="text-center">
-        <StatOdometer starting-value="1" :total="getRealtimeStats.working"/>  Open and Working
+        <StatOdometer starting-value="1" :total="getRealtimeStats.working"/>  {{ $t('realtimeMapFooter.in_progress') }}
       </div>
     </div>
   </div>

@@ -1,12 +1,12 @@
 <template>
   <div>
     <Callout class="m-0 py-2 text-muted text-center bg-light text-uppercase">
-      <small><b>Search Worksites</b></small>
+      <small><b>{{ $t('searchFilterAside.search_worksites') }}</b></small>
     </Callout>
     <div class="container" style="padding-top: 10px;">
       <SearchWorksite></SearchWorksite>
       <br>
-      <h3>Filter Worksites</h3>
+      <h3>{{ $t('searchFilterAside.filter_worksites') }}</h3>
       <b-form-fieldset
         :label-cols="1"
         :horizontal="true">
