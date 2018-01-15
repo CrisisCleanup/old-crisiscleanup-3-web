@@ -1,14 +1,12 @@
 <template>
     <div>
-      we: {{test}}
-       <h1>Welcome to the Call Center</h1>
     <div class="row">
 
        <!-- ******************** Check-list ********************* -->
     <div class="col-md-6">
             <div class="col-md-4">
-            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="isTrained" disabled readonly>Get Trained </button>
-            <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="isUpToDate" disabled readonly>Get Up To Date</button>
+            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="caller.is_trained" disabled readonly>Get Trained </button>
+            <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="caller.is_up_to_date" disabled readonly>Get Up To Date</button>
             <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
@@ -55,9 +53,7 @@
   export default {
       data() {
         return {
-          test: null,
-          isTrained: true,
-          isUpToDate: false,
+          caller: {},
           callCenterExperts: [
             { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
             { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
@@ -70,16 +66,33 @@
           ]
       }
     },
+    beforeCreated: function() {
+      this.getUserData();
+      this.caller = this.$store.state.caller;
+    },
     methods: {
-getUserData(){
-        // this.$http.get(`${process.env.API_ENDPOINT}/api/stats/realtime-ticker/`).then(r => {
-        //   this.orgCount = r.body.org_count;
-        //   this.requests = r.body.worksite_count;
-        //   this.completed = r.body.worksite_statuses['Closed, completed'];
-        //   this.completed += r.body.worksite_statuses['Closed, done by others'];
-        //   this.working = r.body.worksite_statuses['Open, assigned'];
-        //   this.working += r.body.worksite_statuses['Open, partially completed'];
-        // });
+      getUserData(){
+        var userId = this.$store.state.worker.currentUserId;
+        this.test = userId;
+        //Grab the user information if available
+        if(this.$store.state.caller === undefined) {
+          this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId).then(r => {
+            this.$store.state.caller = r.data;
+            console.log(this.$store.state.caller);
+          }).catch(err => {
+              var userInfo = {
+                id: userId,
+                willing_to_receive_calls: true,
+              };
+              //Incase the user data not available add them to api
+              this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo,
+              {
+              }).then(r => {
+                this.$store.state.caller = r.data;
+              }).catch(err => 
+                {console.log(err)});
+            });
+        }
       },
       getStarted() {
         this.$store.commit('phone/seenWelcome');
