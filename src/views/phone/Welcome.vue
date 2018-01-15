@@ -5,8 +5,8 @@
        <!-- ******************** Check-list ********************* -->
     <div class="col-md-6">
             <div class="col-md-4">
-            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="caller.is_trained" disabled readonly>Get Trained </button>
-            <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="caller.is_up_to_date" disabled readonly>Get Up To Date</button>
+            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="caller.isTrained" disabled readonly>Get Trained </button>
+            <button type="button" class="btn-block btn-primary" @click="getUpToDate"><input type="checkbox" id="isUpToDate" value="" v-model="caller.isUpToDate" disabled readonly>Get Up To Date</button>
             <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
@@ -66,33 +66,33 @@
           ]
       }
     },
-    beforeCreated: function() {
+    created: function() {
       this.getUserData();
-      this.caller = this.$store.state.caller;
     },
     methods: {
       getUserData(){
+        //Grab the user id from the login info
         var userId = this.$store.state.worker.currentUserId;
-        this.test = userId;
         //Grab the user information if available
-        if(this.$store.state.caller === undefined) {
-          this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId).then(r => {
-            this.$store.state.caller = r.data;
-            console.log(this.$store.state.caller);
-          }).catch(err => {
-              var userInfo = {
-                id: userId,
-                willing_to_receive_calls: true,
-              };
-              //Incase the user data not available add them to api
-              this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo,
-              {
-              }).then(r => {
-                this.$store.state.caller = r.data;
-              }).catch(err => 
-                {console.log(err)});
+        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId).then(r => {
+          this.caller = r.data;
+          this.$store.commit('phone/setCaller', this.caller);
+        }).catch(err => {
+            var userInfo = {
+              id: userId,
+              willing_to_receive_calls: true,
+            };
+            //Incase the user data not available add them to api
+            this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo).then(r => {
+              this.caller = r.data;
+              this.$store.commit('phone/setCaller', this.caller);
+            }).catch(err => {
+              console.log(err)
             });
-        }
+          });
+      },
+      getUpToDate() {
+        this.$router.push({ path: 'getUpToDate' });
       },
       getStarted() {
         this.$store.commit('phone/seenWelcome');

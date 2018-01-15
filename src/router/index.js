@@ -11,6 +11,7 @@ import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
 import Phone from '@/containers/Phone';
 import PhoneWelcome from '@/views/phone/Welcome';
+import PhoneGetUpToDate from '@/views/phone/GetUpToDate';
 import PhoneSwitchboard from '@/views/phone/Switchboard';
 
 import Page404 from '@/views/pages/Page404'
@@ -121,6 +122,11 @@ const router = new Router({
               path: 'welcome',
               component: PhoneWelcome,
               meta: { auth: true, title: 'Phone Welcome' },
+            },
+            {
+              path: 'getUpToDate',
+              component: PhoneGetUpToDate,
+              meta: { auth: true, title: 'Phone Get Up To Date' },
             },
             {
               path: '',
