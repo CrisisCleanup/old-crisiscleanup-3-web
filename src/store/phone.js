@@ -2,11 +2,15 @@ export default {
     namespaced: true,
 
     state: {
+        caller: null,
         needsWelcome: true,
         state: 'startState',
     },
 
     mutations: {
+        setCaller(state, caller){
+            state.caller = caller;
+        },
         seenWelcome(state) {
             state.needsWelcome = false;
         },
