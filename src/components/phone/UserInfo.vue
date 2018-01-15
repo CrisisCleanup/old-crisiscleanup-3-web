@@ -14,7 +14,7 @@
             </div>
             <div class = "card text-white bg-dark col-4 text-center">
                 <div class = "card-body">
-                    <button v-bind:class="{'btn-success' : this.state != 'takingIncomingCalls', 'btn-danger' : this.state == 'takingIncomingCalls'}" v-on:click="startTakingCalls">{{this.message}}</button>
+                    <button v-bind:class="{'btn-success' : this.state != 'available', 'btn-danger' : this.state == 'available'}" v-on:click="startTakingCalls">{{this.message}}</button>
                     <p class = "card-text">
                         calls in queue</br>
                         32
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import { mapMutations, mapState, mapActions } from 'vuex' //do we want to map acitons here?
+  import { mapMutations, mapState } from 'vuex'
   export default {
       name: 'phone-user-info',
       props: [
@@ -47,13 +47,11 @@
     },
       methods: {
           editUserInfo() {
-              console.log("clicked edit");
               this.$emit('needsEdit')
           },
           startTakingCalls() {
-              console.log("start taking calls");
-              this.$emit('takingCalls');
-              if (this.state != 'takingIncomingCalls') {
+              this.$emit('available');
+              if (this.state != 'available') {
                 this.message = 'Start Taking Calls'
               }
               else {
