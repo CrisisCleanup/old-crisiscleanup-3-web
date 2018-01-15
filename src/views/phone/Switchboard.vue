@@ -2,9 +2,9 @@
     <div>
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
-      <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage" v-on:takingCalls="takingIncomingCalls" v-on:needsEdit= "editSessionInfo"/>
-      <incoming-call-script :userName="userName" v-if="showIncomingCall"/>
-      <incoming-call v-if="showIncomingCall"/>
+      <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage" v-on:available="setAvailability" v-on:needsEdit= "editSessionInfo"/>
+      <incoming-call :userName="userName" v-if="showIncomingCall"/>
+      <outbound-call-home v-if="showOutboundCallHome"/>
       <session-info-confirm :userName="userName" v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
 </template>
@@ -13,15 +13,15 @@
   import { mapMutations, mapState, mapGetters } from 'vuex'
   import SessionInfoConfirm from '@/components/phone/SessionInfoConfirm'
   import UserInfo from '@/components/phone/UserInfo'
-  import IncomingCallScript from '@/components/phone/IncomingCallScript'
   import IncomingCall from '@/components/phone/IncomingCall'
+  import OutboundCallHome from '@/components/phone/OutboundCallHome'
 
   export default {
     components: {
-      'session-info-confirm': SessionInfoConfirm,
+      'session-info-confirm':SessionInfoConfirm,
       'user-info':UserInfo,
-      'incoming-call-script': IncomingCallScript,
-      'incoming-call': IncomingCall
+      'incoming-call':IncomingCall,
+      'outbound-call-home':OutboundCallHome
     },
     mounted: function() {
       if (this.needsWelcome) {
@@ -30,8 +30,9 @@
     },
     data() {
       return {
-        showConfirmSessionInfo: false,
-        showIncomingCall: false
+        showConfirmSessionInfo: true,
+        showIncomingCall: false,
+        showOutboundCallHome: true
       }
     },
     computed: {
@@ -57,15 +58,17 @@
       editSessionInfo() {
         this.showConfirmSessionInfo = true;
       },
-      takingIncomingCalls() {
-        if (this.state == 'takingIncomingCalls')
+      setAvailability() {
+        if (this.state == 'available')
         {
-          this.$store.commit('phone/notTakingCalls');
+          this.$store.commit('phone/notAvailable');
+          this.showOutboundCallHome = false
           this.showIncomingCall = false
         }
         else
         {
-          this.$store.commit('phone/takingCalls');
+          this.$store.commit('phone/available');
+          this.showOutboundCallHome = true;
           this.showIncomingCall = true;
         }
 

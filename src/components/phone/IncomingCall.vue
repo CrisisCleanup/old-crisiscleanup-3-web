@@ -1,42 +1,52 @@
 <template>
     <div class = "row justify-content-center">
         <div class = "col-6">
+            <incoming-call-script :userName="userName" />
             <b-card-group deck>
-                <b-card header="Incoming Call From"
-                    header-tag="header"
-                    class="text-white bg-dark text-center">
-
-                    <b-card-body>
-                        <div class = "row justify-content-center card-text">
-                            <div style= "width:80%" align = "left">
-                                <p style = "font-size:medium; margin:0px">601-496-4984</p>
-                                <p style = "font-size:small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
-                            </div>
-                            <div style="width:20%" align = "right">
-                                <div>
-                                    right justify
-                                </div>
-                            </div>
-                            <table width="100%">
+                <b-card no-body class="text-white bg-dark text-center"
+                header="Incoming Call From"
+                header-tag="header"
+                header-bg-variant="secondary">
+                            <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
                                 <tr>
-                                    <td style="width:5%; vertical-align: middle" align="left"><img :src="boot"></td>
-                                    <td style="width:75%; vertical-align: middle" align="left">
+                                    <td style="width:80%" align="left">
+                                        <p style = "font-size:medium; margin:0px">601-496-4984</p>
+                                        <p style = "font-size:x-small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
+                                    </td>
+                                    <td style = "width:20%" align="right">
+                                        <b-badge pill variant="light" style="vertical-align:middle">
+                                            <table width = "100%">
+                                                <tr>
+                                                    <td style = "width:50%; font-size:medium; border-right:1px solid black">2</td>
+                                                    <td style = "width:50%; font-size:medium">8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style = "width:50%; font-size:x-small; border-right:1px solid black">calls</td>
+                                                    <td style = "width:50%; font-size:x-small">days</td>
+                                                </tr>
+                                            </table>
+                                        </b-badge>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
+                                <tr>
+                                    <td style="width:5%" align="left"><img :src="boot_image"></td>
+                                    <td style="width:75%" align="left">
                                         <p style = "font-size:large; margin-top:10px; margin-bottom:0px; margin-left:10px; margin-right:0px">
                                         Julie Smith</P>
-                                        <p style = "font-size:small; margin-top:0px; margin-bottom:10px; margin-left:10px; margin-right:0px">1411 North Terrace Drive, Jacksonville FL
+                                        <p style = "font-size:x-small; margin-top:0px; margin-bottom:10px; margin-left:10px; margin-right:0px">1411 North Terrace Drive, Jacksonville FL
                                         </p>
                                     </td>
-                                    <td style="20%; vertical-align: middle" align="right">
-                                        <p style = "font-size: xx-large">
+                                    <td style="width:20%" align="right">
+                                        <p style = "font-size: xx-large; vertical-align:middle">
                                             K12109
                                         </p>
                                     </td>
                                 </tr>
                             </table>
-                        </div>
-                    </b-card-body>
 
-                    <b-tabs class>
+                    <!--b-tabs class>
                         <b-tab title="Log" active>
                             <br>Log
                         </b-tab>
@@ -46,7 +56,7 @@
                         <b-tab title="Map">
                             <br>Map
                         </b-tab>
-                    </b-tabs>
+                    </b-tabs-->
                 </b-card>
             </b-card-group>
         </div>
@@ -54,14 +64,20 @@
 </template>
 
 <script>
-import { mapMutations, mapState, mapActions } from 'vuex' //do we want to map acitons here?
+import { mapMutations, mapState } from 'vuex'
+import IncomingCallScript from '@/components/phone/IncomingCallScript'
+
   export default {
+      components: {
+        'incoming-call-script': IncomingCallScript,
+      },
       name: 'phone-incoming-call',
       props: [
+          'userName'
       ],
       data() {
         return {
-            boot: '../../static/img/map_icons/Muck_Out_orange.png'
+            boot_image: '../../static/img/map_icons/Muck_Out_orange.png'
         };
         },
       computed: {
