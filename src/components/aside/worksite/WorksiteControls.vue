@@ -1,26 +1,32 @@
 <template>
-  <div style="background-color: white; z-index: 100; border-bottom: 3px solid gray">
+  <div >
     <div class="row">
       <div class="col">
-        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
-          <button @click="enterNewSite" class="btn btn-primary">New</button>
-          <button @click="firePrintBtn" class="btn btn-secondary">Print</button>
-          <button class="btn btn-secondary">History</button>
-          <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
+        <div class="mx-auto" role="group">
+          <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">New</button>
+          <button id="searchFilterBtn" @click="fireSearchFilterBtn" class="btn btn-secondary">Save</button>
+          <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
+           <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
                   v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                  v-text="isSiteClaimed ? 'Unclaim' : 'Claim'"></button>
-          <button @click="contactOrg" class="btn btn-secondary">Contact</button>
+                  v-text="isSiteClaimed ? 'Claim' : 'Unclaim'"></button>
+          <button id="historyBtn" class="btn btn-secondary">History</button>
+          <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
         </div>
       </div>
+      <PrintWorksite />
     </div>
   </div>
 </template>
 <script>
+  import PrintWorksite from './PrintWorksite';
   export default {
     data() {
       return {
         status: "Open, unassigned"
       }
+    },
+    components: {
+      PrintWorksite
     },
     computed: {
       isSiteClaimed() {
@@ -32,7 +38,12 @@
     },
     methods: {
       enterNewSite() {
-        this.$store.commit('setCurrentSiteData', {});
+        this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
+        this.$store.commit('resetCurrentSiteData');
+        this.$store.commit('setSiteFormErrors', {})
+      },
+      fireSearchFilterBtn() {
+        this.$store.commit('setActiveWorksiteView', {view: 'searchFilter'})
       },
       contactOrg() {
         console.log("Contact org");
@@ -55,8 +66,8 @@
         const patchedSite = {
           status: this.status
         };
-        this.$http.patch(`${process.env.API_ENDPOINT}/api/worksites/${this.siteId}/`, patchedSite).then(resp => {
-          const data = resp.body;
+        this.$http.patch(`/worksites/${this.siteId}`, patchedSite).then(resp => {
+          const data = resp.data;
           this.claimedBy = data.claimedBy;
           this.status = data.status;
           this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));

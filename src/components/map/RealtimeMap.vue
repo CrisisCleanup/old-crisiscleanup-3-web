@@ -133,7 +133,7 @@
           },
           scaleControl: true,
         };
-        const eid = this.$store.state.worker.eventId;
+        const eid = this.$store.state.worker.event.event_id;
         const lastViewport = this.$store.state.worker.mapViewingArea;
         this.pullSites(eid, lastViewport);
       });
@@ -154,8 +154,8 @@
         this.autoplay = false;
       },
       pullSites(eventId, lastViewport) {
-        this.$http.get(`${process.env.API_ENDPOINT}/api/maps/realtime/`).then(response => {
-          this.renderMarkers(response.body.results, lastViewport);
+        this.$http.get(`/worksites/realtime`).then(response => {
+          this.renderMarkers(response.data.results, lastViewport);
         });
       },
       checkAutoplay(m) {

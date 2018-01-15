@@ -1,17 +1,17 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource'
 import { VueAuthenticate } from 'vue-authenticate'
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
-// import axios from 'axios';
-// import VueAxios from 'vue-axios';
-// Vue.use(VueAxios, axios);
+export const ax = axios.create({
+  baseURL: `${process.env.API_ENDPOINT}`
+});
 
-Vue.use(VueResource);
-Vue.url.options.root = process.env.API_ENDPOINT;
+Vue.use(VueAxios, ax);
 
-const vueAuthInstance = new VueAuthenticate(Vue.http, {
+const vueAuthInstance = new VueAuthenticate(Vue.axios, {
   baseUrl: process.env.API_ENDPOINT,
-  loginUrl: '/api-token-auth/'
+  loginUrl: '/api-token-auth'
 });
 
 export default vueAuthInstance

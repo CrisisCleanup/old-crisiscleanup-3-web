@@ -100,7 +100,7 @@ export default {
   methods: {
     activateAccount() {
       this.userInfo.key = this.$route.query.invitation_key
-      this.$http.post(`${process.env.API_ENDPOINT}/rest-auth/registration/`, this.userInfo).then(response => {
+      this.$http.post(`/rest-auth/registration/`, this.userInfo).then(response => {
         console.log(response);
         this.invitees = "";
       }, error => {

@@ -11,7 +11,6 @@ window.$ = window.jQuery = require('jquery')
 sync(store, router);
 
 Vue.use(BootstrapVue);
-Vue.url.options.root = process.env.API_ENDPOINT;
 
 /* eslint-disable no-new */
 let app = new Vue({

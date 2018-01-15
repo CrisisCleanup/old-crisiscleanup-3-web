@@ -9,7 +9,7 @@
             <div class="col-md-4">
             <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="isTrained" disabled readonly>Get Trained </button>
             <button type="button" class="btn-block btn-primary"><input type="checkbox" id="isUpToDate" value="" v-model="isUpToDate" disabled readonly>Get Up To Date</button>
-            <button type="button" class="btn-block btn-primary">Get Started</button>
+            <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
       <!-- ******************** Call center experts ********************* --> 
@@ -20,7 +20,7 @@
             <div class="card-body" >
               <p class="card-text">
               <table style="width:100%">
-                <tr v-for="expert in callCenterExperts">
+                <tr v-for="expert in callCenterExperts" v-bind:key="expert.id">
                       <td style="width:20%"><img height="40" :src="expert.badge"></td>
                       <td style="width:40%">{{ expert.name }}</td>
                       <td style="width:40%">{{ expert.number }}</td>
@@ -56,13 +56,13 @@
       data() {
         return {
           test: null,
-          isTrained: null,
-          isUpToDate: null,
+          isTrained: true,
+          isUpToDate: false,
           callCenterExperts: [
-            { badge: '../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
-            { badge: '../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
-            { badge: '../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
-            { badge: '../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
+            { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
+            { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
+            { id: 3, badge: '../../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
+            { id: 4, badge: '../../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
           ],
           stories: [
             { description: "xyz"},
@@ -70,15 +70,8 @@
           ]
       }
     },
-    created: function() {
-      //Get the current user's id 
-      var userId = this.$store.state.worker.currentUserId;
-      //TODO: Call API to get user's call center information
-      this.isTrained = true
-      this.isUpToDate = false;
-    },
     methods: {
-      getUserData(){
+getUserData(){
         // this.$http.get(`${process.env.API_ENDPOINT}/api/stats/realtime-ticker/`).then(r => {
         //   this.orgCount = r.body.org_count;
         //   this.requests = r.body.worksite_count;
@@ -87,6 +80,10 @@
         //   this.working = r.body.worksite_statuses['Open, assigned'];
         //   this.working += r.body.worksite_statuses['Open, partially completed'];
         // });
+      },
+      getStarted() {
+        this.$store.commit('phone/seenWelcome');
+        this.$router.push({ name: 'Phone' });
       }
     }
   }

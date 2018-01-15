@@ -3,36 +3,58 @@ import BootstrapVue from 'bootstrap-vue'
 import {mount as mount2, mockRouter, mockHttp, mockStore} from 'vuenit';
 import { mount, shallow, createLocalVue } from 'vue-test-utils';
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
 
 describe('Header.vue', () => {
-  let wrapper = mount(Header, {localVue});
+  localVue.use(Vuex);
+  const worker = {
+    state: {
+      participatingEvents: [],
+      event: {
+        event_id: 1
+      }
+    },
+    getters: {
+      getParticipatingEvents: state => state.participatingEvents,
+      getCurrentEvent: state => state.event
+    },
+    actions: {
+      getParticipatingEvents() {},
+      logout() {},
+      changeEventContext() {}
+    }
+  };
+
+  const $store = new Vuex.Store({
+    modules: {
+      worker
+    }
+  });
 
   afterEach(function () {
     document.body.className = ""
   });
 
-  it('has a created hook', () => {
-    // expect(typeof wrapper).to.equal('object');
-    // expect(typeof wrapper.vm.methods).to.equal('object')
-  });
-
   it('sidebar can be minimized', () => {
+    let wrapper = mount(Header, {localVue, mocks: {$store}});
     const button = wrapper.find('button.sidebar-toggler');
     button.trigger('click');
     expect(document.body.classList[0]).to.contain('sidebar-minimized')
   });
 
   it('mobile sidebar can be minimized', () => {
+    let wrapper = mount(Header, {localVue, mocks: {$store}});
     const button = wrapper.find('button.mobile-sidebar-toggler');
     button.trigger('click');
     expect(Object.values(document.body.classList)).to.include('sidebar-mobile-show')
   });
 
   it('aside can be toggled', () => {
+    let wrapper = mount(Header, {localVue, mocks: {$store}});
     const button = wrapper.find('button.aside-menu-toggler');
     button.trigger('click');
     expect(Object.values(document.body.classList)).to.include('aside-menu-hidden')
@@ -44,33 +66,13 @@ describe('Header.vue', () => {
     const wrapper = mount(Header, {
       localVue,
       mocks: {
-        $router
+        $router,
+        $store
       }
     });
     const button = wrapper.find('#logout-btn');
     button.trigger('click');
     expect($router.currentRoute.path).to.equal('/')
-  });
-
-  it('can logout with vue-test-utils with actual vue-router instance', () => {
-
-    localVue.use(VueRouter);
-
-    const routes = [
-      { path: '/', component: Header }
-    ];
-
-    const router = new VueRouter({
-      routes
-    });
-
-    const wrapper = mount(Header, {
-      localVue,
-      router,
-    });
-    const button = wrapper.find('#logout-btn');
-    button.trigger('click');
-    expect(wrapper.vm.$route.path).to.equal("/")
   });
 
   it('can logout with vuenit', () => {

@@ -1,26 +1,21 @@
 steps:
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'gs://ccu3-builds/node_modules.tag.gz', '/workspace/node_modules.tar.gz']
-- name: 'alpine'
-  args: ['tar', '-xz', '-C', '/workspace', '-f', '/workspace/node_modules.tar.gz']
-- name: 'alpine'
-  args: ['ls', '/workspace']
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
   args: ['install']
-- name: 'alpine'
-  args: ['tar', '-zcf', '/workspace/node_modules.tar.gz', '/workspace/node_modules']
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', '/workspace/node_modules.tar.gz', 'gs://ccu3-builds/node_modules.tag.gz']
+#- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
+#  args: ['run', 'unit']
 - name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-  args: ['run', 'unit']
-- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-  args: ['run', 'build', '--cache-from', 'gcr.io/$PROJECT_ID/ccu3-web:latest']
+  args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/ccu3-web', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['delete', 'pods', '-lapp=ccu3-web,env=dev']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['delete', 'pods', '-lapp=ccu3-web,env=staging']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'

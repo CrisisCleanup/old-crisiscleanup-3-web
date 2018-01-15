@@ -1,0 +1,815 @@
+<script>
+  export default {
+    props: [
+    ],
+    data() {
+      return {
+      }
+    },
+    computed: {
+      site() {
+        return this.$store.getters.getCurrentSiteData;
+      },
+    },
+    methods: {
+    }
+  }
+</script>
+<style scoped>
+  .question {
+    width: 280px;
+    float: left;
+  }
+
+  .answer {
+    width: 280px;
+    float: right;
+  }
+
+  @font-face {
+    font-family: Calibri;
+    panose-1: 2 15 5 2 2 2 4 3 2 4;
+  }
+
+  @font-face {
+    font-family: Tahoma;
+    panose-1: 2 11 6 4 3 5 4 4 2 4;
+  }
+
+  .mainTable {
+    border: 1px solid #333;
+    width: 728px;
+    padding: 0;
+    border-collapse: collapse;
+    margin-left: 5pt;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+    line-height: normal;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 24px;
+  }
+
+  .blackBackground {
+    background-color: black;
+    padding: 0;
+    border: 1px solid #333;
+  }
+
+  p {
+    padding: 1px;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+  }
+
+  .whiteSubtitle {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .white {
+    color: white;
+  }
+
+  .allBorders {
+    border: 1px solid #333;
+  }
+
+  .topThickBorder {
+    border-top: 4px solid #333;
+    padding: 0;
+  }
+
+  .sectionTitle {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: black;
+    padding: 2px;
+  }
+
+  .subSectionTitle {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 2px;
+  }
+
+  .data {
+    font-weight: bold;
+  }
+
+  a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  div.WorkOrderPage {
+    page: WorkOrderPage;
+  }
+
+  .statusLabel {
+    text-align: right;
+    padding-right: 0.5em;
+  }
+
+  tr {
+    vertical-align: baseline;
+    line-height: 12px;
+  }
+
+  .sizing td {
+    height: 0;
+    padding: 0;
+  }
+</style>
+
+<template>
+  <b-modal id="modal1" size="lg">
+  <div class="WorkOrderPage">
+    <table class="mainTable">
+      <tbody>
+      <tr>
+        <td colspan="28">
+          <h1>Work Order and Assessment: {{site.case_number}}</h1>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="28" class="blackBackground">
+          <p class="whiteSubtitle">When finished, report the case #, volunteers, hours worked, and initials of resident
+            present during work</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="allBorders">
+          <p>Case #</p>
+        </td>
+        <td colspan="3" class="blackBackground">
+          <p class="whiteSubtitle">{{site.case_number}}</p>
+        </td>
+        <td colspan="2">
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="15" class="allBorders">
+          <p>Entered by: <!--{{reported_by_org.name}}--></p>
+        </td>
+        <td colspan="2">
+          <p>&nbsp;</p>
+        </td>
+        <td class="allBorders" colspan="5">
+          <p>Claimed by: <!--{{claimed_by_org.name}}--></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="28">
+          <p style="font-size: smaller; font-style: italic;"><strong>Team leaders</strong>: Ask for direct access to the
+            Crisis Cleanup map. <strong>New organizations</strong>: Register at crisiscleanup.org/register.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="8" class="topThickBorder">
+          <p class="sectionTitle">Personal Information</p>
+        </td>
+        <td colspan="20" class="topThickBorder">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Today's Date</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data"></p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Requested Date</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">{{site.request_date}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="28">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Resident Name</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data">{{site.name}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Primary Work Type</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">{{site.work_type}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="2" colspan="2" class="allBorders">
+          <p>Address<br>
+
+            &nbsp;&nbsp;&nbsp;<em>({{site.data.rent_or_own}})</em>
+
+          </p>
+        </td>
+        <td rowspan="2" colspan="16" class="allBorders">
+          <p class="data">{{site.address}}<br>
+            <!--{{address2}}-->
+          </p></td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Cross Street</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">{{site.data.cross_street}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Priority (1=high)</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">{{site.data.priority}}</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Phone Number</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data">{{site.phone1}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Member</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">
+            <b>{{ site.data.member_of_assessing_organization == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Best Time to Call</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data">{{site.data.time_to_call}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>First Responder</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">
+            <b>{{ site.data.first_responder == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Disabled</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data">
+            <b>{{ site.data.disabled == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p>Over 60 Years Old</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p class="data">
+            <b>{{ site.data.older_than_60 == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Special Needs</p>
+        </td>
+        <td colspan="26" class="allBorders">
+          <p class="data">{{site.data.special_needs}}</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="28">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="8" class="topThickBorder">
+          <p class="sectionTitle">Description of Work</p>
+        </td>
+        <td colspan="20" class="topThickBorder">
+          <p>{{site.data.damage_notes}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Flood Height (ft)</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">{{site.data.flood_height}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Appliance Removal</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{ site.data.appliance_removal == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="7" class="allBorders">
+          <p>Trees Down</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">{{site.data.num_trees_down}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>Outside Debris Removal</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.nonvegitative_debris_removal == 'y' ? 'X' : ''}}</b><b>{{site.data.vegitative_debris_removal == 'y' ? 'X': ''}}</b><b>{{
+            site.data.debris_removal == 'y' ? 'X' : ''}}</b><b>{{ site.data.interior_debris_removal == 'y' ? 'X' : ''}}</b><b>{{ site.data.debris_in_trees_removal == 'y' ? 'X' : ''}}</b>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Carpet Removal</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.carpet_removal == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Standing Water</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.standing_water == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="7" class="allBorders">
+          <p>Large Trees Down (&gt;18")</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">{{site.data.num_wide_trees}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Hardwood Floor</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.hardwood_floor_removal == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Mold Remediation</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.mold_remediation == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="7" class="allBorders">
+          <p>Roof Damage</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.house_roof_damage == 'y'}}</b><b>{{site.data.outbuilding_roof_damage == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Drywall Removal</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.drywall_removal == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Pump Requested</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.pump_needed == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="7" class="allBorders">
+          <p>Tarps Needed</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">{{site.data.tarps_needed}}</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Heavy Items</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.heavy_item_removal == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Floors Flooded</p>
+        </td>
+        <td colspan="16" class="allBorders">
+          <p class="data">{{site.data.floors_affected}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Other Work</p>
+        </td>
+        <td colspan="26" class="allBorders">
+          <p class="data">{{site.work_requested}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Notes</p>
+        </td>
+        <td colspan="26" class="allBorders">
+          <p class="data">{{site.data.notes}} {{site.data.damage_notes}} {{site.data.status_notes}}</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="28">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="28"><p class="subSectionTitle">Hazards</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Home Habitable</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.habitable == 'y'}}{{site.data.uninhabitable == 'n'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="8" class="allBorders">
+          <p>Power on</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.electricity == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="7" class="allBorders">
+          <p>Downed Wires</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.electrical_lines == 'y'}}</b>
+          </p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>Work Without Homeowner</p>
+        </td>
+        <td class="allBorders">
+          <p class="data">
+            <b>{{site.data.work_without_resident == 'y'}}</b>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Other Hazards</p>
+        </td>
+        <td colspan="26" class="allBorders">
+          <p class="data">{{site.data.other_hazards}}</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="28">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="8" class="topThickBorder">
+          <p class="sectionTitle">Homeowner Release</p>
+        </td>
+        <td colspan="20" class="topThickBorder">
+          <p>&nbsp;</p>
+        </td>
+
+      </tr>
+      <tr>
+        <td colspan="28" class="allBorders">
+          <p>I hold the volunteers, their organization, representatives, agents, and service providers, harmless from
+            any damage or injury that may occur on my property, including personal injury. Further, I understand that no
+            warranty or guarantee, express or implied, is provided for work performed on my property. I have taken any
+            photos needed for insurance purposes and give permission for repairs, demolition and/or debris removal.
+            Volunteers (circle one):&nbsp;&nbsp;&nbsp;<strong>May</strong>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<strong>May
+              Not</strong>&nbsp;&nbsp;&nbsp;perform service in my absence.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="28">
+          <p><em>Signature of home owner (or home owner's representative):</em></p>
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="8" class="topThickBorder">
+          <p class="sectionTitle">Report</p>
+        </td>
+        <td colspan="6" class="topThickBorder">
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="9" class="topThickBorder">
+          <p><em>Initials of Resident Present</em></p>
+        </td>
+        <td class="topThickBorder">
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="topThickBorder">
+          <p><em>Status/Address/Type of Work/Notes</em></p>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Hours Worked</p>
+        </td>
+        <td class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p># Volunteers</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="9" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Hours (Neighbor)</p>
+        </td>
+        <td class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p># Volunteers</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="9" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td colspan="2" class="allBorders">
+          <p>Hours (Neighbor)</p>
+        </td>
+        <td class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="6" class="allBorders">
+          <p># Volunteers</p>
+        </td>
+        <td colspan="3" class="allBorders">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="9" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+        <td>
+          <p>&nbsp;</p>
+        </td>
+        <td colspan="4" class="allBorders">
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="10" class="topThickBorder statusLabel">
+          <!--<p>Status as of {{ Time.now.strftime('%F %H:%M')}}:</p>-->
+        </td>
+        <td colspan="18" class="topThickBorder">
+          <p class="sectionTitle">{{site.status }}</p>
+        </td>
+      </tr>
+      <tr class="sizing">
+        <td width="50"></td>
+        <td width="50"></td>
+        <td width="10"></td>
+        <td width="5"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="10"></td>
+        <td width="5"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="19"></td>
+        <td width="64"></td>
+        <td width="10"></td>
+        <td width="5"></td>
+        <td width="5"></td>
+        <td width="50"></td>
+        <td width="94"></td>
+        <td width="94"></td>
+        <td width="10"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </b-modal>
+</template>

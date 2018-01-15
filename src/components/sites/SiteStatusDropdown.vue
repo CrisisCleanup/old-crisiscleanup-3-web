@@ -1,7 +1,6 @@
 <template>
-    <div class="row collapse" style="margin-bottom:0;">
-        <div class="small-12 small-centered medium-12 medium-centered large-6 large-centered columns"
-             style="margin-bottom:0;">
+    <div class="row">
+        <div class="mx-auto">
             <select v-model="selected" @change="setSiteStatus()">
                 <option disabled value="">Please select one</option>
                 <option>Open, unassigned</option>
@@ -29,7 +28,7 @@
     ],
     methods: {
       setSiteStatus: function () {
-        this.$http.post('/api/update-site-status/' + this.siteId, {status: this.selected}).then(function (response) {
+        this.$http.post('/update-site-status' + this.siteId, {status: this.selected}).then(function (response) {
           DashboardEventHub.$emit('site-status-selected', [this.siteId, this.selected]);
         }, function (error) {
           Raven.captureException(error.toString());

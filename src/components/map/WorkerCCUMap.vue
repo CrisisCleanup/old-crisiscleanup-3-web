@@ -14,102 +14,81 @@
       style="width: 100%; height: 100%;"
       @click="mapIsClicked"
       @bounds_changed="mapBoundsChanged"
-      @zoom_changed="zoomLevel = $event"
-      @dragstart="dragging = true"
-      @dragend="draggingEnded"
+      @center_changed="mapCenterChanged"
+      @zoom_changed="setZoomLevel($event)"
+      @dragstart="setDragging(true)"
+      @dragend="setDragging(false)"
       ref="map"
     >
     </gmap-map>
   </div>
 </template>
-<style>
-  #floating-panel {
-    position: absolute;
-    /*top: px;*/
-    /*left: 50%;*/
-    z-index: 5;
-    /*background-color: #fff;*/
-    padding: 5px;
-    /*border: 1px solid #999;*/
-    text-align: center;
-    font-family: 'Roboto', 'sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
-    width: 10%;
-    right: 0;
-    margin: auto
-  }
-
-  .fullsize-map {
-    height: 100%;
-    width: 100%;
-  }
-</style>
 
 <script>
 
   import * as VueGoogleMaps from 'vue2-google-maps';
   import Vue from 'vue';
   import CCUMapEventHub from '../../events/CCUMapEventHub';
-
-  var lodashArray = require('lodash/array');
-  var lodashCollection = require('lodash/collection');
   import MarkerClusterer from 'marker-clusterer-plus';
-  import {DeferredReadyMixin} from 'vue2-google-maps/src/utils/deferredReady';
   import {loaded} from 'vue2-google-maps'
   import generateMarkerImagePath from './utils/markerImageManager';
   import DashboardEventHub from '@/events/DashboardEventHub';
-
   import {style as mapStyle} from './styles/snowOrange';
+  import { mapState, mapMutations, mapGetters } from 'vuex';
 
-  Vue.use(VueGoogleMaps, {
-    load: {
-      key: process.env.GOOGLE_MAPS_API_KEY,
-      libraries: 'places,visualization'
-    }
-  });
+  let lodashArray = require('lodash/array');
+  let lodashCollection = require('lodash/collection');
 
   export default {
     data() {
       return {
-        siteId: 1,
-        isPublicMap: false,
-        isFormMap: false,
-        zoomLevel: 5,
-        mapTypeId: 1, // google.maps.MapTypeId.ROADMAP
-        center: {
-          lat: 39.0,
-          lng: -90.0
-        },
         options: {
           scrollwheel: false,
           styles: mapStyle,
           fullscreenControl: false
         },
-        activeMarkers: [],
-        dragging: false,
-        waiting: false,
-        markers: [],
-        bounds: {
-          minLon: null,
-          minLat: null,
-          maxLon: null,
-          maxLat: null
-        },
         heatmap: null,
-        points: []
+        points: [],
+        markers: [],
+        $markerCluster: null
       }
+    },
+    computed: {
+      ...mapState('map', {
+        center: state => state.center,
+        zoomLevel: state => state.zoomLevel,
+        dragging: state => state.dragging,
+        bounds: state => state.bounds,
+        tempMarkers: state => state.tempMarkers
+      }),
+      ...mapGetters([
+        'getCurrentSiteData'
+      ])
+    },
+    watch: {
+      tempMarkers: function(val) {
+        this.renderMarkers(this.$store.state.worker.mapViewingArea);
+      },
     },
     mounted() {
       loaded.then(() => {
         DashboardEventHub.$emit('open-aside', 'test');
-        console.log('MOUNTING MAP')
-        const eid = this.$store.state.worker.eventId;
-        const lastViewport = this.$store.state.worker.mapViewingArea;
-        this.pullSites(eid, lastViewport);
+        Vue.prototype.$map2 = () => {
+          return this.$refs.map.$mapObject;
+        };
+        const eid = this.$store.state.worker.event.event_id;
+        //this.centerMap(this.$store.state.map.center)
+        this.$store.dispatch('map/getWorksites', eid).then((resp) => {
+          this.renderMarkers();
+        });
+      });
+
+      CCUMapEventHub.$on('site-search', (e) => {
+        const currentSite = this.$store.getters.getCurrentSiteData;
+        this.addMarker(currentSite);
+        this.centerOnSiteWithZoom();
       });
     },
-
     beforeDestroy: function () {
       const a = {
         center: this.center,
@@ -117,37 +96,25 @@
       };
       this.$store.commit('setMapViewingArea', a);
       this.$markerCluster.clearMarkers();
-//      this.$overlay.setMap(null);
     },
     methods: {
+      ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers', 'setCenter']),
       mapIsClicked() {
         CCUMapEventHub.$emit('map-is-clicked');
       },
       mapBoundsChanged(event) {
-        this.bounds.minLon = event.b.b;
-        this.bounds.minLat = event.f.b;
-        this.bounds.maxLon = event.b.f;
-        this.bounds.maxLat = event.f.f;
-
+        const bounds = {
+          minLon: event.b.b,
+          minLat: event.f.b,
+          maxLon: event.b.f,
+          maxLat: event.f.f
+        };
+        this.$store.commit('map/setBounds', bounds);
+      },
+      mapCenterChanged(event) {
+        this.$store.commit('map/setCenter', event);
       },
       draggingEnded(event) {
-        /*
-        if (this.zoomLevel >= 5 && !this.waiting) {
-          this.waiting = true;
-          this.renderSites(this.bounds);
-          setTimeout(() => {
-            this.waiting = false;
-          }, 500);
-        }
-        */
-      },
-      pullSites(eventId, lastViewport) {
-        this.$http.get(`${process.env.API_ENDPOINT}/api/map-sites/?event=${eventId}`).then(response => {
-          this.renderMarkers(response.body.results, lastViewport);
-//          this.markers = [...this.markers, ...response.body.results];
-
-        });
-
       },
       changeGradient() {
         const gradient = [
@@ -183,46 +150,106 @@
           this.heatmap.set('radius', 20);
         } else {
           this.heatmap.setMap(this.heatmap.getMap() ? null : this.$refs.map.$mapObject);
-
         }
       },
-      renderMarkers(serverMarkers = [], lastViewport) {
+      centerOnSiteWithZoom() {
+        this.centerOnSite();
+        this.$store.commit('map/setZoomLevel', 12);
+      },
+      centerOnSite() {
+        const currentSite = this.$store.getters.getCurrentSiteData;
+        const latLng = new google.maps.LatLng(currentSite.lat, currentSite.lng);
+        this.$refs.map.$mapObject.panTo(latLng);
+      },
+      centerMap(center) {
+        const latLng = new google.maps.LatLng(center.lat, center.lng);
+        this.$refs.map.$mapObject.panTo(latLng);
+      },
+      clearMarkers() {
+        if (this.$markerCluster) {
+          this.$markerCluster.clearMarkers();
+        }
+        if (this.markers.length > 0) {
+          for (let i = 0; i < this.markers.length; i++) {
+            this.markers[i].setMap(null);
+          }
+          this.markers = new Array();
+        }
+        if (this.points.length > 0) {
+          for (let i = 0; i < this.points.length; i++) {
+            this.points[i] = null;
+          }
+          this.points = new Array();
+        }
+      },
+      addMarker(mark) {
+        const markerCallback = (m, id) => {
+          m.addListener('click', (e) => {
+            const googleMarker = {
+              id: id,
+              marker: m
+            };
+            CCUMapEventHub.$emit('site-clicked', googleMarker);
+            this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
+            this.$store.dispatch('getSite', googleMarker.id).then(() => {
+              this.centerOnSite();
+            });
+          });
+        };
+
+        const latLng = new google.maps.LatLng(mark.lat, mark.lng);
+        let marker = new google.maps.Marker({
+          position: latLng,
+          map: this.$refs.map.$mapObject,
+          icon: generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
+        });
+        markerCallback(marker, mark.id);
+        this.markers.push(marker);
+        this.points.push(latLng);
+        return marker;
+      },
+      renderMarkers() {
+        this.clearMarkers();
+
         this.$markerCluster = new MarkerClusterer(
           this.$refs.map.$mapObject,
           []
         );
 
-        const markerCallback = (marker, id) => {
-          marker.addListener('click', (e) => {
-            const googleMarker = {
-              id: id,
-              marker: marker
-            };
-            this.$refs.map.$mapObject.panTo(marker.getPosition());
-            CCUMapEventHub.$emit('site-clicked', googleMarker);
-            this.$store.dispatch('getSite', googleMarker.id);
-          });
-        };
-        let points = [];
-        let markers = serverMarkers.map((mark, i) => {
-          const latLng = new google.maps.LatLng(mark.lat, mark.lng);
-          points.push(latLng);
-          let m = new google.maps.Marker({
-            position: latLng,
-            map: this.$refs.map.$mapObject,
-            icon: generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
-          });
-          markerCallback(m, mark.id);
-          return m;
+        let markers = this.tempMarkers.map((mark, i) => {
+          return this.addMarker(mark);
         });
-        this.points = points;
-        this.markers = markers;
         this.$markerCluster.addMarkers(markers);
 
-//        this.zoomLevel = lastViewport.zoom;
-
+        // this.$store.commit('map/setGetMarkersFunc', function() {
+        //   return this.markers;
+        // })
 
       },
     }
   }
 </script>
+
+<style>
+  #floating-panel {
+    position: absolute;
+    /*top: px;*/
+    /*left: 50%;*/
+    z-index: 5;
+    /*background-color: #fff;*/
+    padding: 5px;
+    /*border: 1px solid #999;*/
+    text-align: center;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+    width: 10%;
+    right: 0;
+    margin: auto
+  }
+
+  .fullsize-map {
+    height: 100%;
+    width: 100%;
+  }
+</style>

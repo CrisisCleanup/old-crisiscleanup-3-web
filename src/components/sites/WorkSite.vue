@@ -6,13 +6,22 @@
     <div class="card-block">
       <p class="card-text text-center"><site-icon :siteId="siteData.id" :site-status="siteData.status"></site-icon></p>
       <p class="card-text text-center"><b>{{siteData.name}}</b></p>
-      <p class="card-text text-center"><small>{{siteData.address}}, {{siteData.city}}, {{siteData.state}}, {{siteData.zipCode}}</small></p>
+      <p class="card-text text-center"><small>{{siteData.address}}</small></p>
+      <p class="card-text text-center"><small>{{siteData.city}}, {{siteData.state}}, {{siteData.zipCode}}</small></p>
       <site-status-dropdown :site-id="siteData.id" :site-status="siteData.status"></site-status-dropdown>
-      <p class="card-text text-center">
-          <i title="View on Map" class="fa fa-map fa-lg"></i>
-          <i title="Send SMS" class="fa fa-mobile fa-lg"></i>
-          <i title="Print worksite" class="fa fa-print fa-lg"></i>
-      </p>
+      <div class="text-center" style="margin-top: 0.50rem;">
+          <!--<div class="btn-group mx-auto" role="group">-->
+            <a class="btn btn-light" href="#">
+              <i title="View on Map" class="fa fa-map"></i>
+            </a>
+            <a class="btn btn-light" href="#">
+              <i title="Send SMS" class="fa fa-mobile"></i>
+            </a>
+            <a class="btn btn-light" href="#">
+              <i title="Print worksite" class="fa fa-print"></i>
+            </a>
+          <!--</div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +54,7 @@
       },
       sendMessage: function () {
         var that = this;
-        this.$http.post('/api/messages/send_sms.json',
+        this.$http.post('messages/send_sms.json',
           JSON.stringify({type: 'site-info', siteId: this.siteId, numbers: this.smsNumbers}),
           {
             headers: {'content-type': 'application/json'}
@@ -60,3 +69,12 @@
     }
   }
 </script>
+
+<style scoped>
+  .card-block {
+    padding: 0.25rem;
+  }
+  .card-text {
+    margin-bottom: 0.25rem;
+  }
+</style>

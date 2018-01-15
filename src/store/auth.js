@@ -1,9 +1,11 @@
 import vueAuthInstance from '../services/auth.js'
 
 export default {
+  namespaced: true,
   state: {
-    profile: null,
-    isAuthenticated: vueAuthInstance.isAuthenticated()
+    profile: {},
+    isAuthenticated: vueAuthInstance.isAuthenticated(),
+    loginErrors: null
   },
 
   mutations: {
@@ -13,16 +15,30 @@ export default {
 
     setProfile (state, payload) {
       state.profile = payload.profile
+    },
+
+    setLoginErrors (state, payload) {
+      state.loginErrors = payload.hasError;
     }
+  },
+
+  getters: {
+    getUserName: state => state.profile.name
   },
 
   actions: {
     login (context, payload) {
       payload = payload || {}
-      return vueAuthInstance.login(payload.user, payload.requestOptions).then(function () {
+      return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
         });
+        context.commit('setProfile', {
+          profile: resp.data.user
+        });
+      }, function(error) {
+        console.log(error);
+        context.commit('setLoginErrors', {hasError: true});
       })
     },
 
