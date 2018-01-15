@@ -3,7 +3,7 @@
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
       <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage" v-on:takingCalls="takingIncomingCalls" v-on:needsEdit= "editSessionInfo"/>
-      <incoming-call-script :userName="userName" v-if="showIncomingCallScript"/>
+      <incoming-call-script :userName="userName" v-if="showIncomingCall"/>
       <incoming-call v-if="showIncomingCall"/>
       <session-info-confirm :userName="userName" v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
@@ -30,9 +30,8 @@
     },
     data() {
       return {
-        showConfirmSessionInfo: true,
-        showIncomingCallScript: false,
-        showIncomingCall: true
+        showConfirmSessionInfo: false,
+        showIncomingCall: false
       }
     },
     computed: {
@@ -62,12 +61,12 @@
         if (this.state == 'takingIncomingCalls')
         {
           this.$store.commit('phone/notTakingCalls');
-          this.showIncomingCallScript = false;
+          this.showIncomingCall = false
         }
         else
         {
           this.$store.commit('phone/takingCalls');
-          this.showIncomingCallScript = true;
+          this.showIncomingCall = true;
         }
 
       },
