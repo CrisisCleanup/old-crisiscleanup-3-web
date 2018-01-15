@@ -9,7 +9,7 @@
                             {{ phoneNumber }}</br>
                             {{ gatewayMessage }}
                         </p>
-                        <a v-on:click="updateUserInfo">edit</a>
+                        <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
             </div>
             <div class = "card text-white bg-dark col-4 text-center">
@@ -41,13 +41,14 @@
         };
         },
       computed: {
-      ...mapState('phone', [
-        'state',
-      ]),
+      ...mapState('phone', {
+        state: state => state.state
+      }),
     },
       methods: {
-          updateUserInfo() {
+          editUserInfo() {
               console.log("clicked edit");
+              this.$emit('needsEdit')
           },
           startTakingCalls() {
               console.log("start taking calls");

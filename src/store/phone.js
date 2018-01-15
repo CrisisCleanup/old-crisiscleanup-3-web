@@ -21,7 +21,9 @@ export default {
         },
     },
 
-    getters: {},
+    getters: {
+        getState: state => state.state,
+    },
 
     actions: {},
 };
