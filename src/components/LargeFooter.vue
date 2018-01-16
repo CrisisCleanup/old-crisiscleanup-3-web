@@ -4,7 +4,7 @@
       <div class="row" id="footer-row">
         <div class="col-md-3 footer-logo">
           <a href="/"><img src="/static/img/ccu-logo-white.png" class="img-fluid"></a>
-          <h5>Ready-to-Deploy Collaborative Disaster Relief Mapping and Coordination</h5>
+          <h5>{{ $t('largeFooter.ready_to_deploy_msg') }}</h5>
           <p>Crisis Cleanup is an <a href="https://github.com/CrisisCleanup/crisiscleanup">open source project</a></p>
           <!--
           <ul class="sms-icons">
@@ -17,27 +17,24 @@
         </div>
         <div class="col-md-3">
           <i class="fa fa-rocket"></i>
-          <h4>Crisis Cleanup Deployments</h4>
-          <p>Crisis Cleanup has been used in dozens of disasters across the world.</p>
-          <a href="http://blog.crisiscleanup.org/2013/11/all-crisis-cleanup-incidents.html">See All Crisis Cleanup
-            Deployments</a>
+          <h4>{{ $t('largeFooter.ccu_deployments') }}</h4>
+          <p>{{ $t('largeFooter.dozens_disasters_msg') }}</p>
+          <a href="http://blog.crisiscleanup.org/2013/11/all-crisis-cleanup-incidents.html">{{ $t('largeFooter.all_deployments_msg') }}</a>
         </div>
         <div class="col-md-3">
           <i class="fa fa-video-camera "></i>
-          <h4>Media Coverage</h4>
-          <p>Crisis Cleanup is primarily for relief agencies rather than the public (and therefore we don't seek the
-            public spotlight), but occasionally you will see us in the news!</p>
-          <a href="http://blog.crisiscleanup.org/2013/07/crisis-cleanup-media-coverage.html">See Crisis Cleanup In The
-            News</a>
+          <h4>{{ $t('largeFooter.media_coverage') }}</h4>
+          <p>{{ $t('largeFooter.no_spotlight_msg') }}</p>
+          <a href="http://blog.crisiscleanup.org/2013/07/crisis-cleanup-media-coverage.html">{{ $t('largeFooter.in_the_news_msg') }}</a>
         </div>
         <div class="col-md-3">
           <i class="fa fa-heart"></i>
-          <h4>Want to help?</h4>
+          <h4>{{ $t('largeFooter.want_to_help') }}</h4>
           <p>Crisis Cleanup is open source and powered mostly by dedicated volunteers. Support Crisis Cleanup with a
             <a href="http://bit.ly/CCUPatreon" target="_blank">monthly pledge</a>. If you are a Ruby / PostgreSQL
             programmer, check out the Crisis Cleanup
-            <a href="https://github.com/aarontitus/crisiscleanup">Github repository</a> and contact us.</p>
-          <a href="https://www.patreon.com/crisiscleanup" target="_blank">Help Crisis Cleanup</a>
+            <a href="https://github.com/CrisisCleanup/crisiscleanup">Github repository</a> and contact us.</p>
+          <a href="https://www.patreon.com/crisiscleanup" target="_blank">{{ $t('largeFooter.help_ccu') }}</a>
         </div>
       </div>
     </div>
