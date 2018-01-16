@@ -1,10 +1,10 @@
 <template>
   <div class="fullsize-map" style="position: relative;">
     <div id="floating-panel">
-      <button class="btn-primary" @click="toggleHeatmap()">Toggle Heatmap</button>
-      <!--<button @click="changeGradient()">Change gradient</button>-->
-      <!--<button @click="changeRadius()">Change radius</button>-->
-      <!--<button @click="changeOpacity()">Change opacity</button>-->
+      <button class="btn-primary" @click="toggleHeatmap()">{{ $t('workerCCUMap.toggle_heatmap') }}</button>
+      <!--<button @click="changeGradient()">{{ $t('workerCCUMap.change_gradient') }}</button>-->
+      <!--<button @click="changeRadius()">{{ $t('workerCCUMap.change_radius') }}</button>-->
+      <!--<button @click="changeOpacity()">{{ $t('workerCCUMap.change_opacity') }}</button>-->
     </div>
     <gmap-map
       id="worker-map"

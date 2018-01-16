@@ -2,18 +2,18 @@
     <div class="row">
         <div class="mx-auto">
             <select v-model="selected" @change="setSiteStatus()">
-                <option disabled value="">Please select one</option>
-                <option>Open, unassigned</option>
-                <option>Open, assigned</option>
-                <option>Open, partially completed</option>
-                <option>Open, needs follow-up</option>
-                <option>Closed, completed</option>
-                <option>Closed, incomplete</option>
-                <option>Closed, out of scope</option>
-                <option>Closed, done by others</option>
-                <option>Closed, no help wanted</option>
-                <option>Closed, rejected</option>
-                <option>Closed, duplicate</option>
+                <option disabled value="">{{ $t('actions.choose_one_select') }}</option>
+                <option>{{ $t('status.open_unassigned') }}</option>
+                <option>{{ $t('status.open_assigned') }}</option>
+                <option>{{ $t('status.open_partially_completed') }}</option>
+                <option>{{ $t('status.open_needs_follow_up') }}</option>
+                <option>{{ $t('status.closed_completed') }}</option>
+                <option>{{ $t('status.closed_incomplete') }}</option>
+                <option>{{ $t('status.closed_out_of_scope') }}</option>
+                <option>{{ $t('status.closed_done_by_others') }}</option>
+                <option>{{ $t('status.closed_no_help_wanted') }}</option>
+                <option>{{ $t('status.closed_rejected') }}</option>
+                <option>{{ $t('status.closed_duplicate') }}</option>
             </select>
         </div>
     </div>

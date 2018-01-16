@@ -1,7 +1,7 @@
 <template>
   <div class="fullsize-map" style="position: relative;">
     <div id="floating-panel">
-      <button class="btn-primary" v-show="!autoplay" @click="resumeAutoplay()">Resume Autoplay</button>
+      <button class="btn-primary" v-show="!autoplay" @click="resumeAutoplay()">{{ $t('realtimeMap.resume_autoplay') }}</button>
     </div>
     <!--
     <div id="">
