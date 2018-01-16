@@ -4,7 +4,7 @@
     <router-link class="navbar-brand" to="dashboard"></router-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-nav is-nav-bar class="d-md-down-none">
-      <b-nav-item class="px-3">Event:&nbsp;&nbsp;
+      <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
         <select @change="updateEventContext" :value="getCurrentEvent.event_id">
           <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
         </select>
@@ -21,17 +21,17 @@
           <img class="img-avatar" alt="">
           <span class="d-md-down-none">{{getUserName}}</span>
         </template>
-        <!--<b-dropdown-header tag="div" class="text-center"><strong>Account</strong></b-dropdown-header>-->
-        <!--<b-dropdown-item><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></b-dropdown-item>-->
-        <!--<b-dropdown-item><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></b-dropdown-item>-->
-        <!--<b-dropdown-item><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></b-dropdown-item>-->
-        <!--<b-dropdown-item><i class="fa fa-comments"></i> Comments<span class="badge badge-warning">42</span></b-dropdown-item>-->
-        <!--<b-dropdown-header tag="div" class="text-center"><strong>Settings</strong></b-dropdown-header>-->
-        <!--<b-dropdown-item><i class="fa fa-user"></i> Profile</b-dropdown-item>-->
-        <!--<b-dropdown-item><i class="fa fa-wrench"></i> Settings</b-dropdown-item>-->
+        <!--<b-dropdown-header tag="div" class="text-center"><strong>{{ $t('actions.account') }}</strong></b-dropdown-header>-->
+        <!--<b-dropdown-item><i class="fa fa-bell-o"></i> {{ $t('actions.updates') }}<span class="badge badge-info">42</span></b-dropdown-item>-->
+        <!--<b-dropdown-item><i class="fa fa-envelope-o"></i> {{ $t('actions.messages') }}<span class="badge badge-success">42</span></b-dropdown-item>-->
+        <!--<b-dropdown-item><i class="fa fa-tasks"></i> {{ $t('actions.tasks') }}<span class="badge badge-danger">42</span></b-dropdown-item>-->
+        <!--<b-dropdown-item><i class="fa fa-comments"></i> {{ $t('actions.comments') }}<span class="badge badge-warning">42</span></b-dropdown-item>-->
+        <!--<b-dropdown-header tag="div" class="text-center"><strong>{{ $t('actions.settings') }}</strong></b-dropdown-header>-->
+        <!--<b-dropdown-item><i class="fa fa-user"></i> {{ $t('actions.profile') }}</b-dropdown-item>-->
+        <!--<b-dropdown-item><i class="fa fa-wrench"></i> {{ $t('actions.settings') }}</b-dropdown-item>-->
         <!--<b-dropdown-divider></b-dropdown-divider>-->
-        <!--<b-dropdown-item><i class="fa fa-shield"></i> Lock Account</b-dropdown-item>-->
-        <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
+        <!--<b-dropdown-item><i class="fa fa-shield"></i> {{ $t('actions.lock_account') }}</b-dropdown-item>-->
+        <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
     <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>

@@ -18,7 +18,7 @@
               <i title="Send SMS" class="fa fa-mobile"></i>
             </a>
             <a class="btn btn-light" href="#">
-              <i title="Print worksite" class="fa fa-print"></i>
+              <i title="Print" class="fa fa-print"></i>
             </a>
           <!--</div>-->
       </div>
