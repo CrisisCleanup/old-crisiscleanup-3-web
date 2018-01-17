@@ -76,6 +76,7 @@
         //Grab the user information if available
         this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId).then(r => {
           this.caller = r.data;
+          console.log(this.caller);
           this.$store.commit('phone/setCaller', this.caller);
         }).catch(err => {
             var userInfo = {

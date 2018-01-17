@@ -33,7 +33,7 @@
         var vm = this;
         this.$http.get(`${process.env.API_PHONE_ENDPOINT}/articles`).then(r => {
             this.articles = r.data.results;
-            //TODO: Go through all of the articles and mark the ones the user's already read
+            //Mark all of the articles which the user has read
             this.articles.forEach(function(article) {
               var articleFound = vm.$store.state.phone.caller.read_articles.find(function(readArticle) {
                 return readArticle.id === article.id;
@@ -44,13 +44,14 @@
         });
       },
       goBack(){
-        //TODO: Persist changes
-        // this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo).then(r => {
-        //   this.$router.go(-1);
-        // }).catch(err => {
-        //   console.log(err)
-        // });
-        this.$router.go(-1);
+        //Update the user's read article list
+        var vm = this;
+        var read_article_ids = this.articles.filter(article => article.isRead).map(article => article.id);
+        this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users/` + vm.$store.state.phone.caller.id + `/set_read_articles`, read_article_ids).then(r => {
+          this.$router.go(-1);
+        }).catch(err => {
+          console.log(err)
+        });
       }
     },
     watch: {
