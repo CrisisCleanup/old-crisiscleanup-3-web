@@ -36,7 +36,7 @@
             //Mark all of the articles which the user has read
             this.articles.forEach(function(article) {
               var articleFound = vm.$store.state.phone.caller.read_articles.find(function(readArticle) {
-                return readArticle.id === article.id;
+                return readArticle === article.id;
               });
               vm.$set(article, 'isRead', articleFound === undefined ? false : true);
             });
