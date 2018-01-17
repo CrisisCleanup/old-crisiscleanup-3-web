@@ -5,7 +5,7 @@
         <div class="col-md-6">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <h1>Activate Account</h1>
+              <h1>{{ $t('activate.activate_account') }}</h1>
               <div v-show="errors.key.has" class="alert alert-danger" role="alert">
                 {{errors.key.msg}}
               </div>
@@ -13,7 +13,7 @@
                 <span class="input-group-addon"><i class="icon-envelope"></i></span>
                 <input v-model="userInfo.email" type="email" class="form-control" placeholder="Email"
                        required v-bind:class="{'is-invalid': errors.email.has}">
-                <!--<div v-show="errors.email.has" class="invalid-feedback">{{errors.email.msg}}</div>-->
+                <div v-show="errors.email.has" class="invalid-feedback">{{errors.email.msg}}</div>
               </div>
 
               <div class="input-group mb-3 ">
@@ -25,21 +25,21 @@
                 <span class="input-group-addon"><i class="icon-phone"></i></span>
                 <input v-model="userInfo.mobile" type="text" class="form-control" placeholder="Mobile Phone Number"
                         required v-bind:class="{'is-invalid': errors.mobile.has}">
-                <!--<div v-show="errors.mobile.has" class="invalid-feedback">{{errors.mobile.msg}}</div>-->
+                <div v-show="errors.mobile.has" class="invalid-feedback">{{errors.mobile.msg}}</div>
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input v-model="userInfo.password1" type="password" class="form-control" placeholder="Password"
                        v-bind:class="{'is-invalid': errors.password1.has}">
-                <!--<div v-show="errors.password1.has" class="invalid-feedback">{{errors.password1.msg}}</div>-->
+                <div v-show="errors.password1.has" class="invalid-feedback">{{errors.password1.msg}}</div>
               </div>
 
               <div class="input-group mb-4">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input v-model="userInfo.password2" type="password" class="form-control" placeholder="Repeat password"
                        v-bind:class="{'is-invalid': errors.password2.has}">
-                <!--<div v-show="errors.password2.has" class="invalid-feedback">{{errors.password2.msg}}</div>-->
+                <div v-show="errors.password2.has" class="invalid-feedback">{{errors.password2.msg}}</div>
               </div>
 
               <div class="row">
@@ -50,7 +50,7 @@
                 </div>
               </div>
 
-              <button @click="activateAccount()" type="button" class="btn btn-block btn-success">Activate Account</button>
+              <button @click="activateAccount()" type="button" class="btn btn-block btn-success">{{ $t('activate.activate_account') }}</button>
             </div>
             <div class="card-footer p-4">
             </div>
@@ -73,19 +73,19 @@ export default {
       errors: {
           email: {
             has: false,
-            msg: ""
+            msg: "An email address is required."
           },
           password1: {
             has: false,
-            msg: ""
+            msg: "Please choose a password with 8 characters or more."
           },
           password2: {
             has: false,
-            msg: ""
+            msg: "The passwords do not match. Try again."
           },
           mobile: {
             has: false,
-            msg: ""
+            msg: "A mobile phone number is required so teammates can contact you in the field."
           },
           key: {
             has: false,
