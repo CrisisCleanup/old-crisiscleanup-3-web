@@ -44,7 +44,7 @@ We thank [BrowserStack](http://www.browserstack.com) for supporting Crisis Clean
 
 ## Contribute
 
-We welcome all contributors! You can also join us on our Slack channels - https://crisiscleanup.slack.com
+We welcome all contributors! You can also join us on our Slack channel - https://crisiscleanup.slack.com
 
 ## Pre-reqs
 - Node 9.0.0
@@ -95,8 +95,6 @@ npm test
 9. `yarn install`
 10. `yarn run dev` (It will automatically load and launch a new browser tab)
 
-
-
 ## Full Setup (Windows)
 1. Ensure you have the Microsoft .NET framework 2.0 or greater installed. https://www.microsoft.com/en-us/download/details.aspx?id=55170
 2. Install chocolately
@@ -139,3 +137,4 @@ Familiarity with these technologies will help you be a productive contributor:
 	- Kubernetes / Helm
 	- Kong API Gateway / Nginx
 	- Google Cloud Platform (GCE, GKE, Load Balancer, Container Registry/Builder, Storage, etc.)
+

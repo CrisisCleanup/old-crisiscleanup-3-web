@@ -10,9 +10,6 @@ const messages = {
       register: "Register",
       login: "Login"
     },
-    donation: {
-      t1: ""
-    },
     bannerCycler: {
       msg1: "Each day, volunteers save disaster survivors more than <strong style=\"color:white;\">$50,000</strong>. You could be one of them.",
       msg2: "See who is on the ground <em>right now</em> helping <strong style=\"color: white;\">your community</strong>!",
@@ -35,10 +32,25 @@ const messages = {
       settings: "Settings9",
       details: "Details9",
       account: "Account9",
+      updates: "Updates",
+      messages: "Messages",
+      tasks: "Tasks",
+      comments: "Comments",
+      profile: "Profile",
+      lock_account: "Lock Account",
+      logout: "Logout",
       save_unclaim: "Save & Unclaim9",
       unclaim: "Unclaim9",
       contact: "Contact9",
-      submit_invites: "Submit Invites9",
+      submit_invites: "Send Invites9",
+      view_on_map: "View on Map",
+      send_sms: "Send SMS",
+      next: "Next",
+      previous: "Previous",
+      register: "Register",
+      connect: "Connect",
+      request: "Request",
+      join_us: "Join Us",
       choose_one_select: "--Choose One--"
     },
     printWorksite: {
@@ -116,8 +128,183 @@ const messages = {
       completed: "Completed",
       in_progress: "In Progress"
     },
-    markerInfo: {
-      days_ago: "days ago*** construct this sentence with a variable"
+    status: {
+      open_unassigned: "Open, unassigned",
+      open_assigned: "Open, assigned",
+      open_partially_completed: "Open, partially completed",
+      open_needs_follow_up: "Open, needs follow-up",
+      closed_completed: "Closed, completed",
+      closed_incomplete: "Closed, incomplete",
+      closed_out_of_scope: "Closed, out of scope",
+      closed_done_by_others: "Closed, done by others",
+      closed_no_help_wanted: "Closed, no help wanted",
+      closed_rejected: "Closed, rejected",
+      closed_duplicate: "Closed, duplicate"
+    },
+    status_description: {
+      open_unassigned: "Has not been assigned to an organization's internal team.",
+      open_assigned: "Has been assigned to an internal team, and work is imminent.",
+      open_partially_completed: "Is partially complete, but needs additional work.",
+      open_needs_follow_up: "Needs additional information or work in order to continue.",
+      closed_completed: "Is completed, and no further action for the current phase is necessary.",
+      closed_incomplete: "Is not complete, but the organization will not complete the remaining work (e.g. deferred maintenance, demobiliztation).",
+      closed_out_of_scope: "Is not complete, but the requested work is not in scope for any responding relief organization. (e.g. 4-foot diameter trees)",
+      closed_done_by_others: "Is completed, but the work was done by others. No further action necessary.",
+      closed_no_help_wanted: "Was declined by owner. No help was wanted. No further action necessary.",
+      closed_rejected: "Was rejected by the responding organization. Please note the reason for rejection.",
+      closed_duplicate: "Was a duplicate. No further action necessary. Use this status instead of trying do delete a record."
+    },
+    work_type: {
+      ash: "Ash Sifting",
+      biohazard: "Biohazard",
+      construction_consultation: "Construction Consultation",
+      core_relief_items: "Core relief items",
+      debris: "Debris",
+      debris_removal: "Debris removal",
+      deferred_maintenance: "Deferred Maintenance",
+      demolition: "Demolition",
+      education: "Education",
+      erosion: "Erosion",
+      escort: "Escort Needed",
+      fence: "Fence",
+      fire: "Fire",
+      _flood: "Flood",
+      flood: "Flood",
+      flood_indoor: "Flood (indoor)",
+      flood_outdoor: "Flood (outdoor)",
+      food: "Food",
+      goods_or_services: "Goods or Services",
+      health: "Health",
+      infrastructure: "Infrastructure",
+      infrastructure_logistics: "Infrastructure and Logistics",
+      jobs_livelihoods: "Jobs and Livelihood",
+      landslide: "Landslide",
+      leak: "Water Leak",
+      mold_remediation: "Mold Remediation",
+      muck_out: "Muck Out",
+      other: "Other",
+      pda_1: "Preliminary Damage Assessment (1)",
+      pda_2: "Preliminary Damage Assessment (2)",
+      pda_3: "Preliminary Damage Assessment (3)",
+      pda_4: "Preliminary Damage Assessment (4)",
+      pda_5: "Preliminary Damage Assessment (5)",
+      phone: "Phone",
+      pill: "Medication",
+      power: "Power",
+      protection_security: "Protection and Security",
+      rebuild: "Rebuild",
+      rebuild_total: "Total Rebuild",
+      report: "Report",
+      retardant_cleanup: "Fire Retardant Cleanup",
+      shelter: "Shelter",
+      siding: "Siding",
+      smoke_damage: "Smoke Damage",
+      snow_ground: "Snow Ground Removal",
+      snow_roof: "Snow Roof Removal",
+      structure: "Structure",
+      syringe: "Syringe",
+      tarp: "Tarp",
+      temporary_housing: "Temporary Housing",
+      tornado: "Tornado",
+      trees: "Trees",
+      trees_heavy_equipment: "Trees Needing Heavy Equipment",
+      unknown: "Unknown",
+      various: "Various",
+      volcano: "Volcano",
+      water_sanitation: "Water and Sanitation"
+    },
+    workerCCUMap: {
+      toggle_heatmap: "Toggle Heatmap",
+      change_gradient: "Change gradient",
+      change_radius: "Change radius",
+      change_opacity: "Change opacity"
+    },
+    realtimeMap: {
+      resume_autoplay: "Resume Autoplay"
+    },
+    footer: {
+      powered_by: "Powered by"
+    },
+    header: {
+      incident: "Incident"
+    },
+    largeFooter: {
+      ready_to_deploy_msg: "Ready-to-Deploy Collaborative Disaster Relief Mapping and Coordination",
+      ccu_deployments: "Crisis Cleanup Deployments",
+      dozens_disasters_msg: "Crisis Cleanup has been used in dozens of disasters across the world.",
+      all_deployments_msg: "See All Crisis Cleanup Deployments",
+      media_coverage: "Media Coverage",
+      no_spotlight_msg: "Crisis Cleanup is primarily for relief agencies rather than the public (and therefore we don't seek the public spotlight), but occasionally you will see us in the news!",
+      in_the_news_msg: "See Crisis Cleanup In The News",
+      want_to_help: "Want to help?",
+      help_ccu: "Help Crisis Cleanup"
+    },
+    whyCCU: {
+      why_we_do_it: "Why we do it",
+      rich_maseda_msg_p1: "On Sept. 17, 2017 our church group was assigned to tackle a pretty sizable job via crisiscleanup.org in Jacksonville, FL in the wake of Hurricane Irma. It was a small home on a small farm with several massive trees that needed to be cleared out. It took 30 of us with trucks and chainsaws the better part of 3 hours working alongside the homeowner cutting and hauling. As we got to know the homeowner better we found she had a pretty fascinating story.",
+      rich_maseda_msg_p2: "About 7 years ago her husband was involved in a terrible car accident that left him paralyzed and wheelchair bound for life.  So to help make ends meet he actually paints these amazing paintings with his mouth and sells them.  They also do photography, host weddings and multiple other events and services on their farm to support themselves.  We also learned that they had been trying to adopt children for some time now and their home was about to be inspected to deem if they were suitable for foster children.  So the hurricane and the many downed trees were very untimely.  Her father and a friend had one chainsaw in disrepair and were looking at weeks maybe months worth of work ahead of them, time they didn't have.  Fortunately, our team showed up and took care of it in one morning to help their small business recover and hopefully adopt children one day.  She was beside herself with gratitude.",
+      nichole_schwartz_msg_p1: "I was part of a Team Rubicon Remote Operation that supported the organization of clean-up assistance during both Hurricane Harvey and Hurricane Irma.  Providing assistance to individuals during, perhaps, their most difficult life experiences was humbling.  The Crisis Clean-up site is clean and easy to use.  The support received made being part of the volunteer efforts easy and rewarding.  Between calls on my scheduled shift, I would take a look at the map of submitted work orders and reflect on all of the work that I could actually see being claimed and completed.  This was useful to have a visual for the full life-cycle of the volunteer effort.  I was also aware of a great many hours that were saved by having Crisis Clean up as part of the disaster response and recovery efforts.  I am in awe of the innovative ways that the developers are using technology to meet the needs of our communities.",
+      nichole_schwartz_msg_p2: "While I could not say, in good conscience, that I look forward to another opportunity to serve communities through a disaster- if and when a future situation arises, I certainly look forward to assisting through Crisis Cleanup.",
+      neil_glassman_msg_p1: "In September 2017, I spent more than 60 hours on the phone serving on Crisis Cleanup with fellow volunteers from Team Rubicon. It was both heart-wrenching to hear first hand from Harvey and Irma survivors and gratifying to be able to assist them. Many callers expressed that Crisis Cleanup was the only call they had placed where they truly had the ear of the person to whom they were speaking and the only contact they had made to a recovery operation that gave them hope that they would not be forgotten. Crisis Cleanup is a powerful tool that clearly assists the many participating volunteer organizations in their efforts. It would be an honor to be asked to again participate on Crisis Cleanup.",
+      how_to_join: "How to Join",
+      survivors: "Survivors",
+      call_800_msg: "Call 1 (800) 451-1954 to be placed on a list",
+      get_help: "Get Help",
+      relief_organizations: "Relief Organizations",
+      requirements: "Requirements",
+      boots_on_ground: "Boots on the Ground",
+      interact_survivors: "Interact directly with Survivors",
+      work_of_this_type: "Do assesments, debris removal, muck-outs, rebuilding",
+      reputable: "Be a reputable organization",
+      full_details: "Full details",
+      register: "Register",
+      suv: "Individual Volunteer",
+      suv_join_org_msg: "Please first connect with a reputable relief organization",
+      connect: "Connect",
+      govt_agency: "Government Agency",
+      govt_agency_join_msg: "Government receives appropriately limited access to help facilitate recovery"
+    },
+    donation: {
+      donate: "Donate",
+      your_donation_msg: "Your dollar helps volunteers waste less time, find more oppportunities, and stay longer. That means HELPING MORE PEOPLE.",
+      turn_100_to_1000_msg: "Turn a $100 donation into $1,000 worth of services",
+      choose_level: "Choose a level",
+      donate_card: "Donate Using a Card",
+      donate_monthly: "Donate Monthly",
+      view_roadmap: "View Our Roadmap",
+      view_numbers: "Look at the Numbers"
+    },
+    poweredBy: {
+      powered_by: "Powered By",
+      contributors_major_2017: "2017 Major Contributors",
+      contributors_major_past: "Past Key Contributors and Partners",
+      staff: "Staff",
+      staff_volunteers_former: "Former Staff and Major Volunteers",
+      who_we_serve: "Who We Serve",
+      ccu_serves_orgs_msg: "Crisis Cleanup serves the relief organizations and volunteers who help survivors on the ground. Crisis Cleanup helps volunteers help more people. Every pin on the map is a story. Every story drives us to give more.",
+      kelly_darden_quote: "“My experience with Crisis Cleanup was amazing. It was nice to feel like I was contributing without being able to be 'boots on the ground.'”"
+    },
+    404: {
+      oops_lost: "Oops! You're lost.",
+      page_not_found: "The page you are looking for was not found.",
+      go_home: "Go Back to Home"
+    },
+    500: {
+      houston_problem: "Houston, we have a problem!",
+      page_not_available_msg: "The page you are looking for is temporarily unavailable. (It's our fault, not yours)."
+    },
+    activate: {
+      activate_account: "Activate Account"
+    },
+    dashboard: {
+      day: "Day",
+      week: "Week",
+      two_weeks: "2 Weeks",
+      month: "Month",
+      year: "Year",
+      all: "All",
+      current_disaster: "Current Disaster",
+      all_disasters: "All Disasters"
     }
   },
   es: {
@@ -130,9 +317,6 @@ const messages = {
       join: "Únete a nosotross",
       register: "Registro",
       login: "Iniciar sesión"
-    },
-    donation: {
-      t1: ""
     },
     bannerCycler: {
       msg1: "Todos los días, los voluntarios ahorran a los sobrevivientes del desastre más de <strong style=\"color:white;\">$50,000</strong>. Tu podrías ser uno de ellos.",
@@ -156,10 +340,25 @@ const messages = {
       settings: "Configuraciones",
       details: "Detalles",
       account: "Cuenta",
+      updates: "Actualizaciones",
+      messages: "Mensajes",
+      tasks: "Tareas",
+      comments: "Comentarios",
+      profile: "Perfil",
+      lock_account: "Bloquear cuenta",
+      logout: "Cerrar sesión",
       save_unclaim: "Guardar y Desclamar",
       unclaim: "Desclamar",
       contact: "Contáctales",
       submit_invites: "Enviar invitaciones",
+      view_on_map: "Ver en el mapa",
+      send_sms: "Enviar SMS",
+      next: "Siguiente",
+      previous: "Anterior",
+      register: "Registro",
+      connect: "Conectate",
+      request: "Solicitud",
+      join_us: "Únete a nosotross",
       choose_one_select: "--Elige una--"
     },
     printWorksite: {
@@ -237,8 +436,183 @@ const messages = {
       completed: "Terminado",
       in_progress: "En progreso"
     },
-    markerInfo: {
-      days_ago: ""
+    status: {
+      open_unassigned: "Abierto, sin asignar",
+      open_assigned: "Abierto, asignado",
+      open_partially_completed: "Abierto, parcialmente completado",
+      open_needs_follow_up: "Abierto, necesita seguimiento",
+      closed_completed: "Cerrado, completado",
+      closed_incomplete: "Cerrado, incompleto",
+      closed_out_of_scope: "Cerrado, fuera del alcance",
+      closed_done_by_others: "Cerrado, hecho por otros",
+      closed_no_help_wanted: "Cerrado, no se necesita ayuda",
+      closed_rejected: "Cerrado, rechazado",
+      closed_duplicate: "Cerrado, duplicado"
+    },
+    status_description: {
+      open_unassigned: "No ha sido asignado al equipo interno de una organización.",
+      open_assigned: "Ha sido asignado a un equipo interno, y el trabajo es inminente.",
+      open_partially_completed: "Está parcialmente completo, pero necesita trabajo adicional.",
+      open_needs_follow_up: "Necesita información adicional o trabajo para continuar.",
+      closed_completed: "Se completa y no es necesario realizar más acciones para la fase actual.",
+      closed_incomplete: "No está completo, pero la organización no completará el trabajo restante (por ejemplo, mantenimiento diferido, desmovilización).",
+      closed_out_of_scope: "No está completo, pero el trabajo solicitado no está dentro del alcance de ninguna organización de ayuda que responda. (por ejemplo, árboles de 4 pies de diámetro)",
+      closed_done_by_others: "Se completa, pero el trabajo fue realizado por otros. No es necesario realizar más acciones.",
+      closed_no_help_wanted: "Fue rechazado por el propietario. No se necesitaba ayuda. No es necesario realizar más acciones.",
+      closed_rejected: "Fue rechazado por la organización que respondió. Tenga en cuenta el motivo del rechazo.",
+      closed_duplicate: "Fue un duplicado No es necesario realizar más acciones. Use este estado en lugar de intentar borrar un registro."
+    },
+    work_type: {
+      ash: "Tamizar la ceniza",
+      biohazard: "Riesgo biológico",
+      construction_consultation: "Consulta de construcción",
+      core_relief_items: "Artículos de alivio básicos",
+      debris: "Escombros",
+      debris_removal: "Remoción de escombros",
+      deferred_maintenance: "Mantenimiento diferido",
+      demolition: "Demolición",
+      education: "Educación",
+      erosion: "Erosión",
+      escort: "Escolta Necesaria",
+      fence: "Cerca",
+      fire: "Fuego",
+      _flood: "Inundar",
+      flood: "Inundar",
+      flood_indoor: "Inundación (interior)",
+      flood_outdoor: "Inundación (al aire libre)",
+      food: "Comida",
+      goods_or_services: "Bienes o servicios",
+      health: "Salud",
+      infrastructure: "Infraestructura",
+      infrastructure_logistics: "Infraestructura y Logística",
+      jobs_livelihoods: "Empleos y medios de subsistencia",
+      landslide: "Deslizamiento de tierra",
+      leak: "Gotera de agua",
+      mold_remediation: "Remediación de moho",
+      muck_out: "Limpiar el barro",
+      other: "Otro",
+      pda_1: "Evaluación preliminar de daños (1)",
+      pda_2: "Evaluación preliminar de daños (2)",
+      pda_3: "Evaluación preliminar de daños (3)",
+      pda_4: "Evaluación Preliminar de Daños (4)",
+      pda_5: "Evaluación preliminar de daños (5)",
+      phone: "Teléfono",
+      pill: "Medicación",
+      power: "Poder",
+      protection_security: "Protección y seguridad",
+      rebuild: "Reconstruir",
+      rebuild_total: "Reconstrucción total",
+      report: "Informe",
+      retardant_cleanup: "Limpieza ignífuga",
+      shelter: "Abrigo",
+      siding: "Vía muerta",
+      smoke_damage: "Daño por humo",
+      snow_ground: "Retire la nieve del suelo",
+      snow_roof: "Retire la nieve del techo",
+      structure: "Estructura",
+      syringe: "Jeringuilla",
+      tarp: "Tarp",
+      temporary_housing: "Alojamiento temporal",
+      tornado: "Tornado",
+      trees: "Árboles",
+      trees_heavy_equipment: "Árboles que necesitan equipo pesado",
+      unknown: "Desconocido",
+      various: "Varios",
+      volcano: "Volcán",
+      water_sanitation: "Agua y sanitización"
+    },
+    workerCCUMap: {
+      toggle_heatmap: "Alternar mapa de calor",
+      change_gradient: "Cambiar gradiente",
+      change_radius: "Cambiar el radio",
+      change_opacity: "Cambiar la opacidad"
+    },
+    realtimeMap: {
+      resume_autoplay: "Reanudar Autoplay"
+    },
+    footer: {
+      powered_by: "Energizado por"
+    },
+    header: {
+      incident: "Incidente"
+    },
+    largeFooter: {
+      ready_to_deploy_msg: "Listo para implementar Mapeo colaborativo de socorro en casos de desastre y coordinación",
+      ccu_deployments: "Despliegues de Crisis Cleanup",
+      dozens_disasters_msg: "Crisis Cleanup se ha utilizado en docenas de desastres en todo el mundo.",
+      all_deployments_msg: "Ver todas las implementaciones de Crisis Cleanup",
+      media_coverage: "Cobertura mediática",
+      no_spotlight_msg: "Crisis Cleanup es principalmente para agencias de ayuda en lugar de para el público (y por lo tanto no buscamos el centro de atención pública), ¡pero de vez en cuando nos verá en las noticias!",
+      in_the_news_msg: "Ver Crisis Cleanup en las noticias",
+      want_to_help: "¿Quiero ayudar?",
+      help_ccu: "Ayuda a Crisis Cleanup"
+    },
+    whyCCU: {
+      why_we_do_it: "Por qué lo hacemos",
+      rich_maseda_msg_p1: "El 17 de septiembre de 2017, nuestro grupo de la iglesia fue asignado para hacer frente a un trabajo bastante importante a través de crisiscleanup.org en Jacksonville, FL, a raíz del huracán Irma. Era un pequeño hogar en una pequeña granja con varios árboles enormes que debían ser limpiados. Nos llevó a 30 de nosotros con camiones y motosierras la mayor parte de 3 horas trabajando junto con el corte y acarreo del propietario. A medida que conocimos mejor al propietario, descubrimos que tenía una historia bastante fascinante.",
+      rich_maseda_msg_p2: "Hace aproximadamente 7 años, su esposo estuvo involucrado en un terrible accidente automovilístico que lo dejó paralítico y en silla de ruedas para toda la vida. Así que para ayudar a fin de mes, en realidad pinta estas increíbles pinturas con su boca y las vende. También hacen fotografía, organizan bodas y muchos otros eventos y servicios en su granja para mantenerse. También aprendimos que habían estado tratando de adoptar niños durante un tiempo y que su hogar estaba a punto de ser inspeccionado para determinar si eran adecuados para niños de crianza temporal. Entonces el huracán y los muchos árboles caídos fueron muy inoportunos. Su padre y un amigo tenían una motosierra en mal estado y esperaban semanas tal vez meses de trabajo por delante, tiempo que no tenían. Afortunadamente, nuestro equipo se presentó y se ocupó de él en una mañana para ayudar a su pequeña empresa a recuperarse y, con suerte, adoptar a los niños algún día. Ella estaba fuera de sí con gratitud.",
+      nichole_schwartz_msg_p1: "Fui parte de una operación remota de Team Rubicon que apoyó la organización de la asistencia de limpieza durante el huracán Harvey y el huracán Irma. Proporcionar asistencia a individuos durante, quizás, sus experiencias de vida más difíciles fue humillante. El sitio de limpieza de crisis es limpio y fácil de usar. El apoyo recibido hizo que ser parte de los esfuerzos voluntarios fuera fácil y gratificante. Entre llamadas en mi turno programado, echaba un vistazo al mapa de las órdenes de trabajo enviadas y reflexionaba sobre todo el trabajo que podía ver siendo reclamado y completado. Esto fue útil para tener una visualización del ciclo de vida completo del esfuerzo voluntario. También me di cuenta de las muchas horas que se salvaron al tener Crisis Clean up como parte de la respuesta al desastre y los esfuerzos de recuperación. Me sorprenden las formas innovadoras en que los desarrolladores utilizan la tecnología para satisfacer las necesidades de nuestras comunidades.",
+      nichole_schwartz_msg_p2: "Si bien no podía decir, con buena conciencia, que esperaba con ansias otra oportunidad de servir a las comunidades a través de un desastre, siempre y cuando surja una situación futura, ciertamente espero ayudar con Crisis Cleanup.",
+      neil_glassman_msg_p1: "En septiembre de 2017, pasé más de 60 horas en el servicio de Crisis Cleanup con otros voluntarios del Team Rubicon. Fue desgarrador escuchar de primera mano a los sobrevivientes de Harvey e Irma y gratificante poder ayudarlos. Muchas personas que llamaron expresaron que Crisis Cleanup fue la única llamada que hicieron cuando realmente tenían el oído de la persona a la que estaban hablando y el único contacto que habían hecho para una operación de recuperación que les dio la esperanza de que no serían olvidados. Crisis Cleanup es una poderosa herramienta que claramente ayuda a las muchas organizaciones voluntarias participantes en sus esfuerzos. Sería un honor que se le pida participar de nuevo en Crisis Cleanup.",
+      how_to_join: "Como unirse",
+      survivors: "Sobrevivientes",
+      call_800_msg: "Llame al 1 (800) 451-1954 para ser incluido en una lista",
+      get_help: "Consigue ayuda",
+      relief_organizations: "Organizaciones de socorro",
+      requirements: "Requisitos",
+      boots_on_ground: "Presencia física en el área",
+      interact_survivors: "Interactuar directamente con los sobrevivientes",
+      work_of_this_type: "Hacer evaluaciones, remover escombros, limpiar barro, reconstruir",
+      reputable: "Sé una organización respetable",
+      full_details: "Detalles completos (inglés)",
+      register: "Registro",
+      suv: "Voluntario individual",
+      suv_join_org_msg: "Primero, conéctese con una organización de ayuda de buena reputación",
+      connect: "Conectate",
+      govt_agency: "Agencia del gobierno",
+      govt_agency_join_msg: "El gobierno recibe acceso limitado apropiado para ayudar a facilitar la recuperación"
+    },
+    donation: {
+      donate: "Donar",
+      your_donation_msg: "Su dólar ayuda a los voluntarios a perder menos tiempo, encontrar más oportunidades y quedarse más tiempo. Eso significa AYUDAR A MÁS GENTE.",
+      turn_100_to_1000_msg: "Convierta una donación de $ 100 en $ 1,000 en servicios",
+      choose_level: "Elige un nivel",
+      donate_card: "Done con una tarjeta",
+      donate_monthly: "Donar mensualmente",
+      view_roadmap: "Ver nuestro plan de desarrollo",
+      view_numbers: "Mira los números"
+    },
+    poweredBy: {
+      powered_by: "Energizado por",
+      contributors_major_2017: "",
+      contributors_major_past: "Colaboradores clave y socios anteriores",
+      staff: "Personal",
+      staff_volunteers_former: "Antiguo personal y grandes voluntarios",
+      who_we_serve: "A quien servimos",
+      ccu_serves_orgs_msg: "Crisis Cleanup sirve a las organizaciones de ayuda y voluntarios que ayudan a los sobrevivientes en el terreno. Crisis Cleanup ayuda a los voluntarios a ayudar a más personas. Cada pin en el mapa es una historia. Cada historia nos impulsa a dar más.",
+      kelly_darden_quote: "\"Mi experiencia con Crisis Cleanup fue increíble. Fue agradable sentir que estaba contribuyendo sin poder ser 'botas en el suelo' \"."
+    },
+    404: {
+      oops_lost: "Oops! Estas perdido.",
+      page_not_found: "La página que está buscando no se encontró.",
+      go_home: "Volver a la página principal"
+    },
+    500: {
+      houston_problem: "¡Houston, tenemos un problema!",
+      page_not_available_msg: "La página que está buscando no está disponible temporalmente. (Es nuestra culpa, no la tuya)."
+    },
+    activate: {
+      activate_account: "Activar la cuenta"
+    },
+    dashboard: {
+      day: "Día",
+      week: "Semana",
+      two_weeks: "2 semanas",
+      month: "Mes",
+      year: "Año",
+      all: "Todas",
+      current_disaster: "Desastre actual",
+      all_disasters: "Todos los desastres"
     }
   }
 };

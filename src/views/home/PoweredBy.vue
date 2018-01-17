@@ -3,10 +3,10 @@
 
     <section id="go-poweredby" class="powered-by container-fluid">  <!-- ******************** Powered by ********************* -->
       <div class="row">
-        <h2>Powered by</h2>
+        <h2>{{ $t('poweredBy.powered_by') }}</h2>
       </div>
       <div class="row">
-        <h4>2017 Major Contributors</h4>
+        <h4>{{ $t('poweredBy.contributors_major_2017') }}</h4>
       </div>
       <div class="row">
         <ul class="list-inline d-flex flex-wrap">  <!--d-flex plus flex-wrap fixes the nasty behavior when image cards and button cards dont want to line up.-->
@@ -44,7 +44,7 @@
           </li>
           <li class="list-inline-item">
             <div class="card major-cards card-joinus bg-dark">
-              <button class="btn-primary major-joinus">Join Us</button>
+              <button class="btn-primary major-joinus">{{ $t('actions.join_us') }}</button>
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted"></small>
               </div>
@@ -87,7 +87,7 @@
 
 
       <div class="row">
-        <h4>Past Key Contributors and Partners</h4>
+        <h4>{{ $t('poweredBy.contributors_major_past') }}</h4>
       </div>
       <div class="row">
         <ul class="list-inline d-flex flex-wrap">
@@ -96,7 +96,7 @@
             <div class="card minor-cards bg-dark">
               <img class="card-img-top" src="/static/img/front_end/logo-visionlink.jpg" alt="Card image">
               <div class="card-footer the-card-footer d-flex">
-                <small class="text-muted">Vision Link</small>
+                <small class="text-muted">VisionLink</small>
               </div>
             </div>
           </li>
@@ -128,7 +128,7 @@
             <div class="card minor-cards bg-dark">
               <img class="card-img-top" src="/static/img/front_end/logo-sahana.jpg" alt="Card image">
               <div class="card-footer the-card-footer d-flex">
-                <small class="text-muted">Sahana</small>
+                <small class="text-muted">Sahana Foundation</small>
               </div>
             </div>
           </li>
@@ -144,7 +144,7 @@
             <div class="card minor-cards bg-dark">
               <img class="card-img-top" src="/static/img/front_end/logo-howtoprepare.jpg" alt="Card image">
               <div class="card-footer the-card-footer d-flex">
-                <small class="text-muted">How To Prepare</small>
+                <small class="text-muted">How To Prepare for Everything</small>
               </div>
             </div>
           </li>
@@ -152,13 +152,13 @@
             <div class="card minor-cards bg-dark">
               <img class="card-img-top" src="/static/img/front_end/logo-thinkso.png" alt="Card image">
               <div class="card-footer the-card-footer d-flex">
-                <small class="text-muted">Think So</small>
+                <small class="text-muted">ThinkSo</small>
               </div>
             </div>
           </li>
           <li class="list-inline-item">
             <div class="card minor-cards card-joinus bg-dark">
-              <button class="btn-primary minor-joinus">Join Us</button>
+              <button class="btn-primary minor-joinus">{{ $t('actions.join_us') }}</button>
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted"></small>
               </div>
@@ -201,7 +201,7 @@
 
 
       <div class="row">
-        <h4>Staff</h4>
+        <h4>{{ $t('poweredBy.staff') }}</h4>
       </div>
       <div class="row">
         <ul class="list-inline d-flex flex-wrap">
@@ -234,7 +234,7 @@
 
 
       <div class="row">
-        <h4>Major Volunteers</h4>
+        <h4>{{ $t('poweredBy.staff_volunteers_former') }}</h4>
       </div>
       <div class="row">
         <ul class="list-inline d-flex flex-wrap">
@@ -295,7 +295,7 @@
             </div>
           <li class="list-inline-item">
             <div class="card minor-cards card-joinus bg-dark">
-              <a href="https://github.com/CrisisCleanup/crisiscleanup" target="_blank" class="btn-primary minor-joinus">Join Us</a>
+              <a href="https://github.com/CrisisCleanup/crisiscleanup" target="_blank" class="btn-primary minor-joinus">{{ $t('actions.join_us') }}</a>
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted"></small>
               </div>
@@ -310,11 +310,10 @@
     <section id="go-whoweserve" class="who-we-serve">  <!-- ******************** Who We Serve ********************* -->
       <div class="container">
         <div class="row">
-          <h2>Who We Serve</h2>
+          <h2>{{ $t('poweredBy.who_we_serve') }}</h2>
         </div>
         <div class="row mb-2" >
-          <h6>At the end of the day, its the volunteers who rush to the rescue that deserve as much logistical
-          support as can possibly be given.  Every home on the map has a story.  Every story drives us to give more.</h6>
+          <h6>{{ $t('poweredBy.ccu_serves_orgs_msg') }}</h6>
         </div>
         <div class="row">
           <div class="who-card-columns card-columns">
@@ -329,7 +328,7 @@
             <div class="org-testimonial card">
               <div class="card-header  text-center">Team Rubicon</div>
               <div class="card-body">
-                <p class="card-text">“My experience with CC was amazing. It was nice to feel like I was contributing without being able to be “boots on the ground.”
+                <p class="card-text">{{ $t('poweredBy.kelly_darden_quote') }}
                 </p>
                 <div class="card-text text-right"> - Kelly Darden</div>
               </div>
