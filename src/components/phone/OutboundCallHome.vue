@@ -14,7 +14,7 @@
                         </table> -->
                         <b-table :items="outboundCallOptions" :fields="fields" hover >
                             <template slot="value" scope="row">
-                                <b-btn :variant="row.item.buttonclass" @click.stop="row.toggleDetails">{{row.item.value}}</b-btn>
+                                <b-btn :variant="row.item.buttonclass" @click.stop="callHeaderClicked(row)">{{row.item.value}}</b-btn>
                             </template>
                             <template slot="row-details" scope="row">
                                 <b-card no-body class="text-white bg-dark text-left" style="position:relative; height:100px; overflow-y:scroll;">
@@ -125,9 +125,12 @@ import { mapMutations, mapState} from 'vuex'
                 this.message = 'Stop Taking Calls' 
             }
         },
-        callHeaderClicked(record, index){
-            record._showDetails = true;
-            console.log(record)
+        callHeaderClicked(row){
+            if(row.item.buttonclass != "success"){
+                row.toggleDetails()
+            }else{
+                //fill in with the GO item
+            }
         }
       }
   }
