@@ -12,9 +12,16 @@
                                 <td style="width:30%"><button v-bind:class="option.buttonclass" style="width:60%; margin:5px" align="center">{{ option.value }}</button></td>
                             </tr>
                         </table> -->
-                        <b-table :items="outboundCallOptions" :fields="fields" hover>
+                        <b-table :items="outboundCallOptions" :fields="fields" hover >
                             <template slot="value" scope="row">
-                                <b-badge pill>{{row.value}}</b-badge>
+                                <b-btn :variant="row.item.buttonclass" @click.stop="row.toggleDetails">{{row.item.value}}</b-btn>
+                            </template>
+                            <template slot="row-details" scope="row">
+                                <b-card no-body class="text-white bg-dark text-left" style="position:relative; height:100px; overflow-y:scroll;">
+                                <b-list-group>
+                                    <b-list-item v-for="call in row.item.calls" v-bind:key="call.id">{{call.number}}</b-list-item>
+                                </b-list-group>
+                                </b-card>
                             </template>
                         </b-table>
                 </b-card>
@@ -35,13 +42,71 @@ import { mapMutations, mapState} from 'vuex'
       data() {
         return {
             outboundCallOptions: [
-                { id: 1, name:'Missed Calls',  value: '127', buttonclass: 'btn-danger'},
-                { id: 2, name:'Needs Special Assistance',  value: '3', buttonclass:'btn-secondary'},
-                { id: 3, name:'Confirm They Still Need Help',  value: '4928', buttonclass:'btn-secondary'},
-                { id: 4, name:'Make Manual Outbound Call',  value: 'GO', buttonclass:'btn-success'}
+                { id: 1, name:'Missed Calls',  value: '127', buttonclass: 'danger', 
+                  calls: [
+                    { 
+                      id: 1,
+                      number: "123-456-7890"
+                    },
+                    { 
+                      id: 2,
+                      number: "123-456-7890"
+                    },
+                    { 
+                      id: 3,
+                      number: "123-456-7890"
+                    },
+                    { 
+                      id: 4,
+                      number: "123-456-7890"
+                    },
+                    { 
+                      id: 5,
+                      number: "123-456-7890"
+                    },
+                    { 
+                      id: 6,
+                      number: "123-456-7890"
+                    }
+                  ]
+                },
+                {   id: 2, name:'Needs Special Assistance',  value: '3', buttonclass:'secondary',
+                    calls: [
+                        { 
+                        id: 1,
+                        number: "123-456-7890"
+                        },
+                        { 
+                        id: 2,
+                        number: "123-456-7890"
+                        },
+                        { 
+                        id: 3,
+                        number: "123-456-7890"
+                        }
+                    ]
+                },
+                {   id: 3, name:'Confirm They Still Need Help',  value: '4928', buttonclass:'secondary',
+                    calls: [
+                        { 
+                        id: 1,
+                        number: "123-456-7890"
+                        },
+                        { 
+                        id: 2,
+                        number: "123-456-7890"
+                        },
+                        { 
+                        id: 3,
+                        number: "123-456-7890"
+                        }
+                  ]
+                },
+                { id: 4, name:'Make Manual Outbound Call',  value: 'GO', buttonclass:'success', calls: []}
             ],
             fields: [
-                'name', {key:'value', label:'Calls Waiting'}
+                {key:'name', label: 'Call Status','class':'text-center' },
+                {key:'value', label:'# Calls Waiting','class':'text-center' }
             ]
         };
         },
@@ -60,6 +125,10 @@ import { mapMutations, mapState} from 'vuex'
                 this.message = 'Stop Taking Calls' 
             }
         },
+        callHeaderClicked(record, index){
+            record._showDetails = true;
+            console.log(record)
+        }
       }
   }
 </script>
