@@ -11,6 +11,7 @@
 
 <script>
   import { mapMutations, mapState, mapGetters } from 'vuex'
+  import PhoneService from '@/services/phone';
   import SessionInfoConfirm from '@/components/phone/SessionInfoConfirm'
   import UserInfo from '@/components/phone/UserInfo'
   import IncomingCall from '@/components/phone/IncomingCall'
@@ -27,6 +28,9 @@
       if (this.needsWelcome) {
         this.$router.push('/worker/phone/welcome');
       }
+
+      // var a = new PhoneService();
+      // a.login();
     },
     data() {
       return {

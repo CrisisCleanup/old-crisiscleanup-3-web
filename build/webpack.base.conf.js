@@ -69,6 +69,16 @@ module.exports = {
             outputPath: utils.assetsPath('fonts/')
           }
         }
+      },
+      {
+        // Use legacy loading for Connect First SDK
+        // Use imports-loader to turn off AMD loading
+        // so it uses the Common JS loader, which relies on 
+        // 'this'. Then shim in the window object as 'this',
+        // which is what the SDK relies on. From webpack
+        // docs on shimming and docs for imports-loader
+        test: /vendor\/cf-agent-library\.js$/,
+        use: 'imports-loader?define=>false,this=>window'
       }
     ]
   }
