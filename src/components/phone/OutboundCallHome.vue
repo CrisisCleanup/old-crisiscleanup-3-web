@@ -6,12 +6,17 @@
                 header="Outbound/Return Calls"
                 header-tag="header"
                 header-bg-variant="secondary">
-                        <table width="100%"> 
+                        <!-- <table width="100%"> 
                             <tr style="height:25%; border-top:1px solid white; border-bottom:1px solid white" v-for="option in outboundCallOptions" v-bind:key="option.id">
                                 <td style="width:70%; font-size:medium" align="center">{{ option.name }}</td>
                                 <td style="width:30%"><button v-bind:class="option.buttonclass" style="width:60%; margin:5px" align="center">{{ option.value }}</button></td>
                             </tr>
-                        </table>
+                        </table> -->
+                        <b-table :items="outboundCallOptions" :fields="fields" hover>
+                            <template slot="value" scope="row">
+                                <b-badge pill>{{row.value}}</b-badge>
+                            </template>
+                        </b-table>
                 </b-card>
             </b-card-group>
         </div>
@@ -35,6 +40,9 @@ import { mapMutations, mapState} from 'vuex'
                 { id: 3, name:'Confirm They Still Need Help',  value: '4928', buttonclass:'btn-secondary'},
                 { id: 4, name:'Make Manual Outbound Call',  value: 'GO', buttonclass:'btn-success'}
             ],
+            fields: [
+                'name', {key:'value', label:'Calls Waiting'}
+            ]
         };
         },
       computed: {
