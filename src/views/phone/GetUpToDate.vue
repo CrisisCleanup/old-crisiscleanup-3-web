@@ -10,23 +10,25 @@
                 <div v-if="articles.length > 0">
                   <div v-for="article in articles.filter(x => !x.isDeleted)" v-bind:key="article.id">
                       <input type="checkbox" v-model="article.isRead"  v-if="!inEditMode"> 
-                      <b>{{article.title}}</b>
                       <!--Show edit mode buttons-->
                       <span class="inline-block btn-group" v-if="inEditMode"> 
-                          <button class="btn btn-primary" @click="article.isDeleted = true"><i class="icon-trash"></i></button>
+                          <button class="btn btn-danger" @click="deleteArticle(article)"><i class="icon-trash"></i></button>
                       </span>
+                      <b>{{article.title}}</b>
                       <div>{{article.description}}</div>        
                       <br>
                   </div>
-                  </div>
-                  <div v-else>
-                    No news
-                  </div>
-                  <button class="btn btn-success" v-b-modal.articleModal v-if="inEditMode"><i class="icon-plus"></i></button>
-                  <br><br>
                   <div class="alert alert-success" role="alert" v-if="allArticlesRead && !inEditMode">
                     <strong>Congratulations! </strong>You're up to date with the latest news.
                   </div>
+                </div>
+                <div v-else>
+                  <div class="alert alert-info" role="alert" v-if="allArticlesRead">
+                  No news articles.
+                </div>
+                  </div>
+                  <button class="btn btn-success" v-b-modal.articleModal v-if="inEditMode"><i class="icon-plus"></i></button>
+                  <br><br>
                   <button type="button" class="btn btn-primary" @click="save">Save</button>
               </p>
           </div>
@@ -100,6 +102,15 @@
         this.newArticle.title = null;
         this.newArticle.description = null;
         this.$refs.modal.hide()
+      },
+      deleteArticle(article){
+        //If this is an item they created, just remove it 
+        if(article.id == null) {
+          this.articles.splice(this.articles.indexOf(article),1);
+        } else {
+          //Otherwise mark it for deletion
+          article.isDeleted = true
+        }
       },
       toggleEditMode(){
         this.inEditMode = !this.inEditMode
