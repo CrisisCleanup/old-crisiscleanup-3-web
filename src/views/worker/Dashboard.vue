@@ -38,7 +38,7 @@
             ></QuickStatCard>
           </div><!--/.col-->
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Claimed Work Orders"
+            <QuickStatCard stat-name="Claimed Worksites"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
                            card-color-class="bg-danger"
@@ -81,14 +81,14 @@
         </div><!--/.row-->
         <div class="row">
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Stat1"
+            <QuickStatCard stat-name="Average Wait Time to Completion"
                            :stat-quantity="getWorksiteStats.worksitesCompleted"
                            card-color-class="bg-primary"
                            chart-component="CardLine1ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Stat2"
+            <QuickStatCard stat-name="Longest Wait Time to Completion"
                            :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
                            card-color-class="bg-info"
                            chart-component="CardLine1ChartExample"
@@ -97,14 +97,14 @@
         </div>
         <div class="row">
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Stat3"
+            <QuickStatCard stat-name="Shortest Wait Time to Completion"
                            :stat-quantity="getWorksiteStats.worksitesAssigned"
                            card-color-class="bg-warning"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Stat4"
+            <QuickStatCard stat-name="Number of Open, unassigned worksites claimed for more than 6 days"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
                            card-color-class="bg-danger"
@@ -159,23 +159,28 @@
             <b-progress class="progress-xs mt-2" :precision="1" variant="success" :value="741"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">Total Claimed</div>
+            <div class="text-muted">{{ $t('dashboard.total_claimed') }}</div>
             <strong>323 Sites (100%)</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="info" :value="323"></b-progress>
           </li>
           <li>
-            <div class="text-muted">Unassigned</div>
+            <div class="text-muted">{{ $t('dashboard.unassigned') }}</div>
             <strong>39 Sites (12.6%)</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="warning" :value="60"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">In progress</div>
+            <div class="text-muted">{{ $t('dashboard.in_progress') }}</div>
             <strong>12 Sites (3.2%)</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="80"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">Closed</div>
+            <div class="text-muted">{{ $t('dashboard.closed') }}</div>
             <strong>272 Sites (84.2%)</strong>
+            <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
+          </li>
+          <li class="d-none d-md-table-cell">
+            <div class="text-muted">{{ $t('dashboard.est_commercial_value') }}</div>
+            <strong>$4,896,000</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
           </li>
         </ul>

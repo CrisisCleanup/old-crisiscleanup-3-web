@@ -18,31 +18,33 @@ const messages = {
       msg5: "Be a part of the cleanup, be a part of your community. <strong style=\"color: white;\">Join your organization to Crisis Cleanup today.</strong>"
     },
     actions: {
-      new: "New9",
-      save: "Save9",
-      cancel: "Cancel9",
-      delete: "Delete9",
-      claim: "Claim9",
-      save_claim: "Claim & Save9",
-      reset: "Reset9",
-      history: "History9",
-      search: "Search9",
-      print: "Print9",
-      view: "View9",
-      settings: "Settings9",
-      details: "Details9",
-      account: "Account9",
+      new: "New",
+      save: "Save",
+      cancel: "Cancel",
+      delete: "Delete",
+      claim: "Claim",
+      save_claim: "Claim & Save",
+      reset: "Reset",
+      history: "History",
+      search: "Search",
+      print: "Print",
+      view: "View",
+      settings: "Settings",
+      details: "Details",
+      account: "Account",
       updates: "Updates",
       messages: "Messages",
       tasks: "Tasks",
       comments: "Comments",
       profile: "Profile",
       lock_account: "Lock Account",
+      login: "Login",
       logout: "Logout",
-      save_unclaim: "Save & Unclaim9",
-      unclaim: "Unclaim9",
-      contact: "Contact9",
-      submit_invites: "Send Invites9",
+      forgot_password: "Forgot password?",
+      save_unclaim: "Save & Unclaim",
+      unclaim: "Unclaim",
+      contact: "Contact",
+      submit_invites: "Send Invites",
       view_on_map: "View on Map",
       send_sms: "Send SMS",
       next: "Next",
@@ -51,6 +53,7 @@ const messages = {
       connect: "Connect",
       request: "Request",
       join_us: "Join Us",
+      download: "Download",
       choose_one_select: "--Choose One--"
     },
     printWorksite: {
@@ -220,7 +223,9 @@ const messages = {
       change_opacity: "Change opacity"
     },
     realtimeMap: {
-      resume_autoplay: "Resume Autoplay"
+      resume_autoplay: "Resume Autoplay",
+      days_ago: "{helpedAt} days ago",
+      in_city: "in {city} was helped by"
     },
     footer: {
       powered_by: "Powered by"
@@ -302,9 +307,41 @@ const messages = {
       two_weeks: "2 Weeks",
       month: "Month",
       year: "Year",
-      all: "All",
+      all: "All Time",
       current_disaster: "Current Disaster",
-      all_disasters: "All Disasters"
+      all_disasters: "All Disasters",
+      cumulative: "Cumulative",
+      weekly: "Weekly",
+      daily: "Daily",
+      affiliated_orgs: "Affiliated Orgs",
+      all_orgs: "All Orgs",
+      total_claimed: "Total Claimed",
+      unassigned: "Unassigned",
+      in_progress: "In progress",
+      closed: "Closed",
+      est_commercial_value: "Est. Commercial Value"
+    },
+    myOrganization: {
+      my_organization: "My Organization"
+    },
+    donate: {
+      checks_payable_msg: "Make checks payable to \"Crisis Cleanup, LLC.\"",
+      mailing_address: "Mailing Address",
+      receipts_mailed_msg: "Receipts will be mailed within three weeks after the donation is processed.",
+      corporate_donors_contact_msg: "Join our list of distinguished corporate partenrs providing support to the Volunteers on on the ground. Contact:",
+      sahana_accept_donations_msg: "The SAHANA Software Foundation (501(c)(3)) can accept tax-deductable donations to support the development of Crisis Cleanup."
+    },
+    login: {
+      sign_in_msg: "Sign in to your account",
+      invalid_credentials_msg: "Invalid email or password."
+    },
+    register_org: {
+      register_org: "Register Your Organization",
+      survivor_register_msg: "If you need help, please, please, please do NOT sign up here. You are in the wrong place, and we can't help. Call 800-451-1954 or 844-965-1386",
+      primary_contact: "Primary Contact",
+      org_info: "Organization Info",
+      use_local_org_name_msg: "Please use your local team name. E.g. \"American Red Cross-TX Chapter\" or \"LDS Church-Plainview Stake,\" NOT \"American Red Cross\" or \"LDS Church.\"",
+      org_roles: "What Roles does Your Organization Fill?"
     }
   },
   es: {
@@ -346,7 +383,9 @@ const messages = {
       comments: "Comentarios",
       profile: "Perfil",
       lock_account: "Bloquear cuenta",
+      login: "Iniciar sesión",
       logout: "Cerrar sesión",
+      forgot_password: "¿Se te olvidó tu contraseña?",
       save_unclaim: "Guardar y Desclamar",
       unclaim: "Desclamar",
       contact: "Contáctales",
@@ -359,6 +398,7 @@ const messages = {
       connect: "Conectate",
       request: "Solicitud",
       join_us: "Únete a nosotross",
+      download: "Descargar",
       choose_one_select: "--Elige una--"
     },
     printWorksite: {
@@ -528,7 +568,9 @@ const messages = {
       change_opacity: "Cambiar la opacidad"
     },
     realtimeMap: {
-      resume_autoplay: "Reanudar Autoplay"
+      resume_autoplay: "Reanudar Autoplay",
+      days_ago: "Hace {helpedAt} días",
+      in_city: "en {city} fue ayudado por"
     },
     footer: {
       powered_by: "Energizado por"
@@ -610,9 +652,41 @@ const messages = {
       two_weeks: "2 semanas",
       month: "Mes",
       year: "Año",
-      all: "Todas",
+      all: "Todo el tiempo",
       current_disaster: "Desastre actual",
-      all_disasters: "Todos los desastres"
+      all_disasters: "Todos los desastres",
+      cumulative: "Acumulativo",
+      weekly: "Semanal",
+      daily: "Diario",
+      affiliated_orgs: "Organizaciones afiliadas",
+      all_orgs: "Todas las organizaciones",
+      total_claimed: "Reclamo total",
+      unassigned: "Sin asignar",
+      in_progress: "En progreso",
+      closed: "Cerrado",
+      est_commercial_value: "Valor comercial estimado"
+    },
+    myOrganization: {
+      my_organization: "Mi organización"
+    },
+    donate: {
+      checks_payable_msg: "Haga los cheques a nombre de \"Crisis Cleanup, LLC\".",
+      mailing_address: "Dirección de envio",
+      receipts_mailed_msg: "Los recibos se enviarán por correo dentro de las tres semanas posteriores al procesamiento de la donación.",
+      corporate_donors_contact_msg: "Únase a nuestra lista de socios corporativos distinguidos que brindan apoyo a los Voluntarios en el terreno. Contacto:",
+      sahana_accept_donations_msg: "La SAHANA Software Foundation (501(c)(3)) puede aceptar donaciones deducibles de impuestos para apoyar el desarrollo de Crisis Cleanup."
+    },
+    login: {
+      sign_in_msg: "Iniciar sesión en su cuenta",
+      invalid_credentials_msg: "Correo electrónico o contraseña inválidos"
+    },
+    register_org: {
+      register_org: "Registre su organización",
+      survivor_register_msg: "Si necesita ayuda, por favor, NO se registre aquí. Estás en el lugar equivocado, y no podemos ayudar. Llame al 800-451-1954 o 844-965-1386",
+      primary_contact: "Contacto primario",
+      org_info: "Información de la organización",
+      use_local_org_name_msg: "Por favor use su nombre de equipo local. P.ej. \"American Red Cross-TX Chapter\" o \"LDS Church-Plainview Stake\", NO \"American Red Cross\" o \"LDS Church\".",
+      org_roles: "¿Qué roles completa su organización?"
     }
   }
 };

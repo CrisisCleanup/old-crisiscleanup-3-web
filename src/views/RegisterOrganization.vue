@@ -10,10 +10,8 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h1>Register Your Organization</h1>
-                <h6>
-                  If you need help, please, please, please do NOT sign up here. You are in the wrong place, and we can't
-                  help. Call 800-451-1954 or 844-965-1386</h6>
+                <h1>{{ $t('register_org.register_org') }}</h1>
+                <h3>{{ $t('register_org.survivor_register_msg') }}</h3>
               </div>
             </div>
             <br>
@@ -41,7 +39,7 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <h5>Primary Contact</h5>
+                <h5>{{ $t('register_org.primary_contact') }}</h5>
 
               </div>
               <div class="col-md-6">
@@ -68,7 +66,7 @@
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-phone"></i></span>
-                  <b-form-input type="tel" class="form-control" placeholder="Phone Number"
+                  <b-form-input type="tel" class="form-control" placeholder="Cell Phone Number"
                                 :state="orgFormErrors.contact.hasOwnProperty('phone') ? false : null"
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required v-model="contact_phone"></b-form-input>
                 </div>
@@ -77,10 +75,8 @@
             <br>
             <div class="row">
               <div class="col-md-12">
-                <h5>Organization Info</h5>
-                <p>
-                  Please use your local team name. E.g. "American Red Cross-TX Chapter" or "LDS Church-Plainview Stake"
-                  rather than "American Red Cross" or "LDS Church".</p>
+                <h5>{{ $t('register_org.org_info') }}</h5>
+                <h6>{{ $t('register_org.use_local_org_name_msg') }}</h6>
               </div>
               <div class="col-md-6">
                 <div class="input-group mb-3">
@@ -160,65 +156,49 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h5>What Roles does Your Organization Fill?</h5>
+                <h5>{{ $t('register_org.org_roles') }}</h5>
 
               </div>
               <div class="col-md-12">
                   <b-form-checkbox v-model="review_other_organizations">
-                    <b>Review & Approve Participating Organizations:</b>
-                    You are willing to take a leadership role, reviewing and approving organizations to participate in
-                    CrisisCleanup.
+                    <b>Review & Approve Participating Organizations:</b> You are willing to take a leadership role, reviewing and approving organizations to participate in CrisisCleanup.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_damage_assessment">
-                    <b>Damage Assessments:</b>
-                    Your organization interacts directly with survivors via call-center, door-to-door, in a MARC, etc.
+                    <b>Damage Assessments:</b> Your organization interacts directly with survivors via call-center, door-to-door, in a MARC, etc.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_cleanup">
-                    <b>Cleanup:</b>
-                    Your organization interacts directly with survivors to do muck-outs, debris removal, tree cutting,
+                    <b>Cleanup:</b> Your organization interacts directly with survivors to do muck-outs, debris removal, tree cutting,
                     etc.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_follow_up">
-                    <b>Follow Up:</b>
-                    Your organization contacts survivors to ensure all clients have been assisted via phone or in-person
-                    visits.
+                    <b>Follow Up:</b> Your organization contacts survivors to ensure all clients have been assisted via phone or in-person visits.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_minor_repairs">
-                    <b>Minor Repairs:</b>
-                    Your organization visits survivors to replace drywall, flooring, or other repairs.
+                    <b>Minor Repairs:</b> Your organization visits survivors to replace drywall, flooring, or other repairs.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_rebuilding">
-                    <b>Rebuilding:</b>
-                    Long Term Recovery Groups, Unmet Needs Committees, or organizations that do long-term or major
-                    rebuilding.
+                    <b>Rebuilding:</b> Long Term Recovery Groups, Unmet Needs Committees, or organizations that do long-term or major rebuilding.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_coordination">
-                    <b>Coordination:</b>
-                    Your organization does NOT interact directly with survivors, but oversees or coordinates
-                    organizations that do.
+                    <b>Coordination:</b> Your organization does NOT interact directly with survivors, but oversees or coordinates organizations that do.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="government">
-                    <b>Government:</b>
-                    You represent a governmental entity, such as municipal, state, tribal or federal government,
-                    emergency management, agency, etc.
+                    <b>Government:</b> You represent a governmental entity, such as municipal, state, tribal or federal government, emergency management, agency, etc.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_other_activity">
-                    <b>Other Activity:</b>
-                    Your organization does other disaster-related activity, such as donations management, case
-                    management, logistics, for-profit contracting, etc.
+                    <b>Other Activity:</b> Your organization does other disaster-related activity, such as donations management, case management, logistics, for-profit contracting, etc.
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="not_an_org">
-                    <b>Not An Organization:</b>
-                    Individuals, unaffiliated volunteers, meetup groups, clubs, etc.
+                    <b>Not An Organization:</b> Individuals, unaffiliated volunteers, meetup groups, clubs, etc.
                   </b-form-checkbox>
               </div>
 
