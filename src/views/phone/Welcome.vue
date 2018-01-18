@@ -4,10 +4,10 @@
 
        <!-- ******************** Check-list ********************* -->
     <div class="col-md-6">
-            <div class="col-md-4">
-            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="user.is_trained" disabled readonly>Get Trained </button>
-            <button type="button" class="btn-block btn-primary" @click="getUpToDate"><input type="checkbox" id="isUpToDate" value="" v-model="user.is_up_to_date" disabled readonly>Get Up To Date</button>
-            <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-block btn-primary"><i class="icon-check float-left" v-if="user.is_trained" style="font-size:18pt"></i><i class="icon-exclamation float-left" v-else style="font-size:18pt"></i>Get Trained</button>
+            <button type="button" class="btn btn-block btn-primary" @click="getUpToDate"><i class="icon-check float-left" v-if="user.is_up_to_date" style="font-size:18pt"></i><i class="icon-exclamation float-left" v-else style="font-size:18pt"></i>Get Up To Date</button>
+            <button type="button" class="btn btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
       <!-- ******************** Call center experts ********************* --> 
@@ -35,7 +35,10 @@
 
     <b-tabs>
       <b-tab title="Schedule" active>
-        <br>Sling Link
+        <br>
+        <a href="https://api.sling.is/" target="_blank"> 
+          <img src="/static/img/front_end/logo-sling.jpg" alt="Sling" img height="100">
+        </a>
       </b-tab>
       <b-tab title="Hours" >
         <br>A beautiful hours report
@@ -50,6 +53,8 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+
   export default {
       data() {
         return {
@@ -68,17 +73,18 @@
     },
     created: function() {
       this.getUserData();
+      this.getCallExperts();
     },
     methods: {
       getUserData(){
         //Grab the user id from the login info
         var userId = this.$store.state.worker.currentUserId;
+
         //Grab the user information if available
         this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId + `/get_detail`).then(r => {
           this.user = r.data;
           console.log(this.user);
           this.$store.commit('phone/setUser', this.user);
-
         }).catch(err => {
             var userInfo = {
               id: userId,
@@ -92,6 +98,29 @@
               console.log(err)
             });
           });
+      },
+      getCallExperts(){
+        //Grab the call expert ids/numbers
+        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users?willing_to_be_call_hero=true`).then(r => {
+          var callExperts = r.data.results;
+          console.log(callExperts);
+          if(callExperts != null && callExperts.length > 0) {
+            //Go and get their names TODO: Come up with a more efficient way of doing this
+            callExperts.forEach(function(expert) {
+              expert.number = expert.last_used_phone_number
+              expert.name = "Dummy name"
+              //TODO: Why is this missing the bearer token?
+              // Vue.axios.get(`/users/` + expert.id).then(r => {
+              //   expert.name = r.data.name;
+              // }).catch(err => {
+              //   console.log(err)
+              // });
+            })
+            this.callCenterExperts = callExperts;
+          }
+        }).catch(err => {
+          console.log(err)
+        });
       },
       getUpToDate() {
         this.$router.push({ path: 'getUpToDate' });

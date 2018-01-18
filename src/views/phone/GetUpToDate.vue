@@ -3,7 +3,7 @@
       <div class="card">
         <div class="card-header text-center">Latest Crisis Cleanup News 
           <!-- TODO: Hide for admins only -->
-          <button class="float-right" @click="toggleEditMode"><i class="icon-settings"></i></button>
+          <button class="clear-button float-right" @click="toggleEditMode" invisible><i class="icon-settings"></i></button>
         </div>
             <div class="card-body" >
               <p class="card-text">
@@ -12,7 +12,7 @@
                       <input type="checkbox" v-model="article.isRead"  v-if="!inEditMode"> 
                       <!--Show edit mode buttons-->
                       <span class="inline-block btn-group" v-if="inEditMode"> 
-                          <button class="btn btn-danger" @click="deleteArticle(article)"><i class="icon-trash"></i></button>
+                          <button class="btn btn-sm btn-danger" @click="deleteArticle(article)"><i class="icon-trash"></i></button>
                       </span>
                       <b>{{article.title}}</b>
                       <div>{{article.description}}</div>        
@@ -54,6 +54,12 @@
 
       </div>
 </template>
+
+<style lang="scss">
+  // Import Main styles for this application
+  @import "./scss/crisiscleanup/_phone.scss";
+</style>
+
 <script>
   export default {
       data() {
