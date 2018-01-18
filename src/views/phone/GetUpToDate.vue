@@ -68,6 +68,7 @@
     },
     methods: {
       getUserArticles(){
+        this.inEditMode = false
         //Get all the global articles
         this.articles = [];
         var vm = this;
@@ -114,8 +115,24 @@
       save(){
         var vm = this;
         if(this.inEditMode) {
-          //TODO: Save changes and retrieve new articles
-          this.inEditMode = false;
+          //TODO: Make more efficient by removing create call if not needed
+          //Add new articles missing ids
+          var newArticles = this.articles.filter(x => x.id == null)
+          this.$http.post(`${process.env.API_PHONE_ENDPOINT}/articles`, newArticles).then(r => {
+            //Delete articles flagged for deletion
+            var deletedArticleIds = this.articles.filter(x => x.isDeleted).map(x => x.id)
+            if(deletedArticleIds.length > 0) {
+              this.$http.post(`${process.env.API_PHONE_ENDPOINT}/articles/bulk_delete`, deletedArticleIds).then(r => {
+                this.getUserArticles()
+              }).catch(err => {
+                console.log(err)
+              });
+            } else {
+              this.getUserArticles()
+            }
+          }).catch(err => {
+            console.log(err)
+          });
         } else {
           //Update the user's read article list
           var read_article_ids = this.articles.filter(article => article.isRead).map(article => article.id);
