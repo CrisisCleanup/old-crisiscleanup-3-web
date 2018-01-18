@@ -3,7 +3,7 @@
   <div class="col-6">
     <div class="card text-white bg-dark">
       <div class="card-body">
-        <h4 class="card-title">Welcome back {{ userName.first }}!</h4>
+        <h4 class="card-title">Welcome back {{ user.first_name }}!</h4>
 
         <div class="form-group">
           <label>Please confirm the number you would like to use today. Don't worry, we will hide it on all inbound and outbound calls for your protection.
@@ -34,25 +34,38 @@
   export default {
     name: 'phone-session-info-confirm',
     props: [
-      'userName',
-      'lastUsedPhone',
-      'lastUsedGateway',
-      'lastUsedStates'
     ],
+    mounted: function () {
+      this.user = this.$store.state.phone.user;
+    },
     data() {
       return {
-        phone: this.lastUsedPhone,
-        gateway: this.lastUsedGateway,
-        states: this.lastUsedStates
+        user: {},
+        phone: null,
+        gateway: null,
+        states: null
       };
     },
     methods: {
+      save(){
+        //Update the user's information
+        //TODO: add gateway, turn states into an array or make singular
+        var userData = {
+          phone: this.phone === null ? this.user.last_used_phone_number : this.phone,
+          state: this.states === null ? this.user.last_used_state : this.states
+        }
+        this.$http.put(`${process.env.API_PHONE_ENDPOINT}/users/` + this.$store.state.phone.user.id + `/update_detail`, userData).then(r => {
+        }).catch(err => {
+          console.log(err);
+        });
+      },
       updateSessionInfo() {
         this.$emit('confirm', {
           phone: this.phone,
           gateway: this.gateway,
           states: this.states
         });
+        this.save();
       }
     }
   }

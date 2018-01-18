@@ -2,15 +2,15 @@
     <div>
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
-      <user-info :userName="userName" :phoneNumber="phoneNumber" :gatewayMessage="gatewayMessage" v-on:available="setAvailability" v-on:needsEdit= "editSessionInfo"/>
-      <incoming-call :userName="userName" v-if="showIncomingCall"/>
+      <user-info v-on:available="setAvailability" v-on:needsEdit= "editSessionInfo"/>
+      <incoming-call v-if="showIncomingCall"/>
       <outbound-call-home v-if="showOutboundCallHome"/>
-      <session-info-confirm :userName="userName" v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
+      <session-info-confirm v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
 </template>
 
 <script>
-  import { mapMutations, mapState, mapGetters } from 'vuex'
+  import { mapMutations, mapState } from 'vuex'
   import PhoneService from '@/services/phone';
   import SessionInfoConfirm from '@/components/phone/SessionInfoConfirm'
   import UserInfo from '@/components/phone/UserInfo'
@@ -28,7 +28,6 @@
       if (this.needsWelcome) {
         this.$router.push('/worker/phone/welcome');
       }
-
       // var a = new PhoneService();
       // a.login();
     },
@@ -40,15 +39,6 @@
       }
     },
     computed: {
-      userName() {
-        return {first: 'Juanita', last: 'Jones'};
-      },
-      phoneNumber() {
-        return '6015544938';
-      },
-      gatewayMessage() {
-        return 'taking calls from Hurricane Irma'
-      },
       ...mapState('phone', [
         'needsWelcome',
         'state',

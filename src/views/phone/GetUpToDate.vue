@@ -75,7 +75,7 @@
             this.articles = r.data.results;
             //Mark all of the articles which the user has read
             this.articles.forEach(function(article) {
-              var articleFound = vm.$store.state.phone.caller.read_articles.find(function(readArticle) {
+              var articleFound = vm.$store.state.phone.user.read_articles.find(function(readArticle) {
                 return readArticle === article.id;
               });
               vm.$set(article, 'isRead', articleFound === undefined ? false : true);
@@ -119,7 +119,7 @@
         } else {
           //Update the user's read article list
           var read_article_ids = this.articles.filter(article => article.isRead).map(article => article.id);
-          this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users/` + vm.$store.state.phone.caller.id + `/set_read_articles`, read_article_ids).then(r => {
+          this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users/` + vm.$store.state.phone.user.id + `/set_read_articles`, read_article_ids).then(r => {
             this.$router.go(-1);
           }).catch(err => {
             console.log(err)

@@ -1,7 +1,7 @@
 <template>
     <div class = "row justify-content-center">
         <div class = "col-6">
-            <incoming-call-script :userName="userName" />
+            <incoming-call-script :name="user.first_name" />
             <b-card-group deck>
                 <b-card no-body class="text-white bg-dark text-center"
                 header="Incoming Call From"
@@ -11,7 +11,7 @@
                                 <tr>
                                     <td style="width:80%" align="left">
                                         <p style = "font-size:medium; margin:0px">601-496-4984</p>
-                                        <p style = "font-size:x-small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
+                                        <p style = "font-size:small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
                                     </td>
                                     <td style = "width:20%" align="right">
                                         <b-badge pill variant="light" style="vertical-align:middle">
@@ -35,7 +35,7 @@
                                     <td style="width:75%" align="left">
                                         <p style = "font-size:large; margin-top:10px; margin-bottom:0px; margin-left:10px; margin-right:0px">
                                         Julie Smith</P>
-                                        <p style = "font-size:x-small; margin-top:0px; margin-bottom:10px; margin-left:10px; margin-right:0px">1411 North Terrace Drive, Jacksonville FL
+                                        <p style = "font-size:small; margin-top:0px; margin-bottom:10px; margin-left:10px; margin-right:0px">1411 North Terrace Drive, Jacksonville FL
                                         </p>
                                     </td>
                                     <td style="width:20%" align="right">
@@ -73,10 +73,13 @@ import IncomingCallScript from '@/components/phone/IncomingCallScript'
       },
       name: 'phone-incoming-call',
       props: [
-          'userName'
       ],
+      mounted: function () {
+        this.user = this.$store.state.phone.user;
+      },
       data() {
         return {
+            user: {},
             boot_image: '../../static/img/map_icons/Muck_Out_orange.png'
         };
         },

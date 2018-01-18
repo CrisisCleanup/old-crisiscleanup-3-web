@@ -4,10 +4,10 @@
         <div class = "card-group">
             <div class = "card text-white bg-dark col-8">
                 <div class = "card-body">
-                        <h6 class="card-title">{{ userName.first }}  {{ userName.last }}</h6>
+                        <h6 class="card-title">{{ user.first_name }}  {{ user.last_name }}</h6>
                         <p class="card-text">
-                            {{ phoneNumber }}</br>
-                            {{ gatewayMessage }}
+                            {{ user.last_used_phone_number }}</br>
+                            Taking calls from {{ user.last_used_gateway }}
                         </p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
@@ -31,12 +31,13 @@
   export default {
       name: 'phone-user-info',
       props: [
-          'userName',
-          'phoneNumber',
-          'gatewayMessage',
       ],
+      mounted: function () {
+        this.user = this.$store.state.phone.user;
+      },
       data() {
         return {
+            user: {},
             message: 'Start Taking Calls',
         };
         },

@@ -5,8 +5,8 @@
        <!-- ******************** Check-list ********************* -->
     <div class="col-md-6">
             <div class="col-md-4">
-            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="caller.is_trained" disabled readonly>Get Trained </button>
-            <button type="button" class="btn-block btn-primary" @click="getUpToDate"><input type="checkbox" id="isUpToDate" value="" v-model="caller.is_up_to_date" disabled readonly>Get Up To Date</button>
+            <button type="button" class="btn-block btn-primary"><input align="left" type="checkbox" id="isTrained" value="" v-model="user.is_trained" disabled readonly>Get Trained </button>
+            <button type="button" class="btn-block btn-primary" @click="getUpToDate"><input type="checkbox" id="isUpToDate" value="" v-model="user.is_up_to_date" disabled readonly>Get Up To Date</button>
             <button type="button" class="btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
       </div>
@@ -53,7 +53,7 @@
   export default {
       data() {
         return {
-          caller: {},
+          user: {},
           callCenterExperts: [
             { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
             { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
@@ -75,9 +75,10 @@
         var userId = this.$store.state.worker.currentUserId;
         //Grab the user information if available
         this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId + `/get_detail`).then(r => {
-          this.caller = r.data;
-          console.log(this.caller);
-          this.$store.commit('phone/setCaller', this.caller);
+          this.user = r.data;
+          console.log(this.user);
+          this.$store.commit('phone/setUser', this.user);
+
         }).catch(err => {
             var userInfo = {
               id: userId,
@@ -85,8 +86,8 @@
             };
             //Incase the user data not available add them to api
             this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo).then(r => {
-              this.caller = r.data;
-              this.$store.commit('phone/setCaller', this.caller);
+              this.user = r.data;
+              this.$store.commit('phone/setUser', this.user);
             }).catch(err => {
               console.log(err)
             });

@@ -2,14 +2,14 @@ export default {
     namespaced: true,
 
     state: {
-        caller: null,
+        user: null,
         needsWelcome: true,
         state: 'notAvailable',
     },
 
     mutations: {
-        setCaller(state, caller){
-            state.caller = caller;
+        setUser(state, user) {
+            state.user = user;
         },
         seenWelcome(state) {
             state.needsWelcome = false;
