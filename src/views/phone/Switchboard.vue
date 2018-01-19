@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { mapMutations, mapState } from 'vuex'
+  import { mapMutations, mapState, mapGetters } from 'vuex'
   import PhoneService from '@/services/phone';
   import SessionInfoConfirm from '@/components/phone/SessionInfoConfirm'
   import UserInfo from '@/components/phone/UserInfo'
@@ -43,7 +43,9 @@
         'needsWelcome',
         'state',
       ]),
-    },
+      ...mapGetters(['getAsideView']),
+      ...mapMutations(['setAsideView'])
+  },
     methods: {
       sessionInfoConfirmed(info) {
         console.log('Session info confirmed', info);
@@ -53,19 +55,32 @@
         this.showConfirmSessionInfo = true;
       },
       setAvailability() {
+        //TODO: for now, the toggling of the worksite aside is linked to the 'available' state
+        //once we differentiate between 'available' and 'on call' states, link to 'on call' instead
+        var aside = this.getAsideView;
         if (this.state == 'available')
         {
           this.$store.commit('phone/notAvailable');
           this.showOutboundCallHome = false
           this.showIncomingCall = false
+          if (aside == false)
+          {
+            //if they are on a call and the aside is not already toggled open, open it 
+            this.$store.commit('setAsideView');
+            document.body.classList.toggle('aside-menu-hidden')
+          }
         }
         else
         {
           this.$store.commit('phone/available');
           this.showOutboundCallHome = true;
           this.showIncomingCall = true;
-        }
-
+          if (aside == true)
+          {
+            //if open, aside should close once the call ends
+            this.$store.commit('setAsideView');
+            document.body.classList.toggle('aside-menu-hidden')
+          }}
       },
       setNeedsWelcome() {
         this.$store.commit('phone/needsWelcome');
