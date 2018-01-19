@@ -66,6 +66,8 @@
           ]
       }
     },
+    mounted() {
+    },
     created: function() {
       this.getUserData();
       this.getCallExperts();
@@ -74,27 +76,11 @@
       getUserData(){
         //Grab the user id from the login info
         var userId = this.$store.state.worker.currentUserId;
-
-        //Grab the user information if available
-        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId + `/get_detail`).then(r => {
-          this.user = r.data;
-          console.log(this.user);
-          this.$store.commit('phone/setUser', this.user);
-          this.getCurrentGateway();
-
-        }).catch(err => {
-            var userInfo = {
-              id: userId,
-              willing_to_receive_calls: true,
-            };
-            //Incase the user data not available add them to api
-            this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users`, userInfo).then(r => {
-              this.user = r.data;
-              this.$store.commit('phone/setUser', this.user);
-            }).catch(err => {
-              console.log(err)
-            });
-          });
+        //Grab user information
+        this.$store.dispatch('phone/getUser', userId).then(() => {
+            this.user = this.$store.state.phone.user;
+            console.log(this.user);
+        });
       },
       getCurrentGateway(){
         //Get user's current gateway info
