@@ -19,9 +19,8 @@
               <p class="card-text">
               <table style="width:100%">
                 <tr v-for="expert in callCenterExperts" v-bind:key="expert.id">
-                      <td style="width:20%"><img height="40" :src="expert.badge"></td>
-                      <td style="width:40%">{{ expert.name }}</td>
-                      <td style="width:40%">{{ expert.number }}</td>
+                    <td style="width:50%">{{ expert.name }}</td>
+                    <td style="width:50%">{{ expert.number }}</td>
                 </tr>
               </table>
               </p>
@@ -60,12 +59,7 @@
         return {
           user: {},
           gateway: {},
-          callCenterExperts: [
-            { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
-            { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
-            { id: 3, badge: '../../static/img/badges/heart.png',  name: 'Wille Wireless', number: '(333) 333-3333'},
-            { id: 4, badge: '../../static/img/badges/medal-2.png',  name: 'Phonelapy Smith', number: '(444) 444-4444'}
-          ],
+          callCenterExperts: [],
           stories: [
             { description: "xyz"},
             { description: "xyz"}
@@ -114,20 +108,13 @@
       },
       getCallExperts(){
         //Grab the call expert ids/numbers
-        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users?willing_to_be_call_hero=true`).then(r => {
+        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/users?willing_to_be_call_center_support=true`).then(r => {
           var callExperts = r.data.results;
           console.log(callExperts);
           if(callExperts != null && callExperts.length > 0) {
-            //Go and get their names TODO: Come up with a more efficient way of doing this
             callExperts.forEach(function(expert) {
               expert.number = expert.last_used_phone_number
-              expert.name = "Dummy name"
-              //TODO: Why is this missing the bearer token?
-              // Vue.axios.get(`/users/` + expert.id).then(r => {
-              //   expert.name = r.data.name;
-              // }).catch(err => {
-              //   console.log(err)
-              // });
+              expert.name = expert.name
             })
             this.callCenterExperts = callExperts;
           }
