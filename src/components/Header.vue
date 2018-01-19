@@ -34,7 +34,7 @@
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="{icons: true, 'icon-arrow-right' : !this.getAsideView, 'icon-arrow-left' : this.getAsideView}"></i></button>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="{icons: true, 'icon-arrow-right' : this.getAsideView, 'icon-arrow-left' : !this.getAsideView}"></i></button>
   </header>
 </template>
 <script>
@@ -70,7 +70,8 @@ export default {
     },
     asideToggle (e) {
       e.preventDefault()
-      this.$store.commit('setAsideView');
+      console.log("getAsideView: " + this.getAsideView)
+      this.$store.commit('setAsideView')
       document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {

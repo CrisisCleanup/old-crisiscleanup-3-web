@@ -63,7 +63,7 @@
           this.$store.commit('phone/notAvailable');
           this.showOutboundCallHome = false
           this.showIncomingCall = false
-          if (aside == false)
+          if (aside == true)
           {
             //if they are on a call and the aside is not already toggled open, open it 
             this.$store.commit('setAsideView');
@@ -75,7 +75,7 @@
           this.$store.commit('phone/available');
           this.showOutboundCallHome = true;
           this.showIncomingCall = true;
-          if (aside == true)
+          if (aside == false)
           {
             //if open, aside should close once the call ends
             this.$store.commit('setAsideView');
