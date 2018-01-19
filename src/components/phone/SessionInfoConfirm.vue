@@ -13,7 +13,7 @@
 
         <div class="form-group">
           <label>Choose a gateway
-            <input class="form-control" v-model.trim="gateway" placeholder="Hurricane Irma">
+            <input class="form-control" v-model.trim="newGatewayName" placeholder="Hurricane Irma">
           </label>
         </div>
 
@@ -37,32 +37,37 @@
     ],
     mounted: function () {
       this.user = this.$store.state.phone.user;
+      this.gateway = this.$store.state.phone.gateway;
     },
     data() {
       return {
         user: {},
+        gateway: {},
+        newGatewayName: null,
         phone: null,
-        gateway: null,
         states: null
       };
     },
     methods: {
       save(){
         //Update the user's information
-        //TODO: add gateway, turn states into an array or make singular
+        //TODO: add functionality to get gateway based on inputted name, turn states into an array or make singular
         var userData = {
           phone: this.phone === null ? this.user.last_used_phone_number : this.phone,
+          //gateway: this.gateway === {} ? this.gateway : this.updatedGateway,
           state: this.states === null ? this.user.last_used_state : this.states
         }
         this.$http.put(`${process.env.API_PHONE_ENDPOINT}/users/` + this.$store.state.phone.user.id + `/update_detail`, userData).then(r => {
         }).catch(err => {
           console.log(err);
         });
+          this.$store.commit('phone/setUser', this.user);
+          this.$store.commit('phone/setGateway', this.gateway);
       },
       updateSessionInfo() {
         this.$emit('confirm', {
           phone: this.phone,
-          gateway: this.gateway,
+          gatewayName: this.gatewayName,
           states: this.states
         });
         this.save();

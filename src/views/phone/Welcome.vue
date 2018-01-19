@@ -59,6 +59,7 @@
       data() {
         return {
           user: {},
+          gateway: {},
           callCenterExperts: [
             { id: 1, badge: '../../static/img/badges/gold-medal.png',  name: 'Julie Super Caller', number: '(111) 111-1111'},
             { id: 2, badge: '../../static/img/badges/silver-medal.png',  name: 'Frank Cellmaster', number: '(222) 222-2222'},
@@ -85,6 +86,8 @@
           this.user = r.data;
           console.log(this.user);
           this.$store.commit('phone/setUser', this.user);
+          this.getCurrentGateway();
+
         }).catch(err => {
             var userInfo = {
               id: userId,
@@ -98,6 +101,16 @@
               console.log(err)
             });
           });
+      },
+      getCurrentGateway(){
+        //Get user's current gateway info
+        console.log("gateway: " + this.user.last_used_gateway);
+        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + this.user.last_used_gateway + `/get_detail`).then(r => {
+            this.gateway = r.data;
+            this.$store.commit('phone/setGateway', this.gateway);
+        }).catch(err => {
+          console.log(err);
+        });
       },
       getCallExperts(){
         //Grab the call expert ids/numbers

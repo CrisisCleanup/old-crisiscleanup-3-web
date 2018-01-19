@@ -7,7 +7,7 @@
                         <h6 class="card-title">{{ user.first_name }}  {{ user.last_name }}</h6>
                         <p class="card-text">
                             {{ user.last_used_phone_number }}</br>
-                            Taking calls from {{ user.last_used_gateway }}
+                            Taking calls from {{ gateway.name}}
                         </p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
@@ -34,10 +34,12 @@
       ],
       mounted: function () {
         this.user = this.$store.state.phone.user;
+        this.gateway = this.$store.state.phone.gateway;
       },
       data() {
         return {
             user: {},
+            gateway: {},
             message: 'Start Taking Calls',
         };
         },

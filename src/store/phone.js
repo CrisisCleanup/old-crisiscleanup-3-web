@@ -3,6 +3,7 @@ export default {
 
     state: {
         user: null,
+        gateway: null,
         needsWelcome: true,
         state: 'notAvailable',
     },
@@ -10,6 +11,9 @@ export default {
     mutations: {
         setUser(state, user) {
             state.user = user;
+        },
+        setGateway(state, gateway) {
+            state.gateway = gateway;
         },
         seenWelcome(state) {
             state.needsWelcome = false;
