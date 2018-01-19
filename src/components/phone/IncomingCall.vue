@@ -85,7 +85,7 @@ import IncomingCallScript from '@/components/phone/IncomingCallScript'
         },
       computed: {
       ...mapState('phone', {
-        state: state => state.state
+        callState: state => state.callState
       }),
     },
       methods: {

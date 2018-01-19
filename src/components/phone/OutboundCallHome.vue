@@ -112,13 +112,13 @@ import { mapMutations, mapState} from 'vuex'
         },
       computed: {
       ...mapState('phone', {
-        state: state => state.state
+        callState: state => state.callState
       }),
     },
       methods: {
         startTakingCalls() {
             this.$emit('availableForCalls');
-            if (this.state != 'availableForCalls') {
+            if (this.callState != 'availableForCalls') {
             this.message = 'Start Taking Calls'
             }
             else {

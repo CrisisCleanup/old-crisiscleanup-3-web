@@ -41,7 +41,7 @@
     computed: {
       ...mapState('phone', [
         'needsWelcome',
-        'state',
+        'callState',
       ]),
       ...mapGetters(['getAsideView']),
       ...mapMutations(['setAsideView'])
@@ -58,14 +58,14 @@
         //TODO: for now, the toggling of the worksite aside is linked to the 'available' state
         //once we differentiate between 'available' and 'on call' states, link to 'on call' instead
         var aside = this.getAsideView;
-        if (this.state == 'available')
+        if (this.callState == 'available')
         {
           this.$store.commit('phone/notAvailable');
           this.showOutboundCallHome = false
           this.showIncomingCall = false
           if (aside == true)
           {
-            //if they are on a call and the aside is not already toggled open, open it 
+            //if open, aside should close once the call ends
             this.$store.commit('setAsideView');
             document.body.classList.toggle('aside-menu-hidden')
           }
@@ -77,7 +77,7 @@
           this.showIncomingCall = true;
           if (aside == false)
           {
-            //if open, aside should close once the call ends
+            //if they are on a call and the aside is not already toggled open, open it 
             this.$store.commit('setAsideView');
             document.body.classList.toggle('aside-menu-hidden')
           }}
