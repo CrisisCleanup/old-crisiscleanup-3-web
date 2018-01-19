@@ -115,7 +115,16 @@ const messages = {
     },
     searchFilterAside: {
       search_worksites: "Search Worksites",
-      filter_worksites: "Filter Worksites"
+      filter_worksites: "Filter Worksites",
+      claimed_by: "Claimed by",
+      reported_by: "Reported by",
+      unclaimed: "Unclaimed",
+      open: "Open",
+      closed: "Closed",
+      muck_out: "Muck-out",
+      trees: "Trees",
+      debris: "Debris Removal",
+      other: "Other"
     },
     inviteTeammates: {
       invite_teammates_instructions: "Enter a comma-separated list of email addresses to invite. Each email addresses will receive instructions to create a new account and join your organization.",
@@ -289,14 +298,15 @@ const messages = {
       ccu_serves_orgs_msg: "Crisis Cleanup serves the relief organizations and volunteers who help survivors on the ground. Crisis Cleanup helps volunteers help more people. Every pin on the map is a story. Every story drives us to give more.",
       kelly_darden_quote: "“My experience with Crisis Cleanup was amazing. It was nice to feel like I was contributing without being able to be 'boots on the ground.'”"
     },
-    404: {
+    four0Four: {
       oops_lost: "Oops! You're lost.",
       page_not_found: "The page you are looking for was not found.",
       go_home: "Go Back to Home"
     },
-    500: {
+    fiveHundred: {
       houston_problem: "Houston, we have a problem!",
-      page_not_available_msg: "The page you are looking for is temporarily unavailable. (It's our fault, not yours)."
+      page_not_available_msg: "The page you are looking for is temporarily unavailable. (It's our fault, not yours).",
+      looking_for: "What are you looking for?"
     },
     activate: {
       activate_account: "Activate Account"
@@ -341,7 +351,43 @@ const messages = {
       primary_contact: "Primary Contact",
       org_info: "Organization Info",
       use_local_org_name_msg: "Please use your local team name. E.g. \"American Red Cross-TX Chapter\" or \"LDS Church-Plainview Stake,\" NOT \"American Red Cross\" or \"LDS Church.\"",
-      org_roles: "What Roles does Your Organization Fill?"
+      org_roles: "What Roles does Your Organization Fill?",
+      choose_a_disaster: "Choose a Disaster",
+      first_name: "First Name",
+      email: "Email",
+      last_name: "Last Name",
+      cell_phone_number: "Cell Phone Number",
+      organization_name: "Organization Name",
+      address: "Address",
+      state: "State",
+      referral: "Referral",
+      facebook: "Facebook",
+      city: "City",
+      zip_code: "Zip Code",
+      website: "Website",
+      twitter: "Twitter",
+      review_approve: "Review & Approve Participating Organizations:",
+      review_approve_msg: "You are willing to take a leadership role, reviewing and approving organizations to participate in CrisisCleanup.",
+      damage_assessment: "Damage Assessments:",
+      damage_assessment_msg: "Your organization interacts directly with survivors via call-center, door-to-door, in a MARC, etc.",
+      cleanup: "Cleanup:",
+      cleanup_msg: "Your organization interacts directly with survivors to do muck-outs, debris removal, tree cutting, etc.",
+      follow_up: "Follow Up:",
+      follow_up_msg: "Your organization contacts survivors to ensure all clients have been assisted via phone or in-person visits.",
+      minor_repairs: "Minor Repairs:",
+      minor_repairs_msg: "Your organization visits survivors to replace drywall, flooring, or other repairs.",
+      rebuilding: "Rebuilding:",
+      rebuilding_msg: "Long Term Recovery Groups, Unmet Needs Committees, or organizations that do long-term or major rebuilding.",
+      coordination: "Coordination:",
+      coordination_msg: "Your organization does NOT interact directly with survivors, but oversees or coordinates organizations that do.",
+      government: "Government:",
+      government_msg: "You represent a governmental entity, such as municipal, state, tribal or federal government, emergency management, agency, etc.",
+      other_activity: "Other Activity:",
+      other_activity_msg: "Your organization does other disaster-related activity, such as donations management, case management, logistics, for-profit contracting, etc.",
+      not_organization: "Not An Organization:",
+      not_organization_msg: "Individuals, unaffiliated volunteers, meetup groups, clubs, etc.",
+      where_working: "Where are you working?",
+      publish_profile: "Publicly publish organization profile?"
     }
   },
   es: {
@@ -460,7 +506,16 @@ const messages = {
     },
     searchFilterAside: {
       search_worksites: "Buscar sitios",
-      filter_worksites: "Filtrar sitios"
+      filter_worksites: "Filtrar sitios",
+      claimed_by: "Reclamado por",
+      reported_by: "Reportado por",
+      unclaimed: "No reclamado",
+      open: "Abierto",
+      closed: "Cerrado",
+      muck_out: "Limpieza de lodo",
+      trees: "Árboles",
+      debris: "Remoción de escombros",
+      other: "Otro"
     },
     inviteTeammates: {
       invite_teammates_instructions: "Ingrese una lista de direcciones de correo electrónico separadas por comas para invitar. Cada dirección de correo electrónico recibirá instrucciones para crear una nueva cuenta y unirse a su organización.",
@@ -634,14 +689,15 @@ const messages = {
       ccu_serves_orgs_msg: "Crisis Cleanup sirve a las organizaciones de ayuda y voluntarios que ayudan a los sobrevivientes en el terreno. Crisis Cleanup ayuda a los voluntarios a ayudar a más personas. Cada pin en el mapa es una historia. Cada historia nos impulsa a dar más.",
       kelly_darden_quote: "\"Mi experiencia con Crisis Cleanup fue increíble. Fue agradable sentir que estaba contribuyendo sin poder ser 'botas en el suelo' \"."
     },
-    404: {
+    four0Four: {
       oops_lost: "Oops! Estas perdido.",
       page_not_found: "La página que está buscando no se encontró.",
       go_home: "Volver a la página principal"
     },
-    500: {
+    fiveHundred: {
       houston_problem: "¡Houston, tenemos un problema!",
-      page_not_available_msg: "La página que está buscando no está disponible temporalmente. (Es nuestra culpa, no la tuya)."
+      page_not_available_msg: "La página que está buscando no está disponible temporalmente. (Es nuestra culpa, no la tuya).",
+      looking_for: "¿Qué estás buscando?"
     },
     activate: {
       activate_account: "Activar la cuenta"
@@ -686,7 +742,43 @@ const messages = {
       primary_contact: "Contacto primario",
       org_info: "Información de la organización",
       use_local_org_name_msg: "Por favor use su nombre de equipo local. P.ej. \"American Red Cross-TX Chapter\" o \"LDS Church-Plainview Stake\", NO \"American Red Cross\" o \"LDS Church\".",
-      org_roles: "¿Qué roles completa su organización?"
+      org_roles: "¿Qué roles completa su organización?",
+      choose_a_disaster: "",
+      first_name: "",
+      email: "",
+      last_name: "",
+      cell_phone_number: "",
+      organization_name: "",
+      address: "",
+      state: "",
+      referral: "",
+      facebook: "",
+      city: "",
+      zip_code: "",
+      website: "",
+      twitter: "",
+      review_approve: "",
+      review_approve_msg: "",
+      damage_assessment: "",
+      damage_assessment_msg: "",
+      cleanup: "",
+      cleanup_msg: "",
+      follow_up: "",
+      follow_up_msg: "",
+      minor_repairs: "",
+      minor_repairs_msg: "",
+      rebuilding: "",
+      rebuilding_msg: "",
+      coordination: "",
+      coordination_msg: "",
+      government: "",
+      government_msg: "",
+      other_activity: "",
+      other_activity_msg: "",
+      not_organization: "",
+      not_organization_msg: "",
+      where_working: "",
+      publish_profile: ""
     }
   }
 };

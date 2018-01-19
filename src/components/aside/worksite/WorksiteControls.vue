@@ -8,7 +8,7 @@
           <!--<b-btn id="printBtn" v-b-modal.modal1>{{ $t('actions.print') }}</b-btn>-->
            <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
                   v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                  v-text="isSiteClaimed ? 'Claim' : 'Unclaim'"></button>
+                  v-text="isSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
           <button id="historyBtn" class="btn btn-secondary">{{ $t('actions.history') }}</button>
           <!--<button @click="contactOrg" class="btn btn-secondary">{{ $t('actions.contact') }}</button>-->
         </div>
