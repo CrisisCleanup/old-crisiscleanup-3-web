@@ -8,6 +8,7 @@ import Main from '@/containers/Main'
 import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
 import WorkerMapView from '@/views/worker/WorkerMapView';
+import Profile from '@/views/worker/Profile';
 import Charts from '@/views/Charts'
 import Phone from '@/containers/Phone';
 import PhoneWelcome from '@/views/phone/Welcome';
@@ -112,6 +113,11 @@ const router = new Router({
           name: 'Charts',
           component: Charts,
           meta: { auth: true, title: 'Charts' },
+        },
+        {
+          path: 'profile',
+          component: Profile,
+          meta: { auth: true, title: 'Profile' },
         },
         {
           path: 'phone',

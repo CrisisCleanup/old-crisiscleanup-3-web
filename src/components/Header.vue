@@ -27,7 +27,7 @@
         <!--<b-dropdown-item><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></b-dropdown-item>-->
         <!--<b-dropdown-item><i class="fa fa-comments"></i> Comments<span class="badge badge-warning">42</span></b-dropdown-item>-->
         <!--<b-dropdown-header tag="div" class="text-center"><strong>Settings</strong></b-dropdown-header>-->
-        <!--<b-dropdown-item><i class="fa fa-user"></i> Profile</b-dropdown-item>-->
+        <b-dropdown-item @click="viewProfile"><i class="fa fa-user"></i> Profile</b-dropdown-item>
         <!--<b-dropdown-item><i class="fa fa-wrench"></i> Settings</b-dropdown-item>-->
         <!--<b-dropdown-divider></b-dropdown-divider>-->
         <!--<b-dropdown-item><i class="fa fa-shield"></i> Lock Account</b-dropdown-item>-->
@@ -76,6 +76,9 @@ export default {
     logout (e) {
       this.$store.dispatch('logout');
       this.$router.push({path: '/'});
+    },
+    viewProfile() {
+      this.$router.push({ path: '/worker/profile' });
     },
     updateEventContext (e) {
       this.$store.dispatch('changeEventContext', e.target.value);
