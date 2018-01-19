@@ -103,7 +103,7 @@
   </div>
 </template>
 <script>
-
+  import Vue from 'vue';
   export default {
     data() {
         return {
@@ -134,7 +134,23 @@
           ]  
       }
     },
+    created: function() {
+      this.populateInitialForm();
+    },
     methods: {
+      populateInitialForm(){
+        //Set the current user details 
+        this.userProfile.myOrganization = this.$store.state.worker.currentOrgId;
+        this.userProfile.name = this.$store.state.auth.profile.name;
+        this.userProfile.email = this.$store.state.auth.profile.email;
+        this.userProfile.phoneNumber = this.$store.state.auth.profile.person.mobile;
+        Vue.axios.get(`/organizations?is_active=true&ordering=-created_at&limit=500`).then(resp => {
+          console.log(resp.data.results);
+          this.organizationOptions = resp.data.results.map(function(organization) {
+            return {text: organization.name, value: organization.uid};
+          })
+        });
+      },
       formatPhoneNumber(value, event) {
         return value.replace(/[^0-9]/g, '')
                 .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
