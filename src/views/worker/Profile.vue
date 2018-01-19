@@ -28,7 +28,7 @@
             id="organizationOptions"
             label="My Organization"
             label-for="organizationOptions">
-          <b-form-select v-model="userProfile.myOrganization" :options="organizationOptions" class="mb-3" required></b-form-select>
+          <b-form-select v-model="userProfile.myOrganization" :options="organizationOptions" class="mb-3"></b-form-select>
           </b-form-group>
           <b-form-group
             id="isContactForOrganization"
@@ -107,6 +107,7 @@
   export default {
     data() {
         return {
+          callUserExists: false,
           userProfile: {
             name: null,
             email: null,
@@ -124,14 +125,8 @@
           mapOptions: {
             willingToBePinHero: false,
           },
-          languageOptions: [
-            {text: 'Spanish', value: 'spanish'},
-            {text: 'Mandarin', value: 'mandarin'}
-          ],
-          organizationOptions: [
-            {text: 'Org1', value: 'org1'},
-            {text: 'Org2', value: 'org2'}
-          ]  
+          languageOptions: ["Spanish","Mandarin"],
+          organizationOptions: []  
       }
     },
     created: function() {
@@ -139,13 +134,28 @@
     },
     methods: {
       populateInitialForm(){
+        //Get the user's caller information
+        this.$store.dispatch('phone/getUser', this.$store.state.worker.currentUserId).then(() => {
+          if(this.$store.state.phone.user != null){
+            var user = this.$store.state.phone.user;
+            this.callUserExists = true
+            this.callCenterOptions.willingToReceiveCalls = user.willing_to_receive_calls;
+            this.callCenterOptions.willingToBeCallSupport = user.willing_to_be_call_center_support;
+            this.callCenterOptions.willingToBeCallHero = user.willing_to_be_call_hero;
+            if(user.supported_languages != null){
+              this.callCenterOptions.callLanguages = user.supported_languages.split(',');
+            }
+            this.mapOptions.willingToBePinHero = user.willing_to_be_pin_hero;
+          }
+        }).catch(err => {
+          this.callUserExists = false;
+        });
         //Set the current user details 
         this.userProfile.myOrganization = this.$store.state.worker.currentOrgId;
         this.userProfile.name = this.$store.state.auth.profile.name;
         this.userProfile.email = this.$store.state.auth.profile.email;
         this.userProfile.phoneNumber = this.$store.state.auth.profile.person.mobile;
         Vue.axios.get(`/organizations?is_active=true&ordering=-created_at&limit=500`).then(resp => {
-          console.log(resp.data.results);
           this.organizationOptions = resp.data.results.map(function(organization) {
             return {text: organization.name, value: organization.uid};
           })
@@ -157,7 +167,30 @@
       },
       onSubmit (evt) {
         evt.preventDefault();
-        console.log("submit")
+        //TODO: Save non-call center data
+
+        //Save call center information
+        var userData = {
+          id: this.$store.state.worker.currentUserId,
+          name: this.userProfile.name,
+          willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
+          willing_to_be_call_center_support: this.callCenterOptions.willingToBeCallSupport,
+          willing_to_be_call_hero: this.callCenterOptions.willingToBeCallHero,
+          supported_languages: this.callCenterOptions.callLanguages.join(','),
+          willing_to_be_pin_hero: this.mapOptions.willingToBePinHero
+        };
+        if(userData.supported_languages == ""){
+          userData.supported_languages = null;
+        }
+        if(this.callUserExists) {
+          Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + userData.id, userData).then(resp => {
+            this.$router.push({path: '/worker/dashboard'});
+          })
+        } else {
+          Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/users`, userData).then(resp => {
+            this.$router.push({path: '/worker/dashboard'});
+          })
+        }
       },
     }
   }

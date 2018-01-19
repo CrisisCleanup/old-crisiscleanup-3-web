@@ -79,7 +79,6 @@
         //Grab user information
         this.$store.dispatch('phone/getUser', userId).then(() => {
             this.user = this.$store.state.phone.user;
-            console.log(this.user);
         });
       },
       getCurrentGateway(){
