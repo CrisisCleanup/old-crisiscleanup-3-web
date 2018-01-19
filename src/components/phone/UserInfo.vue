@@ -7,14 +7,14 @@
                         <h6 class="card-title">{{ user.first_name }}  {{ user.last_name }}</h6>
                         <p class="card-text">
                             {{ user.last_used_phone_number }}</br>
-                            Taking calls from {{ gateway.name}}
+                            <!--Taking calls from {{ gateway.name}}-->
                         </p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
             </div>
             <div class = "card text-white bg-dark col-4 text-center">
                 <div class = "card-body">
-                    <button v-bind:class="{'btn-success' : this.state != 'available', 'btn-danger' : this.state == 'available'}" v-on:click="startTakingCalls">{{this.message}}</button>
+                    <button v-bind:class="{'btn-success' : this.callState != 'available', 'btn-danger' : this.callState == 'available'}" v-on:click="startTakingCalls">{{this.message}}</button>
                     <p class = "card-text">
                         calls in queue</br>
                         32
@@ -44,9 +44,10 @@
         };
         },
       computed: {
-      ...mapState('phone', {
-        state: state => state.state
-      }),
+      ...mapState('phone', ['callState']),
+      ...mapMutations('phone', [
+          'available', 'notAvailable'
+      ])
     },
       methods: {
           editUserInfo() {
@@ -54,12 +55,15 @@
           },
           startTakingCalls() {
               this.$emit('available');
-              if (this.state != 'available') {
+
+              console.log(this.callState)
+              if (this.callState != 'available') {
                 this.message = 'Start Taking Calls'
               }
               else {
                  this.message = 'Stop Taking Calls' 
               }
+
           },
       }
   }
