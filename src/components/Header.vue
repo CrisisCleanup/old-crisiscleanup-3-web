@@ -34,28 +34,23 @@
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="{icons: true, 'icon-arrow-right' : this.getAsideView, 'icon-arrow-left' : !this.getAsideView}"></i></button>
   </header>
 </template>
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex';
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
 
 export default {
 
   name: 'Header',
   data() {
     return {
-      rightAsideToggle: {
-        icons: true,
-        'icon-arrow-right': false,
-        'icon-arrow-left': true,
-      },
-      rightAsideToggleClosed: true
     }
   },
   computed: {
-    ...mapGetters([ 'getParticipatingEvents', 'getCurrentEvent' ]),
+    ...mapGetters([ 'getParticipatingEvents', 'getCurrentEvent', 'getAsideView' ]),
     ...mapGetters('auth', [ 'getUserName' ]),
+    ...mapMutations(['setAsideView'])
   },
   mounted() {
     this.$store.dispatch('getParticipatingEvents');
@@ -75,8 +70,8 @@ export default {
     },
     asideToggle (e) {
       e.preventDefault()
-      this.rightAsideToggle["icon-arrow-left"] = !this.rightAsideToggle["icon-arrow-left"];
-      this.rightAsideToggle["icon-arrow-right"] = !this.rightAsideToggle["icon-arrow-right"];
+      console.log("getAsideView: " + this.getAsideView)
+      this.$store.commit('setAsideView')
       document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {
