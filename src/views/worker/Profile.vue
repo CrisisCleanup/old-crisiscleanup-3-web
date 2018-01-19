@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form @submit="onSubmit">
-    
+    <!-- ******************** Profile ********************* -->
     <div class="card">
       <div class="card-header text-center">Profile</div>
       <div class="card-body" >
@@ -15,8 +15,7 @@
           <b-form-group
             id="phoneNumber"
             label="Mobile Phone #"
-            label-for="phoneNumber"
-            >
+            label-for="phoneNumber">
             <b-form-input type="tel" v-model.trim="userProfile.phoneNumber" :formatter="formatPhoneNumber"></b-form-input>
           </b-form-group>
           <b-form-group
@@ -41,29 +40,32 @@
         </p>
       </div>
     </div>
-
+    <!-- ******************** Call Center Options ********************* -->
     <div class="card">
       <div class="card-header text-center">Call Center Options</div>
       <div class="card-body" >
         <p class="card-text">
           <b-form-group
             id="willingToReceiveCalls"
+            description="I am willing to take calls for my organization's associated disasters."
             label-for="willingToReceiveCalls">
             <b-form-checkbox v-model="callCenterOptions.willingToReceiveCalls" plain>
                 I would like to work the Virtual Call Center
             </b-form-checkbox> 
           </b-form-group>
+          <!-- Advanced call center options, only visible if they are willing to accept calls --> 
+          <div v-if="callCenterOptions.willingToReceiveCalls">
           <b-form-group
             id="willingToBeCallHero"
             description="If you have experieince with the Call Center and are comfortable enough with how it works, you can become a resource that others can come to when they need help with the Call Center process."
             label-for="willingToBeCallHero">
-            <b-form-checkbox v-model="callCenterOptions.willingToBeCallHero" plain>
+            <b-form-checkbox v-model="callCenterOptions.willingToBeCallSupport" plain>
                 I'm willing to be Call Center Support
             </b-form-checkbox>
           </b-form-group>
           <b-form-group
             id="willingToBeCallHero"
-            description="I like this kind of work and am willing to take calls for future disasters."
+            description="I like this kind of work and am willing to take calls for future disasters outside of my organization."
             label-for="willingToBeCallHero">
             <b-form-checkbox v-model="callCenterOptions.willingToBeCallHero" plain>
                 I'm willing to be a Call Center Hero
@@ -76,10 +78,11 @@
             <b-form-checkbox-group stacked v-model="callCenterOptions.callLanguages" :options="languageOptions" plain>
             </b-form-checkbox-group>
           </b-form-group>
+          </div>
         </p>
       </div>
     </div>
-
+    <!-- ******************** Super Mapper Options ********************* -->
     <div class="card">
       <div class="card-header text-center">Super Mapper Options</div>
       <div class="card-body" >
@@ -114,6 +117,7 @@
           },
           callCenterOptions: {
             willingToReceiveCalls: false,
+            willingToBeCallSupport: false,
             willingToBeCallHero: false,
             callLanguages: []
           },
