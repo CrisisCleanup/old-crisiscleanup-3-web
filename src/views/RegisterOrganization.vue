@@ -216,7 +216,7 @@
                 </b-form-checkbox>
                 <br>
                 <b-form-checkbox v-model="accepted_terms">
-                  <b>I agree to the Terms of Service and Privacy Policy</b>
+                  <b>I agree to the <router-link to="terms">Terms of Service</router-link> and <router-link to="terms">Privacy Policy</router-link></b>
                 </b-form-checkbox>
               </div>
             </div>
