@@ -29,18 +29,26 @@
       return {
         columns: ['name', 'email', 'url', 'state'],
         options: {
-          responseAdapter: function(resp) {
+          responseAdapter: function (resp) {
             return {
               data: resp.data.results,
               count: resp.data.count
             }
           },
           requestFunction: function (data) {
-            const d = {
-              limit: data.limit,
-              offset: (data.page * data.limit),
-              // search: data.query
+            let d = {
+              // limit: data.limit,
+              // offset: (data.page * data.limit)
             };
+            if (data.query) {
+              d = Object.assign({}, d, {
+                search: data.query
+                // name__icontains: data.query,
+                // email__icontains: data.query,
+                // state__icontains: data.query,
+                // url__icontains: data.query
+              });
+            }
             const uid = this.$store.state.worker.event.uid;
             return this.axios.get(`/events/${uid}/organizations`, {params: d});
           }
