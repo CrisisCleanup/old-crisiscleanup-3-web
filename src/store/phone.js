@@ -36,13 +36,23 @@ export default {
 
     getters: {
         getCallState: state => state.callState,
+        getCallCenterAccessible: state => {
+            if(state.user == null) {
+                return false;
+            } else {
+                return state.user.willing_to_receive_calls;
+            }
+        }
     },
 
     actions: {
-        getUser({ commit, state }, userId) {
-            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + userId + `/get_detail`).then(resp => {
-                commit('setUser', resp.data)
-            })
+        getUser({ commit, state }, payload) {
+            if(payload.overwrite || (!payload.overwrite && state.user == null)) {
+                return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
+                    commit('setUser', resp.data)
+                })
+            }
+            return true;
         },
     },
 };

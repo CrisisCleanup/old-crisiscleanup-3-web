@@ -135,7 +135,7 @@
     methods: {
       populateInitialForm(){
         //Get the user's caller information
-        this.$store.dispatch('phone/getUser', this.$store.state.worker.currentUserId).then(() => {
+        this.$store.dispatch('phone/getUser', {userId: this.$store.state.worker.currentUserId, overwrite: false}).then(() => {
           if(this.$store.state.phone.user != null){
             var user = this.$store.state.phone.user;
             this.callUserExists = true
@@ -184,10 +184,12 @@
         }
         if(this.callUserExists) {
           Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + userData.id, userData).then(resp => {
+            this.$store.commit('phone/setUser', resp.data)
             this.$router.push({path: '/worker/dashboard'});
           })
         } else {
           Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/users`, userData).then(resp => {
+            this.$store.commit('phone/setUser', resp.data)
             this.$router.push({path: '/worker/dashboard'});
           })
         }

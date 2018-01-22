@@ -77,7 +77,7 @@
         //Grab the user id from the login info
         var userId = this.$store.state.worker.currentUserId;
         //Grab user information
-        this.$store.dispatch('phone/getUser', userId).then(() => {
+        this.$store.dispatch('phone/getUser', {userId, overwrite: true}).then(() => {
             this.user = this.$store.state.phone.user;
         });
       },
