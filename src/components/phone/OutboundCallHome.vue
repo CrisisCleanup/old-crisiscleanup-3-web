@@ -6,20 +6,37 @@
                 header="Outbound/Return Calls"
                 header-tag="header"
                 header-bg-variant="secondary">
-                        <!-- <table width="100%"> 
-                            <tr style="height:25%; border-top:1px solid white; border-bottom:1px solid white" v-for="option in outboundCallOptions" v-bind:key="option.id">
-                                <td style="width:70%; font-size:medium" align="center">{{ option.name }}</td>
-                                <td style="width:30%"><button v-bind:class="option.buttonclass" style="width:60%; margin:5px" align="center">{{ option.value }}</button></td>
-                            </tr>
-                        </table> -->
                         <b-table :items="outboundCallOptions" :fields="fields" hover >
                             <template slot="value" scope="row">
                                 <b-btn :variant="row.item.buttonclass" @click.stop="callHeaderClicked(row)">{{row.item.value}}</b-btn>
                             </template>
                             <template slot="row-details" scope="row">
-                                <b-card no-body class="text-white bg-dark text-left" style="position:relative; height:100px; overflow-y:scroll;">
+                                <b-card no-body class="text-white bg-dark text-center" style="position:relative; height:200px; overflow-y:scroll;">
                                 <b-list-group>
-                                    <b-list-item v-for="call in row.item.calls" v-bind:key="call.id">{{call.number}}</b-list-item>
+                                    <b-list-item hover v-for="call in row.item.calls" v-bind:key="call.id">
+                                        <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
+                                            <tr>
+                                                <td style="width:90%" align="left">
+                                                    <p style = "font-size:medium; margin:0px">{{call.number}}</p>
+                                                    <p style = "font-size:small; margin:0px">{{getCallerAddress(call)}}</p>
+                                                    <p style = "font-size:large; margin-top:10px; margin-bottom:0px; margin-left:10px; margin-right:0px">{{getCallerName(call)}}</p>
+                                                    <p style = "font-size:small; margin-top:0px; margin-bottom:10px; margin-left:10px; margin-right:0px">{{getCallerAddress(call)}}</p> 
+                                                </td>
+                                                <td style = "width:10%" align="right">
+                                                    <b-badge pill variant="light" style="vertical-align:middle">
+                                                        <table hover="false" width = "100%">
+                                                            <tr>
+                                                                <td style = "width:25%; font-size:small; border-right:1px solid black">{{getNumberCalls(call)}}</td>
+                                                                <td style = "width:25%; font-size:sma;;">{{getTotalDays(call)}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </b-badge>
+                                                    <p style = "font-size: x-large; vertical-align:middle">{{' '}}</p>
+                                                    <p style = "font-size: x-large; vertical-align:middle">{{getCallerId(call)}}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </b-list-item>
                                 </b-list-group>
                                 </b-card>
                             </template>
@@ -33,42 +50,59 @@
 <script>
 import { mapMutations, mapState} from 'vuex'
 
-  export default {
-      components: {
-      },
-      name: 'phone-outbound-call-home',
-      props: [
-      ],
-      data() {
+export default {
+    components: {
+    },
+    name: 'phone-outbound-call-home',
+    props: [
+    ],
+    data() {
         return {
             outboundCallOptions: [
-                { id: 1, name:'Missed Calls',  value: '127', buttonclass: 'danger', 
-                  calls: [
+                { 
+                    id: 1, name:'Missed Calls',  value: '127', buttonclass: 'danger', 
+                    calls: [
                     { 
-                      id: 1,
-                      number: "123-456-7890"
-                    },
-                    { 
-                      id: 2,
-                      number: "123-456-7890"
-                    },
-                    { 
-                      id: 3,
-                      number: "123-456-7890"
-                    },
-                    { 
-                      id: 4,
-                      number: "123-456-7890"
-                    },
-                    { 
-                      id: 5,
-                      number: "123-456-7890"
-                    },
-                    { 
-                      id: 6,
-                      number: "123-456-7890"
+                        id: 1,
+                        identifier: 'K12109',
+                        number: '123-456-7890',
+                        status: 'Missed',
+                        caller:{
+                            name: 'Julie Smith',
+                            number: '123-456-7890',
+                            address: {
+                                street: '1411 North Terrace Drive',
+                                unit: '',
+                                city: 'Jacksonville',
+                                state: 'FL'
+                            },
+                            call_info: {
+                                total_call: 8,
+                                total_days: 2
+                            }
                     }
-                  ]
+                    },
+                    { 
+                        id: 2,
+                        number: "123-456-7890"
+                    },
+                    { 
+                        id: 3,
+                        number: "123-456-7890"
+                    },
+                    { 
+                        id: 4,
+                        number: "123-456-7890"
+                    },
+                    { 
+                        id: 5,
+                        number: "123-456-7890"
+                    },
+                    { 
+                        id: 6,
+                        number: "123-456-7890"
+                    }
+                ]
                 },
                 {   id: 2, name:'Needs Special Assistance',  value: '3', buttonclass:'secondary',
                     calls: [
@@ -100,7 +134,7 @@ import { mapMutations, mapState} from 'vuex'
                         id: 3,
                         number: "123-456-7890"
                         }
-                  ]
+                ]
                 },
                 { id: 4, name:'Make Manual Outbound Call',  value: 'GO', buttonclass:'success', calls: []}
             ],
@@ -109,29 +143,63 @@ import { mapMutations, mapState} from 'vuex'
                 {key:'value', label:'# Calls Waiting','class':'text-center' }
             ]
         };
-        },
-      computed: {
-      ...mapState('phone', {
-        callState: state => state.callState
-      }),
     },
-      methods: {
-        startTakingCalls() {
-            this.$emit('availableForCalls');
-            if (this.callState != 'availableForCalls') {
-            this.message = 'Start Taking Calls'
-            }
-            else {
-                this.message = 'Stop Taking Calls' 
-            }
-        },
-        callHeaderClicked(row){
-            if(row.item.buttonclass != "success"){
-                row.toggleDetails()
-            }else{
-                //fill in with the GO item
+        computed: {
+        ...mapState('phone', {
+            state: state => state.callState
+        }),
+    },
+        methods: {
+            startTakingCalls() {
+                this.$emit('availableForCalls');
+                if (this.state != 'availableForCalls') {
+                this.message = 'Start Taking Calls'
+                }
+                else {
+                    this.message = 'Stop Taking Calls' 
+                }
+            },
+            callHeaderClicked(row){
+                if(row.item.buttonclass != "success"){
+                    row.toggleDetails()
+                }else{
+                    //fill in with the GO item
+                }
+            },
+            getCallerName(call){
+                let name = ''
+                if(call.caller){
+                    name = call.caller.name
+                }
+                return name
+            },
+            getNumberCalls(call){
+                let callTotal = ''
+                if(call.caller){
+                    callTotal = call.caller.call_info ? call.caller.call_info.total_call : ''
+                }
+                return callTotal + " calls"
+            },
+            getTotalDays(call){
+                let dayTotal  =''
+                if(call.caller){
+                    dayTotal = call.caller.call_info ? call.caller.call_info.total_days : ''
+                }
+                return dayTotal + " days"
+            },
+            getCallerAddress(call){
+                let address = ''
+                if(call.caller){
+                    let addressObj = call.caller.address
+                    if(addressObj){
+                        address = addressObj.street + ' ' + addressObj.unit + ', ' + addressObj.city + ', ' + addressObj.state
+                    }
+                }
+                return address
+            },
+            getCallerId(call){
+                return call.identifier
             }
         }
-      }
-  }
+}
 </script>
