@@ -12,7 +12,7 @@
       <div class="text-center" style="margin-top: 0.50rem;">
           <!--<div class="btn-group mx-auto" role="group">-->
             <a class="btn btn-light" href="#">
-              <i v-bind:title = "$t('actions.view_on_map')" class="fa fa-map"></i>
+              <i v-bind:title = "$t('actions.view_on_map')" class="fa fa-map-marker"></i>
             </a>
             <a class="btn btn-light" href="#">
               <i v-bind:title = "$t('actions.send_sms')" class="fa fa-mobile"></i>
