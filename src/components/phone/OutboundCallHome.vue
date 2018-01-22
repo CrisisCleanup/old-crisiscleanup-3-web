@@ -6,7 +6,7 @@
                 header="Outbound/Return Calls"
                 header-tag="header"
                 header-bg-variant="secondary">
-                        <b-table :items="outboundCallOptions" :fields="fields" hover >
+                        <b-table v-if="!makingCall" :items="outboundCallOptions" :fields="fields" hover >
                             <template slot="value" scope="row">
                                 <b-btn :variant="row.item.buttonclass" @click.stop="callHeaderClicked(row)">{{row.item.value}}</b-btn>
                             </template>
@@ -41,6 +41,24 @@
                                 </b-card>
                             </template>
                         </b-table>
+                        <table v-if="makingCall">
+                            <tr>
+                                <td style="width:80%" align="left">
+                                    <b-form-input
+                                        id="callNumberInput" 
+                                        type="tel" 
+                                        v-model="outboundCallNumber"
+                                        :state="phoneState"
+                                        aria-describedby="inputLiveFeedback"></b-form-input>
+                                </td>
+                                <td style = "width:10%" align="right">
+                                    <b-button variant='success'>Call</b-button>
+                                </td>
+                                <td style = "width:10%" align="right">
+                                    <b-btn variant="danger" @click="cancelCall()">Cancel</b-btn>
+                                </td>
+                            </tr>
+                        </table>
                 </b-card>
             </b-card-group>
         </div>
@@ -49,6 +67,7 @@
 
 <script>
 import { mapMutations, mapState} from 'vuex'
+const PHONE_NUMBER_REGEX = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
 
 export default {
     components: {
@@ -58,6 +77,8 @@ export default {
     ],
     data() {
         return {
+            makingCall: false,
+            outboundCallNumber: '',
             outboundCallOptions: [
                 { 
                     id: 1, name:'Missed Calls',  value: '127', buttonclass: 'danger', 
@@ -148,6 +169,9 @@ export default {
         ...mapState('phone', {
             state: state => state.callState
         }),
+        phoneState(){
+            return PHONE_NUMBER_REGEX.test(this.outboundCallNumber)
+        }
     },
         methods: {
             startTakingCalls() {
@@ -163,7 +187,7 @@ export default {
                 if(row.item.buttonclass != "success"){
                     row.toggleDetails()
                 }else{
-                    //fill in with the GO item
+                    this.makingCall = true
                 }
             },
             getCallerName(call){
@@ -199,6 +223,9 @@ export default {
             },
             getCallerId(call){
                 return call.identifier
+            },
+            cancelCall(){
+                this.makingCall = false
             }
         }
 }
