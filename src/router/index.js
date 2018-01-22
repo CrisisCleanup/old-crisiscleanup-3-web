@@ -89,7 +89,7 @@ const router = new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: WorkerDashboard,
-          meta: {auth: true, title: 'Dashboard'},
+          meta: {auth: true, title: Vue.$t('router_index.dashboard')},
         },
         {
           path: 'map',

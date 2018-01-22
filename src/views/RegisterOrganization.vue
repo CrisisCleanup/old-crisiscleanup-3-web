@@ -216,13 +216,13 @@
                 </b-form-checkbox>
                 <br>
                 <b-form-checkbox v-model="accepted_terms">
-                  <b>I agree to the <router-link to="terms">Terms of Service</router-link> and <router-link to="terms">Privacy Policy</router-link></b>
+                  <b>{{ $t('register_org.tos_priv_1') }} <router-link to="terms">{{ $t('register_org.tos_priv_tos') }}</router-link> {{ $t('register_org.tos_priv_and') }} <router-link to="privacy">{{ $t('register_org.tos_priv_priv') }}</router-link>{{ $t('register_org.tos_priv_2') }}</b>
                 </b-form-checkbox>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <button @click="signUp" type="button" class="btn btn-block btn-success btn-lg">Sign Up</button>
+                <button @click="signUp" type="button" class="btn btn-block btn-success btn-lg">{{ $t('actions.sign_up') }}</button>
               </div>
             </div>
           </div>
