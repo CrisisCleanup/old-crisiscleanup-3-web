@@ -15,7 +15,7 @@
                                 <b-list-group>
                                     <b-list-item hover v-for="call in row.item.calls" v-bind:key="call.id">
                                         <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
-                                            <tr>
+                                            <tr @click="callRowClicked(call)">
                                                 <td style="width:90%" align="left">
                                                     <p style = "font-size:medium; margin:0px">{{call.number}}</p>
                                                     <p style = "font-size:small; margin:0px">{{getCallerAddress(call)}}</p>
@@ -52,10 +52,10 @@
                                         aria-describedby="inputLiveFeedback"></b-form-input>
                                 </td>
                                 <td style = "width:10%" align="right">
-                                    <b-button variant='success'>Call</b-button>
+                                    <b-button variant='success' @click="makeCall">Call</b-button>
                                 </td>
                                 <td style = "width:10%" align="right">
-                                    <b-btn variant="danger" @click="cancelCall()">Cancel</b-btn>
+                                    <b-btn variant="danger" @click="cancelCall">Cancel</b-btn>
                                 </td>
                             </tr>
                         </table>
@@ -86,7 +86,7 @@ export default {
                     { 
                         id: 1,
                         identifier: 'K12109',
-                        number: '123-456-7890',
+                        number: '123-456-1234',
                         status: 'Missed',
                         caller:{
                             name: 'Julie Smith',
@@ -225,7 +225,15 @@ export default {
                 return call.identifier
             },
             cancelCall(){
+                this.outboundCallNumber = ''
                 this.makingCall = false
+            },
+            callRowClicked(call){
+                this.outboundCallNumber = call.number
+                this.makingCall = true
+            },
+            makeCall(){
+                alert("making call")
             }
         }
 }
