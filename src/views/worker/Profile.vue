@@ -16,7 +16,7 @@
             id="phoneNumber"
             label="Mobile Phone #"
             label-for="phoneNumber">
-            <b-form-input type="tel" v-model.trim="userProfile.phoneNumber" :formatter="formatPhoneNumber"></b-form-input>
+            <b-form-input type="tel" v-model.trim="userProfile.phoneNumber"></b-form-input>
           </b-form-group>
           <b-form-group
             id="email"
@@ -53,8 +53,6 @@
                 I would like to work the Virtual Call Center
             </b-form-checkbox> 
           </b-form-group>
-          <!-- Advanced call center options, only visible if they are willing to accept calls --> 
-          <div v-if="callCenterOptions.willingToReceiveCalls">
           <b-form-group
             id="willingToBeCallHero"
             description="If you have experieince with the Call Center and are comfortable enough with how it works, you can become a resource that others can come to when they need help with the Call Center process."
@@ -63,6 +61,8 @@
                 I'm willing to be Call Center Support
             </b-form-checkbox>
           </b-form-group>
+          <!-- Advanced call center options, only visible if they are willing to accept calls --> 
+          <div v-if="callCenterOptions.willingToReceiveCalls">
           <b-form-group
             id="willingToBeCallHero"
             description="I like this kind of work and am willing to take calls for future disasters outside of my organization."
@@ -117,6 +117,7 @@
             isAdmin: false
           },
           callCenterOptions: {
+            callCenterNumber: null,
             willingToReceiveCalls: false,
             willingToBeCallSupport: false,
             willingToBeCallHero: false,
@@ -139,6 +140,7 @@
           if(this.$store.state.phone.user != null){
             var user = this.$store.state.phone.user;
             this.callUserExists = true
+            this.callCenterOptions.callCenterNumber = user.last_used_phone_number;
             this.callCenterOptions.willingToReceiveCalls = user.willing_to_receive_calls;
             this.callCenterOptions.willingToBeCallSupport = user.willing_to_be_call_center_support;
             this.callCenterOptions.willingToBeCallHero = user.willing_to_be_call_hero;
@@ -161,10 +163,6 @@
           })
         });
       },
-      formatPhoneNumber(value, event) {
-        return value.replace(/[^0-9]/g, '')
-                .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-      },
       onSubmit (evt) {
         evt.preventDefault();
         //TODO: Save non-call center data
@@ -175,9 +173,10 @@
           name: this.userProfile.name,
           willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
           willing_to_be_call_center_support: this.callCenterOptions.willingToBeCallSupport,
-          willing_to_be_call_hero: this.callCenterOptions.willingToBeCallHero,
+          willing_to_be_call_hero: this.callCenterOptions.willingToBeCallHero && this.callCenterOptions.willingToReceiveCalls, //They can't be a call hero and not receive calls
           supported_languages: this.callCenterOptions.callLanguages.join(','),
-          willing_to_be_pin_hero: this.mapOptions.willingToBePinHero
+          willing_to_be_pin_hero: this.mapOptions.willingToBePinHero,
+          last_used_phone_number: this.callCenterOptions.callCenterNumber || this.userProfile.phoneNumber
         };
         if(userData.supported_languages == ""){
           userData.supported_languages = null;
@@ -188,10 +187,15 @@
             this.$router.push({path: '/worker/dashboard'});
           })
         } else {
-          Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/users`, userData).then(resp => {
-            this.$store.commit('phone/setUser', resp.data)
+          //Only create a new one if they checked call center / mapper options
+          if(userData.willing_to_receive_calls || userData.willing_to_be_call_center_support || userData.willing_to_be_pin_hero) {
+            Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/users`, userData).then(resp => {
+              this.$store.commit('phone/setUser', resp.data)
+              this.$router.push({path: '/worker/dashboard'});
+            })
+          } else {
             this.$router.push({path: '/worker/dashboard'});
-          })
+          }
         }
       },
     }
