@@ -7303,6 +7303,10 @@ vue-test-utils@^1.0.0-beta.1:
   dependencies:
     lodash "^4.17.4"
 
+vue-youtube-embed@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/vue-youtube-embed/-/vue-youtube-embed-2.1.3.tgz#de3667c2d983b00df56868e9fb8ef84ca9988926"
+
 vue2-google-maps@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.8.3.tgz#25886841d7668515f124fa3a24a57f9af85fefb5"

@@ -12,7 +12,9 @@ import Profile from '@/views/worker/Profile';
 import Charts from '@/views/Charts'
 import Phone from '@/containers/Phone';
 import PhoneWelcome from '@/views/phone/Welcome';
-import PhoneGetUpToDate from '@/views/phone/GetUpToDate';
+import PhoneNews from '@/views/phone/News';
+import PhoneTraining from '@/views/phone/Training';
+import PhoneTrainingModule from '@/views/phone/TrainingModule';
 import PhoneSwitchboard from '@/views/phone/Switchboard';
 
 import Page404 from '@/views/pages/Page404'
@@ -130,9 +132,19 @@ const router = new Router({
               meta: { auth: true, title: 'Phone Welcome' },
             },
             {
-              path: 'getUpToDate',
-              component: PhoneGetUpToDate,
-              meta: { auth: true, title: 'Phone Get Up To Date' },
+              path: 'news',
+              component: PhoneNews,
+              meta: { auth: true, title: 'Phone News' },
+            },
+            {
+              path: 'training',
+              component: PhoneTraining,
+              meta: { auth: true, title: 'Phone Training' },
+            },
+            {
+              path: 'training/:id',
+              component: PhoneTrainingModule,
+              meta: { auth: true, title: 'Phone Training Module' },
             },
             {
               path: '',

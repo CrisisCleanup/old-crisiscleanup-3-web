@@ -5,7 +5,7 @@
        <!-- ******************** Check-list ********************* -->
     <div class="col-md-6">
           <div class="col-md-6">
-            <button type="button" class="btn btn-block btn-primary"><i class="icon-check float-left" v-if="user.is_trained" style="font-size:18pt"></i><i class="icon-exclamation float-left" v-else style="font-size:18pt"></i>Get Trained</button>
+            <button type="button" class="btn btn-block btn-primary" @click="getTrained"><i class="icon-check float-left" v-if="user.is_trained" style="font-size:18pt"></i><i class="icon-exclamation float-left" v-else style="font-size:18pt"></i>Get Trained</button>
             <button type="button" class="btn btn-block btn-primary" @click="getUpToDate"><i class="icon-check float-left" v-if="user.is_up_to_date" style="font-size:18pt"></i><i class="icon-exclamation float-left" v-else style="font-size:18pt"></i>Get Up To Date</button>
             <button type="button" class="btn btn-block btn-primary" @click="getStarted">Get Started</button>
           </div>   
@@ -108,7 +108,10 @@
         });
       },
       getUpToDate() {
-        this.$router.push({ path: 'getUpToDate' });
+        this.$router.push({ path: 'News' });
+      },
+      getTrained() {
+        this.$router.push({ path: 'Training' });
       },
       getStarted() {
         this.$store.commit('phone/seenWelcome');
