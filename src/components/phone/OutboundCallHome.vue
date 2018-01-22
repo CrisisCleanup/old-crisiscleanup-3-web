@@ -24,10 +24,10 @@
                                                 </td>
                                                 <td style = "width:10%" align="right">
                                                     <b-badge pill variant="light" style="vertical-align:middle">
-                                                        <table hover="false" width = "100%">
-                                                            <tr>
-                                                                <td style = "width:25%; font-size:small; border-right:1px solid black">{{getNumberCalls(call)}}</td>
-                                                                <td style = "width:25%; font-size:sma;;">{{getTotalDays(call)}}</td>
+                                                        <table c width = "100%">
+                                                            <tr style="background-color:transparent">
+                                                                <td style = "width:25%; font-size:small; border-right:1px solid black; border-top: 0">{{getNumberCalls(call)}}</td>
+                                                                <td style = "width:25%; font-size:small; border-top: 0">{{getTotalDays(call)}}</td>
                                                             </tr>
                                                         </table>
                                                     </b-badge>
