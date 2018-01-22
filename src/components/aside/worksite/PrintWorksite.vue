@@ -161,13 +161,13 @@
           <p>&nbsp;</p>
         </td>
         <td colspan="15" class="allBorders">
-          <p>{{ $t('printWorksite.reported_by') }}: {{reported_by_org.name}}</p>
+          <p>{{ $t('printWorksite.reported_by') }}: {{site.reported_by_org && site.reported_by_org.name}}</p>
         </td>
         <td colspan="2">
           <p>&nbsp;</p>
         </td>
         <td class="allBorders" colspan="5">
-          <p>{{ $t('printWorksite.claimed_by') }}: {{claimed_by_org.name}}</p>
+          <p>{{ $t('printWorksite.claimed_by') }}: {{site.claimed_by_org && site.claimed_by_org.name}}</p>
         </td>
       </tr>
 
@@ -765,7 +765,7 @@
 
       <tr>
         <td colspan="10" class="topThickBorder statusLabel">
-          <p>{{ $t('printWorksite.status_as_of') }} {{ Time.now.strftime('%F %H:%M')}}:</p>
+          <p>{{ $t('printWorksite.status_as_of') }}</p>
         </td>
         <td colspan="18" class="topThickBorder">
           <p class="sectionTitle">{{site.status }}</p>
