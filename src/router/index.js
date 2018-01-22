@@ -20,6 +20,7 @@ import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
 
 import vueAuthInstance from '@/services/auth.js'
+import i18n from '@/services/i18n';
 
 Vue.use(Router);
 
@@ -89,7 +90,7 @@ const router = new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: WorkerDashboard,
-          meta: {auth: true, title: Vue.$t('router_index.dashboard')},
+          meta: {auth: true, title: i18n.t('router_index.dashboard')},
         },
         {
           path: 'map',
