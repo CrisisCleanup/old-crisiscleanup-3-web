@@ -277,7 +277,10 @@ const messages = {
       suv_join_org_msg: "Please first connect with a reputable relief organization",
       connect: "Connect",
       govt_agency: "Government Agency",
-      govt_agency_join_msg: "Government receives appropriately limited access to help facilitate recovery"
+      govt_agency_join_msg: "Government receives appropriately limited access to help facilitate recovery",
+      rich_daughter_alt: "Rich's Daughter holding up a drawing",
+      nicole_schwartz_alt: "Nichole Schwartz Picture",
+      neil_glassman_alt: "Neil Glassman in front of Crisis Cleanup Screen"
     },
     donation: {
       donate: "Donate",
@@ -287,7 +290,13 @@ const messages = {
       donate_card: "Donate Using a Card",
       donate_monthly: "Donate Monthly",
       view_roadmap: "View Our Roadmap",
-      view_numbers: "Look at the Numbers"
+      view_numbers: "Look at the Numbers",
+      worker_1_alt: "Worker 1",
+      worker_2_alt: "Worker 2",
+      worker_3_alt: "Worker 3",
+      worker_4_alt: "Worker 4",
+      worker_5_alt: "Worker 5",
+      bobcat_alt: "Bobcat"
     },
     poweredBy: {
       powered_by: "Powered By",
@@ -297,7 +306,30 @@ const messages = {
       staff_volunteers_former: "Former Staff and Major Volunteers",
       who_we_serve: "Who We Serve",
       ccu_serves_orgs_msg: "Crisis Cleanup serves the relief organizations and volunteers who help survivors on the ground. Crisis Cleanup helps volunteers help more people. Every pin on the map is a story. Every story drives us to give more.",
-      kelly_darden_quote: "“My experience with Crisis Cleanup was amazing. It was nice to feel like I was contributing without being able to be 'boots on the ground.'”"
+      kelly_darden_quote: "“My experience with Crisis Cleanup was amazing. It was nice to feel like I was contributing without being able to be 'boots on the ground.'”",
+      steven_hunt_quote: "“those of us who worked in the command center became very fond of CC, its utility to the cleanup process and its functionality. We are great fans.”",
+      connectfirst_logo_alt: "ConnectFirst Logo",
+      vf_logo_alt: "Volunteer Florida Logo",
+      gallery_furniture_logo_alt: "Gallery Furniture Logo",
+      houston_logo_alt: "City of Houston Logo",
+      generic_card_alt_alt: "Generic Card Alt Text",
+      visionlink_logo_alt: "VisionLink Logo",
+      lds_charities_logo_alt: "LDS Charities Logo",
+      umcor_logo_alt: "UMCOR Logo",
+      sahana_foundation_logo_alt: "Sahana Foundation Logo",
+      nj211_logo_alt: "New Jersey 2-1-1 Logo",
+      h2prep_logo_alt: "How to Prepare for Everything Logo",
+      thinkso_logo_alt: "Thinkso Logo",
+      aaron_titus_photo_alt: "Aaron Titus Photo",
+      tyler_sanders_photo_alt: "Tyler Sanders Photo",
+      ross_arroyo_photo_alt: "Ross Arroyo Photo",
+      andy_gimma_photo_alt: "Andy Gimma Photo",
+      zach_straub_photo_alt: "Zachary Straub Photo",
+      dhruv_mehrotra_photo_alt: "Dhruv Mehrotra Photo",
+      mark_tregellas_photo_alt: "Mark Tregellas Photo",
+      chris_wood_photo_alt: "Chris Wood Photo",
+      jeremy_pack_photo_alt: "Jeremy Pack Photo",
+      bruce_christensen_photo_alt: "Bruce Christensen Photo"
     },
     four0Four: {
       oops_lost: "Oops! You're lost.",
@@ -388,10 +420,71 @@ const messages = {
       not_organization: "Not An Organization:",
       not_organization_msg: "Individuals, unaffiliated volunteers, meetup groups, clubs, etc.",
       where_working: "Where are you working?",
-      publish_profile: "Publicly publish organization profile?"
+      publish_profile: "Publicly publish organization profile?",
+      tos_priv_1: "I agree to the",
+      tos_priv_tos: "Terms of Service",
+      tos_priv_and: "and",
+      tos_priv_priv: "Privacy Policy",
+      tos_priv_2: "."
     },
     router_index: {
-      dashboard: "Dashboard"
+      dashboard_html_title: "Dashboard: Crisis Cleanup",
+      worker_map_html_title: "Worker Map: Crisis Cleanup",
+      my_organization_html_title: "My Organization: Crisis Cleanup",
+      charts_html_title: "Charts: Crisis Cleanup"
+    },
+    roadmap: {
+      mission_roadmap: "Mission and Roadmap",
+      integrated_call_system: "Fully Integrated Call Center System",
+      integrated_call_system_msg: "After Hurricanes Harvey and Irma, our virtual call center received more than 60,000 calls. But the interface created training, communication, and volunteer control challenges. We have designed an in-app overhaul of the call center to make it easier to use and easier to train volunteers. This update will let any volunteer, anywhere be a call center Hero.",
+      send_feedback: "Send Feedback",
+      multi_lingual_support: "Robust Multi-Lingual Support",
+      multi_lingual_support_msg: "Disasters know no boundaries, and neither does Crisis Cleanup's popularity. We are rushing to support recovery efforts in Mexico City, Puerto Rico, and among Spanish-speaking populations in Texas and Florida.",
+      crew_equipment_management: "Crew and Heavy Equipment Management",
+      crew_equipment_management_msg: "Knowing who needs help is only part of the battle. Prioritizing work requests, keeping track of volunteers, volunteer hours, and equipment is on our roadmap. These features will have a dramatic impact on volunteer managers' ability to effectively direct and track volunteers.",
+      crew_equipment_management_msg2: "We are building the foundation to provide real-time volunteer mapping and unique worker fields, such as heavy equipment or special training that will allow emergency managers to maximize their FEMA offset funds.",
+      critical_needs: "Improved Critical Needs Identification",
+      critical_needs_msg: "Experience has shown that the first people to ask for help are often not the people who need it most. We want to add social vulnerability index layers, and advanced real-time map filtering to give relief agencies more power to direct their energies to the areas that are otherwise underserved.",
+      survivor_advocacy: "Suvivor Advocacy Tools",
+      urgent_needs: "Urgent Needs",
+      urgent_needs_msg: "Occasionally our partner's volunteers talk to someone who needs help <em>right now.</em> We want to improve the ability for anyone in Crisis Cleanup's decentralized network to contact volunteers on the ground and advocate on behalf of a survivor.",
+      hero_stories: "Social Tools Integration (Hero Stories)",
+      hero_stories_msg: "As part of our mission to inform and inspire more volunteers to come help, we plan to add social channels for volunteer heroes and residents to share their incredible stories with the rest of the world. We want to build these tools natively within the application to increase the opportunities to capture the inspiring moments as they happen.",
+      photo_recon: "Photo Reconnaissance",
+      photo_recon_msg1: "Nothing is worse than when a crew of cub scouts arrives to one of these...",
+      photo_recon_msg2: "...and a crew full of hardned tree professionals is sent to this.",
+      photo_recon_msg3: "Actionable intelligence saves hundreds of wasted volunteer hours. We intend to provide as many options as possible for anyone in the system to upload and store photos and job site information for future crews to work with. We even plan to have an SMS option, allowing survivors to upload photos and personal notes.",
+      online_training: "Online Training Center",
+      online_training_msg: "When the whole community responds after a disaster, many lack basic training. We want to add a suite of short targeted training videos on how to use the system most effectively. We also want to allow partners to post their safety and training videos for volunteers and the public. With this simple library, we can improve the safety and efficiency of volunteers across the country.",
+      communications_improvements: "Infrastructure, Communications, Interconnectivity Improvements",
+      communications_improvements_msg: "We plan to implement many other improvements to our capacity to serve tens of thousands of volunteers who rely on Crisis Cleanup every year. These include:",
+      communications_improvements_li1: "Offline capabilities",
+      communications_improvements_li2: "System security enhancments",
+      communications_improvements_li3: "Faster-loading maps",
+      communications_improvements_li4: "Modularize the platform for seamless app integration",
+      communications_improvements_li5: "Public API for third party integration",
+      communications_improvements_li6: "System performance upgrades",
+      communications_improvements_li7: "Offline smartphone app",
+      communications_improvements_li8: "Administrative capability upgrades",
+      communications_improvements_li9: "Better usage analysis for targeted system improvement",
+      communications_improvements_li10: "Improved user feedback mechanisms",
+      communications_improvements_li11: "...and more."
+    },
+    nav: {
+      dashboard: "Dashboard",
+      work_orders: "Work Orders",
+      my_work_orders: "My Work Orders",
+      browse: "Browse",
+      my_organization: "My Organization",
+      contacts: "Contacts",
+      all_organizations: "All Organizations",
+      charts: "Charts",
+      stats: "Stats",
+      about: "About",
+      help: "Help"
+    },
+    index: {
+      title_html: "Crisis Cleanup: Collaborative Disaster Relief"
     }
   },
   es: {
@@ -672,7 +765,10 @@ const messages = {
       suv_join_org_msg: "Primero, conéctese con una organización de ayuda de buena reputación",
       connect: "Conectate",
       govt_agency: "Agencia del gobierno",
-      govt_agency_join_msg: "El gobierno recibe acceso limitado apropiado para ayudar a facilitar la recuperación"
+      govt_agency_join_msg: "El gobierno recibe acceso limitado apropiado para ayudar a facilitar la recuperación",
+      rich_daughter_alt: "La hija de Rich sosteniendo un dibujo",
+      nicole_schwartz_alt: "Foto de Nichole Schwartz",
+      neil_glassman_alt: "Neil Glassman frente a la pantalla Crisis Cleanup"
     },
     donation: {
       donate: "Donar",
@@ -682,7 +778,13 @@ const messages = {
       donate_card: "Done con una tarjeta",
       donate_monthly: "Donar mensualmente",
       view_roadmap: "Ver nuestro plan de desarrollo",
-      view_numbers: "Mira los números"
+      view_numbers: "Mira los números",
+      worker_1_alt: "Obrero 1",
+      worker_2_alt: "Obrero 2",
+      worker_3_alt: "Obrero 3",
+      worker_4_alt: "Obrero 4",
+      worker_5_alt: "Obrero 5",
+      bobcat_alt: "Minicargadora"
     },
     poweredBy: {
       powered_by: "Energizado por",
@@ -692,7 +794,30 @@ const messages = {
       staff_volunteers_former: "Antiguo personal y grandes voluntarios",
       who_we_serve: "A quien servimos",
       ccu_serves_orgs_msg: "Crisis Cleanup sirve a las organizaciones de ayuda y voluntarios que ayudan a los sobrevivientes en el terreno. Crisis Cleanup ayuda a los voluntarios a ayudar a más personas. Cada pin en el mapa es una historia. Cada historia nos impulsa a dar más.",
-      kelly_darden_quote: "\"Mi experiencia con Crisis Cleanup fue increíble. Fue agradable sentir que estaba contribuyendo sin poder ser 'botas en el suelo' \"."
+      kelly_darden_quote: "\"Mi experiencia con Crisis Cleanup fue increíble. Fue agradable sentir que estaba contribuyendo sin poder ser 'botas en el suelo' \".",
+      steven_hunt_quote: "\"Aquellos de nosotros que trabajábamos en el centro de comando apreciábamos mucho Crisis Cleanup, su utilidad para el proceso de limpieza y su funcionalidad. Somos grandes admiradores.\"",
+      connectfirst_logo_alt: "Logotipo de ConnectFirst",
+      vf_logo_alt: "Logotipo de Volunteer Florida",
+      gallery_furniture_logo_alt: "Logotipo de Gallery Furniture",
+      houston_logo_alt: "Logotipo de City of Houston",
+      generic_card_alt_alt: "Logotipo de Generic Card Alt Text",
+      visionlink_logo_alt: "Logotipo de VisionLink",
+      lds_charities_logo_alt: "Logotipo de LDS Charities",
+      umcor_logo_alt: "Logotipo de UMCOR",
+      sahana_foundation_logo_alt: "Logotipo de Sahana Foundation",
+      nj211_logo_alt: "Logotipo de New Jersey 2-1-1",
+      h2prep_logo_alt: "Logotipo de How to Prepare for Everything",
+      thinkso_logo_alt: "Logotipo de Thinkso",
+      aaron_titus_photo_alt: "Foto de Aaron Titus",
+      tyler_sanders_photo_alt: "Foto de Tyler Sanders",
+      ross_arroyo_photo_alt: "Foto de Ross Arroyo",
+      andy_gimma_photo_alt: "Foto de Andy Gimma",
+      zach_straub_photo_alt: "Foto de Zachary Straub",
+      dhruv_mehrotra_photo_alt: "Foto de Dhruv Mehrotra",
+      mark_tregellas_photo_alt: "Foto de Mark Tregellas",
+      chris_wood_photo_alt: "Foto de Chris Wood",
+      jeremy_pack_photo_alt: "Foto de Jeremy Pack",
+      bruce_christensen_photo_alt: "Foto de Bruce Christensen1"
     },
     four0Four: {
       oops_lost: "Oops! Estas perdido.",
@@ -783,10 +908,71 @@ const messages = {
       not_organization: "No es una organización:",
       not_organization_msg: "Individuos, voluntarios no afiliados, grupos de encuentro, clubes, etc.",
       where_working: "¿Donde estás trabajando?",
-      publish_profile: "Publicar públicamente el perfil de la organización?"
+      publish_profile: "Publicar públicamente el perfil de la organización?",
+      tos_priv_1: "Estoy de acuerdo con los",
+      tos_priv_tos: "Términos de Servicio",
+      tos_priv_and: "y la",
+      tos_priv_priv: "Política de Privacidad",
+      tos_priv_2: "."
     },
     router_index: {
-      dashboard: "Tablero"
+      dashboard_html_title: "Tablero: Crisis Cleanup",
+      worker_map_html_title: "Mapa del trabajador: Crisis Cleanup",
+      my_organization_html_title: "Mi organización: Crisis Cleanup",
+      charts_html_title: "Gráficos: Crisis Cleanup"
+    },
+    roadmap: {
+      mission_roadmap: "Misión y Hoja de Ruta",
+      integrated_call_system: "Sistema de centro de llamadas completamente integrado",
+      integrated_call_system_msg: "Después de los huracanes Harvey e Irma, nuestro centro de llamadas virtual recibió más de 60,000 llamadas. Pero la interfaz creó desafíos de capacitación, comunicación y control voluntario. Hemos diseñado una revisión en la aplicación del centro de llamadas para que sea más fácil de usar y más fácil para capacitar a voluntarios. Esta actualización permitirá que cualquier voluntario, en cualquier lugar, sea un héroe del centro de llamadas.",
+      send_feedback: "Enviar comentarios",
+      multi_lingual_support: "Robusto soporte multilingüe",
+      multi_lingual_support_msg: "Los desastres no conocen fronteras, y tampoco la popularidad de Crisis Cleanup. Nos apresuramos a apoyar los esfuerzos de recuperación en la Ciudad de México, Puerto Rico y entre las poblaciones de habla hispana en Texas y Florida.",
+      crew_equipment_management: "Tripulación y gestión de equipos pesados",
+      crew_equipment_management_msg: "Saber quién necesita ayuda es solo parte de la batalla. Priorizar las solicitudes de trabajo, mantener un registro de los voluntarios, las horas de voluntariado y el equipo se encuentra en nuestra hoja de ruta. Estas características tendrán un impacto dramático en la capacidad de los gerentes voluntarios para dirigir y rastrear efectivamente a los voluntarios.",
+      crew_equipment_management_msg2: "Estamos construyendo las bases para proporcionar mapas de voluntarios en tiempo real y campos de trabajo únicos, como equipos pesados ​​o capacitación especial que permitirán a los administradores de emergencias maximizar sus fondos de compensación de FEMA.",
+      critical_needs: "Mejora de la identificación de necesidades críticas",
+      critical_needs_msg: "La experiencia ha demostrado que las primeras personas en pedir ayuda a menudo no son las personas que más la necesitan. Queremos agregar capas de índice de vulnerabilidad social y filtrado avanzado de mapas en tiempo real para brindarles a las agencias de ayuda más poder para dirigir sus energías a las áreas que de otra manera no están atendidas.",
+      survivor_advocacy: "Herramientas de defensa de Suvivor",
+      urgent_needs: "Necesidades urgentes",
+      urgent_needs_msg: "Ocasionalmente, los voluntarios de nuestro compañero hablan con alguien que necesita ayuda ahora mismo. </ Em> Queremos mejorar la capacidad de cualquiera en la red descentralizada de Crisis Cleanup para contactar voluntarios en el terreno y abogar en nombre de un sobreviviente.",
+      hero_stories: "Integración de herramientas sociales (Hero Stories)",
+      hero_stories_msg: "Como parte de nuestra misión de informar e inspirar a más voluntarios para ayudar, planeamos agregar canales sociales para que los héroes y residentes voluntarios compartan sus increíbles historias con el resto del mundo. Queremos construir estas herramientas de forma nativa dentro de la aplicación para aumentar las oportunidades de capturar los momentos inspiradores a medida que ocurren.",
+      photo_recon: "Reconocimiento de fotos",
+      photo_recon_msg1: "Nada es peor que cuando un equipo de cachorros exploradores llega a uno de estos ...",
+      photo_recon_msg2: "... y se envía a un equipo lleno de profesionales arborizados.",
+      photo_recon_msg3: "La inteligencia procesable ahorra cientos de horas desperdiciadas de voluntariado. Tenemos la intención de proporcionar tantas opciones como sea posible para que cualquiera en el sistema cargue y almacene fotos e información del sitio de trabajo para que las tripulaciones futuras trabajen. Incluso planeamos tener una opción de SMS, lo que permite a los sobrevivientes subir fotos y notas personales.",
+      online_training: "Centro de entrenamiento en línea",
+      online_training_msg: "Cuando toda la comunidad responde después de un desastre, muchos carecen de capacitación básica. Queremos agregar un conjunto de videos cortos de capacitación específica sobre cómo utilizar el sistema de manera más efectiva. También queremos permitir que los socios publiquen sus videos de seguridad y capacitación para voluntarios y el público. Con esta biblioteca simple, podemos mejorar la seguridad y la eficiencia de los voluntarios en todo el país.",
+      communications_improvements: "Infraestructura, comunicaciones, mejoras de interconectividad",
+      communications_improvements_msg: "Planeamos implementar muchas otras mejoras en nuestra capacidad para servir a decenas de miles de voluntarios que confían en Crisis Cleanup cada año. Éstas incluyen:",
+      communications_improvements_li1: "Capacidades fuera de línea",
+      communications_improvements_li2: "Mejoras de seguridad del sistema",
+      communications_improvements_li3: "Mapas de carga más rápida",
+      communications_improvements_li4: "Modular la plataforma para una integración perfecta de aplicaciones",
+      communications_improvements_li5: "Public API para integración de terceros",
+      communications_improvements_li6: "Actualizaciones de rendimiento del sistema",
+      communications_improvements_li7: "Aplicación de teléfono sin conexión",
+      communications_improvements_li8: "Actualizaciones de capacidad administrativa",
+      communications_improvements_li9: "Un mejor análisis de uso para la mejora del sistema dirigido",
+      communications_improvements_li10: "Mejores mecanismos de retroalimentación de los usuarios",
+      communications_improvements_li11: "...y más."
+    },
+    nav: {
+      dashboard: "Tablero",
+      work_orders: "Órdenes de trabajo",
+      my_work_orders: "Mis órdenes de trabajo",
+      browse: "Vistazo",
+      my_organization: "Mi organización",
+      contacts: "Contactos",
+      all_organizations: "Todas las organizaciones",
+      charts: "Gráficos",
+      stats: "Stats",
+      about: "Acerca de",
+      help: "Ayuda"
+    },
+    index: {
+      title_html: "Crisis Cleanup: ayuda colaborativa en desastres"
     }
   }
 };

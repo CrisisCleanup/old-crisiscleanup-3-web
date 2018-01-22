@@ -30,7 +30,7 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$25</button>
                   </li>
-                  <li class="list-inline-item align-top"><img class="workers" src="/static/img/general_icons/worker1.png" alt="worker 3"></li>
+                  <li class="list-inline-item align-top"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')""></li>
                 </ul>
               </div>
             </div>
@@ -42,8 +42,8 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$100</button>
                   </li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" alt="worker 3"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_2_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" v-bind:alt = "$t('donation.worker_3_alt')"></li>
                 </ul>
               </div>
             </div>
@@ -55,9 +55,9 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$250</button>
                   </li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" alt="worker 3"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" v-bind:alt = "$t('donation.worker_2_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" v-bind:alt = "$t('donation.worker_3_alt')"></li>
                 </ul>
               </div>
             </div>
@@ -69,10 +69,10 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$500</button>
                   </li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker4.png" alt="worker 3"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" v-bind:alt = "$t('donation.worker_2_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" v-bind:alt = "$t('donation.worker_3_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker4.png" v-bind:alt = "$t('donation.worker_4_alt')"></li>
                 </ul>
               </div>
             </div>
@@ -84,12 +84,12 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$1,000</button>
                   </li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker4.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker5.png" alt="worker 3"></li>
-                  <li class="list-inline-item"><img class="bobcat" src="/static/img/general_icons/bobcat.png" alt="worker 3"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker2.png" v-bind:alt = "$t('donation.worker_2_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker3.png" v-bind:alt = "$t('donation.worker_3_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker4.png" v-bind:alt = "$t('donation.worker_4_alt')"></li>
+                  <li class="list-inline-item"><img class="workers" src="/static/img/general_icons/worker5.png" v-bind:alt = "$t('donation.worker_5_alt')"></li>
+                  <li class="list-inline-item"><img class="bobcat" src="/static/img/general_icons/bobcat.png" v-bind:alt = "$t('donation.bobcat_alt')"></li>
                 </ul>
               </div>
             </div>

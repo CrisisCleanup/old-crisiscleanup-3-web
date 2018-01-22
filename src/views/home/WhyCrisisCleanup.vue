@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img class="img-fluid why-image rotatemobileleft" src="/static/img/stories/richmeseda.png" alt="Rich's Daughter holding up picture of Drawing">
+                  <img class="img-fluid why-image rotatemobileleft" src="/static/img/stories/richmeseda.png" v-bind:alt = "$t('whyCCU.rich_daughter_alt')">
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img class="img-fluid rotatemobileright" src="/static/img/stories/nicoleschwartz1.jpg" alt="Nichole Schwartz Picture">
+                  <img class="img-fluid rotatemobileright" src="/static/img/stories/nicoleschwartz1.jpg" v-bind:alt = "$t('whyCCU.nicole_schwartz_alt')">
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img class="img-fluid rotatemobileleft" src="/static/img/stories/neilglassman.jpeg" alt="Neil Glassman in front of Crisis Cleanup Screen">
+                  <img class="img-fluid rotatemobileleft" src="/static/img/stories/neilglassman.jpeg" v-bind:alt = "$t('whyCCU.neil_glassman_alt')">
                 </div>
               </div>
             </div>
