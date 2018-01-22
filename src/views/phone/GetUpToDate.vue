@@ -72,7 +72,9 @@
       }
     },
     created: function() {
-      this.getUserArticles();
+      this.$store.dispatch('phone/getUser', {userId: this.$store.state.worker.currentUserId, overwrite: false}).then(r => {
+        this.getUserArticles();
+      });
     },
     methods: {
       getUserArticles(){
