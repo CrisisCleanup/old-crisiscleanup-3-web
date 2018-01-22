@@ -54,6 +54,7 @@ const messages = {
       request: "Request",
       join_us: "Join Us",
       download: "Download",
+      sign_up: "Sign Up",
       choose_one_select: "--Choose One--"
     },
     printWorksite: {
@@ -164,7 +165,7 @@ const messages = {
       closed_done_by_others: "Is completed, but the work was done by others. No further action necessary.",
       closed_no_help_wanted: "Was declined by owner. No help was wanted. No further action necessary.",
       closed_rejected: "Was rejected by the responding organization. Please note the reason for rejection.",
-      closed_duplicate: "Was a duplicate. No further action necessary. Use this status instead of trying do delete a record."
+      closed_duplicate: "Was a duplicate. No further action necessary. Use this status instead of trying to delete a record."
     },
     work_type: {
       ash: "Ash Sifting",
@@ -388,6 +389,9 @@ const messages = {
       not_organization_msg: "Individuals, unaffiliated volunteers, meetup groups, clubs, etc.",
       where_working: "Where are you working?",
       publish_profile: "Publicly publish organization profile?"
+    },
+    router_index: {
+      dashboard: "Dashboard"
     }
   },
   es: {
@@ -445,6 +449,7 @@ const messages = {
       request: "Solicitud",
       join_us: "Únete a nosotross",
       download: "Descargar",
+      sign_up: "Regístrate",
       choose_one_select: "--Elige una--"
     },
     printWorksite: {
@@ -743,42 +748,45 @@ const messages = {
       org_info: "Información de la organización",
       use_local_org_name_msg: "Por favor use su nombre de equipo local. P.ej. \"American Red Cross-TX Chapter\" o \"LDS Church-Plainview Stake\", NO \"American Red Cross\" o \"LDS Church\".",
       org_roles: "¿Qué roles completa su organización?",
-      choose_a_disaster: "",
-      first_name: "",
-      email: "",
-      last_name: "",
-      cell_phone_number: "",
-      organization_name: "",
-      address: "",
-      state: "",
-      referral: "",
-      facebook: "",
-      city: "",
-      zip_code: "",
-      website: "",
-      twitter: "",
-      review_approve: "",
-      review_approve_msg: "",
-      damage_assessment: "",
-      damage_assessment_msg: "",
-      cleanup: "",
-      cleanup_msg: "",
-      follow_up: "",
-      follow_up_msg: "",
-      minor_repairs: "",
-      minor_repairs_msg: "",
-      rebuilding: "",
-      rebuilding_msg: "",
-      coordination: "",
-      coordination_msg: "",
-      government: "",
-      government_msg: "",
-      other_activity: "",
-      other_activity_msg: "",
-      not_organization: "",
-      not_organization_msg: "",
-      where_working: "",
-      publish_profile: ""
+      choose_a_disaster: "Elija un desastre",
+      first_name: "Nombre de pila",
+      email: "Email",
+      last_name: "Apellido",
+      cell_phone_number: "Número Celular",
+      organization_name: "Nombre de la Organización",
+      address: "Dirección",
+      state: "Estado",
+      referral: "Remisión",
+      facebook: "Facebook",
+      city: "Ciudad",
+      zip_code: "Código postal",
+      website: "Sitio web",
+      twitter: "Gorjeo",
+      review_approve: "Revise y apruebe las organizaciones participantes:",
+      review_approve_msg: "Está dispuesto a asumir un papel de liderazgo, revisando y aprobando organizaciones para participar en CrisisCleanup.",
+      damage_assessment: "Evaluaciones de daños:",
+      damage_assessment_msg: "Su organización interactúa directamente con los sobrevivientes a través del call-center, de puerta a puerta, en un MARC, etc.",
+      cleanup: "Limpiar:",
+      cleanup_msg: "Su organización interactúa directamente con los sobrevivientes para hacer bloqueos, eliminar escombros, cortar árboles, etc.",
+      follow_up: "Seguir:",
+      follow_up_msg: "Su organización se comunica con los sobrevivientes para asegurarse de que todos los clientes hayan recibido asistencia por teléfono o visitas personales.",
+      minor_repairs: "Reparaciones menores:",
+      minor_repairs_msg: "Su organización visita a los sobrevivientes para reemplazar paneles de yeso, pisos u otras reparaciones.",
+      rebuilding: "Reconstrucción:",
+      rebuilding_msg: "Grupos de recuperación a largo plazo, Comités de necesidades no satisfechas u organizaciones que realizan reconstrucciones a largo plazo o importantes.",
+      coordination: "Coordinación:",
+      coordination_msg: "Su organización NO interactúa directamente con los sobrevivientes, pero supervisa o coordina a las organizaciones que sí lo hacen.",
+      government: "Gobierno:",
+      government_msg: "Usted representa una entidad gubernamental, como el gobierno municipal, estatal, tribal o federal, la gestión de emergencias, la agencia, etc.",
+      other_activity: "Otra actividad:",
+      other_activity_msg: "Su organización realiza otras actividades relacionadas con el desastre, como administración de donaciones, administración de casos, logística, contratación con fines de lucro, etc.",
+      not_organization: "No es una organización:",
+      not_organization_msg: "Individuos, voluntarios no afiliados, grupos de encuentro, clubes, etc.",
+      where_working: "¿Donde estás trabajando?",
+      publish_profile: "Publicar públicamente el perfil de la organización?"
+    },
+    router_index: {
+      dashboard: "Tablero"
     }
   }
 };
