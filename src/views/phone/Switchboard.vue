@@ -2,10 +2,10 @@
     <div>
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
-      <user-info v-on:available="setAvailability" v-on:needsEdit= "editSessionInfo"/>
-      <incoming-call v-if="showIncomingCall"/>
+      <user-info :userInfo="userInfo" v-on:available="setAvailability" v-on:needsEdit= "editSessionInfo"/>
+      <incoming-call :name="userInfo.name" v-if="showIncomingCall"/>
       <outbound-call-home v-if="showOutboundCallHome"/>
-      <session-info-confirm v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
+      <session-info-confirm :userInfo="userInfo" v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
 </template>
 
@@ -35,8 +35,19 @@
       return {
         showConfirmSessionInfo: true,
         showIncomingCall: false,
-        showOutboundCallHome: true
+        showOutboundCallHome: true,
+        gatewayExists: false,
+        gateway: {},
+        userInfo: {
+          name: null,
+          phoneNumber: null,
+          gatewayName: null,
+          states: null,
+        }
       }
+    },
+    created: function() {
+      this.getCurrentGateway();
     },
     computed: {
       ...mapState('phone', [
@@ -53,6 +64,22 @@
       },
       editSessionInfo() {
         this.showConfirmSessionInfo = true;
+      },
+      getCurrentGateway(){
+        //Get user's current gateway info
+        var user = this.$store.state.phone.user;
+        this.$store.dispatch('phone/getGateway', user.last_used_gateway).then(() => {
+          if (this.$store.state.phone.gateway != null) {
+            this.gateway = this.$store.state.phone.gateway;
+            this.userInfo.name = user.name;
+            this.userInfo.phoneNumber = user.last_used_phone_number;
+            this.userInfo.gatewayName = this.gateway.name;
+            this.userInfo.states = user.last_used_state;
+          }
+        }).catch(err => {
+          console.log(err);
+          this.gatewayExists = false;
+        });
       },
       setAvailability() {
         //TODO: for now, the toggling of the worksite aside is linked to the 'available' state

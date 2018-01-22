@@ -4,8 +4,9 @@ export default {
     namespaced: true,
 
     state: {
-        user: null,
-        gateway: null,
+        user: {},
+        caller: {},
+        gateway: {},
         needsWelcome: true,
         callState: 'notAvailable',
     },
@@ -13,6 +14,9 @@ export default {
     mutations: {
         setUser(state, user) {
             state.user = user;
+        },
+        setCaller(state, caller) {
+            state.caller = caller;
         },
         setGateway(state, gateway) {
             state.gateway = gateway;
@@ -54,5 +58,20 @@ export default {
             }
             return true;
         },
+        getCaller({ commit, state }, callerId) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {
+                commit('setCaller', resp.data)
+            })
+        },
+        getGateway({ commit, state }, gatewayId) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + gatewayId + `/get_detail`).then(resp => {
+                commit('setGateway', resp.data)
+            })
+        },
+        /*updateUser({ commit, state }, payload) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
+                commit('setUser', resp.data)
+            })
+        },*/
     },
 };

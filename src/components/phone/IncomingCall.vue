@@ -1,7 +1,7 @@
 <template>
     <div class = "row justify-content-center">
         <div class = "col-6">
-            <incoming-call-script :name="user.first_name" />
+            <incoming-call-script :name="name" />
             <b-card-group deck>
                 <b-card no-body class="text-white bg-dark text-center"
                 header="Incoming Call From"
@@ -73,13 +73,10 @@ import IncomingCallScript from '@/components/phone/IncomingCallScript'
       },
       name: 'phone-incoming-call',
       props: [
+          'name'
       ],
-      mounted: function () {
-        this.user = this.$store.state.phone.user;
-      },
       data() {
         return {
-            user: {},
             boot_image: '../../static/img/map_icons/Muck_Out_orange.png'
         };
         },
