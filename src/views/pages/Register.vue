@@ -11,41 +11,37 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                <input v-model="userInfo.email" type="email" class="form-control" placeholder="Email"
-                       required v-bind:class="{'is-invalid': errors.email.has}">
+                <input v-model="userInfo.email" type="email" class="form-control" v-bind:placeholder = "$t('activate.email_placeholder')" required v-bind:class="{'is-invalid': errors.email.has}">
                 <div v-show="errors.email.has" class="invalid-feedback">{{errors.email.msg}}</div>
               </div>
 
               <div class="input-group mb-3 ">
                 <span class="input-group-addon"><i class="icon-user"></i></span>
-                <input v-model="userInfo.name" type="text" class="form-control" placeholder="Name" required>
+                <input v-model="userInfo.name" type="text" class="form-control" v-bind:placeholder = "$t('activate.name_placeholder')" required>
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-phone"></i></span>
-                <input v-model="userInfo.mobile" type="text" class="form-control" placeholder="Mobile Phone Number"
-                        required v-bind:class="{'is-invalid': errors.mobile.has}">
+                <input v-model="userInfo.mobile" type="text" class="form-control" v-bind:placeholder = "$t('activate.mobile_placeholder')" required v-bind:class="{'is-invalid': errors.mobile.has}">
                 <div v-show="errors.mobile.has" class="invalid-feedback">{{errors.mobile.msg}}</div>
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
-                <input v-model="userInfo.password1" type="password" class="form-control" placeholder="Password"
-                       v-bind:class="{'is-invalid': errors.password1.has}">
+                <input v-model="userInfo.password1" type="password" class="form-control" v-bind:placeholder = "$t('activate.pw1_placeholder')" v-bind:class="{'is-invalid': errors.password1.has}">
                 <div v-show="errors.password1.has" class="invalid-feedback">{{errors.password1.msg}}</div>
               </div>
 
               <div class="input-group mb-4">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
-                <input v-model="userInfo.password2" type="password" class="form-control" placeholder="Repeat password"
-                       v-bind:class="{'is-invalid': errors.password2.has}">
+                <input v-model="userInfo.password2" type="password" class="form-control" v-bind:placeholder = "$t('activate.pw2_placeholder')" v-bind:class="{'is-invalid': errors.password2.has}">
                 <div v-show="errors.password2.has" class="invalid-feedback">{{errors.password2.msg}}</div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
                   <b-form-checkbox :plain="true" value="3">
-                    <b>I agree to the Terms of Service and Privacy Policy</b>
+                    <b>{{ $t('register_org.tos_priv_1') }} <router-link to="terms">{{ $t('register_org.tos_priv_tos') }}</router-link> {{ $t('register_org.tos_priv_and') }} <router-link to="privacy">{{ $t('register_org.tos_priv_priv') }}</router-link>{{ $t('register_org.tos_priv_2') }}</b>
                   </b-form-checkbox>
                 </div>
               </div>
@@ -73,19 +69,19 @@ export default {
       errors: {
           email: {
             has: false,
-            msg: "An email address is required."
+            msg: i18n.t('activate.email_error')
           },
           password1: {
             has: false,
-            msg: "Please choose a password with 8 characters or more."
+            msg: i18n.t('activate.password_length_error')
           },
           password2: {
             has: false,
-            msg: "The passwords do not match. Try again."
+            msg: i18n.t('activate.password_match_error')
           },
           mobile: {
             has: false,
-            msg: "A mobile phone number is required so teammates can contact you in the field."
+            msg: i18n.t('activate.mobile_error')
           },
           key: {
             has: false,

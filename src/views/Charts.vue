@@ -1,32 +1,32 @@
 <template>
   <div class="animated fadeIn">
     <div class="card-columns cols-2">
-      <b-card header="Line Chart">
+      <b-card v-bind:header = "$t('charts.line_chart')">
         <div class="chart-wrapper">
           <line-example/>
         </div>
       </b-card>
-      <b-card header="Bar Chart">
+      <b-card v-bind:header = "$t('charts.bar_chart')">
         <div class="chart-wrapper">
           <bar-example/>
         </div>
       </b-card>
-      <b-card header="Doughnut Chart">
+      <b-card v-bind:header = "$t('charts.doughnut_chart')">
         <div class="chart-wrapper">
           <doughnut-example/>
         </div>
       </b-card>
-      <b-card header="Radar Chart">
+      <b-card v-bind:header = "$t('charts.radar_chart')">
         <div class="chart-wrapper">
           <radar-example/>
         </div>
       </b-card>
-      <b-card header="Pie Chart">
+      <b-card v-bind:header = "$t('charts.pie_chart')">
         <div class="chart-wrapper">
           <pie-example/>
         </div>
       </b-card>
-      <b-card header="Polar Area Chart">
+      <b-card v-bind:header = "$t('charts.polar_area_chart')">
         <div class="chart-wrapper">
           <polar-area-example/>
         </div>
