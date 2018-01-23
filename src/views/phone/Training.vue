@@ -16,7 +16,7 @@
                         </div>
                         <!--Show edit mode buttons-->
                         <span class="inline-block btn-group" v-else> 
-                            <button class="btn btn-sm btn-danger" @click="deletetrainingModule(trainingModule)"><i class="icon-trash"></i></button>
+                            <button class="btn btn-sm btn-danger" @click="deleteTrainingModule(trainingModule)"><i class="icon-trash"></i></button>
                         </span>
                      </div> 
                      <div class="col-md-11">                      
@@ -24,12 +24,12 @@
                       <br><br>
                       </div>
                   </div>
-                  <div class="alert alert-success" role="alert" v-if="alltrainingModulesRead && !inEditMode">
+                  <div class="alert alert-success" role="alert" v-if="allTrainingModulesRead && !inEditMode">
                     <strong>Congratulations! </strong>You've completed all available training. Come back any time for a refresher.
                   </div>
                 </div>
                 <div v-else>
-                  <div class="alert alert-info" role="alert" v-if="alltrainingModulesRead">
+                  <div class="alert alert-info" role="alert" v-if="allTrainingModulesRead">
                   No Training Available.
                 </div>
                   </div>
@@ -42,7 +42,7 @@
 
       <!-- Add trainingModule modal -->
       <b-modal id="trainingModuleModal" title="New trainingModule" centered @ok="trainingModuleModalOk" ref="modal" hide-footer>
-        <b-form @submit.stop.prevent="addtrainingModule">
+        <b-form @submit.stop.prevent="addTrainingModule">
         <b-form-input type="text"
                       placeholder="Title"
                       required
@@ -74,7 +74,7 @@
           inEditMode: false,
           trainingModules: [],
           originaltrainingModules: [],
-          alltrainingModulesRead: false
+          allTrainingModulesRead: false
       }
     },
     created: function() {
@@ -92,7 +92,7 @@
             this.trainingModules = r.data.results;
             //Mark all of the trainingModules which the user has read
             this.trainingModules.forEach(function(trainingModule) {
-              var trainingModuleFound = vm.$store.state.phone.user.completed_training.find(function(completedTraining) {
+              var trainingModuleFound = vm.$store.state.phone.user.training_completed.find(function(completedTraining) {
                 return completedTraining === trainingModule.id;
               });
               vm.$set(trainingModule, 'isCompleted', trainingModuleFound === undefined ? false : true);
@@ -101,13 +101,13 @@
             console.log(this.trainingModules);
         });
       },
-      // trainingModuleModalOk (evt) {
+      trainingModuleModalOk (evt) {
       //   // Prevent modal from closing
       //   evt.preventDefault()
       //   //this.$refs.form1.submit()
-      //   this.addtrainingModule(evt)
-      // },
-      // addtrainingModule(evt){
+      //   this.addTrainingModule(evt)
+      },
+      addTrainingModule(evt){
       //   console.log(evt)
       //   evt.preventDefault()
       //   //alert(JSON.stringify(this.form))
@@ -116,8 +116,8 @@
       //   this.newtrainingModule.title = null;
       //   this.newtrainingModule.description = null;
       //   this.$refs.modal.hide()
-      // },
-      // deletetrainingModule(trainingModule){
+      },
+      deleteTrainingModule(trainingModule){
       //   //If this is an item they created, just remove it 
       //   if(trainingModule.id == null) {
       //     this.trainingModules.splice(this.trainingModules.indexOf(trainingModule),1);
@@ -125,18 +125,18 @@
       //     //Otherwise mark it for deletion
       //     trainingModule.isDeleted = true
       //   }
-      // },
-      // toggleEditMode(){
-      //   this.inEditMode = !this.inEditMode
-      //   if(this.inEditMode) {
-      //     //Store original trainingModules in-case user cancels
-      //     this.originaltrainingModules = JSON.parse(JSON.stringify(this.trainingModules))
-      //   } else {
-      //     //Otherwise if they are toggleing out revert to originals
-      //     //TODO: Warn user they will lose their changes
-      //     this.trainingModules = this.originaltrainingModules;
-      //   }
-      // },
+      },
+      toggleEditMode(){
+        this.inEditMode = !this.inEditMode
+        if(this.inEditMode) {
+          //Store original trainingModules in-case user cancels
+          this.originaltrainingModules = JSON.parse(JSON.stringify(this.trainingModules))
+        } else {
+          //Otherwise if they are toggleing out revert to originals
+          //TODO: Warn user they will lose their changes
+          this.trainingModules = this.originaltrainingModules;
+        }
+      },
       getTrainingModule(module){
         this.$router.push({ path: 'Training/' + module.id});
       },
@@ -165,7 +165,7 @@
         //   //Update the user's read trainingModule list
         //   var read_trainingModule_ids = this.trainingModules.filter(trainingModule => trainingModule.isCompleted).map(trainingModule => trainingModule.id);
         //   this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users/` + vm.$store.state.phone.user.id + `/set_completed_training`, read_trainingModule_ids).then(r => {
-        //     this.$router.go(-1);
+             this.$router.go(-1);
         //   }).catch(err => {
         //     console.log(err)
         //   });
@@ -174,18 +174,18 @@
     },
     watch: {
       //Watch for changes in the trainingModules 
-      // 'trainingModules': {
-      //   handler(val){
-      //     this.alltrainingModulesRead = true;
-      //     //Check if all trainingModules have been read
-      //     this.trainingModules.forEach(function(trainingModule) {
-      //       if(!trainingModule.isCompleted) {
-      //         this.alltrainingModulesRead = false;
-      //       }
-      //     }, this);
-      //   },
-      //   deep: true
-      // }
+      'trainingModules': {
+        handler(val){
+          this.allTrainingModulesRead = true;
+          //Check if all trainingModules have been read
+          this.trainingModules.forEach(function(trainingModule) {
+            if(!trainingModule.isCompleted) {
+              this.allTrainingModulesRead = false;
+            }
+          }, this);
+        },
+        deep: true
+      }
     }
   }
 </script>
