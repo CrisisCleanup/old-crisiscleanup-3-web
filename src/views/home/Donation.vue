@@ -106,7 +106,7 @@
             <router-link to="donate" class="btn btn-primary m-2">{{ $t('donation.donate_monthly') }}</router-link>
           </div>
           <div class="row text-center pr-3 pl-3 mb-3">
-            <a href="#">Give by check, bitcoin</a>, or donate through the <a href="#">SAHANA Software Foundation</a> for a tax-deductable donation.
+            <a href="#">{{ $t('donation.donate_alternative_msg1') }}</a>{{ $t('donation.donate_alternative_msg2') }}<a href="#">{{ $t('donation.sahana_link') }}</a> {{ $t('donation.donate_alternative_msg3') }}
           </div>
           <div class="row justify-content-center">
             <router-link to="roadmap" class="btn btn-primary m-2">{{ $t('donation.view_roadmap') }}</router-link>

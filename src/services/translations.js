@@ -296,7 +296,11 @@ const messages = {
       worker_3_alt: "Worker 3",
       worker_4_alt: "Worker 4",
       worker_5_alt: "Worker 5",
-      bobcat_alt: "Bobcat"
+      bobcat_alt: "Bobcat",
+      donate_alternative_msg1: "Give by check",
+      donate_alternative_msg2: ", or donate through the ",
+      sahana_link: "SAHANA Software Foundation",
+      donate_alternative_msg3: "to make a tax-deductable donation."
     },
     poweredBy: {
       powered_by: "Powered By",
@@ -342,7 +346,18 @@ const messages = {
       looking_for: "What are you looking for?"
     },
     activate: {
-      activate_account: "Activate Account"
+      activate_account: "Activate Account",
+      email_placeholder: "Email",
+      name_placeholder: "Name",
+      first_name_placeholder: "First Name",
+      last_name_placeholder: "Last Name",
+      mobile_placeholder: "Mobile Phone Number",
+      pw1_placeholder: "Password",
+      pw2_placeholder: "Repeat Password",
+      email_error: "An email address is required.",
+      password_length_error: "Please choose a password with 8 characters or more.",
+      password_match_error: "The passwords do not match. Try again.",
+      mobile_error: "A mobile phone number is required so teammates can contact you in the field."
     },
     dashboard: {
       day: "Day",
@@ -362,7 +377,27 @@ const messages = {
       unassigned: "Unassigned",
       in_progress: "In progress",
       closed: "Closed",
-      est_commercial_value: "Est. Commercial Value"
+      est_commercial_value: "Est. Commercial Value",
+      invite_teammates: "Invite Additional Teammates (Seriously, you're doing it wrong if you're the only one with access)",
+      invited_teammates_stat: "Teammates Invited",
+      active_teammates_stat: "Active Teammates",
+      inactive_teammates_stat: "Inactive Teammates",
+      claimed_worksites_stat: "Claimed Worksites",
+      completed_worksites_stat: "Completed Worksites",
+      incomplete_worksites_stat: "Incomplete Worksites",
+      est_commercial_value: "Est. Commercial Value of Services",
+      volunteer_hours_stat: "Volunteer Hours Recorded",
+      average_wait_stat: "Average Wait Time to Completion",
+      longest_wait_stat: "Longest Wait Time to Completion",
+      shortest_wait_stat: "Shortest Wait Time to Completion",
+      num_old_open_unassigned_stat: "Number of Open, unassigned worksites claimed for more than 6 days",
+      worksite_completion: "Worksite Completion",
+      button_group_label: "Toolbar with button groups",
+      timeframe_label: "Timeframe",
+      time_group_label: "Time Grouping",
+      org_label: "Organization",
+      total_reported: "Total Reported",
+      sites: "Sites"
     },
     myOrganization: {
       my_organization: "My Organization"
@@ -376,7 +411,9 @@ const messages = {
     },
     login: {
       sign_in_msg: "Sign in to your account",
-      invalid_credentials_msg: "Invalid email or password."
+      invalid_credentials_msg: "Invalid email or password.",
+      email_placeholder: "Email",
+      password_placeholder: "Password"
     },
     register_org: {
       register_org: "Register Your Organization",
@@ -485,6 +522,14 @@ const messages = {
     },
     index: {
       title_html: "Crisis Cleanup: Collaborative Disaster Relief"
+    },
+    charts: {
+      line_chart: "Line Chart",
+      bar_chart: "Bar Chart",
+      doughnut_chart: "Doughnut Chart",
+      radar_chart: "Radar Chart",
+      pie_chart: "Pie Chart",
+      polar_area_chart: "Polar Area Chart"
     }
   },
   es: {
@@ -784,7 +829,11 @@ const messages = {
       worker_3_alt: "Obrero 3",
       worker_4_alt: "Obrero 4",
       worker_5_alt: "Obrero 5",
-      bobcat_alt: "Minicargadora"
+      bobcat_alt: "Minicargadora",
+      donate_alternative_msg1: "Dar con cheque",
+      donate_alternative_msg2: ", o donar a través de ",
+      sahana_link: "SAHANA Software Foundation",
+      donate_alternative_msg3: "para hacer una donación deducible de impuestos."
     },
     poweredBy: {
       powered_by: "Energizado por",
@@ -830,7 +879,18 @@ const messages = {
       looking_for: "¿Qué estás buscando?"
     },
     activate: {
-      activate_account: "Activar la cuenta"
+      activate_account: "Activar la cuenta",
+      email_placeholder: "Email",
+      name_placeholder: "Nombre",
+      first_name_placeholder: "Nombre de pila",
+      last_name_placeholder: "Apellido",
+      mobile_placeholder: "Número de teléfono móvil",
+      pw1_placeholder: "Contraseña",
+      pw2_placeholder: "Repite la contraseña",
+      email_error: "Se requiere una dirección de correo electrónico.",
+      password_length_error: "Elija una contraseña con 8 caracteres o más.",
+      password_match_error: "Las contraseñas no coinciden. Inténtalo de nuevo.",
+      mobile_error: "Se requiere un número de teléfono móvil para que los compañeros de equipo puedan contactarlo en el campo."
     },
     dashboard: {
       day: "Día",
@@ -850,7 +910,27 @@ const messages = {
       unassigned: "Sin asignar",
       in_progress: "En progreso",
       closed: "Cerrado",
-      est_commercial_value: "Valor comercial estimado"
+      est_commercial_value: "Valor comercial estimado",
+      invite_teammates: "Invita a otros compañeros de equipo (En serio, lo estás haciendo mal si eres el único con acceso)",
+      invited_teammates_stat: "Compañeros de equipo invitados",
+      active_teammates_stat: "Compañeros de equipo activos",
+      inactive_teammates_stat: "Compañeros de equipo inactivos",
+      claimed_worksites_stat: "Trabajos reclamados",
+      completed_worksites_stat: "Sitios de trabajo completados",
+      incomplete_worksites_stat: "Sitios de trabajo incompletos",
+      est_commercial_value: "Est. Valor comercial de los servicios",
+      volunteer_hours_stat: "Horas voluntarias registradas",
+      average_wait_stat: "Promedio de tiempo de espera hasta la finalización",
+      longest_wait_stat: "Tiempo de espera más largo hasta la finalización",
+      shortest_wait_stat: "El tiempo de espera más corto hasta la finalización",
+      num_old_open_unassigned_stat: "Número de sitios de trabajo abiertos y no asignados reclamados durante más de 6 días",
+      worksite_completion: "Finalización del lugar de trabajo",
+      button_group_label: "Barra de herramientas con grupos de botones",
+      timeframe_label: "Periodo de tiempo",
+      time_group_label: "Agrupación de tiempo",
+      org_label: "Organización",
+      total_reported: "Total informado",
+      sites: "Sitios"
     },
     myOrganization: {
       my_organization: "Mi organización"
@@ -864,7 +944,9 @@ const messages = {
     },
     login: {
       sign_in_msg: "Iniciar sesión en su cuenta",
-      invalid_credentials_msg: "Correo electrónico o contraseña inválidos"
+      invalid_credentials_msg: "Correo electrónico o contraseña inválidos",
+      email_placeholder: "Email",
+      password_placeholder: "Contraseña"
     },
     register_org: {
       register_org: "Registre su organización",
@@ -972,7 +1054,15 @@ const messages = {
       help: "Ayuda"
     },
     index: {
-      title_html: "Crisis Cleanup: ayuda colaborativa en desastres"
+      title_html: "Crisis Cleanup: Ayuda colaborativa en desastres"
+    },
+    charts: {
+      line_chart: "Gráfico de linea",
+      bar_chart: "Gráfico de barras",
+      doughnut_chart: "Carta de Donut",
+      radar_chart: "Gráfico de radar",
+      pie_chart: "Gráfico circular",
+      polar_area_chart: "Gráfico de área polar"
     }
   }
 };
