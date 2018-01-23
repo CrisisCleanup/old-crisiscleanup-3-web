@@ -118,8 +118,8 @@ export default {
                 const closedCompletedObj = payload.find(x => x.status === 'Closed, completed');
                 const closedCompletedCount = closedCompletedObj !== undefined ? closedCompletedObj.count : 0;
                 state.worksiteStats.worksitesCompleted = closedCompletedCount;
-                state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned') !== undefined ? payload.find(x => x.status === 'Open, unassigned').count : 0;
-                state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned') !== undefined ? payload.find(x => x.status === 'Open, assigned').count : 0;
+                state.worksiteStats.worksitesOpenUnassigned = payload.find(x => x.status === 'Open, unassigned').count;
+                state.worksiteStats.worksitesAssigned = payload.find(x => x.status === 'Open, assigned').count;
                 state.worksiteStats.worksitesValueOfServices = closedCompletedCount * 18000;
             } else {
                 state.worksiteStats.worksitesCompleted = 0;

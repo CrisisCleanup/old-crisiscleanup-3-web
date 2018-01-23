@@ -6,6 +6,7 @@ export default {
     state: {
         user: {},
         caller: {},
+        gateway: {},
         needsWelcome: true,
         callState: 'notAvailable',
     },
@@ -16,6 +17,9 @@ export default {
         },
         setCaller(state, caller) {
             state.caller = caller;
+        },
+        setGateway(state, gateway) {
+            state.gateway = gateway;
         },
         seenWelcome(state) {
             state.needsWelcome = false;
@@ -37,6 +41,7 @@ export default {
     getters: {
         getCallState: state => state.callState,
         getUser: state => state.user,
+        getGateway: state => state.gateway,
         getCallCenterAccessible: state => {
             if (state.user == null) {
                 return false;
@@ -58,6 +63,11 @@ export default {
         getCaller({ commit, state }, callerId) {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {
                 commit('setCaller', resp.data)
+            })
+        },
+        getGateway({ commit, state }, gatewayId) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + gatewayId + `/get_detail`).then(resp => {
+                commit('setGateway', resp.data)
             })
         },
         updateUser({ commit, state }, payload) {
