@@ -78,19 +78,7 @@
         //Grab user information
         this.$store.dispatch('phone/getUser', {userId, overwrite: true}).then(() => {
             this.user = this.$store.state.phone.user;
-            this.getGatewayData();
         });
-      },
-      getGatewayData(){
-        //Get user's current gateway info
-        if (this.user.last_used_gateway != null) {
-          this.$store.dispatch('phone/getGateway', this.user.last_used_gateway).catch(err => {
-            console.log(err);
-          });
-        } else {
-          //TODO: add default gateway
-          console.log("no gateway specified for user");
-        }
       },
       getCallExperts(){
         //Grab the call expert ids/numbers

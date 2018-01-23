@@ -5,10 +5,8 @@
             <div class = "card text-white bg-dark col-8">
                 <div class = "card-body">
                         <h6 class="card-title">{{ user.name }}</h6>
-                        <p class="card-text">
-                            {{ user.last_used_phone_number }}</br>
-                            Taking calls from {{ gateway.name }}
-                        </p>
+                        <p class="card-text">{{ user.last_used_phone_number }}</p>
+                        <p class="card-text">{{ this.getCurrentEventInfo() }}</p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
             </div>
@@ -41,11 +39,20 @@
     ]),
     ...mapGetters('phone', {
         user: 'getUser',
-        gateway: 'getGateway',
         callState: 'getCallState'
+    }),
+    ...mapGetters({
+        event: 'getCurrentEvent'
     })
     },
     methods: {
+        getCurrentEventInfo() {
+            var gatewayMessage = "No gateway selected";
+            if (this.event) {
+                gatewayMessage ="Taking calls from " + this.event.name;
+            }
+            return gatewayMessage;
+        },
         editUserInfo() {
             this.$emit('needsEdit')
         },

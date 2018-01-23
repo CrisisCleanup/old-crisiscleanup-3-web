@@ -14,10 +14,10 @@
           </b-form-group>
 
           <b-form-group
-            id="updatedGatewayId"
+            id="updatedEvent"
             label="Choose a gateway"
-            label-for="updatedGatewayId">
-            <b-form-select v-model.trim="updatedGateway" v-bind:placeholder="gateway.name" :options="gatewayOptions"></b-form-select>
+            label-for="updatedEvent">
+            <b-form-select v-model.trim="updatedEvent" :options="eventOptions"></b-form-select>
           </b-form-group>
 
           <b-form-group
@@ -44,30 +44,28 @@
     name: 'phone-session-info-confirm',
     data() {
       return {
-        updatedGateway: null,
+        updatedEvent: null,
         updatedPhone: null,
         updatedStates: null,
-        gatewayOptions: []
+        eventOptions: []
       };
     },
-    created: function() {
-      this.getGatewayOptions();
+    mounted: function() {
+      this.getEventOptions();
     },
     computed: {
       ...mapGetters('phone', {
         user: 'getUser',
-        gateway: 'getGateway',
-      })
+      }),
+      ...mapGetters(['getParticipatingEvents', 'getCurrentEvent'])
     },
     methods: {
-      getGatewayOptions() {
-        Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
-            this.gatewayOptions = resp.data.results.map(function(gateway) {
-              return {text: gateway.name, value: gateway.id};
-            })
-        })
+      getEventOptions() {
+        this.eventOptions = this.getParticipatingEvents.map(function(event) {
+          return {text: event.name, value:event.event_id}
+        });
       },
-      async updateSessionInfo(evt){
+      updateSessionInfo(evt){
         evt.preventDefault();
         //Update the user's information
         //TODO: add functionality to turn states into an array or make singular 'confirm the state'
@@ -76,15 +74,6 @@
           last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone,
           last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
         }
-
-        //update Gateway if necessary
-        if (this.updatedGateway != null) {
-          await this.$store.dispatch('phone/getGateway', this.updatedGateway).then(resp => {
-            userData.last_used_gateway = this.$store.state.phone.gateway.id;
-          })
-        }
-
-        //after updating gateway - update user
         if (userData.id != null) {
           this.$store.dispatch('phone/updateUser', userData).then(() => {
             this.$emit('confirm', userData);
@@ -92,6 +81,16 @@
             console.log(err);
           }); 
         }
+
+        //update Event if necessary
+        if (this.updatedEvent != null) {
+          this.$store.dispatch('changeEventContext', this.updatedEvent).catch(err => {
+            console.log(err);
+          })
+        }
+
+        //after updating event - update user
+
       }
     }
   }
