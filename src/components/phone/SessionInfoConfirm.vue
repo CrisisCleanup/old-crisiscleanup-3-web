@@ -85,7 +85,7 @@
         }
 
         //after updating gateway - update user
-        if (this.userData.id != null) {
+        if (userData.id != null) {
           this.$store.dispatch('phone/updateUser', userData).then(() => {
             this.$emit('confirm', userData);
           }).catch(err => {
