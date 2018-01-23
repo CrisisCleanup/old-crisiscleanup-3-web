@@ -4,11 +4,9 @@
         <div class = "card-group">
             <div class = "card text-white bg-dark col-8">
                 <div class = "card-body">
-                        <h6 class="card-title">{{ user.first_name }}  {{ user.last_name }}</h6>
-                        <p class="card-text">
-                            {{ user.last_used_phone_number }}</br>
-                            <!--Taking calls from {{ gateway.name}}-->
-                        </p>
+                        <h6 class="card-title">{{ user.name }}</h6>
+                        <p class="card-text">{{ user.last_used_phone_number }}</p>
+                        <p class="card-text">{{ this.getCurrentEventInfo() }}</p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
             </div>
@@ -27,44 +25,47 @@
 </template>
 
 <script>
-  import { mapMutations, mapState } from 'vuex'
+  import { mapMutations, mapGetters } from 'vuex'
   export default {
-      name: 'phone-user-info',
-      props: [
-      ],
-      mounted: function () {
-        this.user = this.$store.state.phone.user;
-        this.gateway = this.$store.state.phone.gateway;
-      },
-      data() {
-        return {
-            user: {},
-            gateway: {},
-            message: 'Start Taking Calls',
-        };
-        },
-      computed: {
-      ...mapState('phone', ['callState']),
-      ...mapMutations('phone', [
-          'available', 'notAvailable'
-      ])
+    name: 'phone-user-info',
+    data() {
+    return {
+        message: 'Start Taking Calls',
+    };
     },
-      methods: {
-          editUserInfo() {
-              this.$emit('needsEdit')
-          },
-          startTakingCalls() {
-              this.$emit('available');
+    computed: {
+    ...mapMutations('phone', [
+        'available', 'notAvailable'
+    ]),
+    ...mapGetters('phone', {
+        user: 'getUser',
+        callState: 'getCallState'
+    }),
+    ...mapGetters({
+        event: 'getCurrentEvent'
+    })
+    },
+    methods: {
+        getCurrentEventInfo() {
+            var gatewayMessage = "No gateway selected";
+            if (this.event) {
+                gatewayMessage ="Taking calls from " + this.event.name;
+            }
+            return gatewayMessage;
+        },
+        editUserInfo() {
+            this.$emit('needsEdit')
+        },
+        startTakingCalls() {
+            this.$emit('available');
+            if (this.callState != 'available') {
+            this.message = 'Start Taking Calls'
+            }
+            else {
+                this.message = 'Stop Taking Calls' 
+            }
 
-              console.log(this.callState)
-              if (this.callState != 'available') {
-                this.message = 'Start Taking Calls'
-              }
-              else {
-                 this.message = 'Stop Taking Calls' 
-              }
-
-          },
-      }
+        },
+    }
   }
 </script>

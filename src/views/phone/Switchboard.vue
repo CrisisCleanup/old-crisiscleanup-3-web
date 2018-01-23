@@ -35,7 +35,7 @@
       return {
         showConfirmSessionInfo: true,
         showIncomingCall: false,
-        showOutboundCallHome: true
+        showOutboundCallHome: true,
       }
     },
     computed: {

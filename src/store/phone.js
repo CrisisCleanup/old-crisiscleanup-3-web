@@ -4,8 +4,8 @@ export default {
     namespaced: true,
 
     state: {
-        user: null,
-        gateway: null,
+        user: {},
+        caller: {},
         needsWelcome: true,
         callState: 'notAvailable',
     },
@@ -14,8 +14,8 @@ export default {
         setUser(state, user) {
             state.user = user;
         },
-        setGateway(state, gateway) {
-            state.gateway = gateway;
+        setCaller(state, caller) {
+            state.caller = caller;
         },
         seenWelcome(state) {
             state.needsWelcome = false;
@@ -36,8 +36,9 @@ export default {
 
     getters: {
         getCallState: state => state.callState,
+        getUser: state => state.user,
         getCallCenterAccessible: state => {
-            if(state.user == null) {
+            if (state.user == null) {
                 return false;
             } else {
                 return state.user.willing_to_receive_calls;
@@ -47,12 +48,22 @@ export default {
 
     actions: {
         getUser({ commit, state }, payload) {
-            if(payload.overwrite || (!payload.overwrite && state.user == null)) {
+            if (payload.overwrite || (!payload.overwrite && state.user == null)) {
                 return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
                     commit('setUser', resp.data)
                 })
             }
             return true;
+        },
+        getCaller({ commit, state }, callerId) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {
+                commit('setCaller', resp.data)
+            })
+        },
+        updateUser({ commit, state }, payload) {
+            return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.id, payload).then(resp => {
+                commit('setUser', resp.data)
+            })
         },
     },
 };

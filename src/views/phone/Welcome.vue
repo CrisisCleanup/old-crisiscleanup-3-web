@@ -58,7 +58,6 @@
       data() {
         return {
           user: {},
-          gateway: {},
           callCenterExperts: [],
           stories: [
             { description: "xyz"},
@@ -79,16 +78,6 @@
         //Grab user information
         this.$store.dispatch('phone/getUser', {userId, overwrite: true}).then(() => {
             this.user = this.$store.state.phone.user;
-        });
-      },
-      getCurrentGateway(){
-        //Get user's current gateway info
-        console.log("gateway: " + this.user.last_used_gateway);
-        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + this.user.last_used_gateway + `/get_detail`).then(r => {
-            this.gateway = r.data;
-            this.$store.commit('phone/setGateway', this.gateway);
-        }).catch(err => {
-          console.log(err);
         });
       },
       getCallExperts(){

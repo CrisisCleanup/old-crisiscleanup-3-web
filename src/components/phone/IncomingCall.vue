@@ -1,7 +1,7 @@
 <template>
     <div class = "row justify-content-center">
         <div class = "col-6">
-            <incoming-call-script :name="user.first_name" />
+            <incoming-call-script :name="user.name" />
             <b-card-group deck>
                 <b-card no-body class="text-white bg-dark text-center"
                 header="Incoming Call From"
@@ -64,31 +64,23 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import IncomingCallScript from '@/components/phone/IncomingCallScript'
 
-  export default {
-      components: {
+export default {
+    components: {
         'incoming-call-script': IncomingCallScript,
-      },
-      name: 'phone-incoming-call',
-      props: [
-      ],
-      mounted: function () {
-        this.user = this.$store.state.phone.user;
-      },
-      data() {
+    },
+    name: 'phone-incoming-call',
+    data() {
         return {
-            user: {},
             boot_image: '../../static/img/map_icons/Muck_Out_orange.png'
         };
-        },
-      computed: {
-      ...mapState('phone', {
-        callState: state => state.callState
-      }),
     },
-      methods: {
-      }
-  }
+    computed: {
+        ...mapGetters('phone', {
+        user: 'getUser'
+        }),
+    }
+}
 </script>

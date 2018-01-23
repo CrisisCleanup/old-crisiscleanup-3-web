@@ -56,6 +56,19 @@
       resolve({
         template: '<div>' + output + '</div>',
         props: ['siteFormErrors'],
+        data() {
+          return {
+            callerExists: false,
+            callerProfile: {
+              phone: null,
+              name: null,
+              street_address: null,
+              city: null,
+              state: null,
+              zipcode: null
+            }
+          }
+        },
         computed: {
           legacy_legacy_site: {
             get: function() {
@@ -235,6 +248,30 @@
       cancel() {
 
       },
+      populateInitialForm() {
+        //get the caller's information and set form items
+        this.$store.dispatch('phone/getCaller', this.$store.state.phone.callerId).then(() => {
+          if(this.$store.state.phone.caller != null)
+          {
+            var caller = this.$store.state.phone.caller;
+            this.callerExists = true;
+            this.callerProfile.phone = caller.phone_number;
+            this.callerProfile.name = caller.name;
+            this.callerProfile.street_address = caller.address_unit;
+            this.callerProfile.city = caller.address_city;
+            this.callerProfile.state = caller.address_state;
+            this.callerProfile.zipcode = caller.address_zipcode
+          }
+        }).catch(err => {
+          console.log(err);
+          this.callerExists = false;
+        });
+
+        /* TODO: for now, the data will just stored in the 'callerProfile' data object
+        the idea is that once we have a working form, the phone/namer/location etc. 
+        elements of the form will be associated to the callerProfile object */
+
+      }
     }
   }
 </script>
