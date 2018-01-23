@@ -4,10 +4,10 @@
         <div class = "card-group">
             <div class = "card text-white bg-dark col-8">
                 <div class = "card-body">
-                        <h6 class="card-title">{{ userInfo.name }}</h6>
+                        <h6 class="card-title">{{ user.name }}</h6>
                         <p class="card-text">
-                            {{ userInfo.phoneNumber }}</br>
-                            Taking calls from {{ userInfo.gatewayName }}
+                            {{ user.last_used_phone_number }}</br>
+                            Taking calls from {{ gateway.name }}
                         </p>
                         <button class="btn-success" v-on:click="editUserInfo">edit</button>
                 </div>
@@ -27,43 +27,38 @@
 </template>
 
 <script>
-  import { mapMutations, mapState } from 'vuex'
+  import { mapMutations, mapGetters } from 'vuex'
   export default {
-      name: 'phone-user-info',
-      props: [
-          'userInfo'
-      ],
-      mounted: function () {
-        this.user = this.$store.state.phone.user;
-        this.gateway = this.$store.state.phone.gateway;
-      },
-      data() {
-        return {
-            message: 'Start Taking Calls',
-        };
-        },
-      computed: {
-      ...mapState('phone', ['callState']),
-      ...mapMutations('phone', [
-          'available', 'notAvailable'
-      ])
+    name: 'phone-user-info',
+    data() {
+    return {
+        message: 'Start Taking Calls',
+    };
     },
-      methods: {
-          editUserInfo() {
-              this.$emit('needsEdit')
-          },
-          startTakingCalls() {
-              this.$emit('available');
-              console.log("name: " + this.userInfo.phoneNumber);
-              console.log(this.callState)
-              if (this.callState != 'available') {
-                this.message = 'Start Taking Calls'
-              }
-              else {
-                 this.message = 'Stop Taking Calls' 
-              }
+    computed: {
+    ...mapMutations('phone', [
+        'available', 'notAvailable'
+    ]),
+    ...mapGetters('phone', {
+        user: 'getUser',
+        gateway: 'getGateway',
+        callState: 'getCallState'
+    })
+    },
+    methods: {
+        editUserInfo() {
+            this.$emit('needsEdit')
+        },
+        startTakingCalls() {
+            this.$emit('available');
+            if (this.callState != 'available') {
+            this.message = 'Start Taking Calls'
+            }
+            else {
+                this.message = 'Stop Taking Calls' 
+            }
 
-          },
-      }
+        },
+    }
   }
 </script>

@@ -40,8 +40,10 @@ export default {
 
     getters: {
         getCallState: state => state.callState,
+        getUser: state => state.user,
+        getGateway: state => state.gateway,
         getCallCenterAccessible: state => {
-            if(state.user == null) {
+            if (state.user == null) {
                 return false;
             } else {
                 return state.user.willing_to_receive_calls;
@@ -51,7 +53,7 @@ export default {
 
     actions: {
         getUser({ commit, state }, payload) {
-            if(payload.overwrite || (!payload.overwrite && state.user == null)) {
+            if (payload.overwrite || (!payload.overwrite && state.user == null)) {
                 return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
                     commit('setUser', resp.data)
                 })
@@ -68,10 +70,10 @@ export default {
                 commit('setGateway', resp.data)
             })
         },
-        /*updateUser({ commit, state }, payload) {
-            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
+        updateUser({ commit, state }, payload) {
+            return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.id, payload).then(resp => {
                 commit('setUser', resp.data)
             })
-        },*/
+        },
     },
 };
