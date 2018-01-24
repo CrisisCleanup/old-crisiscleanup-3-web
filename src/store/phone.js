@@ -53,7 +53,7 @@ export default {
 
     actions: {
         getUser({ commit, state }, payload) {
-            if (payload.overwrite || (!payload.overwrite && state.user == null)) {
+            if (payload.overwrite || (!payload.overwrite && (state.user == null || state.user.id == null || state.user.id == undefined))) {
                 return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
                     commit('setUser', resp.data)
                 })
