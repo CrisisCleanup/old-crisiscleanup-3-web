@@ -41,7 +41,7 @@
               });
             }
             const uid = this.$store.state.worker.event.uid;
-            return this.axios.get(`/events/${uid}/organizations`, {params: d});
+            return this.axios.get(`/organizations/${uid}/persons`, {params: d});
           }
         }
       }
