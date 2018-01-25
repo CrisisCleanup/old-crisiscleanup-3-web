@@ -12,7 +12,7 @@
                       <input type="checkbox" v-model="article.isRead"  v-if="!inEditMode"> 
                       <!--Show edit mode buttons-->
                       <span class="inline-block btn-group" v-if="inEditMode"> 
-                          <button class="btn btn-sm btn-danger" @click="deleteArticle(article)"><i class="icon-trash"></i></button>
+                          <button class="btn btn-danger" @click="deleteArticle(article)"><i class="icon-trash"></i></button>
                       </span>
                       <b>{{article.title}}</b>
                       <div>{{article.description}}</div>        

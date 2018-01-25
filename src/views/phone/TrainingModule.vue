@@ -27,6 +27,9 @@
                   </li>
                   </b>
                 </ol>
+                <div class="alert alert-danger" role="alert" v-if="showSubmitError">
+                  Please answer all questions correctly.
+                </div>
               </p>
           </div>
           <div class="card-footer" >
@@ -52,7 +55,8 @@
           description: null,
           questions: [],
           quizAlert: null,
-          options: [{text: 'True', value: true},  {text: 'False', value: false}]
+          options: [{text: 'True', value: true},  {text: 'False', value: false}],
+          showSubmitError: false
       }
     },
     created: function() {
@@ -115,6 +119,8 @@
           }).catch(err => {
             console.log(err)
           });
+        } else {
+          this.showSubmitError = true;
         }
       }
     },
@@ -123,6 +129,7 @@
       'questions': {
         handler(val){
           this.validateAllAnswers()
+          this.showSubmitError = false;
         },
         deep: true
       }
