@@ -56,127 +56,159 @@
 </template>
 
 <style lang="scss">
-  // Import Main styles for this application
-  @import "./scss/crisiscleanup/_phone.scss";
+// Import Main styles for this application
+@import "./scss/crisiscleanup/_phone.scss";
 </style>
 
 <script>
-  export default {
-      data() {
-        return {
-          newArticle : {title:null, description:null, isRead: false, isDeleted: false},
-          inEditMode: false,
-          articles: [],
-          originalArticles: [],
-          allArticlesRead: false
-      }
-    },
-    created: function() {
-      this.$store.dispatch('phone/getUser', {userId: this.$store.state.worker.currentUserId, overwrite: false}).then(r => {
+export default {
+  data() {
+    return {
+      newArticle: {
+        title: null,
+        description: null,
+        isRead: false,
+        isDeleted: false
+      },
+      inEditMode: false,
+      articles: [],
+      originalArticles: [],
+      allArticlesRead: false
+    };
+  },
+  created: function() {
+    this.$store
+      .dispatch("phone/getUser", {
+        userId: this.$store.state.worker.currentUserId,
+        overwrite: false
+      })
+      .then(r => {
         this.getUserArticles();
       });
-    },
-    methods: {
-      getUserArticles(){
-        this.inEditMode = false
-        //Get all the global articles
-        this.articles = [];
-        var vm = this;
-        this.$http.get(`${process.env.API_PHONE_ENDPOINT}/articles`).then(r => {
-            this.articles = r.data.results;
-            //Mark all of the articles which the user has read
-            this.articles.forEach(function(article) {
-              var articleFound = vm.$store.state.phone.user.read_articles.find(function(readArticle) {
-                return readArticle === article.id;
-              });
-              vm.$set(article, 'isRead', articleFound === undefined ? false : true);
-              vm.$set(article, 'isDeleted', false);
-            });
-            console.log(this.articles);
-        });
-      },
-      articleModalOk (evt) {
-        // Prevent modal from closing
-        evt.preventDefault()
-        //this.$refs.form1.submit()
-        this.addArticle(evt)
-      },
-      addArticle(evt){
-        console.log(evt)
-        evt.preventDefault()
-        //alert(JSON.stringify(this.form))
-        this.articles.push(Object.assign({}, this.newArticle));
-        //Clear new article
-        this.newArticle.title = null;
-        this.newArticle.description = null;
-        this.$refs.modal.hide()
-      },
-      deleteArticle(article){
-        //If this is an item they created, just remove it 
-        if(article.id == null) {
-          this.articles.splice(this.articles.indexOf(article),1);
-        } else {
-          //Otherwise mark it for deletion
-          article.isDeleted = true
-        }
-      },
-      toggleEditMode(){
-        this.inEditMode = !this.inEditMode
-        if(this.inEditMode) {
-          //Store original articles in-case user cancels
-          this.originalArticles = JSON.parse(JSON.stringify(this.articles))
-        } else {
-          //Otherwise if they are toggleing out revert to originals
-          //TODO: Warn user they will lose their changes
-          this.articles = this.originalArticles;
-        }
-      },
-      save(){
-        var vm = this;
-        if(this.inEditMode) {
-          //TODO: Make more efficient by removing create call if not needed
-          //Add new articles missing ids
-          var newArticles = this.articles.filter(x => x.id == null)
-          this.$http.post(`${process.env.API_PHONE_ENDPOINT}/articles`, newArticles).then(r => {
-            //Delete articles flagged for deletion
-            var deletedArticleIds = this.articles.filter(x => x.isDeleted).map(x => x.id)
-            if(deletedArticleIds.length > 0) {
-              this.$http.post(`${process.env.API_PHONE_ENDPOINT}/articles/bulk_delete`, deletedArticleIds).then(r => {
-                this.getUserArticles()
-              }).catch(err => {
-                console.log(err)
-              });
-            } else {
-              this.getUserArticles()
+  },
+  methods: {
+    getUserArticles() {
+      this.inEditMode = false;
+      //Get all the global articles
+      this.articles = [];
+      var vm = this;
+      this.$http.get(`${process.env.API_PHONE_ENDPOINT}/articles`).then(r => {
+        this.articles = r.data.results;
+        //Mark all of the articles which the user has read
+        this.articles.forEach(function(article) {
+          var articleFound = vm.$store.state.phone.user.read_articles.find(
+            function(readArticle) {
+              return readArticle === article.id;
             }
-          }).catch(err => {
-            console.log(err)
-          });
-        } else {
-          //Update the user's read article list
-          var read_article_ids = this.articles.filter(article => article.isRead).map(article => article.id);
-          this.$http.post(`${process.env.API_PHONE_ENDPOINT}/users/` + vm.$store.state.phone.user.id + `/set_read_articles`, read_article_ids).then(r => {
-            this.$router.go(-1);
-          }).catch(err => {
-            console.log(err)
-          });
-        }
+          );
+          vm.$set(article, "isRead", articleFound === undefined ? false : true);
+          vm.$set(article, "isDeleted", false);
+        });
+        console.log(this.articles);
+      });
+    },
+    articleModalOk(evt) {
+      // Prevent modal from closing
+      evt.preventDefault();
+      //this.$refs.form1.submit()
+      this.addArticle(evt);
+    },
+    addArticle(evt) {
+      evt.preventDefault();
+      //alert(JSON.stringify(this.form))
+      this.articles.push(Object.assign({}, this.newArticle));
+      //Clear new article
+      this.newArticle.title = null;
+      this.newArticle.description = null;
+      this.$refs.modal.hide();
+    },
+    deleteArticle(article) {
+      //If this is an item they created, just remove it
+      if (article.id == null) {
+        this.articles.splice(this.articles.indexOf(article), 1);
+      } else {
+        //Otherwise mark it for deletion
+        article.isDeleted = true;
       }
     },
-    watch: {
-      //Watch for changes in the articles 
-      'articles': {
-        handler(val){
-          this.allArticlesRead = true;
-          //Check if all articles have been read
-          this.articles.forEach(function(article) {
-            if(!article.isRead) {
-              this.allArticlesRead = false;
+    toggleEditMode() {
+      this.inEditMode = !this.inEditMode;
+      if (this.inEditMode) {
+        //Store original articles in-case user cancels
+        this.originalArticles = JSON.parse(JSON.stringify(this.articles));
+      } else {
+        //Otherwise if they are toggleing out revert to originals
+        //TODO: Warn user they will lose their changes
+        this.articles = this.originalArticles;
+      }
+    },
+    save() {
+      var vm = this;
+      if (this.inEditMode) {
+        //TODO: Make more efficient by removing create call if not needed
+        //Add new articles missing ids
+        var newArticles = this.articles.filter(x => x.id == null);
+        this.$http
+          .post(`${process.env.API_PHONE_ENDPOINT}/articles`, newArticles)
+          .then(r => {
+            //Delete articles flagged for deletion
+            var deletedArticleIds = this.articles
+              .filter(x => x.isDeleted)
+              .map(x => x.id);
+            if (deletedArticleIds.length > 0) {
+              this.$http
+                .post(
+                  `${process.env.API_PHONE_ENDPOINT}/articles/bulk_delete`,
+                  deletedArticleIds
+                )
+                .then(r => {
+                  this.getUserArticles();
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+            } else {
+              this.getUserArticles();
             }
-          }, this);
-        },
-        deep: true
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      } else {
+        //Update the user's read article list
+        var read_article_ids = this.articles
+          .filter(article => article.isRead)
+          .map(article => article.id);
+        this.$http
+          .post(
+            `${process.env.API_PHONE_ENDPOINT}/users/` +
+              vm.$store.state.phone.user.id +
+              `/set_read_articles`,
+            read_article_ids
+          )
+          .then(r => {
+            this.$router.go(-1);
+          })
+          .catch(err => {
+            console.log(err);
+          });
       }
     }
+  },
+  watch: {
+    //Watch for changes in the articles
+    articles: {
+      handler(val) {
+        this.allArticlesRead = true;
+        //Check if all articles have been read
+        this.articles.forEach(function(article) {
+          if (!article.isRead) {
+            this.allArticlesRead = false;
+          }
+        }, this);
+      },
+      deep: true
+    }
   }
+};
 </script>

@@ -15,6 +15,7 @@ import PhoneWelcome from '@/views/phone/Welcome';
 import PhoneNews from '@/views/phone/News';
 import PhoneTraining from '@/views/phone/Training';
 import PhoneTrainingModule from '@/views/phone/TrainingModule';
+import PhoneTrainingModuleCreateForm from '@/views/phone/TrainingModuleCreateForm';
 import PhoneSwitchboard from '@/views/phone/Switchboard';
 
 import Page404 from '@/views/pages/Page404'
@@ -142,9 +143,14 @@ const router = new Router({
               meta: { auth: true, title: 'Phone Training' },
             },
             {
-              path: 'training/:id',
+              path: 'training/view/:id',
               component: PhoneTrainingModule,
               meta: { auth: true, title: 'Phone Training Module' },
+            },
+            {
+              path: 'training/create',
+              component: PhoneTrainingModuleCreateForm,
+              meta: { auth: true, title: 'Phone Training Module Create Form' },
             },
             {
               path: '',
