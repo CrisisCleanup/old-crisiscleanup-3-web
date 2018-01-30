@@ -3,7 +3,7 @@
 
 
     <Section class="roadmap-header">
-      <h2>Mission and Roadmap</h2>
+      <h2>{{ $t('roadmap.mission_roadmap') }}</h2>
     </Section>
     <section class="roadmap-expansion">
       <div id="accordion" role="tablist">
@@ -13,7 +13,7 @@
           <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
               <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Fully Integrated Call Center system
+                {{ $t('roadmap.integrated_call_system') }}
               </a>
             </h5>
           </div>
@@ -31,10 +31,10 @@
               </col-2>
               <col-6>
                 <row>
-                  We have designed an in-app overhaul of the call center tools so that anyone can be a call center Hero from anywhere, any time with minimal training.
+                  {{ $t('roadmap.integrated_call_system_msg') }}
                 </row>
                 <row>
-                  <button class="btn-primary">Send Feedback</button>
+                  <button class="btn-primary">{{ $t('roadmap.send_feedback') }}</button>
                 </row>
               </col-6>
               <img src="/static/img/front_end/roadmap-phone4.png" alt="" class="img-fluid">
@@ -48,7 +48,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
                  aria-controls="collapseTwo">
-                Robust Multi-Lingual Support
+                {{ $t('roadmap.multi_lingual_support') }}
               </a>
             </h5>
           </div>
@@ -62,14 +62,14 @@
                 <col-6>
                   <row>
                     <p>
-                      Like any disaster, this roadmap item just jumped to the front of the list.  We are rishing to support recovery from the Mexico City Earthquakes and the devestation in Puerto Rico as well as serving the spanish speaking population affected by Harvey and Irma.
+                      {{ $t('roadmap.multi_lingual_support_msg') }}
                     </p>
                   </row>
                   <row>
                     <img src="/static/img/front_end/roadmap-multilanguage2.png" alt="" class="img-fluid">
                   </row>
                   <row>
-                    <button class="btn-primary">Send Feedback</button>
+                    <button class="btn-primary">{{ $t('roadmap.send_feedback') }}</button>
                   </row>
                 </col-6>
               </row>
@@ -83,7 +83,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="true"
                  aria-controls="collapseThree">
-                Crew and Heavy Equipment Management
+                {{ $t('roadmap.crew_equipment_management') }}
               </a>
             </h5>
           </div>
@@ -91,13 +91,8 @@
                data-parent="#accordion">
             <div class="card-body">
               <col-6>
-                <p>
-                  Knowing where the homes that need help is only part of the battle,  Keeping track of where your volunteers are and their equipment is a missing element of Crisis Cleanup that will make a dramatic impact on those running command centers and coordinating multiple teams more efficiently.
-                </p>
-                <br>
-                <p>
-                  We will be introducing several new “Layers” capabilities that will do a better job of making the best use of teams and the types of specialties and eqipment they bring with them.
-                </p>
+                <p>{{ $t('roadmap.crew_equipment_management_msg') }}</p>
+                <p>{{ $t('roadmap.crew_equipment_management_msg2') }}</p>
               </col-6>
               <col-6>
                 <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewman.png" alt="">
@@ -117,7 +112,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="true"
                  aria-controls="collapseFour">
-                Improved Critical Needs Identification
+                {{ $t('roadmap.critical_needs') }}
               </a>
             </h5>
           </div>
@@ -126,12 +121,10 @@
             <div class="card-body">
               <row>
                 <col-6>
-                  <p>
-                    We want to add layers of socioeconomic data to the map, giving relief agencies more power to direct their energies to the areas that are otherwise underserved.
-                  </p>
+                  <p>{{ $t('roadmap.critical_needs_msg') }}</p>
                 </col-6>
                 <col-6>
-                  Service Opportunity Search Filters go here
+                  <!--To add: Service Opportunity Search Filters go here-->
                 </col-6>
               </row>
               <row>
@@ -152,7 +145,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="true"
                  aria-controls="collapseFive">
-                Suvivor Advocacy Tools
+                {{ $t('roadmap.survivor_advocacy') }}
               </a>
             </h5>
           </div>
@@ -163,25 +156,23 @@
                 <div class="card">
                   <div class="card-header">
                     <H4>
-                      Urgent Needs Listing
+                      {{ $t('roadmap.urgent_needs') }}
                     </H4>
                   </div>
                   <div class="card-body">
-                    Stuff goes here.
+                    <!--To add: Stuff goes here.-->
                   </div>
                 </div>
               </col-6>
               <row>
                 <col-6>
-                  Service Opportunity Filger goes here blurred out
+                  <!--To add: Service Opportunity Filger goes here blurred out-->
                   <br>
-                  Alert me goes here
+                  <!--To add: Alert me goes here-->
                 </col-6>
               </row>
               <row>
-                <p>
-                  We want to improve the ability for anyone in this decentralized network to advocate on behalf of a victim and to provide maximum support to the cases that need help the most.
-                </p>
+                <p>{{ $t('roadmap.urgent_needs_msg') }}</p>
               </row>
             </div>
           </div>
@@ -193,7 +184,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseSix" aria-expanded="true"
                  aria-controls="collapseSix">
-                Social Tools Inegration (Hero Stories)
+                {{ $t('roadmap.hero_stories') }}
               </a>
             </h5>
           </div>
@@ -201,9 +192,7 @@
                data-parent="#accordion">
             <div class="card-body">
               <col-4>
-                <p>
-                  As part of our mission to inform and inspire more volunteers to come help, we have plans to add social channels for heroes and homeowners to share their incredible stories with the rest of the world.   We want to build these tools natively within the application to increase the opportunities to capture the inspiring moments as they happen.
-                </p>
+                <p>{{ $t('roadmap.hero_stories_msg') }}</p>
               </col-4>
               <col-8>
                 <img src="/static/img/front_end/roadmap-social.png" alt="" class="img-fluid">
@@ -218,7 +207,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseSeven" aria-expanded="true"
                  aria-controls="collapseSeven">
-                Photo Reconnaissance
+                {{ $t('roadmap.photo_recon') }}
               </a>
             </h5>
           </div>
@@ -229,22 +218,16 @@
                 <col>
                 <row><img src="/static/img/front_end/roadmap-recon1.png" alt="" class="img-fluid"></row>
                 <row>
-                  <p>
-                    Nothing is worse than when a crew of cub scouts rolls up on one of these.
-                  </p>
+                  <p>{{ $t('roadmap.photo_recon_msg1') }}</p>
                 </row>
                 <col>
                 <row><img src="/static/img/front_end/roadmap-recon2.png" alt="" class="img-fluid"></row>
                 <row>
-                  <p>
-                    and a crew full of hardned tree professionals rolls up on this
-                  </p>
+                  <p>{{ $t('roadmap.photo_recon_msg2') }}</p>
                 </row>
                 <col>
                 <row>
-                  <p>
-                    There is tremendous value to volunteer crews in having as much intel about jobsites as possible.  We intend to provide as many options as possible for anyone in the system to upload and store job site information for future crews to work with.
-                  </p>
+                  <p>{{ $t('roadmap.photo_recon_msg3') }}</p>
                 </row>
               </row>
               <row>
@@ -262,7 +245,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseEight" aria-expanded="true"
                  aria-controls="collapseEight">
-                Online Training Center
+                {{ $t('roadmap.online_training') }}
               </a>
             </h5>
           </div>
@@ -271,13 +254,7 @@
             <div class="card-body">
               <col-4>
                 <row>
-                  <p>
-                    We believe when we are able to add a suite of short targeted training videos on how to get the most out of the system, the volunteers who use the system will be even more effective.  Not only will they be more effective, but they can be much safer in their service.  Often volunteer groups lack some basic safetly knowedge that can put their health at risk.
-                  </p>
-                  <br>
-                  <p>
-                    Our hope is to connect many of the training resources available with those who need them
-                  </p>
+                  <p>{{ $t('roadmap.online_training_msg') }}</p>
                 </row>
                 <row>
                   <img src="/static/img/front_end/roadmap-training1.png" alt="" class="img-fluid">
@@ -295,7 +272,7 @@
             <h5 class="mb-0">
               <a class="collapsed" data-toggle="collapse" href="#collapseEight" aria-expanded="true"
                  aria-controls="collapseEight">
-                Infrastructure, Communications, Interconnectivity Improvements
+                {{ $t('roadmap.communications_improvements') }}
               </a>
             </h5>
           </div>
@@ -303,35 +280,21 @@
                data-parent="#accordion">
             <div class="card-body">
               <row>
-                <p>
-                  There are so many other things we can do to improve our capacity to support the 10’s of thousands of volunteers who serve every year:
-                </p>
+                <p>{{ $t('roadmap.communications_improvements_msg') }}</p>
               </row>
               <row>
                 <ul>
-                  <li>
-                    Offline capabilities when data is not available
-                  </li>
-                  <li>
-                    System security and privacy enhancments
-                  </li>
-                  <li>
-                    System performance upgrades and improvements
-                  </li>
-                  <li>
-                    Administrative capability upgrades
-                  </li>
-                  <li>
-                    Usage analysis for targeted system improvement
-                  </li>
-                  <li>
-                    Improved user feedback mechanisms
-
-                  </li>
-                  <li>
-                    and more.
-                  </li>
-
+                  <li>{{ $t('roadmap.communications_improvements_li1') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li2') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li3') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li4') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li5') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li6') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li7') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li8') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li9') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li10') }}</li>
+                  <li>{{ $t('roadmap.communications_improvements_li11') }}</li>
                 </ul>
               </row>
             </div>

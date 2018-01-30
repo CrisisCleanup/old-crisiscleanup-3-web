@@ -9,20 +9,20 @@
         <!--</b-card>-->
       </div>
       <div class="col-md-6">
-        <b-card header="Invite Additional Teammates">
+        <b-card v-bind:header = "$t('dashboard.invite_teammates')">
           <invite-teammates></invite-teammates>
         </b-card>
 
         <div class="row">
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Sites Completed"
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.invited_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesCompleted"
                            card-color-class="bg-primary"
                            chart-component="CardLine1ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Sites Waiting For Work"
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.active_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
                            card-color-class="bg-info"
                            chart-component="CardLine1ChartExample"
@@ -31,14 +31,80 @@
         </div>
         <div class="row">
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Sites Assigned"
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.inactive_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesAssigned"
                            card-color-class="bg-warning"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
           <div class="col-sm-6 col-lg-6">
-            <QuickStatCard stat-name="Estimated Value of Services"
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.claimed_worksites_stat')"
+                           stat-quantity="$8.3 million"
+                           :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
+                           card-color-class="bg-danger"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.completed_worksites_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesCompleted"
+                           card-color-class="bg-primary"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.incomplete_worksites_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
+                           card-color-class="bg-info"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.est_commercial_value')"
+                           :stat-quantity="getWorksiteStats.worksitesAssigned"
+                           card-color-class="bg-warning"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.volunteer_hours_stat')"
+                           stat-quantity="$8.3 million"
+                           :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
+                           card-color-class="bg-danger"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.average_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesCompleted"
+                           card-color-class="bg-primary"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.longest_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
+                           card-color-class="bg-info"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.shortest_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesAssigned"
+                           card-color-class="bg-warning"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-6">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.num_old_open_unassigned_stat')"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
                            card-color-class="bg-danger"
@@ -53,16 +119,33 @@
     <b-card>
       <div class="row">
         <div class="col-sm-5">
-          <h4 class="card-title mb-0">Daily Worksite Metrics for Harris County</h4>
-          <div class="small text-muted">September 2017</div>
+          <h4 class="card-title mb-0">{{ $t('dashboard.worksite_completion') }}</h4>
+          <div class="small text-muted">[Start Time] to [End Time], [My Org|Affiliated Orgs|All Orgs], [Current Disaster|All Disasters], [Cumulative|Weekly|Daily]</div>
         </div><!--/.col-->
         <div class="col-sm-7 hidden-sm-down">
           <b-button type="button" variant="primary" class="float-right"><i class="icon-cloud-download"></i></b-button>
-          <b-button-toolbar class="float-right" aria-label="Toolbar with button groups">
-            <b-button-group class="mr-3" aria-label="First group">
-              <b-button variant="outline-secondary">Day</b-button>
-              <b-button variant="outline-secondary" :active="true">Month</b-button>
-              <b-button variant="outline-secondary">Year</b-button>
+          <b-button-toolbar class="float-right" v-bind:aria-label = "$t('dashboard.button_group_label')">
+            <b-button-group class="mr-3" v-bind:aria-label = "$t('dashboard.timeframe_label')">
+              <b-button variant="outline-secondary">{{ $t('dashboard.day') }}</b-button>
+              <b-button variant="outline-secondary" :active="true">{{ $t('dashboard.week') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.two_weeks') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.month') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.year') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.all') }}</b-button>
+            </b-button-group>
+            <b-button-group class="mr-4" v-bind:aria-label = "$t('dashboard.time_group_label')">
+              <b-button variant="outline-secondary" :active="true">{{ $t('dashboard.cumulative') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.weekly') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.daily') }}</b-button>
+            </b-button-group>
+            <b-button-group class="mr-4" v-bind:aria-label = "$t('dashboard.org_label')">
+              <b-button variant="outline-secondary" :active="true">[My Organization]</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.affiliated_orgs') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.all_orgs') }}</b-button>
+            </b-button-group>
+            <b-button-group class="mr-4" aria-label="Disasters">
+              <b-button variant="outline-secondary" :active="true">{{ $t('dashboard.current_disaster') }}</b-button>
+              <b-button variant="outline-secondary">{{ $t('dashboard.all_disasters') }}</b-button>
             </b-button-group>
           </b-button-toolbar>
         </div><!--/.col-->
@@ -71,24 +154,34 @@
       <div slot="footer">
         <ul>
           <li>
-            <div class="text-muted">Entered</div>
-            <strong>29.703 Sites (40%)</strong>
-            <b-progress class="progress-xs mt-2" :precision="1" variant="success" :value="40"></b-progress>
+            <div class="text-muted">{{ $t('dashboard.total_reported') }}</div>
+            <strong>741 {{ $t('dashboard.sites') }}</strong>
+            <b-progress class="progress-xs mt-2" :precision="1" variant="success" :value="741"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">Awaiting Assignment</div>
-            <strong>24.093 Sites (20%)</strong>
-            <b-progress class="progress-xs mt-2" :precision="1" variant="info" :value="20"></b-progress>
+            <div class="text-muted">{{ $t('dashboard.total_claimed') }}</div>
+            <strong>323 {{ $t('dashboard.sites') }} (100%)</strong>
+            <b-progress class="progress-xs mt-2" :precision="1" variant="info" :value="323"></b-progress>
           </li>
           <li>
-            <div class="text-muted">Claimed</div>
-            <strong>78.706 Sites (60%)</strong>
+            <div class="text-muted">{{ $t('dashboard.unassigned') }}</div>
+            <strong>39 {{ $t('dashboard.sites') }} (12.6%)</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="warning" :value="60"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">Completed</div>
-            <strong>22.123 Sites (80%)</strong>
+            <div class="text-muted">{{ $t('dashboard.in_progress') }}</div>
+            <strong>12 {{ $t('dashboard.sites') }} (3.2%)</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="80"></b-progress>
+          </li>
+          <li class="d-none d-md-table-cell">
+            <div class="text-muted">{{ $t('dashboard.closed') }}</div>
+            <strong>272 {{ $t('dashboard.sites') }} (84.2%)</strong>
+            <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
+          </li>
+          <li class="d-none d-md-table-cell">
+            <div class="text-muted">{{ $t('dashboard.est_commercial_value') }}</div>
+            <strong>$4,896,000</strong>
+            <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
           </li>
         </ul>
       </div>

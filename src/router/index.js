@@ -20,6 +20,8 @@ import RealtimeMap from '@/views/RealtimeMap'
 import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
 
+import vueAuthInstance from '@/services/auth.js'
+import i18n from '@/services/i18n';
 import store from '@/store';
 
 Vue.use(Router);
@@ -90,19 +92,19 @@ const router = new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: WorkerDashboard,
-          meta: {auth: true, title: 'Dashboard'},
+          meta: {auth: true, title: i18n.t('router_index.dashboard_html_title')},
         },
         {
           path: 'map',
           name: 'WorkerMap',
           component: WorkerMapView,
-          meta: {auth: true, title: 'Worker Map'},
+          meta: {auth: true, title: i18n.t('router_index.worker_map_html_title')},
         },
         {
           path: 'my-organization',
           name: 'MyOrganization',
           component: MyOrganization,
-          meta: {auth: true, title: 'My Organization'},
+          meta: {auth: true, title: i18n.t('router_index.my_organization_html_title')},
         },
         {
           path: 'worksites',
@@ -120,7 +122,7 @@ const router = new Router({
           path: 'charts',
           name: 'Charts',
           component: Charts,
-          meta: {auth: true, title: 'Charts'},
+          meta: {auth: true, title: i18n.t('router_index.charts_html_title')},
         },
       ]
     },

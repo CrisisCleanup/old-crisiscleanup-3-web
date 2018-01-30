@@ -1,7 +1,7 @@
 <template>
   <div class="fullsize-map" style="position: relative;">
     <div id="floating-panel">
-      <button class="btn-primary" v-show="!autoplay" @click="resumeAutoplay()">Resume Autoplay</button>
+      <button class="btn-primary" v-show="!autoplay" @click="resumeAutoplay()">{{ $t('realtimeMap.resume_autoplay') }}</button>
     </div>
     <!--
     <div id="">
@@ -178,7 +178,12 @@
               animation: google.maps.Animation.DROP
             });
 
-            var contentString = MarkerInfo(mark);
+            const translation = {
+              helped_at: this.$t('realtimeMap.days_ago', { helpedAt: mark.helped_at }),
+              city: this.$t('realtimeMap.in_city', { city: mark.city })
+            }
+            let contentString = MarkerInfo(mark, translation);
+
             var infowindow = new google.maps.InfoWindow({
               content: contentString
             });
