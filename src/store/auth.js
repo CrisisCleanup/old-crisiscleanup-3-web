@@ -46,8 +46,6 @@ export default {
         context.commit('setProfile', {
           profile: decodedToken.user_claims
         });
-        context.commit('setCurrentUserId', resp.data.user.id);
-        context.commit('setCurrentOrgId', 1);
       }, function(error) {
         console.log(error);
         context.commit('setLoginErrors', {hasError: true});
