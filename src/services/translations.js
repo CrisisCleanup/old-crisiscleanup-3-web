@@ -468,7 +468,9 @@ const messages = {
       dashboard_html_title: "Dashboard: Crisis Cleanup",
       worker_map_html_title: "Worker Map: Crisis Cleanup",
       my_organization_html_title: "My Organization: Crisis Cleanup",
-      charts_html_title: "Charts: Crisis Cleanup"
+      charts_html_title: "Charts: Crisis Cleanup",
+      profile_html_title: "Profile: Crisis Cleanup",
+      phone_html_title: "Phone: Crisis Cleanup",
     },
     roadmap: {
       mission_roadmap: "Mission and Roadmap",
@@ -1002,7 +1004,9 @@ const messages = {
       dashboard_html_title: "Tablero: Crisis Cleanup",
       worker_map_html_title: "Mapa del trabajador: Crisis Cleanup",
       my_organization_html_title: "Mi organización: Crisis Cleanup",
-      charts_html_title: "Gráficos: Crisis Cleanup"
+      charts_html_title: "Gráficos: Crisis Cleanup",
+      profile_html_title: "Perfil: Crisis Cleanup",
+      phone_html_title: "Teléfono: Crisis Cleanup",
     },
     roadmap: {
       mission_roadmap: "Misión y Hoja de Ruta",
