@@ -3,14 +3,14 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <router-link class="navbar-brand" to="dashboard"></router-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
-    <b-nav is-nav-bar class="d-md-down-none">
+    <b-nav b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">Event:&nbsp;&nbsp;
         <select @change="updateEventContext" :value="getCurrentEvent.event_id">
           <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
         </select>
       </b-nav-item>
     </b-nav>
-    <b-nav is-nav-bar class="ml-auto">
+    <b-nav b-navbar-nav class="ml-auto">
       <!--
       <b-nav-item class="d-md-down-none" @click="asideToggle">
         <i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span>
@@ -70,9 +70,8 @@ export default {
     },
     asideToggle (e) {
       e.preventDefault()
-      console.log("getAsideView: " + this.getAsideView)
+      document.body.classList.toggle('aside-menu-hidden', this.getAsideView)
       this.$store.commit('setAsideView')
-      document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {
       this.$store.dispatch('logout');

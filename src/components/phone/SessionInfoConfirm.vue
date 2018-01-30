@@ -17,7 +17,7 @@
             id="updatedGatewayId"
             label="Choose a gateway"
             label-for="updatedGatewayId">
-            <b-form-select v-model.trim="updatedGateway" v-bind:placeholder="gateway.name" :options="gatewayOptions"></b-form-select>
+            <b-form-select v-model.trim="updatedGateway" :options="gatewayOptions"></b-form-select>
           </b-form-group>
 
           <b-form-group

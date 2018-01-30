@@ -66,8 +66,8 @@
           if (aside == true)
           {
             //if open, aside should close once the call ends
+            document.body.classList.toggle('aside-menu-hidden', aside)
             this.$store.commit('setAsideView');
-            document.body.classList.toggle('aside-menu-hidden')
           }
         }
         else
@@ -78,8 +78,8 @@
           if (aside == false)
           {
             //if they are on a call and the aside is not already toggled open, open it 
+            document.body.classList.toggle('aside-menu-hidden', aside)
             this.$store.commit('setAsideView');
-            document.body.classList.toggle('aside-menu-hidden')
           }}
       },
       setNeedsWelcome() {
