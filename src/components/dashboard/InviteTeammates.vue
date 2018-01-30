@@ -1,16 +1,15 @@
 <template>
   <div>
-    <p>
-      Enter a comma-separated list of email addresses to invite. Each email addresses entered here will receive an email with instructions to create a new account and join your organization.</p>
+    <p>{{ $t('inviteTeammates.invite_teammates_instructions') }}</p>
     <div class="form-group">
       <input type="text" v-model="invitees"
              v-bind:class="{ 'form-control': true, 'is-invalid': hasErrors, 'is-valid': successfulInvites }"
              placeholder="i.e. john@example.com, jane@example.com, steve@example.com" id="emails-to-send"/>
       <div v-show="hasErrors" class="invalid-feedback">{{errorMessage}}</div>
-      <div v-show="successfulInvites" class="success">Invites successfully sent!</div>
+      <div v-show="successfulInvites" class="success">{{ $t('inviteTeammates.invites_sent_success') }}</div>
     </div>
     <br/>
-    <button class="btn btn-lg btn-primary" id="submit-invites-btn" @click="sendInvites()">Submit Invites</button>
+    <button class="btn btn-lg btn-primary" id="submit-invites-btn" @click="sendInvites()">{{ $t('inviteTeammates.send_invites') }}</button>
   </div>
 </template>
 

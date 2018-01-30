@@ -22,7 +22,8 @@ export default class PhoneService {
 
   login() {
     return new Promise((resolve, reject) => {
-      this.cf.loginAgent('pariveda', 'Pariveda1', () => {
+      this.cf.loginAgent('parivedatestagent', 'Pariveda1', (data) => {
+        console.log('Logged in agent', data);
         console.log('AgentLibrary logged in');
         resolve();
       });
