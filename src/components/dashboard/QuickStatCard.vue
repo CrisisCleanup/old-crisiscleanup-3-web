@@ -9,10 +9,10 @@
           <template slot="button-content">
             <i class="icon-settings"></i>
           </template>
-          <b-dropdown-item>Action</b-dropdown-item>
-          <b-dropdown-item>Another action</b-dropdown-item>
-          <b-dropdown-item>Something else here...</b-dropdown-item>
-          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+          <b-dropdown-item>{{ $t('actions.details') }}</b-dropdown-item>
+          <b-dropdown-item>{{ $t('actions.download') }}</b-dropdown-item>
+          <b-dropdown-item>{{ $t('actions.print') }}</b-dropdown-item>
+          <!--<b-dropdown-item disabled>{{ $t('actions.choose_one_select') }}</b-dropdown-item>-->
         </b-dropdown>
         <h4 id="statQuantityId" class="mb-0">{{ statQuantity }}</h4>
         <p id="statNameId">{{ statName }}</p>

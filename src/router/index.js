@@ -28,6 +28,7 @@ import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
 
 import vueAuthInstance from '@/services/auth.js'
+import i18n from '@/services/i18n';
 
 Vue.use(Router);
 
@@ -97,35 +98,35 @@ const router = new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: WorkerDashboard,
-          meta: { auth: true, title: 'Dashboard' },
+          meta: { auth: true, title: i18n.t('router_index.dashboard_html_title') },
         },
         {
           path: 'map',
           name: 'WorkerMap',
           component: WorkerMapView,
-          meta: { auth: true, title: 'Worker Map' },
+          meta: { auth: true, title: i18n.t('router_index.worker_map_html_title') },
         },
         {
           path: 'my-organization',
           name: 'MyOrganization',
           component: MyOrganization,
-          meta: { auth: true, title: 'My Organization' },
+          meta: { auth: true, title: i18n.t('router_index.my_organization_html_title') },
         },
         {
           path: 'charts',
           name: 'Charts',
           component: Charts,
-          meta: { auth: true, title: 'Charts' },
+          meta: { auth: true, title: i18n.t('router_index.charts_html_title') },
         },
         {
           path: 'profile',
           component: Profile,
-          meta: { auth: true, title: 'Profile' },
+          meta: { auth: true, title: i18n.t('router_index.profile_html_title') },
         },
         {
           path: 'phone',
           component: Phone,
-          meta: { auth: true, title: 'Phone' },
+          meta: { auth: true, title: i18n.t('router_index.phone_html_title') },
           children: [
             {
               path: 'welcome',

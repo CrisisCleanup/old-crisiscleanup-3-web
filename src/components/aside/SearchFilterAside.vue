@@ -1,49 +1,49 @@
 <template>
   <div>
     <Callout class="m-0 py-2 text-muted text-center bg-light text-uppercase">
-      <small><b>Search Worksites</b></small>
+      <small><b>{{ $t('searchFilterAside.search_worksites') }}</b></small>
     </Callout>
     <div class="container" style="padding-top: 10px;">
       <SearchWorksite></SearchWorksite>
       <br>
-      <h3>Filter Worksites</h3>
+      <h3>{{ $t('searchFilterAside.filter_worksites') }}</h3>
       <b-form-fieldset
         :label-cols="1"
         :horizontal="true">
         <b-form-checkbox :plain="true" value="1">
-          <b>Claimed by </b>
+          <b>{{ $t('searchFilterAside.claimed_by') }} </b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="2">
-          <b>Reported by </b>
+          <b>{{ $t('searchFilterAside.reported_by') }} </b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Unclaimed</b>
+          <b>{{ $t('searchFilterAside.unclaimed') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Open</b>
+          <b>{{ $t('searchFilterAside.open') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Closed</b>
+          <b>{{ $t('searchFilterAside.closed') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Primary problem is flood damage</b>
+          <b>{{ $t('searchFilterAside.muck_out') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Primary problem is trees</b>
+          <b>{{ $t('searchFilterAside.trees') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Debris removal</b>
+          <b>{{ $t('searchFilterAside.debris') }}</b>
         </b-form-checkbox>
         <br>
         <b-form-checkbox :plain="true" value="3">
-          <b>Other</b>
+          <b>{{ $t('searchFilterAside.other') }}</b>
         </b-form-checkbox>
       </b-form-fieldset>
     </div>

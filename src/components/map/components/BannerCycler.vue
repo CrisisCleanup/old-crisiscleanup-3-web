@@ -7,36 +7,45 @@
     props: [],
     data() {
       return {
-        textCycle: [
+        bannerText: "",
+        currentBannerClass: {}
+      }
+    },
+    computed: {
+      textCycle() {
+        return [
           {
             wait: 2000,
             delay: 4000,
-            text: "Who's on the ground <b style=\"color: white;\">right now</b> helping in <b style=\"color: white;\">your</b> community?",
+            text: `${this.$t('bannerCycler.msg1')}`,
             bannerClass: "realtime-map-banner-topright"
           },
           {
             wait: 8000,
             delay: 10000,
-            text: "Since <b style=\"color: white;\">2011</b>, <b style=\"color: white;\">Crisis Cleanup</b> has helped over <b style=\"color: white;\">1,200</b> organizations help <b style=\"color: white;\">43,686</b> homes and businesses cleanup and recover after natural disasters.",
+            text: `${this.$t('bannerCycler.msg2')}`,
             bannerClass: "realtime-map-banner-bottomleft"
           },
           {
             wait: 20000,
             delay: 5000,
-            text: "How can <b style=\"color: white;\">you</b> help in <b style=\"color: white;\">your</b> community?",
+            text: `${this.$t('bannerCycler.msg3')}`,
             bannerClass: "realtime-map-banner-topright"
           },
           {
             wait: 28000,
             delay: 5000,
-            text: "Be a part of the <b style=\"color: white;\">cleanup</b>, be a part of <b style=\"color: white;\">your</b> community. Join <b style=\"color: white;\">Crisis Cleanup</b> today.",
+            text: `${this.$t('bannerCycler.msg4')}`,
             bannerClass: "realtime-map-banner-bottomleft"
           },
-        ],
-        bannerText: "",
-        currentBannerClass: {}
+          {
+            wait: 36000,
+            delay: 5000,
+            text: `${this.$t('bannerCycler.msg5')}`,
+            bannerClass: "realtime-map-banner-topright"
+          }
+        ]
       }
-
     },
     mounted() {
       this.textCycle.forEach((cycle, i) => {

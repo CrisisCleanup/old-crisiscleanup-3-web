@@ -4,7 +4,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-8">
-            <h5>Your Claimed Worksites</h5>
+            <h5>{{ $t('worksites.your_claimed_worksites') }}</h5>
           </div>
           <div class="col-4">
             <div class="text-md-right lead">
