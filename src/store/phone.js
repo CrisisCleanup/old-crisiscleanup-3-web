@@ -8,7 +8,7 @@ export default {
         caller: {},
         gateway: {},
         needsWelcome: true,
-        callState: 'notAvailable',
+        callState: 'AWAY'
     },
 
     mutations: {
@@ -27,15 +27,12 @@ export default {
         needsWelcome(state) {
             state.needsWelcome = true;
         },
-        takingIncomingCall(state) {
-            state.callState = 'takingIncomingCall';
-        },
         available(state) {
-            state.callState = 'available';
+            state.callState = 'AVAILABLE';
         },
-        notAvailable(state) {
-            state.callState = 'notAvailable';
-        },
+        away(state) {
+            state.callState = 'AWAY';
+        }
     },
 
     getters: {
@@ -74,6 +71,6 @@ export default {
             return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.id, payload).then(resp => {
                 commit('setUser', resp.data)
             })
-        },
+        }
     },
 };

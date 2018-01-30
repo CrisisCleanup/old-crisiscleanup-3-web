@@ -14,7 +14,7 @@
             </div>
             <div class = "card text-white bg-dark col-4 text-center">
                 <div class = "card-body">
-                    <button v-bind:class="{'btn-success' : this.callState != 'available', 'btn-danger' : this.callState == 'available'}" v-on:click="startTakingCalls">{{this.message}}</button>
+                    <button v-bind:class="{'btn-success' : this.callState != 'AVAILABLE', 'btn-danger' : this.callState == 'AVAILABLE'}" v-on:click="startTakingCalls">{{this.getMessage()}}</button>
                     <p class = "card-text">
                         calls in queue</br>
                         32
@@ -36,9 +36,6 @@
     };
     },
     computed: {
-    ...mapMutations('phone', [
-        'available', 'notAvailable'
-    ]),
     ...mapGetters('phone', {
         user: 'getUser',
         gateway: 'getGateway',
@@ -50,15 +47,18 @@
             this.$emit('needsEdit')
         },
         startTakingCalls() {
-            this.$emit('available');
-            if (this.callState != 'available') {
-            this.message = 'Start Taking Calls'
+            //TODO: now that the message changes in a separate function,
+            //I don't like how this function's only purpose is to fire off a response
+            this.$emit('stateChanged');
+        },
+        getMessage() {
+            if (this.callState != 'AVAILABLE') {
+                return 'Start Taking Calls'
             }
             else {
-                this.message = 'Stop Taking Calls' 
+                return 'Stop Taking Calls' 
             }
-
-        },
+        }
     }
   }
 </script>
