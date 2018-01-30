@@ -61,6 +61,8 @@
 </style>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   data() {
     return {
@@ -76,15 +78,12 @@ export default {
       allArticlesRead: false
     };
   },
+  computed: {
+    ...mapGetters('auth', {userId: 'getUserId'}),
+    ...mapGetters('phone', {user: 'getUser'})
+  },
   created: function() {
-    this.$store
-      .dispatch("phone/getUserDetails", {
-        userId: this.$store.getters['auth/getUserId'],
-        overwrite: false
-      })
-      .then(r => {
-        this.getUserArticles();
-      });
+    this.getUserArticles();
   },
   methods: {
     getUserArticles() {
@@ -96,7 +95,7 @@ export default {
         this.articles = r.data.results;
         //Mark all of the articles which the user has read
         this.articles.forEach(function(article) {
-          var articleFound = vm.$store.state.phone.user.read_articles.find(
+          var articleFound = vm.user.read_articles.find(
             function(readArticle) {
               return readArticle === article.id;
             }
@@ -182,7 +181,7 @@ export default {
         this.$http
           .post(
             `${process.env.API_PHONE_ENDPOINT}/users/` +
-              vm.$store.state.phone.user.id +
+              vm.userId +
               `/set_read_articles`,
             read_article_ids
           )

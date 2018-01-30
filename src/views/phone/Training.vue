@@ -60,20 +60,15 @@ export default {
   computed: {
     ...mapGetters('auth', {
       userId : 'getUserId'
+    }),
+    ...mapGetters('phone', {
+      user: 'getUser'
     })
   },
   created: function() {
-    this.getUserDetails();
+    this.getUsertrainingModules();
   },
   methods: {
-    getUserDetails() {
-      this.$store.dispatch("phone/getUserDetails", {
-        userId: this.userId, overwrite: false
-      })
-      .then(r => {
-        this.getUsertrainingModules();
-      });    
-    },
     getUsertrainingModules() {
       this.inEditMode = false;
       //Get all the global trainingModules
@@ -85,7 +80,7 @@ export default {
           this.trainingModules = r.data.results;
           //Mark all of the trainingModules which the user has read
           this.trainingModules.forEach(function(trainingModule) {
-            var trainingModuleFound = vm.$store.state.phone.user.training_completed.find(
+            var trainingModuleFound = vm.user.training_completed.find(
               function(completedTraining) {
                 return completedTraining === trainingModule.id;
               }
