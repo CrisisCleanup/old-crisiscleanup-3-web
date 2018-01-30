@@ -24,7 +24,8 @@ export default {
   },
 
   getters: {
-    getUserName: state => state.profile.name
+    getUserName: state => state.profile.name,
+    getUserId: state => state.profile.id,
   },
 
   actions: {

@@ -70,7 +70,7 @@
         //Update the user's information
         //TODO: add functionality to turn states into an array or make singular 'confirm the state'
         var userData = {
-          id: this.$store.state.worker.currentUserId,
+          id: this.$store.getters['auth/getUserId'],
           last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone,
           last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
         }
