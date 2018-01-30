@@ -61,11 +61,11 @@
 
 <script>
   import Vue from 'vue'
+  import {mapGetters} from 'vuex'
 
   export default {
       data() {
         return {
-          user: {},
           callCenterExperts: [],
           stories: [
             { description: "xyz"},
@@ -79,20 +79,26 @@
       this.getUserData();
       this.getCallExperts();
     },
+    computed: {
+      ...mapGetters('auth', {
+        userId: 'getUserId'
+      }),
+      ...mapGetters('phone', {
+        user: 'getUser',
+        gateway: 'getGateway'
+      })
+    },
     methods: {
-      getUserData(){
-        //Grab the user id from the login info
-        var userId = this.$store.getters['auth/getUserId'];
+      async getUserData(){
         //Grab user information
-        this.$store.dispatch('phone/getUser', {userId, overwrite: true}).then(() => {
-            this.user = this.$store.state.phone.user;
+        this.$store.dispatch('phone/getUserDetails', {userId: this.userId, overwrite: true}).then(() => {
             this.getGatewayData();
         });
       },
-      getGatewayData(){
+      async getGatewayData(){
         //Get user's current gateway info
-        if (this.user.last_used_gateway != null) {
-          this.$store.dispatch('phone/getGateway', this.user.last_used_gateway).catch(err => {
+        if (this.user.gateway != null) {
+          await this.$store.dispatch('phone/getGatewayDetails', this.user.gateway).catch(err => {
             console.log(err);
           });
         } else {

@@ -104,6 +104,8 @@
 </template>
 <script>
   import Vue from 'vue';
+  import {mapGetters} from 'vuex';
+
   export default {
     data() {
         return {
@@ -133,30 +135,43 @@
     created: function() {
       this.populateInitialForm();
     },
+    computed: {
+      ...mapGetters('auth', {
+        userId: 'getUserId',
+        authUserProfile: 'getProfile'
+      }),
+      ...mapGetters('phone', {
+        user: 'getUser'
+      })
+    },
     methods: {
-      populateInitialForm(){
+      async populateInitialForm(){
         //Get the user's caller information
-        this.$store.dispatch('phone/getUser', {userId: this.$store.getters['auth/getUserId'], overwrite: false}).then(() => {
-          if(this.$store.state.phone.user != null){
-            var user = this.$store.state.phone.user;
+        await this.$store.dispatch('phone/getUserDetails', {userId: this.userId, overwrite: false}).then(() => {
+          if(this.user != null){
+            //var user = this.$store.state.phone.user;
             this.callUserExists = true
-            this.callCenterOptions.callCenterNumber = user.last_used_phone_number;
-            this.callCenterOptions.willingToReceiveCalls = user.willing_to_receive_calls;
-            this.callCenterOptions.willingToBeCallSupport = user.willing_to_be_call_center_support;
-            this.callCenterOptions.willingToBeCallHero = user.willing_to_be_call_hero;
-            if(user.supported_languages != null){
-              this.callCenterOptions.callLanguages = user.supported_languages.split(',');
+            this.callCenterOptions.callCenterNumber = this.user.last_used_phone_number;
+            this.callCenterOptions.willingToReceiveCalls = this.user.willing_to_receive_calls;
+            this.callCenterOptions.willingToBeCallSupport = this.user.willing_to_be_call_center_support;
+            this.callCenterOptions.willingToBeCallHero = this.user.willing_to_be_call_hero;
+            if(this.user.supported_languages != null){
+              this.callCenterOptions.callLanguages = this.user.supported_languages.split(',');
             }
-            this.mapOptions.willingToBePinHero = user.willing_to_be_pin_hero;
+            this.mapOptions.willingToBePinHero = this.user.willing_to_be_pin_hero;
           }
         }).catch(err => {
           this.callUserExists = false;
         });
         //Set the current user details 
+        console.log(this.authUserProfile);
         this.userProfile.myOrganization = this.$store.state.worker.currentOrgId;
-        this.userProfile.name = this.$store.state.auth.profile.name;
-        this.userProfile.email = this.$store.state.auth.profile.email;
-        this.userProfile.phoneNumber = this.$store.state.auth.profile.person.mobile;
+        this.userProfile.name = this.authUserProfile.name;
+        //NOTE: email and mobile are no longer part of the 
+        //user object property "identity" might be email ? 
+
+        //this.userProfile.email = this.authUserProfile.email;
+        //this.userProfile.phoneNumber = this.authUserProfile.mobile;
         Vue.axios.get(`/organizations?is_active=true&ordering=-created_at&limit=500`).then(resp => {
           this.organizationOptions = resp.data.results.map(function(organization) {
             return {text: organization.name, value: organization.uid};
@@ -169,21 +184,20 @@
 
         //Save call center information
         var userData = {
-          id: this.$store.getters['auth/getUserId'],
+          id: this.userId,
           name: this.userProfile.name,
           willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
           willing_to_be_call_center_support: this.callCenterOptions.willingToBeCallSupport,
           willing_to_be_call_hero: this.callCenterOptions.willingToBeCallHero && this.callCenterOptions.willingToReceiveCalls, //They can't be a call hero and not receive calls
           supported_languages: this.callCenterOptions.callLanguages.join(','),
           willing_to_be_pin_hero: this.mapOptions.willingToBePinHero,
-          last_used_phone_number: this.callCenterOptions.callCenterNumber || this.userProfile.phoneNumber
+          last_used_phone_number: this.userProfile.phoneNumber || this.callCenterOptions.callCenterNumber
         };
         if(userData.supported_languages == ""){
           userData.supported_languages = null;
         }
         if(this.callUserExists) {
-          Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + userData.id, userData).then(resp => {
-            this.$store.commit('phone/setUser', resp.data)
+          this.$store.dispatch('phone/updateUser', userData).then(() => {
             this.$router.push({path: '/worker/dashboard'});
           })
         } else {

@@ -44,7 +44,7 @@ export default {
       if(itemName == "Phone"){
         //Phone menu item should only be visible if they opted in for the Call Center
         var userId = this.$store.getters['auth/getUserId'];
-        this.$store.dispatch('phone/getUser', {userId, overwrite: false});
+        this.$store.dispatch('phone/getUserDetails', {userId, overwrite: false});
       }
     }
   }

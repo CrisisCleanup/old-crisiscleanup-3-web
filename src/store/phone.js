@@ -52,7 +52,7 @@ export default {
     },
 
     actions: {
-        getUser({ commit, state }, payload) {
+        getUserDetails({ commit, state }, payload) {
             if (payload.overwrite || (!payload.overwrite && (state.user == null || state.user.id == null || state.user.id == undefined))) {
                 return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
                     commit('setUser', resp.data)
@@ -60,12 +60,12 @@ export default {
             }
             return true;
         },
-        getCaller({ commit, state }, callerId) {
+        getCallerDetails({ commit, state }, callerId) {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {
                 commit('setCaller', resp.data)
             })
         },
-        getGateway({ commit, state }, gatewayId) {
+        getGatewayDetails({ commit, state }, gatewayId) {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + gatewayId + `/get_detail`).then(resp => {
                 commit('setGateway', resp.data)
             })

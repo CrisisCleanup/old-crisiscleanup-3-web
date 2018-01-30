@@ -40,6 +40,8 @@
 </style>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
   data() {
     return {
@@ -55,17 +57,23 @@ export default {
       allTrainingModulesRead: false
     };
   },
+  computed: {
+    ...mapGetters('auth', {
+      userId : 'getUserId'
+    })
+  },
   created: function() {
-    this.$store
-      .dispatch("phone/getUser", {
-        userId: this.$store.getters['auth/getUserId'],
-        overwrite: false
+    this.getUserDetails();
+  },
+  methods: {
+    getUserDetails() {
+      this.$store.dispatch("phone/getUserDetails", {
+        userId: this.userId, overwrite: false
       })
       .then(r => {
         this.getUsertrainingModules();
-      });
-  },
-  methods: {
+      });    
+    },
     getUsertrainingModules() {
       this.inEditMode = false;
       //Get all the global trainingModules

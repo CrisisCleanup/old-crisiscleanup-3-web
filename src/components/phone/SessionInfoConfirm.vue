@@ -57,6 +57,9 @@
       ...mapGetters('phone', {
         user: 'getUser',
         gateway: 'getGateway',
+      }),
+      ...mapGetters('auth', {
+        userId: 'getUserId'
       })
     },
     methods: {
@@ -72,15 +75,15 @@
         //Update the user's information
         //TODO: add functionality to turn states into an array or make singular 'confirm the state'
         var userData = {
-          id: this.$store.getters['auth/getUserId'],
+          id: this.userId,
           last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone,
           last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
         }
 
         //update Gateway if necessary
         if (this.updatedGateway != null) {
-          await this.$store.dispatch('phone/getGateway', this.updatedGateway).then(resp => {
-            userData.last_used_gateway = this.$store.state.phone.gateway.id;
+          await this.$store.dispatch('phone/getGatewayDetails', this.updatedGateway).then(resp => {
+            userData.gateway = this.$store.state.phone.gateway.id;
           })
         }
 

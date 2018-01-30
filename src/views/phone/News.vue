@@ -78,7 +78,7 @@ export default {
   },
   created: function() {
     this.$store
-      .dispatch("phone/getUser", {
+      .dispatch("phone/getUserDetails", {
         userId: this.$store.getters['auth/getUserId'],
         overwrite: false
       })

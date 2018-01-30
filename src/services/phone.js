@@ -7,24 +7,26 @@ const agentLogin = '';
 const agentPassword = '';
 
 export default class PhoneService {
-  constructor() {
-    this.cf = new AgentLibrary({
-      // Caution, this is prod
-      socketDest: 'wss://c01-con.vacd.biz:8080/', //'ws://d01-test.cf.dev:8080',
-      callbacks: {
-        closeResponse: this.onCloseFunction,
-        openResponse: this.onOpenFunction,
-      },
-    });
-  }
+    constructor(gateway) {
+        this.cf = new AgentLibrary({
+            // Caution, this is prod
+            socketDest: 'wss://c01-con.vacd.biz:8080/', //'ws://d01-test.cf.dev:8080',
+            callbacks: {
+                closeResponse: this.onCloseFunction,
+                openResponse: this.onOpenFunction,
+            },
+        });
+        console.log("gateway name is " + gateway.friendly_name)
+        this.gateway = gateway;
+    }
 
-  onCloseFunction() {
-    console.log('AgentLibrary closed');
-  }
+    onCloseFunction() {
+        console.log('AgentLibrary closed');
+    }
 
-  onOpenFunction() {
-    console.log('AgentLibrary open');
-  }
+    onOpenFunction() {
+        console.log('AgentLibrary open');
+    }
 
   login() {
     return new Promise((resolve, reject) => {

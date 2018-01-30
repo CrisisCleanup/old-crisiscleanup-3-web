@@ -250,7 +250,7 @@
       },
       populateInitialForm() {
         //get the caller's information and set form items
-        this.$store.dispatch('phone/getCaller', this.$store.state.phone.callerId).then(() => {
+        this.$store.dispatch('phone/getCallerDetails', this.$store.state.phone.callerId).then(() => {
           if(this.$store.state.phone.caller != null)
           {
             var caller = this.$store.state.phone.caller;
