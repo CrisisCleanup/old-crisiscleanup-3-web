@@ -136,7 +136,7 @@
     methods: {
       populateInitialForm(){
         //Get the user's caller information
-        this.$store.dispatch('phone/getUser', {userId: this.$store.state.worker.currentUserId, overwrite: false}).then(() => {
+        this.$store.dispatch('phone/getUser', {userId: this.$store.getters['auth/getUserId'], overwrite: false}).then(() => {
           if(this.$store.state.phone.user != null){
             var user = this.$store.state.phone.user;
             this.callUserExists = true
@@ -169,7 +169,7 @@
 
         //Save call center information
         var userData = {
-          id: this.$store.state.worker.currentUserId,
+          id: this.$store.getters['auth/getUserId'],
           name: this.userProfile.name,
           willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
           willing_to_be_call_center_support: this.callCenterOptions.willingToBeCallSupport,

@@ -43,7 +43,7 @@ export default {
     setVisibility(itemName) {
       if(itemName == "Phone"){
         //Phone menu item should only be visible if they opted in for the Call Center
-        var userId = this.$store.state.worker.currentUserId;
+        var userId = this.$store.getters['auth/getUserId'];
         this.$store.dispatch('phone/getUser', {userId, overwrite: false});
       }
     }

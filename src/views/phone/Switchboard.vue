@@ -29,7 +29,11 @@
         this.$router.push('/worker/phone/welcome');
       }
       // var a = new PhoneService();
-      // a.login();
+      // a.login().then(() => {
+      //   return a.goAvailable();
+      // }).then(() => {
+      //   return a.dial('18017093623');
+      // });
     },
     data() {
       return {

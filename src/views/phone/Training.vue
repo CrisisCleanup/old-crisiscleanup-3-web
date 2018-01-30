@@ -58,7 +58,7 @@ export default {
   created: function() {
     this.$store
       .dispatch("phone/getUser", {
-        userId: this.$store.state.worker.currentUserId,
+        userId: this.$store.getters['auth/getUserId'],
         overwrite: false
       })
       .then(r => {

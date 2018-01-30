@@ -1,5 +1,11 @@
 import AgentLibrary from '@/../vendor/cf-agent-library';
 
+const myPhoneNumber = '';
+const inboundNumber = '';
+const outboundNumber = '';
+const agentLogin = '';
+const agentPassword = '';
+
 export default class PhoneService {
   constructor() {
     this.cf = new AgentLibrary({
@@ -22,11 +28,36 @@ export default class PhoneService {
 
   login() {
     return new Promise((resolve, reject) => {
-      this.cf.loginAgent('parivedatestagent', 'Pariveda1', (data) => {
+      this.cf.loginAgent(agentLogin, agentPassword, (data) => {
         console.log('Logged in agent', data);
         console.log('AgentLibrary logged in');
-        resolve();
+        const hardCodedGateId = data.inboundSettings.availableQueues[0].gateId;
+        this.cf.configureAgent(myPhoneNumber, [hardCodedGateId], null, null, null, null, (configureResponse) => {
+          console.log('Configure response', configureResponse);
+          resolve();
+        });
       });
+    });
+  }
+
+  goAvailable() {
+    return new Promise((resolve, reject) => {
+      this.cf.setAgentState('AVAILABLE', null, (setAgentStateResponse) => {
+        console.log('Set agent state response', setAgentStateResponse);
+        resolve();
+      })
+    });
+  }
+
+  dial(destination) {
+    return new Promise((resolve, reject) => {
+      this.cf.offhookInit((offhookInitResponse) => {
+        console.log('Offhook init response', offhookInitResponse);
+        this.cf.manualOutdial(outboundNumber, inboundNumber, (manualOutdialResponse) => {
+          console.log('Manual outdial response', manualOutdialResponse);
+          resolve();
+        });
+      });      
     });
   }
 }
