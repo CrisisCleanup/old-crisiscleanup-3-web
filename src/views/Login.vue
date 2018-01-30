@@ -6,27 +6,27 @@
           <div class="card-group mb-0">
             <div class="card p-4">
               <div class="card-body">
-                <h1>Login</h1>
-                <p class="text-muted">Sign In to your account</p>
+                <h1>{{ $t('actions.login') }}</h1>
+                <p class="text-muted">{{ $t('login.sign_in_msg') }}</p>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
                   <b-form-input id="login-email" v-model="email" type="text"
-                                placeholder="Email" :state="loginErrors ? false : null"/>
-                  <b-form-invalid-feedback>Invalid email or password.</b-form-invalid-feedback>
+                                v-bind:placeholder = "$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
+                  <b-form-invalid-feedback>{{ $t('login.invalid_credentials_msg') }}</b-form-invalid-feedback>
                 </div>
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
                   <b-form-input id="login-password" v-model="password" type="password"
                                 :state="loginErrors ? false : null"
-                                placeholder="Password"/>
-                  <b-form-invalid-feedback>Invalid email or password.</b-form-invalid-feedback>
+                                v-bind:placeholder = "$t('login.password_placeholder')"/>
+                  <b-form-invalid-feedback>{{ $t('login.invalid_credentials_msg') }}</b-form-invalid-feedback>
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button id="login-submit-btn" @click="login" type="button" class="btn btn-primary px-4">Login</button>
+                    <button id="login-submit-btn" @click="login" type="button" class="btn btn-primary px-4">{{ $t('actions.login') }}</button>
                   </div>
                   <!--<div class="col-6 text-right">-->
-                    <!--<button type="button" class="btn btn-link px-0">Forgot password?</button>-->
+                    <!--<button type="button" class="btn btn-link px-0">{{ $t('actions.forgot_password') }}</button>-->
                   <!--</div>-->
                 </div>
               </div>

@@ -6,22 +6,23 @@ import App from './App'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from './store'
-window.$ = window.jQuery = require('jquery')
+Vue.use(BootstrapVue);
+import i18n from './services/i18n';
+
+window.$ = window.jQuery = require('jquery');
 
 sync(store, router);
-
-Vue.use(BootstrapVue);
 
 /* eslint-disable no-new */
 let app = new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   template: '<App/>',
   components: {
     App
   },
 });
-
 
 export { app, router, store }

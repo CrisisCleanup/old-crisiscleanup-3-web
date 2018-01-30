@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Callout class="m-0 py-2 text-muted bg-light text-uppercase">
-      <small><b>Search</b></small>
+    <Callout class="m-0 py-2 text-muted text-center bg-light text-uppercase">
+      <small><b>{{ $t('searchFilterAside.search_worksites') }}</b></small>
     </Callout>
     <div class="container" style="padding-top: 10px;">
       <Search />

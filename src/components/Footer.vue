@@ -1,7 +1,7 @@
 <template>
   <footer class="app-footer">
-    <a href="http://coreui.io">CrisisCleanup</a> &copy; 2017.
-    <span class="float-right">Powered by <a href="http://coreui.io">CoreUI</a></span>
+    &copy; 2018 <a href="https://www.crisiscleanup.org">CrisisCleanup, LLC</a>.
+    <!--<span class="float-right">{{ $t('footer.powered_by') }} <a href="http://coreui.io">CoreUI</a></span>-->
   </footer>
 </template>
 <script>
