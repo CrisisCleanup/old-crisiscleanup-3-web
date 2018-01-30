@@ -1,4 +1,5 @@
 import vueAuthInstance from '../services/auth.js'
+import jwt_decode from 'jwt-decode';
 
 export default {
   namespaced: true,
@@ -30,11 +31,13 @@ export default {
     login (context, payload) {
       payload = payload || {}
       return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
+        const decodedToken = jwt_decode(resp.data.access_token);
+        console.log(decodedToken)
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
         });
         context.commit('setProfile', {
-          profile: resp.data.user
+          profile: decodedToken.user_claims
         });
       }, function(error) {
         console.log(error);

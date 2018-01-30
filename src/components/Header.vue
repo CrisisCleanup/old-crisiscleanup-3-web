@@ -31,7 +31,7 @@
         <!--<b-dropdown-item><i class="fa fa-wrench"></i> {{ $t('actions.settings') }}</b-dropdown-item>-->
         <!--<b-dropdown-divider></b-dropdown-divider>-->
         <!--<b-dropdown-item><i class="fa fa-shield"></i> {{ $t('actions.lock_account') }}</b-dropdown-item>-->
-        <b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>
+        <!--<b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>-->
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
