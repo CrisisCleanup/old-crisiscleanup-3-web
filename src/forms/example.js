@@ -5,24 +5,130 @@ import store from '../store'
 import Full from '@/containers/Full'
 import Main from '@/containers/Main'
 
-import WorkerDashboard from '@/views/worker/Dashboard'
-import MyOrganization from '@/views/worker/MyOrganization';
-import WorkerMapView from '@/views/worker/WorkerMapView';
-import Charts from '@/views/Charts'
-
-import Page404 from '@/views/pages/Page404'
-import Page500 from '@/views/pages/Page500'
-import Login from '@/views/Login'
-import Register from '@/views/pages/Register'
-import RegisterOrganization from '@/views/RegisterOrganization'
-import RealtimeMap from '@/views/RealtimeMap'
-import Roadmap from '@/views/Roadmap'
-import Donate from '@/views/Donate'
-
 import vueAuthInstance from '@/services/auth.js'
 import i18n from '@/services/i18n';
 
 Vue.use(Router);
+
+const form_0 = {
+  event_id: 0,
+  preamble_t: "forms.preamble_default')",
+  last_updated: "2018-01-26",
+  phase_pda: {
+    is_active: false,
+    allow_suggestions: true,
+    allow_site_claim: false,
+    allow_subsection_claim: false,
+    form_data: {
+    }
+  },
+  phase_cleanup: {
+    is_active: true,
+    allow_suggestions: true,
+    allow_site_claim: true,
+    allow_subsection_claim: false,
+    form_data: {
+      propery_info {
+        field_type: "heading",
+        validation: null,
+        label_t: "forms.property_info",
+        help_text_t: "forms.property_info_help",
+        is_required: false,
+        is_readonly: false,
+        allow_break_glass: true,
+        allow_toggle_hiding: false,
+        is_hidden_default: false, /***if type = hidden, this is true ***/
+        select_work_type: null, /*heading attributes*/
+        fields {
+          request_date {
+            field_type: "text",
+            validation: "datetime-local",
+            label_t: "forms.request_date",
+            help_text_t: null,
+            is_required: false,
+            is_readonly: true,
+            allow_break_glass: true,
+            allow_toggle_hiding: false,
+            is_hidden_default: false
+          },
+          latitude {
+            field_type: "hidden",
+            validation: "float",
+            label_t: "formLabels.latitude",
+            help_text_t: null,
+            is_required: true,
+            is_readonly: true,
+            allow_break_glass: true,
+            allow_toggle_hiding: false,
+            is_hidden_default: true
+          },
+          residence_type {
+            field_type: "select",
+            validation: "string",
+            label_t: "formLabels.residence_type",
+            help_text_t: "formLabels.property_info_help",
+            is_required: false,
+            is_readonly: false,
+            allow_break_glass: true,
+            allow_toggle_hiding: false,
+            is_hidden_default: false,
+            options: [ /* for select */
+              {
+                name_t: "actions.choose_one_select",
+                value: null
+              },
+              {
+                name_t: "formOptions.primary_living_in_home",
+                value: "primary_living_in_home"
+              },
+              {
+                name_t: "formOptions.primary_displaced_from_home",
+                value: "primary_displaced_from_home"
+              },
+              {
+                name_t: "formOptions.second_home",
+                value: "second_home"
+              },
+              {
+                name_t: "formOptions.guest_home",
+                value: "guest_home"
+              },
+              {
+                name_t: "formOptions.non_residence",
+                value: "non_residence"
+              }
+            ]
+          },
+          work_without_resident {
+            field_type: "select",
+            validation: "string",
+            label_t: "formLabels.residence_type",
+            help_text_t: "formLabels.property_info_help",
+            is_required: false,
+            is_readonly: false,
+            allow_break_glass: true,
+            allow_toggle_hiding: false,
+            is_hidden_default: false,
+          },
+          etc {
+            [attributes]
+          },
+          etc {
+            [attributes]
+          }
+        }
+      },
+    }
+  },
+  phase_rebuild: {
+    is_active: false,
+    allow_suggestions: true,
+    allow_site_claim: true,
+    allow_subsection_claim: true,
+    form_data: {
+    }    
+  }
+};
 
 const router = new Router({
   mode: 'history',
