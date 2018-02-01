@@ -4,7 +4,7 @@
       <br>
       <user-info v-on:stateChanged="setAvailability" v-on:needsEdit= "editSessionInfo"/>
       <incoming-call v-if="showIncomingCall"/>
-      <outbound-call-home v-if="showOutboundCallHome"/>
+      <outbound-call-home v-if="showOutboundCallHome" v-on:makingCall="makeOutboundCall"/>
       <session-info-confirm v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
 </template>
@@ -54,7 +54,7 @@
         console.log('Session info confirmed', info);
 
         //if the gateway changed, logout and re-log back in 
-        if (info.changedGateway == true) 
+        if (info.changedGateway == true && this.phoneService) 
         {
           this.logoutOfPhoneService();
         }
@@ -129,14 +129,16 @@
         //currentState becomes 'TRANSITION'
         //TODO: change store state based on user being on call
         //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
-        this.phoneService.dial('6304707096');
+        if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE")
+        {
+          this.phoneService.dial('6304707096');
+        }
       }, 
       logoutOfPhoneService() {
         //enter away state to hide necessary components, then log out of call center
-        this.loggedIn = false;
         this.enterAwayState();
         this.phoneService.logout();
-        this.phoneService = new PhoneService();
+        this.loggedIn = false;
       }
     }
   }

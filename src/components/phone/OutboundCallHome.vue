@@ -234,6 +234,7 @@ export default {
             },
             makeCall(){
                 alert("making call")
+                this.$emit('makingCall')
             }
         }
 }
