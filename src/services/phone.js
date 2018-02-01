@@ -19,6 +19,7 @@ export default class PhoneService {
         });
         this.gateway = phone.state.gateway;
         this.user = phone.state.user;
+        this.loggedInAgentId = null;
     }
 
     onCloseFunction() {
@@ -35,9 +36,13 @@ export default class PhoneService {
 
             this.cf.loginAgent(this.gateway.agent_username, this.gateway.agent_password, (data) => {
                 console.log('Logged in agent', data);
-                console.log('AgentLibrary logged in');
+                if (data.status === 'FAILURE') {
+                  throw new Error('Could not log in.');
+                }
+                console.log('AgentLibrary successfully logged in');
+                this.loggedInAgentId = data.agentSettings.agentId;
                 //const hardCodedGateId = data.inboundSettings.availableQueues[0].gateId;
-                this.cf.configureAgent(this.user.last_used_phone_number, [this.gateway.gate_id], null, null, null, null, (configureResponse) => {
+                this.cf.configureAgent(this.user.last_used_phone_number, [this.gateway.external_gateway_id], null, null, null, null, (configureResponse) => {
                     console.log('Configure response', configureResponse);
                     resolve();
                 });
@@ -47,7 +52,7 @@ export default class PhoneService {
 
     logout() {
         return new Promise((resolve, reject) => {
-            this.cf.logoutAgent(this.gateway.agent_id, (data) => {
+            this.cf.logoutAgent(this.loggedInAgentId, (data) => {
                 console.log('logged out agent', data);
                 resolve();
             });
