@@ -65,9 +65,12 @@
     methods: {
       getGatewayOptions() {
         Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
-            this.gatewayOptions = resp.data.results.map(function(gateway) {
-              return {text: gateway.name, value: gateway.id};
-            })
+            this.gatewayOptions = resp.data.results
+              .filter(function(gateway) {
+                return gateway.active;
+              }).map(function(gateway) {
+                return {text: gateway.name, value: gateway.id};
+              });
         })
       },
       async updateSessionInfo(evt){
