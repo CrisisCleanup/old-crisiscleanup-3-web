@@ -1,4 +1,5 @@
-const messages = {  en: {
+const messages = {
+  en: {
     publicHeader: {
       realtime_map: "Realtime Map",
       donate: "Donate",
@@ -225,7 +226,9 @@ const messages = {  en: {
       unknown: "Unknown",
       various: "Various",
       volcano: "Volcano",
-      water_sanitation: "Water and Sanitation"
+      water_sanitation: "Water and Sanitation",
+      water_bottles: "Water Bottles",
+      water_filters: "Water Filters"
     },
     workTypeDescription: {
       ash: "Activities related to sifting ash from burned structures to find valuables.",
@@ -284,7 +287,9 @@ const messages = {  en: {
       unknown: "Unknown activities or needs.",
       various: "More than one type of activity.",
       volcano: "Activities related to cleanup after a volcanic eruption.",
-      water_sanitation: "UNHRC-defined water and sanitation activities."
+      water_sanitation: "UNHRC-defined water and sanitation activities.",
+      water_bottles: "Any activities related to distributing bottled water.",
+      water_filters: "Any activities related to distributing water filters."
     },
     workerCCUMap: {
       toggle_heatmap: "Toggle Heatmap",
@@ -1130,7 +1135,23 @@ const messages = {  en: {
       rebuild_bajereque_help: "What type of construction? You may choose more than one.",
       rebuild_hollow_block_help: "What type of construction? You may choose more than one.",
       rebuild_block_help: "What type of construction? You may choose more than one.",
-      legal_needs_help: "E.g. FEMA or insurance applications, etc.?"
+      legal_needs_help: "E.g. FEMA or insurance applications, etc.?",
+      name_placeholder: "Resident Name",
+      do_not_work_before_placeholder: "Do not work before",
+      county_placeholder: "County",
+      cross_street_placeholder: "Cross Street or Nearby Landmark",
+      phone1_placeholder: "Phone #s",
+      special_needs_placeholder: "Special needs",
+      flood_height_placeholder: "Height of Flood (feet)",
+      work_requested_placeholder: "Work Details",
+      notes_placeholder: "Notes",
+      assigned_to_placeholder: "Assigned To",
+      total_volunteers_placeholder: "Volunteers",
+      hours_worked_per_volunteer_placeholder: "Hours per volunteer",
+      prepared_by_placeholder: "Prepared by",
+      fema_housing_award_placeholder: "FEMA Housing Award",
+      not_created_info: "This form has not been created",
+      not_created_info_help: "We are sorry. This form is not ready. If you feel this is an error, please contact us through helpdesk. We appologize for any inconvenience."
     },
     phoneStatus: {
       outbound: "Outbound",
@@ -1518,7 +1539,9 @@ const messages = {  en: {
       unknown: "Desconocido",
       various: "Varios",
       volcano: "Volcán",
-      water_sanitation: "Agua y sanitización"
+      water_sanitation: "Agua y sanitización",
+      water_bottles: "Botellas de agua",
+      water_filters: "Filtros de agua"
     },
     workTypeDescription: {
       ash: "Actividades relacionadas con tamizar cenizas de estructuras quemadas para encontrar objetos de valor.",
@@ -1577,7 +1600,9 @@ const messages = {  en: {
       unknown: "Actividades o necesidades desconocidas",
       various: "Más de un tipo de actividad.",
       volcano: "Actividades relacionadas con la limpieza después de una erupción volcánica.",
-      water_sanitation: "Actividades de agua y saneamiento definidas por UNHRC."
+      water_sanitation: "Actividades de agua y saneamiento definidas por UNHRC.",
+      water_bottles: "Cualquier actividad relacionada con la distribución de agua embotellada.",
+      water_filters: "Cualquier actividad relacionada con la distribución de filtros de agua."
     },
     workerCCUMap: {
       toggle_heatmap: "Alternar mapa de calor",
@@ -2423,7 +2448,23 @@ const messages = {  en: {
       rebuild_bajereque_help: "¿Qué tipo de construcción prefiere? Puedes escoger mas de uno.",
       rebuild_hollow_block_help: "¿Qué tipo de construcción prefiere? Puedes escoger mas de uno.",
       rebuild_block_help: "¿Qué tipo de construcción prefiere? Puedes escoger mas de uno.",
-      legal_needs_help: "Preguntas sobre el Fonden, pagos a la CFE, aseguradoras, etc."
+      legal_needs_help: "Preguntas sobre el Fonden, pagos a la CFE, aseguradoras, etc.",
+      name_placeholder: "Nombre del Residente",
+      do_not_work_before_placeholder: "No trabajes antes",
+      county_placeholder: "Condado",
+      cross_street_placeholder: "Cross Street o punto de referencia cercano",
+      phone1_placeholder: "Número de teléfono",
+      special_needs_placeholder: "Necesidades especiales",
+      flood_height_placeholder: "Altura de la inundación (feet)",
+      work_requested_placeholder: "Detalles del trabajo",
+      notes_placeholder: "Notas",
+      assigned_to_placeholder: "Asignado a",
+      total_volunteers_placeholder: "Voluntarios",
+      hours_worked_per_volunteer_placeholder: "Horas por voluntario",
+      prepared_by_placeholder: "Preparado por",
+      fema_housing_award_placeholder: "Premio FEMA de Vivienda",
+      not_created_info: "Este formulario no ha sido creado",
+      not_created_info_help: "Lo sentimos. Esta forma no está lista. Si cree que se trata de un error, contáctenos a través del servicio de asistencia. Nos disculpamos por cualquier inconveniente."
     },
     phoneStatus: {
       outbound: "Salida",
