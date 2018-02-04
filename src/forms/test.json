@@ -1,15 +1,15 @@
 {
   "event_id": 67,
-  "last_updated": "2018-02-03",
+  "last_updated": "2018-02-04",
   "phase_pda": {
     "preamble_t": "forms.preamble_default_1",
     "is_active": false,
     "allow_suggestions": true,
     "allow_site_claim": false,
-    "allow_subsection_claim": false,
+    "allow_section_claim": false,
     "fields": {
       "not_created_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",
@@ -29,10 +29,10 @@
     "is_active": true,
     "allow_suggestions": true,
     "allow_site_claim": true,
-    "allow_subsection_claim": false,
+    "allow_section_claim": false,
     "fields": {
       "property_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.property_info",
         "help_text_t": "formLabels.property_info_help",
@@ -606,7 +606,7 @@
         }
       },
       "work_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.work_info",
         "help_text_t": "formLabels.work_info_help",
@@ -618,7 +618,7 @@
         "if_selected_then_work_type": null,
         "fields": {
           "tree_info": {
-            "field_type": "heading",
+            "field_type": "section",
             "validation": null,
             "label_t": "formLabels.tree_info",
             "help_text_t": null,
@@ -734,7 +734,7 @@
             }
           },
           "debris_info": {
-            "field_type": "heading",
+            "field_type": "section",
             "validation": null,
             "label_t": "formLabels.debris_info",
             "help_text_t": null,
@@ -878,7 +878,7 @@
             }
           },
           "tarping_info": {
-            "field_type": "heading",
+            "field_type": "section",
             "validation": null,
             "label_t": "formLabels.tarping_info",
             "help_text_t": null,
@@ -957,7 +957,7 @@
             }
           },
           "fencing_info": {
-            "field_type": "heading",
+            "field_type": "section",
             "validation": null,
             "label_t": "formLabels.fencing_info",
             "help_text_t": null,
@@ -1012,7 +1012,7 @@
         }
       },
       "hazards_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.hazards_info",
         "help_text_t": null,
@@ -1143,7 +1143,7 @@
         }
       },
       "claim_status_report_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.claim_status_report_info",
         "help_text_t": null,
@@ -1345,10 +1345,10 @@
     "is_active": false,
     "allow_suggestions": true,
     "allow_site_claim": true,
-    "allow_subsection_claim": true,
+    "allow_section_claim": true,
     "fields": {
       "not_created_info": {
-        "field_type": "heading",
+        "field_type": "section",
         "validation": null,
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",

@@ -45,22 +45,22 @@ Phase Attributes
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `true` for cleanup and rebuilding phase; `false` for pda phase
- - `allow_subsection_claim`: Permit a user or organization to claim a section/heading as a work order, thereby creating more than one work order per site.
+ - `allow_section_claim`: Permit a user or organization to claim a section as a work order, thereby creating more than one work order per site.
    - Applies to: Phases
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `true` for rebuilding phase; `false` for pda and cleanup phases.
  - `fields`: All fields and attributes belonging to the current phase.
-   - Applies to: Phases and headings fields
+   - Applies to: Phases and sections fields
    - Possible Values: JSON
    - Required: Yes
    - Default: `null`
 
 Field Attributes
 -------------
- - `field_type`: Identifies the type of field, input, or heading.
+ - `field_type`: Identifies the type of field, input, or section.
    - Applies to: All fields
-   - Possible Values: `heading`, `text`, `textarea`, `suggest`, `hidden`, `select`, `multiselect`, `checkbox`, `radio`
+   - Possible Values: `section`, `text`, `textarea`, `suggest`, `hidden`, `select`, `multiselect`, `checkbox`, `radio`
    - Required: Yes
    - Default: `null`
  - `validation`: Identifies the type of validation to apply to the input
@@ -94,7 +94,7 @@ Field Attributes
    - Required: Yes
    - Default: `true`
  - `allow_toggle_hiding`: Allow the user to hide/unhide the field to save space on the intake form. Note: The mobile version may override these defaults if advisable.
-   - Applies to: All fields, but typically invoked on headings/sections.
+   - Applies to: All fields, but typically invoked on sections.
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `false`
@@ -103,13 +103,13 @@ Field Attributes
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `false`, except: If `field_type` = `hidden`, default = `true`
- - `if_selected_then_work_type`: If this field is checked, selected, or data entered in any way, it will trigger either a specific, inherited, or no work type. For example, the heading "Trees" would have an `if_selected_then_work_type` = `trees`. The question within the Trees subsection, "How many trees?" would have `if_selected_then_work_type` = `inherit` `[trees]`. However, a checkbox labeled "Needs heavy equipment" would have `if_selected_then_work_type` = `trees_heavy_equipment`. Thus, a single work order may have multiple work types (and therefore multiple icons). An explicit `work_type` selection will no longer occur. In contrast, "Phone Number" would have `if_selected_then_work_type` = `null`, because a phone number does not indicate the problem.
+ - `if_selected_then_work_type`: If this field is checked, selected, or data entered in any way, it will trigger either a specific, inherited, or no work type. For example, the section "Trees" would have an `if_selected_then_work_type` = `trees`. The question within the Trees subsection, "How many trees?" would have `if_selected_then_work_type` = `inherit` `[trees]`. However, a checkbox labeled "Needs heavy equipment" would have `if_selected_then_work_type` = `trees_heavy_equipment`. Thus, a single work order may have multiple work types (and therefore multiple icons). An explicit `work_type` selection will no longer occur. In contrast, "Phone Number" would have `if_selected_then_work_type` = `null`, because a phone number does not indicate the problem.
    - Applies to: All fields
    - Possible Values: `null`, `inherit`, `ash`, `biohazard`, `construction_consultation`, `core_relief_items`, `debris`, `debris_removal`, `deferred_maintenance`, `demolition`, `education`, `erosion`, `escort`, `fence`, `fire`, `_flood`, `flood`, `flood_indoor`, `flood_outdoor`, `food`, `goods_or_services`, `health`, `infrastructure`, `infrastructure_logistics`, `jobs_livelihoods`, `landslide`, `leak`, `mold_remediation`, `muck_out`, `other`, `pda_1`, `pda_2`, `pda_3`, `pda_4`, `pda_5`, `phone`, `pill`, `power`, `protection_security`, `rebuild`, `rebuild_total`, `report`, `retardant_cleanup`, `shelter`, `siding`, `smoke_damage`, `snow_ground`, `snow_roof`, `structure`, `syringe`, `tarp`, `temporary_housing`, `tornado`, `trees`, `trees_heavy_equipment`, `unknown`, `various`, `volcano`, `water_sanitation`, `water_bottles`, `water_filter`
    - Required: Yes
    - Default: `inherit`
- - `fields`: All fields and attributes belonging to the current subsection/heading
-   - Applies to: Only `field_type` = `heading` (and Phases)
+ - `fields`: All fields and attributes belonging to the current section
+   - Applies to: Only `field_type` = `section` (and Phases)
    - Possible Values: JSON
    - Required: Yes
    - Default: `null`
@@ -141,7 +141,7 @@ Option Attributes
 
 ## Attribute Suffix Conventions
  - `_t`: This attribute must be translated, using `\src\services\translation.js`
- - `_info`: Generally used to denote a heading or section
+ - `_info`: Generally used to denote a section
  - `_info_end`: Used internally to denote the close of a section
 
 Current list of translatable attributes (including in areas other than forms):
