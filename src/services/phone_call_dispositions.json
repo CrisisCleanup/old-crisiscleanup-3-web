@@ -1,0 +1,272 @@
+{
+  "outbound" : {
+    "answered_added" : {
+      "value": "answered_added",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.added",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_updated" : {
+      "value": "answered_updated",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.updated",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_call_211" : {
+      "value": "answered_call_211",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.call_211",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_already_in_ccu" : {
+      "value": "answered_already_in_ccu",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.already_in_ccu",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_investigated" : {
+      "value": "answered_investigated",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.investigated",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_will_call_back" : {
+      "value": "answered_will_call_back",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.will_call_back",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_did_not_contact" : {
+      "value": "answered_did_not_contact",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.did_not_contact",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_no_help_needed" : {
+      "value": "answered_no_help_needed",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.no_help_needed",
+      "change_work_order_status": "closed_no_help_needed",
+      "needs_callback": false
+    },
+    "answered_thanked_us" : {
+      "value": "answered_thanked_us",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.thanked_us",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_wants_to_volunteer" : {
+      "value": "answered_wants_to_volunteer",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.wants_to_volunteer",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_other" : {
+      "value": "answered_other",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.other",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "special_assistance_mandarin" : {
+      "value": "special_assistance_mandarin",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.mandarin",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_spanish" : {
+      "value": "special_assistance_spanish",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.spanish",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_another_language" : {
+      "value": "special_assistance_another_language",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.another_language",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_immediate_needs" : {
+      "value": "special_assistance_immediate_needs",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.immediate_needs",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "special_assistance_special_needs" : {
+      "value": "special_assistance_special_needs",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.special_needs",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "no_answer_voicemail" : {
+      "value": "no_answer_voicemail",
+      "name1_t": "phoneStatus.no_answer",
+      "name2_t": "phoneStatus.voicemail",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "no_answer_no_voicemail" : {
+      "value": "no_answer_no_voicemail",
+      "name1_t": "phoneStatus.no_answer",
+      "name2_t": "phoneStatus.no_voicemail",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "no_answer_second_call" : {
+      "value": "no_answer_second_call",
+      "name1_t": "phoneStatus.no_answer",
+      "name2_t": "phoneStatus.second_call",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "no_answer_voicemail_full" : {
+      "value": "no_answer_voicemail_full",
+      "name1_t": "phoneStatus.no_answer",
+      "name2_t": "phoneStatus.voicemail_full",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "bad_number_wrong_number" : {
+      "value": "bad_number_wrong_number",
+      "name1_t": "phoneStatus.bad_number",
+      "name2_t": "phoneStatus.wrong_number",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "bad_number_out_of_service" : {
+      "value": "bad_number_out_of_service",
+      "name1_t": "phoneStatus.bad_number",
+      "name2_t": "phoneStatus.out_of_service",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "error_technical_difficulty" : {
+      "value": "error_technical_difficulty",
+      "name1_t": "phoneStatus.error",
+      "name2_t": "phoneStatus.technical_difficulty",
+      "change_work_order_status": null,
+      "needs_callback": true
+    }
+  },
+  "inbound" : {
+    "answered_added" : {
+      "value": "answered_added",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.added",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_updated" : {
+      "value": "answered_updated",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.updated",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_call_211" : {
+      "value": "answered_call_211",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.call_211",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_already_in_ccu" : {
+      "value": "answered_already_in_ccu",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.already_in_ccu",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_investigated" : {
+      "value": "answered_investigated",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.investigated",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_will_call_back" : {
+      "value": "answered_will_call_back",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.will_call_back",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_thanked_us" : {
+      "value": "answered_thanked_us",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.thanked_us",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_wants_to_volunteer" : {
+      "value": "answered_wants_to_volunteer",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.wants_to_volunteer",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "answered_other" : {
+      "value": "answered_other",
+      "name1_t": "phoneStatus.answered",
+      "name2_t": "phoneStatus.other",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "special_assistance_mandarin" : {
+      "value": "special_assistance_mandarin",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.mandarin",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_spanish" : {
+      "value": "special_assistance_spanish",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.spanish",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_another_language" : {
+      "value": "special_assistance_another_language",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.another_language",
+      "change_work_order_status": null,
+      "needs_callback": true
+    },
+    "special_assistance_immediate_needs" : {
+      "value": "special_assistance_immediate_needs",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.immediate_needs",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "special_assistance_special_needs" : {
+      "value": "special_assistance_special_needs",
+      "name1_t": "phoneStatus.special_assistance",
+      "name2_t": "phoneStatus.special_needs",
+      "change_work_order_status": null,
+      "needs_callback": false
+    },
+    "error_technical_difficulty" : {
+      "value": "error_technical_difficulty",
+      "name1_t": "phoneStatus.error",
+      "name2_t": "phoneStatus.technical_difficulty",
+      "change_work_order_status": null,
+      "needs_callback": true
+    }
+  }
+}

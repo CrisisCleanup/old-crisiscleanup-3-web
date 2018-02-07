@@ -1,0 +1,3282 @@
+/*  --------------------------  Map Pins  ---------------------------  */
+/*  Assumes all pins are red */
+/*  Icons must be swapped to the "X" icon programatically when class = closed_no_help_wanted, closed_rejected, and closed_duplicate  */
+/*  Icons must be swapped programatically to the root icon with a "+" whenever there is more than one work type. */
+/*  Claimed  */
+
+    .open-unassigned-claimed-new {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-assigned-claimed-new {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-partially-completed-claimed-new {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-needs-follow-up-claimed-new {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-unresponsive-claimed-new {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-completed-claimed-new {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-incomplete-claimed-new {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-out-of-scope-claimed-new {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-done-by-others-claimed-new {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-no-help-wanted-claimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-rejected-claimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-duplicate-claimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-marked-for-deletion-claimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-unassigned-claimed-old1 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-assigned-claimed-old1 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-partially-completed-claimed-old1 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-needs-follow-up-claimed-old1 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-unresponsive-claimed-old1 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-completed-claimed-old1 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-incomplete-claimed-old1 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-out-of-scope-claimed-old1 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-done-by-others-claimed-old1 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-no-help-wanted-claimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-rejected-claimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-duplicate-claimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-marked-for-deletion-claimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-unassigned-claimed-old2 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-assigned-claimed-old2 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-partially-completed-claimed-old2 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-needs-follow-up-claimed-old2 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-unresponsive-claimed-old2 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-completed-claimed-old2 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-incomplete-claimed-old2 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-out-of-scope-claimed-old2 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-done-by-others-claimed-old2 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-no-help-wanted-claimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-rejected-claimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-duplicate-claimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-marked-for-deletion-claimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-unassigned-claimed-old3 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-assigned-claimed-old3 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-partially-completed-claimed-old3 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-needs-follow-up-claimed-old3 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-unresponsive-claimed-old3 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-completed-claimed-old3 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-incomplete-claimed-old3 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-out-of-scope-claimed-old3 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-done-by-others-claimed-old3 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-no-help-wanted-claimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-rejected-claimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-duplicate-claimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-marked-for-deletion-claimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-unassigned-claimed-old4 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-assigned-claimed-old4 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-partially-completed-claimed-old4 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-needs-follow-up-claimed-old4 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unresponsive-claimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-completed-claimed-old4 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-incomplete-claimed-old4 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-out-of-scope-claimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-done-by-others-claimed-old4 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-no-help-wanted-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-rejected-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-duplicate-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-marked-for-deletion-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unassigned-claimed-old4 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-assigned-claimed-old4 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-partially-completed-claimed-old4 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-needs-follow-up-claimed-old4 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unresponsive-claimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-completed-claimed-old4 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-incomplete-claimed-old4 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-out-of-scope-claimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-done-by-others-claimed-old4 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-no-help-wanted-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-rejected-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-duplicate-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-marked-for-deletion-claimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unassigned-claimed-old5 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-assigned-claimed-old5 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-partially-completed-claimed-old5 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-needs-follow-up-claimed-old5 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-unresponsive-claimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-completed-claimed-old5 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-incomplete-claimed-old5 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-out-of-scope-claimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-done-by-others-claimed-old5 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-no-help-wanted-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-rejected-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-duplicate-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-marked-for-deletion-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-unassigned-claimed-old5 {
+      -webkit-filter: /* Safari */ /* orange */
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(35deg)
+        brightness(170%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-assigned-claimed-old5 {
+      -webkit-filter: /* Safari */ /* yellow */
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(55deg)
+        brightness(270%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-partially-completed-claimed-old5 {
+      -webkit-filter: /* Safari */ /* blue */
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(210deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-needs-follow-up-claimed-old5 {
+      -webkit-filter: /* Safari */ /* purple */
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(280deg)
+        brightness(115%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-unresponsive-claimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-completed-claimed-old5 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-incomplete-claimed-old5 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-out-of-scope-claimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-done-by-others-claimed-old5 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-no-help-wanted-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-rejected-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-duplicate-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-marked-for-deletion-claimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-unassigned-unclaimed-new {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-assigned-unclaimed-new {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-partially-completed-unclaimed-new {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-needs-follow-up-unclaimed-new {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-unresponsive-unclaimed-new {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-completed-unclaimed-new {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-incomplete-unclaimed-new {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-out-of-scope-unclaimed-new {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-done-by-others-unclaimed-new {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-no-help-wanted-unclaimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-rejected-unclaimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-duplicate-unclaimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .closed-marked-for-deletion-unclaimed-new {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(100%);
+    }
+    .open-unassigned-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-assigned-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-partially-completed-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-needs-follow-up-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-unresponsive-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-completed-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-incomplete-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-out-of-scope-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-done-by-others-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-no-help-wanted-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-rejected-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-duplicate-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .closed-marked-for-deletion-unclaimed-old1 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(75%);
+    }
+    .open-unassigned-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-assigned-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-partially-completed-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-needs-follow-up-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-unresponsive-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-completed-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-incomplete-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-out-of-scope-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-done-by-others-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-no-help-wanted-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-rejected-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-duplicate-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .closed-marked-for-deletion-unclaimed-old2 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(60%);
+    }
+    .open-unassigned-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-assigned-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-partially-completed-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-needs-follow-up-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-unresponsive-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-completed-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-incomplete-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-out-of-scope-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-done-by-others-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-no-help-wanted-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-rejected-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-duplicate-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .closed-marked-for-deletion-unclaimed-old3 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(35%);
+    }
+    .open-unassigned-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-assigned-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-partially-completed-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-needs-follow-up-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unresponsive-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-completed-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-incomplete-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-out-of-scope-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-done-by-others-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-no-help-wanted-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-rejected-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-duplicate-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .closed-marked-for-deletion-unclaimed-old4 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(20%);
+    }
+    .open-unassigned-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* darkred */
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(80%)
+        contrast(150%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-assigned-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-partially-completed-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-needs-follow-up-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* red */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .open-unresponsive-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-completed-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* green */
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(175%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-incomplete-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* black */
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(40%)
+        contrast(150%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-out-of-scope-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* gray */
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(150%)
+        contrast(100%)
+        grayscale(100%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-done-by-others-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* darkgreen */
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(90deg)
+        brightness(125%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(2px 2px 4px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-no-help-wanted-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-rejected-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-duplicate-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
+    .closed-marked-for-deletion-unclaimed-old5 {
+      -webkit-filter: /* Safari */ /* xgray */
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+      filter:
+        hue-rotate(0deg)
+        brightness(100%)
+        contrast(100%)
+        grayscale(0%)
+        drop-shadow(0px 0px 0px gray)
+        saturate(100%)
+        opacity(10%);
+    }
