@@ -1911,8 +1911,15 @@ const messages = {
     },
     formLabels: {
       preamble_default: "Ingrese los daños a la propiedad y necesidades. <u>¡No hay información confidencial!</u> Dígale al residente que esta información se compartirá con muchas organizaciones para brindar el servicio lo más rápido posible, lo que puede tardar varias semanas. El servicio no está garantizado.",
+<<<<<<< HEAD
       preamble_default_2: "Reservado",
       preamble_default_3: "Reservado",
+=======
+      preamble_default_2: ""[Reservado]
+","
+      preamble_default_3: ""[Reservado]
+","
+>>>>>>> 8622f8c7e4639e20075bb0a57c53a238163a1ba2
       property_info: "Propiedad e información personal",
       name: "Nombre del Residente",
       do_not_work_before: "No trabaje antes de",
