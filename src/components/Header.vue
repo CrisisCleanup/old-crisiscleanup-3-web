@@ -31,11 +31,11 @@
         <!--<b-dropdown-item><i class="fa fa-wrench"></i> {{ $t('actions.settings') }}</b-dropdown-item>-->
         <!--<b-dropdown-divider></b-dropdown-divider>-->
         <!--<b-dropdown-item><i class="fa fa-shield"></i> {{ $t('actions.lock_account') }}</b-dropdown-item>-->
-        <b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>
+        <!--<b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>-->
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
+    <button class="navbar-toggler aside-menu-toggler" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
   </header>
 </template>
 <script>
@@ -81,7 +81,7 @@ export default {
       document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {
-      this.$store.dispatch('logout');
+      this.$store.dispatch('auth/logout');
       this.$router.push({path: '/'});
     },
     updateEventContext (e) {

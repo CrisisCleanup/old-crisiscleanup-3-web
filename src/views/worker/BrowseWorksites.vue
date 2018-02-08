@@ -8,7 +8,7 @@
   import WorksiteDatatable from '@/components/datatables/WorksiteDatatable';
 
   export default {
-    name: 'MyOrganization',
+    name: 'BrowseWorksites',
     components: {
       WorksiteDatatable
     }

@@ -138,8 +138,8 @@ export default {
 
   getters: {
     getCurrentSiteData: state => state.siteData,
-    isCurrentSiteClaimed: state => state.siteData.claimed_by !== null,
-    isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by,
+    isCurrentSiteClaimed: state => state.siteData.claimed_by_uid !== null,
+    isCurrentSiteClaimedByUserOrg: state => state.currentOrgId === state.siteData.claimed_by_uid,
     getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats,
     getSiteFormErrors: state => state.errors.siteFormErrors,
@@ -205,7 +205,7 @@ export default {
       });
     },
     getParticipatingEvents({commit, state}) {
-      Vue.axios.get(`/events?ordering=-created_at&limit=500`).then(resp => {
+      Vue.axios.get(`/public/events?ordering=-created_at&limit=500`).then(resp => {
         commit('setParticipatingEvents', resp.data.results)
       });
     },

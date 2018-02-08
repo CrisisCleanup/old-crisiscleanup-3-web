@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../store'
 
 import Full from '@/containers/Full'
 import Main from '@/containers/Main'
 
 import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
+import BrowseWorksites from '@/views/worker/BrowseWorksites';
+import BrowseOrganizations from '@/views/worker/BrowseOrganizations';
 import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
 
@@ -21,6 +22,7 @@ import Donate from '@/views/Donate'
 
 import vueAuthInstance from '@/services/auth.js'
 import i18n from '@/services/i18n';
+import store from '@/store';
 
 Vue.use(Router);
 
@@ -105,6 +107,18 @@ const router = new Router({
           meta: {auth: true, title: i18n.t('routerIndex.my_organization_html_title')},
         },
         {
+          path: 'worksites',
+          name: 'BrowseWorksites',
+          component: BrowseWorksites,
+          meta: {auth: true, title: 'Browse Worksites'},
+        },
+        {
+          path: 'organizations',
+          name: 'BrowseOrganizations',
+          component: BrowseOrganizations,
+          meta: {auth: true, title: 'Browse Organizations'},
+        },
+        {
           path: 'charts',
           name: 'Charts',
           component: Charts,
@@ -118,25 +132,21 @@ const router = new Router({
 
 router.beforeEach(function (to, from, next) {
 
-  if (vueAuthInstance.isAuthenticated()) {
-    store.commit('setCurrentUserId', vueAuthInstance.getPayload().user_id);
-    store.commit('setCurrentOrgId', vueAuthInstance.getPayload().organization_id);
-  }
-
   if (to.meta && to.meta.title) {
     document.title = to.meta.title
   }
 
   if (to.meta && to.meta.auth !== undefined) {
+    store.dispatch('auth/checkToken');
     if (to.meta.auth) {
-      if (vueAuthInstance.isAuthenticated()) {
+      if (store.state.auth.isAuthenticated) {
         next()
       } else {
         router.push({name: 'Login'})
       }
     } else {
-      if (vueAuthInstance.isAuthenticated()) {
-        router.push({name: 'Home'})
+      if (store.state.auth.isAuthenticated) {
+        router.push({name: 'public'})
       } else {
         next()
       }
