@@ -3,7 +3,6 @@
 /*  Icons must be swapped to the "X" icon programatically when class = closed_no_help_wanted, closed_rejected, and closed_duplicate  */
 /*  Icons must be swapped programatically to the root icon with a "+" whenever there is more than one work type. */
 /*  Claimed  */
-
     .open-unassigned-claimed-new {
       -webkit-filter: /* Safari */ /* orange */
         hue-rotate(35deg)
@@ -116,7 +115,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -124,7 +123,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -350,7 +349,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -358,7 +357,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -584,7 +583,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -592,7 +591,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -818,7 +817,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -826,7 +825,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1052,7 +1051,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1060,7 +1059,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1286,7 +1285,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1294,7 +1293,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1520,7 +1519,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1528,241 +1527,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-out-of-scope-claimed-old5 {
-      -webkit-filter: /* Safari */ /* gray */
-        hue-rotate(0deg)
-        brightness(150%)
         contrast(100%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(150%)
-        contrast(100%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-done-by-others-claimed-old5 {
-      -webkit-filter: /* Safari */ /* darkgreen */
-        hue-rotate(90deg)
-        brightness(125%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(90deg)
-        brightness(125%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-no-help-wanted-claimed-old5 {
-      -webkit-filter: /* Safari */ /* xgray */
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-rejected-claimed-old5 {
-      -webkit-filter: /* Safari */ /* xgray */
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-duplicate-claimed-old5 {
-      -webkit-filter: /* Safari */ /* xgray */
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-marked-for-deletion-claimed-old5 {
-      -webkit-filter: /* Safari */ /* xgray */
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(100%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(0px 0px 0px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .open-unassigned-claimed-old5 {
-      -webkit-filter: /* Safari */ /* orange */
-        hue-rotate(35deg)
-        brightness(170%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(35deg)
-        brightness(170%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .open-assigned-claimed-old5 {
-      -webkit-filter: /* Safari */ /* yellow */
-        hue-rotate(55deg)
-        brightness(270%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(55deg)
-        brightness(270%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .open-partially-completed-claimed-old5 {
-      -webkit-filter: /* Safari */ /* blue */
-        hue-rotate(210deg)
-        brightness(125%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(210deg)
-        brightness(125%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .open-needs-follow-up-claimed-old5 {
-      -webkit-filter: /* Safari */ /* purple */
-        hue-rotate(280deg)
-        brightness(115%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(280deg)
-        brightness(115%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .open-unresponsive-claimed-old5 {
-      -webkit-filter: /* Safari */ /* gray */
-        hue-rotate(0deg)
-        brightness(150%)
-        contrast(100%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(150%)
-        contrast(100%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-completed-claimed-old5 {
-      -webkit-filter: /* Safari */ /* green */
-        hue-rotate(90deg)
-        brightness(175%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(90deg)
-        brightness(175%)
-        contrast(100%)
-        grayscale(0%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-    }
-    .closed-incomplete-claimed-old5 {
-      -webkit-filter: /* Safari */ /* black */
-        hue-rotate(0deg)
-        brightness(40%)
-        contrast(150%)
-        grayscale(100%)
-        drop-shadow(2px 2px 4px gray)
-        saturate(100%)
-        opacity(10%);
-      filter:
-        hue-rotate(0deg)
-        brightness(40%)
-        contrast(150%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1988,7 +1753,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -1996,7 +1761,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2222,7 +1987,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2230,7 +1995,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2456,7 +2221,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2464,7 +2229,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2690,7 +2455,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2698,7 +2463,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2924,7 +2689,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -2932,7 +2697,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -3158,7 +2923,7 @@
       -webkit-filter: /* Safari */ /* black */
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
@@ -3166,7 +2931,7 @@
       filter:
         hue-rotate(0deg)
         brightness(40%)
-        contrast(150%)
+        contrast(100%)
         grayscale(100%)
         drop-shadow(2px 2px 4px gray)
         saturate(100%)
