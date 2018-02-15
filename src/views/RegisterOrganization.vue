@@ -10,7 +10,7 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h1>{{ $t('registerOrg.registerOrg.) }}</h1>
+                <h1>{{ $t('registerOrg.register_org') }}</h1>
                 <h3>{{ $t('registerOrg.survivor_register_msg') }}</h3>
               </div>
             </div>

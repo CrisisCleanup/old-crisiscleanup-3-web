@@ -105,6 +105,18 @@ const router = new Router({
           meta: {auth: true, title: i18n.t('routerIndex.my_organization_html_title')},
         },
         {
+          path: 'worksites',
+          name: 'BrowseWorksites',
+          component: BrowseWorksites,
+          meta: {auth: true, title: 'Browse Worksites'},
+        },
+        {
+          path: 'organizations',
+          name: 'BrowseOrganizations',
+          component: BrowseOrganizations,
+          meta: {auth: true, title: 'Browse Organizations'},
+        },
+        {
           path: 'charts',
           name: 'Charts',
           component: Charts,
