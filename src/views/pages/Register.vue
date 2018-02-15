@@ -41,7 +41,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <b-form-checkbox :plain="true" value="3">
-                    <b>{{ $t('register_org.tos_priv_1') }} <router-link to="terms">{{ $t('register_org.tos_priv_tos') }}</router-link> {{ $t('register_org.tos_priv_and') }} <router-link to="privacy">{{ $t('register_org.tos_priv_priv') }}</router-link>{{ $t('register_org.tos_priv_2') }}</b>
+                    <b>{{ $t('registerOrg.tos_priv_1') }} <router-link to="terms">{{ $t('registerOrg.tos_priv_tos') }}</router-link> {{ $t('registerOrg.tos_priv_and') }} <router-link to="privacy">{{ $t('registerOrg.tos_priv_priv') }}</router-link>{{ $t('registerOrg.tos_priv_2') }}</b>
                   </b-form-checkbox>
                 </div>
               </div>
