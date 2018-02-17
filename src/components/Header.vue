@@ -3,7 +3,7 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <router-link class="navbar-brand" to="dashboard"></router-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
-    <b-nav is-nav-bar class="d-md-down-none">
+    <b-nav b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
         <select @change="updateEventContext" :value="getCurrentEvent.event_id">
           <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
@@ -47,12 +47,17 @@ export default {
   name: 'Header',
   data() {
     return {
+      rightAsideToggle: {
+        icons: true,
+        'icon-arrow-right': false,
+        'icon-arrow-left': true,
+      },
+      rightAsideToggleClosed: true
     }
   },
   computed: {
-    ...mapGetters([ 'getParticipatingEvents', 'getCurrentEvent', 'getAsideView' ]),
+    ...mapGetters([ 'getParticipatingEvents', 'getCurrentEvent' ]),
     ...mapGetters('auth', [ 'getUserName' ]),
-    ...mapMutations(['setAsideView'])
   },
   mounted() {
     this.$store.dispatch('getParticipatingEvents');
@@ -72,8 +77,9 @@ export default {
     },
     asideToggle (e) {
       e.preventDefault()
-      document.body.classList.toggle('aside-menu-hidden', this.getAsideView)
-      this.$store.commit('setAsideView')
+      this.rightAsideToggle["icon-arrow-left"] = !this.rightAsideToggle["icon-arrow-left"];
+      this.rightAsideToggle["icon-arrow-right"] = !this.rightAsideToggle["icon-arrow-right"];
+      document.body.classList.toggle('aside-menu-hidden')
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
