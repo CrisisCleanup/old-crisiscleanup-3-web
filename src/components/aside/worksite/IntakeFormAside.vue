@@ -10,30 +10,18 @@
       </template>
       <div class="row">
         <div class="col">
-          <!--
-          <button type="button" @click="saveForm" id="save-btn-top" class="btn btn-primary">{{ $t('actions.save') }}</button>
-          <button type="button" @click="saveAndClaim" id="save-claim-btn-top" class="btn btn-primary"
-                  v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                  v-text="isSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
-          <button type="button" @click="cancel" id="cancel-btn-top" class="btn btn-primary">{{ $t('actions.cancel') }}</button>
-          -->
+          <ul v-show="Object.keys(legacy_site).length === 0">
+            <li>Claimed By: {{legacy_site.claimed_by_uid}}</li>
+          </ul>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
               <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
             </ul>
           </div>
           <form>
-
-
             <EventForm :site-form-errors="siteFormErrors"
                        v-on:formReady="fireFormReady" ref="eventFormBase"></EventForm>
             <div v-if="isFormReady">
-              <!--
-              <button type="button" id="save-btn-bottom" @click="saveForm" class="btn btn-primary">{{ $t('actions.save') }}</button>
-              <button type="button" id="save-claim-btn-bottom" @click="saveAndClaim" class="btn btn-primary"
-                      v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                      v-text="isSiteClaimed ? '{{ $t('actions.save_unclaim') }}' : '{{ $t('actions.save_claim') }}'"></button>
-              <button type="button" @click="cancel" class="btn btn-primary">{{ $t('actions.cancel') }}</button>-->
             </div>
           </form>
         </div>
@@ -149,9 +137,12 @@
             }
 
             let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
-            let workerMapObj = Vue.prototype.$map2();
-            addressAutocomplete.bindTo('bounds', workerMapObj);
-            addressAutocomplete.addListener('place_changed', fillInAddress);
+            let workerMapObj = null;
+            if (Vue.prototype.$map2) {
+              workerMapObj = Vue.prototype.$map2();
+              addressAutocomplete.bindTo('bounds', workerMapObj);
+              addressAutocomplete.addListener('place_changed', fillInAddress);
+            }
 
             function setLatLng (position) {
               if (latitudeField && longitudeField) {

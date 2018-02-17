@@ -36,7 +36,7 @@
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle"><i v-bind:class="{icons: true, 'icon-arrow-right' : this.getAsideView, 'icon-arrow-left' : !this.getAsideView}"></i></button>
+    <button class="navbar-toggler aside-menu-toggler" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
   </header>
 </template>
 <script>
@@ -76,7 +76,7 @@ export default {
       this.$store.commit('setAsideView')
     },
     logout (e) {
-      this.$store.dispatch('logout');
+      this.$store.dispatch('auth/logout');
       this.$router.push({path: '/'});
     },
     viewProfile() {
