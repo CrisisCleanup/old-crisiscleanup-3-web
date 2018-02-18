@@ -598,8 +598,8 @@ const messages = {
     },
     formLabels: {
       preamble_default: "Enter property damage and needs. <u>No sensitive information!</u>",
-      preamble_default_2: "[Reserved]",
-      preamble_default_3: "[Reserved]",
+      preamble_default_2: "Reserved",
+      preamble_default_3: "Reserved",
       property_info: "Property and Personal Information",
       name: "Resident Name",
       do_not_work_before: "Do not work before",
@@ -1911,6 +1911,8 @@ const messages = {
     },
     formLabels: {
       preamble_default: "Ingrese los daños a la propiedad y necesidades. <u>¡No hay información confidencial!</u> Dígale al residente que esta información se compartirá con muchas organizaciones para brindar el servicio lo más rápido posible, lo que puede tardar varias semanas. El servicio no está garantizado.",
+      preamble_default_2: "Reservado",
+      preamble_default_3: "Reservado",
       preamble_default_2: "", //[Reservado]
       preamble_default_3: "", //[Reservado]
       property_info: "Propiedad e información personal",
@@ -2419,7 +2421,7 @@ const messages = {
       rebuild_block: "Construcción de bloques",
       legal_needs: "¿Necesita asesoría legal?",
       neighborhood: "Vecindario",
-      property_info_help: "<u>Este sitio web almacena información sobre la propiedad, no sobre las personas. </u> <br /> <strong> Nunca incluya fechas de nacimiento, información médica detallada, etc.</strong>",
+      property_info_help: "<u>Este sitio web almacena información sobre la propiedad, no sobre las personas. </u> <br /> <strong> Nunca incluya fechas de nacimiento, información médica detallada, etc.</ strong>",
       name_help: "Este puede ser el nombre del contacto principal, residente o propietario.",
       county_help: "El condado se usa para informar. No edite a menos que esté seguro de que es incorrecto.",
       phone1_help: "Se requiere al menos un número de teléfono. Llame antes de ayudar.",
@@ -2433,7 +2435,7 @@ const messages = {
       work_info_help: "Póngase en contacto con <a href='mailto:help@crisiscleanup.org'>help@crisiscleanup.org</a> para solicitar otra pregunta. Asegúrese de incluir el nombre de la incidencia.",
       flood_height_help: "Para 6 pulgadas, utilice '0.5'",
       num_wide_trees_help: "Muchas motosierras tienen cuchillas de 18 pulgadas.",
-      status_help: "<strong>Definiciones</strong> <br /><u>Abierto, no asignado</u>: no se ha asignado al equipo interno de una organización. <br /><u>Abierto, asignado</u>: Se ha asignado a un equipo interno y el trabajo es inminente. <br /><u>Abierto, parcialmente completado</u>: parcialmente completo, pero necesita trabajo adicional. <br /><u>Abierto, necesita seguimiento</u>: Necesita información adicional o trabajo para continuar. <br /><u>Cerrado, completado</u>: se completó y no es necesario realizar más acciones para la fase actual. <br /><u>Cerrado, incompleto</u>: No está completo, pero la organización no completará el trabajo restante (por ejemplo, mantenimiento diferido, desmovilización). <br /><u>Cerrado, fuera del alcance</u>: no está completo, pero el trabajo solicitado no está en el alcance de ninguna organización de socorro que responda. (por ejemplo, árboles de 4 pies de diámetro) <br /><u>Cerrado, hecho por otros</u>: se completó, pero el trabajo fue realizado por otros. No se necesitan más acciones. <br /><u>Cerrado, no se necesitaba ayuda</u>: fue rechazado por el propietario. No se necesitaba ayuda. No se necesitan más acciones. <br /><u>Cerrado, rechazado</u>: Fue rechazado por la organización que responde. Tenga en cuenta el motivo del rechazo. <br /><u>Cerrado, duplicado</u>: fue un duplicado. No se necesitan más acciones. Use este estado en lugar de intentar eliminar un registro.",
+      status_help: "<strong>Definiciones</ strong> <br /><u>Abierto, no asignado</u>: no se ha asignado al equipo interno de una organización. <br /><u>Abierto, asignado</u>: Se ha asignado a un equipo interno y el trabajo es inminente. <br /><u>Abierto, parcialmente completado</u>: parcialmente completo, pero necesita trabajo adicional. <br /><u>Abierto, necesita seguimiento</u>: Necesita información adicional o trabajo para continuar. <br /><u>Cerrado, completado</u>: se completó y no es necesario realizar más acciones para la fase actual. <br /><u>Cerrado, incompleto</u>: No está completo, pero la organización no completará el trabajo restante (por ejemplo, mantenimiento diferido, desmovilización). <br /><u>Cerrado, fuera del alcance</u>: no está completo, pero el trabajo solicitado no está en el alcance de ninguna organización de socorro que responda. (por ejemplo, árboles de 4 pies de diámetro) <br /><u>Cerrado, hecho por otros</u>: se completó, pero el trabajo fue realizado por otros. No se necesitan más acciones. <br /><u>Cerrado, no se necesitaba ayuda</u>: fue rechazado por el propietario. No se necesitaba ayuda. No se necesitan más acciones. <br /><u>Cerrado, rechazado</u>: Fue rechazado por la organización que responde. Tenga en cuenta el motivo del rechazo. <br /><u>Cerrado, duplicado</u>: fue un duplicado. No se necesitan más acciones. Use este estado en lugar de intentar eliminar un registro.",
       assigned_to_help: "Nombre del trabajador con la responsabilidad principal de esta solicitud.",
       total_volunteers_help: "Número de voluntarios que participaron en los esfuerzos de socorro.",
       hours_worked_per_volunteer_help: "Número de horas que los voluntarios trabajaron en esta solicitud.",
