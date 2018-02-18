@@ -18,6 +18,9 @@ import RegisterOrganization from '@/views/RegisterOrganization'
 import RealtimeMap from '@/views/RealtimeMap'
 import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
+import BrowseWorksites from '@/views/worker/BrowseWorksites'
+import BrowseOrganizations from '@/views/worker/BrowseOrganizations'
+
 
 import vueAuthInstance from '@/services/auth.js'
 import i18n from '@/services/i18n';
