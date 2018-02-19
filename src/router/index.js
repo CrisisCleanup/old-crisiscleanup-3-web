@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 
 import Full from '@/containers/Full'
 import Main from '@/containers/Main'
 
 import WorkerDashboard from '@/views/worker/Dashboard'
 import MyOrganization from '@/views/worker/MyOrganization';
-import BrowseWorksites from '@/views/worker/BrowseWorksites';
-import BrowseOrganizations from '@/views/worker/BrowseOrganizations';
 import WorkerMapView from '@/views/worker/WorkerMapView';
 import Charts from '@/views/Charts'
 
@@ -19,10 +18,12 @@ import RegisterOrganization from '@/views/RegisterOrganization'
 import RealtimeMap from '@/views/RealtimeMap'
 import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
+import BrowseWorksites from '@/views/worker/BrowseWorksites'
+import BrowseOrganizations from '@/views/worker/BrowseOrganizations'
+
 
 import vueAuthInstance from '@/services/auth.js'
 import i18n from '@/services/i18n';
-import store from '@/store';
 
 Vue.use(Router);
 
@@ -132,21 +133,25 @@ const router = new Router({
 
 router.beforeEach(function (to, from, next) {
 
+  if (vueAuthInstance.isAuthenticated()) {
+    store.commit('setCurrentUserId', vueAuthInstance.getPayload().user_id);
+    store.commit('setCurrentOrgId', vueAuthInstance.getPayload().organization_id);
+  }
+
   if (to.meta && to.meta.title) {
     document.title = to.meta.title
   }
 
   if (to.meta && to.meta.auth !== undefined) {
-    store.dispatch('auth/checkToken');
     if (to.meta.auth) {
-      if (store.state.auth.isAuthenticated) {
+      if (vueAuthInstance.isAuthenticated()) {
         next()
       } else {
         router.push({name: 'Login'})
       }
     } else {
-      if (store.state.auth.isAuthenticated) {
-        router.push({name: 'public'})
+      if (vueAuthInstance.isAuthenticated()) {
+        router.push({name: 'Home'})
       } else {
         next()
       }
