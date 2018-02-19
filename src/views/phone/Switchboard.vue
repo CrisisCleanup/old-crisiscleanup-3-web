@@ -54,7 +54,7 @@
         console.log('Session info confirmed', info);
 
         //if the gateway changed, logout and re-log back in 
-        if (info.changedGateway == true && this.phoneService) 
+        if (info.changedInfo == true && this.phoneService) 
         {
           this.logoutOfPhoneService();
         }
@@ -126,12 +126,12 @@
         }
       },
       makeOutboundCall() {
-        //currentState becomes 'TRANSITION'
+        //currentState becomes 'TRANSITION' then 'ENGAGED'
         //TODO: change store state based on user being on call
         //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
         if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE")
         {
-          this.phoneService.dial('6304707096');
+          this.phoneService.dial('2817971920');
         }
       }, 
       logoutOfPhoneService() {
