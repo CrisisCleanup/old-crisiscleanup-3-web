@@ -5,13 +5,7 @@ export default {
     {
       name: i18n.t('nav.dashboard'),
       url: '/worker/dashboard',
-      icon: 'fa fa-home',
-      /*
-      badge: {
-        variant: 'primary',
-        text: 'NEW'
-      }
-      */
+      icon: 'icon-home',
     },
     {
       name: i18n.t('nav.work_orders'),
@@ -37,6 +31,11 @@ export default {
       name: i18n.t('nav.contacts'),
       url: '/worker/contacts',
       icon: 'fa fa-address-book',
+    },
+    {
+      name: 'Organizations',
+      url: '/worker/organizations',
+      icon: 'icon-people',
     },
     {
       name: i18n.t('nav.all_organizations'),
