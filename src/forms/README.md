@@ -151,9 +151,8 @@ Current list of translatable attributes (including in areas other than forms):
  - `comment_t`
  - `label_t`
  - `help_text_t`
- - `name_level1_t`
- - `name_level2_t`
- - `name_complete_t`
+ - `name_1_t`
+ - `name_2_t`
  - `preamble_t`
  - `placeholder_t`
 
