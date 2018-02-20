@@ -37,7 +37,6 @@ export default {
         console.log(key);
         this.createSection(cleanupPhase.fields[key])
       }
-
     },
     createSection(section) {
 
