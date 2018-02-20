@@ -13,7 +13,7 @@
         <TextAreaField :help-text-t="value.helpTextT" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='select'">
-        {{key}} - select
+        <SelectField :options="value.options" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='multiselect'">
         {{key}} - multiselect
@@ -32,6 +32,7 @@
 import TextField from './TextField.vue';
 import CheckboxField from './CheckboxField';
 import TextAreaField from './TextAreaField';
+import SelectField from './SelectField';
 
 export default {
   props: {
@@ -56,7 +57,8 @@ export default {
   components: {
     TextField,
     CheckboxField,
-    TextAreaField
+    TextAreaField,
+    SelectField
   }
 }
 </script>
