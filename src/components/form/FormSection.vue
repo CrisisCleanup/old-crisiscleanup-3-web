@@ -1,17 +1,16 @@
 <template>
   <section>
-    <h1>{{ titleLabel }}</h1>
+    <h5>{{ $t(titleLabel) }}</h5>
     <div v-for="(value, key) in data.fields">
       <!--{{key}}-->
       <div v-if="value.field_type=='text'">
-        <!--{{key}} - text-->
         <TextField :label-t="value.label_t"></TextField>
       </div>
       <div v-else-if="value.field_type=='hidden'">
         {{key}} - hidden
       </div>
       <div v-else-if="value.field_type=='textarea'">
-        {{key}} - textarea
+        <TextAreaField :help-text-t="value.helpTextT" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='select'">
         {{key}} - select
@@ -20,7 +19,7 @@
         {{key}} - multiselect
       </div>
       <div v-else-if="value.field_type=='checkbox'">
-        {{key}} - checkbox
+        <CheckboxField :options="value.options" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='radio'">
         {{key}} - checkbox
@@ -31,6 +30,9 @@
 
 <script>
 import TextField from './TextField.vue';
+import CheckboxField from './CheckboxField';
+import TextAreaField from './TextAreaField';
+
 export default {
   props: {
     titleLabel: {
@@ -52,7 +54,9 @@ export default {
   computed: {
   },
   components: {
-    TextField
+    TextField,
+    CheckboxField,
+    TextAreaField
   }
 }
 </script>
