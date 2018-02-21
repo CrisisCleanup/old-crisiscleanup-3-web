@@ -2,24 +2,23 @@
   <section>
     <h5>{{ $t(titleLabel) }}</h5>
     <div v-for="(value, key) in data.fields">
-      <!--{{key}}-->
       <div v-if="value.field_type=='text'">
-        <TextField :label-t="value.label_t"></TextField>
+        <TextField :label-t="value.label_t" :help-text-t="value.help_text_t"></TextField>
       </div>
       <div v-else-if="value.field_type=='hidden'">
         {{key}} - hidden
       </div>
       <div v-else-if="value.field_type=='textarea'">
-        <TextAreaField :help-text-t="value.helpTextT" :label-t="value.label_t"/>
+        <TextAreaField :help-text-t="value.help_text_t" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='select'">
-        <SelectField :options="value.options" :label-t="value.label_t"/>
+        <SelectField :help-text-t="value.help_text_t" :options="value.options" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='multiselect'">
         {{key}} - multiselect
       </div>
       <div v-else-if="value.field_type=='checkbox'">
-        <CheckboxField :options="value.options" :label-t="value.label_t"/>
+        <CheckboxField :help-text-t="value.help_text_t" :options="value.options" :label-t="value.label_t"/>
       </div>
       <div v-else-if="value.field_type=='radio'">
         {{key}} - checkbox

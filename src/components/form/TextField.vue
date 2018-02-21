@@ -3,13 +3,12 @@
     <label>{{ $t(labelT) }}
     <span v-if="helpTextT !== null" data-tooltip aria-haspopup="true"
             class="has-tip tip-bottom"
-            :title="helpTextT">
+            :title="$t(helpTextT)">
       <i class="fa fa-question"></i>
     </span>
     <small v-if="allowEditBreakGlass">(<a href="#" @click="">edit</a>)</small>
     </label>
     <input class="form-control" type="text" :readonly="isReadonly"/>
-    <!--<div v-show="siteFormErrors.name" class="text-danger">{{siteFormErrors.name ? siteFormErrors.name[0] : ''}}</div>-->
   </div>
 </template>
 

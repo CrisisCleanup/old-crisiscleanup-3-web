@@ -5,7 +5,7 @@
         {{ $t(labelT) }}
         <span v-if="helpTextT !== null" data-tooltip aria-haspopup="true"
               class="has-tip tip-bottom"
-              :title="helpTextT">
+              :title="$t(helpTextT)">
           <i class="fa fa-question"></i>
         </span>
       </label>
