@@ -67,7 +67,7 @@
 
 <script>
 import { mapMutations, mapState} from 'vuex'
-const PHONE_NUMBER_REGEX = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+const PHONE_NUMBER_REGEX = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
 
 export default {
     components: {
@@ -234,7 +234,7 @@ export default {
             },
             makeCall(){
                 alert("making call")
-                this.$emit('makingCall')
+                this.$emit('makingCall',this.outboundCallNumber)
             }
         }
 }

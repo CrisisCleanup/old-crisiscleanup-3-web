@@ -96,10 +96,7 @@
         });
         } else {
           this.phoneService.changeState(this.callState).catch(err => {console.log(err)});
-        }
-
-        //this.makeOutboundCall('6304707096');
-      
+        }      
       },
       enterAwayState() {
         //change state in store and call center to 'AWAY'
@@ -111,7 +108,7 @@
         {
           //if open, aside should close once the call ends
           document.body.classList.toggle('aside-menu-hidden', this.aside)
-          this.$store.commit('setAsideView');
+          this.$store.commit('setAsideView')
         }
 
         this.phoneService.changeState(this.callState);
@@ -122,16 +119,17 @@
         {
           //if they are on a call and the aside is not already toggled open, open it 
           document.body.classList.toggle('aside-menu-hidden', this.aside)
-          this.$store.commit('setAsideView');
+          this.$store.commit('setAsideView')
         }
       },
-      makeOutboundCall() {
-        //currentState becomes 'TRANSITION' then 'ENGAGED'
+      makeOutboundCall(destination) {
+        //currentState becomes 'TRANSITION'
         //TODO: change store state based on user being on call
         //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
-        if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE")
+        if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
         {
-          this.phoneService.dial('2817971920');
+          //TODO: regex check the destination
+          this.phoneService.dial(destination)
         }
       }, 
       logoutOfPhoneService() {
