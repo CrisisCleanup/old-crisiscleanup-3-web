@@ -8,8 +8,7 @@
     </span>
     <small v-if="allowEditBreakGlass">(<a href="#" @click="">edit</a>)</small>
     </label>
-    <input class="form-control" type="text" :readonly="isReadonly" :value="value"
-           @input="(event) => updateValue(fieldKey, event)"/>
+    <input class="form-control" type="text" :readonly="isReadonly"/>
   </div>
 </template>
 
@@ -52,15 +51,6 @@
       placeholderT: {
         type: String
       },
-      value: {
-        type: String
-      },
-      updateValue: {
-        type: Function
-      },
-      fieldKey: {
-        type: String
-      }
     },
     computed: {
 

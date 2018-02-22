@@ -3,13 +3,15 @@
     <h5>{{ $t(titleLabel) }}</h5>
     <div v-for="(value, key) in data.fields">
       <div v-if="value.field_type=='text'">
-        <TextField :label-t="value.label_t" :help-text-t="value.help_text_t"></TextField>
+        <TextField :label-t="value.label_t" :help-text-t="value.help_text_t"
+                   :is-readonly="value.is_readonly" :value="eventFormData[key]"
+                   :update-value="updateValue" :fieldKey="key"></TextField>
       </div>
       <div v-else-if="value.field_type=='hidden'">
         {{key}} - hidden
       </div>
       <div v-else-if="value.field_type=='textarea'">
-        <TextAreaField :help-text-t="value.help_text_t" :label-t="value.label_t"/>
+        <TextAreaField :help-text-t="value.help_text_t" :label-t="value.label_t" :is-readonly="value.is_readonly"/>
       </div>
       <div v-else-if="value.field_type=='select'">
         <SelectField :help-text-t="value.help_text_t" :options="value.options" :label-t="value.label_t"/>
@@ -18,7 +20,7 @@
         {{key}} - multiselect
       </div>
       <div v-else-if="value.field_type=='checkbox'">
-        <CheckboxField :help-text-t="value.help_text_t" :options="value.options" :label-t="value.label_t"/>
+        <CheckboxField :help-text-t="value.help_text_t" :options="value.options" :label-t="value.label_t" />
       </div>
       <div v-else-if="value.field_type=='radio'">
         {{key}} - checkbox
@@ -50,6 +52,12 @@ export default {
     isRequired: {
       type: Boolean
     },
+    eventFormData: {
+      type: Object
+    }
+  },
+  data() {
+    return {}
   },
   computed: {
   },
@@ -58,6 +66,12 @@ export default {
     CheckboxField,
     TextAreaField,
     SelectField
+  },
+  methods: {
+    updateValue(key, event) {
+      this.eventFormData[key] = event.target.value;
+      console.log(this.eventFormData)
+    }
   }
 }
 </script>
