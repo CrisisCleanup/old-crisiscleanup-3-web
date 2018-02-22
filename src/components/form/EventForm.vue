@@ -4,6 +4,8 @@
         <FormSection :title-label="value.label_t"
                      :label-name="key"
                      :data="value"
+                     :event-form-data="eventFormData"
+                     :update-event_form-data="updateEventFormData"
         ></FormSection>
       </div>
   </div>
@@ -18,6 +20,10 @@ import FormSection from './FormSection.vue'
 export default {
   data() {
     return {
+      eventFormData: {
+        name: "Johnson",
+        request_date: "12/1/2018"
+      }
     }
   },
   mounted() {
@@ -39,6 +45,13 @@ export default {
     FormSection
   },
   methods: {
+    updateEventFormData (e) {
+      let id = e.target.id;
+      let fieldId = id.replace('legacy_legacy_site_', '');
+      let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData);
+      currentSiteData[fieldId] = e.target.value;
+      this.$store.commit('setCurrentSiteData', currentSiteData);
+    }
   }
 }
 </script>
