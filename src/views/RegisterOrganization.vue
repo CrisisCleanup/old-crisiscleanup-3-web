@@ -10,8 +10,8 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h1>{{ $t('register_org.register_org') }}</h1>
-                <h3>{{ $t('register_org.survivor_register_msg') }}</h3>
+                <h1>{{ $t('registerOrg.register_org') }}</h1>
+                <h3>{{ $t('registerOrg.survivor_register_msg') }}</h3>
               </div>
             </div>
             <br>
@@ -23,7 +23,7 @@
             <div class="row">
               <div class="col-md-6">
                 <b-form-fieldset
-                  v-bind:label = "$t('register_org.choose_a_disaster')"
+                  v-bind:label = "$t('registerOrg.choose_a_disaster')"
                   :label-cols="3"
                   :horizontal="true">
                   <b-form-select
@@ -39,20 +39,20 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('register_org.primary_contact') }}</h5>
+                <h5>{{ $t('registerOrg.primary_contact') }}</h5>
 
               </div>
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.first_name')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.first_name')" required
                                 v-model="contact_firstname"
                                 :state="orgFormErrors.contact.hasOwnProperty('firstname') ? false : null"
                   ></b-form-input>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.email')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.email')" required
                                 :state="orgFormErrors.contact.hasOwnProperty('email') ? false : null"
                                 v-model="contact_email"></b-form-input>
                 </div>
@@ -60,13 +60,13 @@
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.last_name')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.last_name')" required
                                 :state="orgFormErrors.contact.hasOwnProperty('lastname') ? false : null"
                                 v-model="contact_lastname"></b-form-input>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-phone"></i></span>
-                  <b-form-input type="tel" class="form-control" v-bind:placeholder = "$t('register_org.cell_phone_number')"
+                  <b-form-input type="tel" class="form-control" v-bind:placeholder = "$t('registerOrg.cell_phone_number')"
                                 :state="orgFormErrors.contact.hasOwnProperty('phone') ? false : null"
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required v-model="contact_phone"></b-form-input>
                 </div>
@@ -75,40 +75,40 @@
             <br>
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('register_org.org_info') }}</h5>
-                <h6>{{ $t('register_org.use_local_org_name_msg') }}</h6>
+                <h5>{{ $t('registerOrg.org_info') }}</h5>
+                <h6>{{ $t('registerOrg.use_local_org_name_msg') }}</h6>
               </div>
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <b-form-input type="text" v-bind:placeholder = "$t('register_org.organization_name')" v-model="name"
+                  <b-form-input type="text" v-bind:placeholder = "$t('registerOrg.organization_name')" v-model="name"
                                 :state="orgFormErrors.hasOwnProperty('name') ? false : null" required></b-form-input>
                   <!--<b-form-invalid-feedback>{{errorName}}</b-form-invalid-feedback>-->
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.address')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.address')" required
                                 v-model="address" :state="orgFormErrors.hasOwnProperty('address') ? false : null"></b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.state')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.state')" required
                                 :state="orgFormErrors.hasOwnProperty('state') ? false : null"
                                 v-model="state"></b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.referral')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.referral')" required
                                 :state="orgFormErrors.hasOwnProperty('referral') ? false : null"
                                 v-model="referral"></b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-social-facebook"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.facebook')"
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.facebook')"
                                 :state="orgFormErrors.hasOwnProperty('facebook') ? false : null"
                                 v-model="facebook"></b-form-input>
                 </div>
@@ -118,35 +118,35 @@
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                  <b-form-input type="email" class="form-control" v-bind:placeholder = "$t('register_org.email')" required
+                  <b-form-input type="email" class="form-control" v-bind:placeholder = "$t('registerOrg.email')" required
                                 :state="orgFormErrors.hasOwnProperty('email') ? false : null"
                                 v-model="email"></b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.city')" required
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.city')" required
                                 :state="orgFormErrors.hasOwnProperty('city') ? false : null"
                                 v-model="city"></b-form-input>
                 </div>
 
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('register_org.zip_code')" required pattern="[0-9]{5}"
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.zip_code')" required pattern="[0-9]{5}"
                                 :state="orgFormErrors.hasOwnProperty('zip_code') ? false : null"
                                 v-model="zip_code"></b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <b-form-input type="url" class="form-control" v-bind:placeholder = "$t('register_org.website')"
+                  <b-form-input type="url" class="form-control" v-bind:placeholder = "$t('registerOrg.website')"
                                 :state="orgFormErrors.hasOwnProperty('url') ? false : null"
                                 v-model="url"></b-form-input>
                 </div>
 
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-social-twitter"></i></span>
-                  <b-form-input type="password" class="form-control" v-bind:placeholder = "$t('register_org.twitter')"
+                  <b-form-input type="password" class="form-control" v-bind:placeholder = "$t('registerOrg.twitter')"
                                 :state="orgFormErrors.hasOwnProperty('twitter') ? false : null"
                                 v-model="twitter"></b-form-input>
                 </div>
@@ -156,48 +156,48 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('register_org.org_roles') }}</h5>
+                <h5>{{ $t('registerOrg.org_roles') }}</h5>
 
               </div>
               <div class="col-md-12">
                   <b-form-checkbox v-model="review_other_organizations">
-                    <b>{{ $t('register_org.review_approve') }}</b> {{ $t('register_org.review_approve_msg') }}
+                    <b>{{ $t('registerOrg.review_approve') }}</b> {{ $t('registerOrg.review_approve_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_damage_assessment">
-                    <b>{{ $t('register_org.damage_assessment') }}</b> {{ $t('register_org.damage_assessment_msg') }}
+                    <b>{{ $t('registerOrg.damage_assessment') }}</b> {{ $t('registerOrg.damage_assessment_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_cleanup">
-                    <b>{{ $t('register_org.cleanup') }}</b> {{ $t('register_org.cleanup_msg') }}
+                    <b>{{ $t('registerOrg.cleanup') }}</b> {{ $t('registerOrg.cleanup_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_follow_up">
-                    <b>{{ $t('register_org.follow_up') }}</b> {{ $t('register_org.follow_up_msg') }}
+                    <b>{{ $t('registerOrg.follow_up') }}</b> {{ $t('registerOrg.follow_up_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_minor_repairs">
-                    <b>{{ $t('register_org.minor_repairs') }}</b> {{ $t('register_org.minor_repairs_msg') }}
+                    <b>{{ $t('registerOrg.minor_repairs') }}</b> {{ $t('registerOrg.minor_repairs_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_rebuilding">
-                    <b>{{ $t('register_org.rebuilding') }}</b> {{ $t('register_org.rebuilding_msg') }}
+                    <b>{{ $t('registerOrg.rebuilding') }}</b> {{ $t('registerOrg.rebuilding_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_coordination">
-                    <b>{{ $t('register_org.coordination') }}</b> {{ $t('register_org.coordination_msg') }}
+                    <b>{{ $t('registerOrg.coordination') }}</b> {{ $t('registerOrg.coordination_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="government">
-                    <b>{{ $t('register_org.government') }}</b> {{ $t('register_org.government_msg') }}
+                    <b>{{ $t('registerOrg.government') }}</b> {{ $t('registerOrg.government_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="does_other_activity">
-                    <b>{{ $t('register_org.other_activity') }}</b> {{ $t('register_org.other_activity_msg') }}
+                    <b>{{ $t('registerOrg.other_activity') }}</b> {{ $t('registerOrg.other_activity_msg') }}
                   </b-form-checkbox>
                   <br>
                   <b-form-checkbox v-model="not_an_org">
-                    <b>{{ $t('register_org.not_organization') }}</b> {{ $t('register_org.not_organization_msg') }}
+                    <b>{{ $t('registerOrg.not_organization') }}</b> {{ $t('registerOrg.not_organization_msg') }}
                   </b-form-checkbox>
               </div>
 
@@ -205,18 +205,18 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="input-group mb-4">
-                  <input type="text" class="form-control" v-bind:placeholder = "$t('register_org.where_working')" v-model="where_are_you_working">
+                  <input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.where_working')" v-model="where_are_you_working">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <b-form-checkbox v-model="publishable">
-                  <b>{{ $t('register_org.publish_profile') }}</b>
+                  <b>{{ $t('registerOrg.publish_profile') }}</b>
                 </b-form-checkbox>
                 <br>
                 <b-form-checkbox v-model="accepted_terms">
-                  <b>{{ $t('register_org.tos_priv_1') }} <router-link to="terms">{{ $t('register_org.tos_priv_tos') }}</router-link> {{ $t('register_org.tos_priv_and') }} <router-link to="privacy">{{ $t('register_org.tos_priv_priv') }}</router-link>{{ $t('register_org.tos_priv_2') }}</b>
+                  <b>{{ $t('registerOrg.tos_priv_1') }} <router-link to="terms">{{ $t('registerOrg.tos_priv_tos') }}</router-link> {{ $t('registerOrg.tos_priv_and') }} <router-link to="privacy">{{ $t('registerOrg.tos_priv_priv') }}</router-link>{{ $t('registerOrg.tos_priv_2') }}</b>
                 </b-form-checkbox>
               </div>
             </div>

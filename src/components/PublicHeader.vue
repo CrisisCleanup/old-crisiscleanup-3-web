@@ -1,7 +1,7 @@
 <template>
   <header class="app-header navbar">
     <router-link class="navbar-brand" to="map"></router-link>
-    <b-nav is-nav-bar class="d-md-down-none">
+    <b-nav b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3"><router-link to="map">{{ $t('publicHeader.realtime_map') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-donate">{{ $t('publicHeader.donate') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-poweredby">{{ $t('publicHeader.poweredby') }}</router-link></b-nav-item>
@@ -9,17 +9,27 @@
       <b-nav-item class="px-3"><router-link to="map#go-whyccu">{{ $t('publicHeader.testimonials') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-join">{{ $t('publicHeader.join') }}</router-link></b-nav-item>
     </b-nav>
-    <b-nav is-nav-bar class="ml-auto">
+    <b-nav b-navbar-nav class="ml-auto">
       <b-nav-item class="px-3"><router-link to="register-organization">{{ $t('publicHeader.register') }}</router-link></b-nav-item>
-      <b-nav-item class="px-3"><router-link to="login">{{ $t('publicHeader.login') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link :to="loginRouteState">{{loginState}}</router-link></b-nav-item>
     </b-nav>
   </header>
 </template>
 <script>
 import vueAuthInstance from '@/services/auth';
+import {mapState} from 'vuex';
 export default {
 
   name: 'header',
+  computed: {
+    ...mapState('auth', ['isAuthenticated']),
+    loginState() {
+      return this.$store.state.auth.isAuthenticated ? 'Dashboard' : 'Login';
+    },
+    loginRouteState() {
+      return this.$store.state.auth.isAuthenticated ? 'worker' : 'login';
+    }
+  },
   methods: {
     sidebarToggle (e) {
       e.preventDefault()
@@ -57,7 +67,6 @@ export default {
         behavior: 'smooth'
       })
     }
-
   }
 }
 </script>

@@ -4,13 +4,13 @@
       <div class="col">
         <div class="mx-auto" role="group">
           <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
-          <button id="searchFilterBtn" @click="fireSearchFilterBtn" class="btn btn-secondary">{{ $t('actions.save') }}</button>
-          <!--<b-btn id="printBtn" v-b-modal.modal1>{{ $t('actions.print') }}</b-btn>-->
-           <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
-                  v-show="isCurrentSiteClaimedByUserOrg || !isSiteClaimed"
-                  v-text="isSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
-          <button id="historyBtn" class="btn btn-secondary">{{ $t('actions.history') }}</button>
-          <!--<button @click="contactOrg" class="btn btn-secondary">{{ $t('actions.contact') }}</button>-->
+          <button type="button" v-show="getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">{{ $t('actions.save') }}</button>
+          <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
+          <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
+                  v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed"
+                  v-text="isCurrentSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
+          <button id="historyBtn" v-show="getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>
+          <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
         </div>
       </div>
       <PrintWorksite />
@@ -19,6 +19,7 @@
 </template>
 <script>
   import PrintWorksite from './PrintWorksite';
+  import {mapGetters} from 'vuex';
   export default {
     data() {
       return {
@@ -29,12 +30,7 @@
       PrintWorksite
     },
     computed: {
-      isSiteClaimed() {
-        return this.$store.getters.isCurrentSiteClaimed;
-      },
-      isCurrentSiteClaimedByUserOrg() {
-        return this.$store.getters.isCurrentSiteClaimedByUserOrg;
-      }
+      ...mapGetters(['isCurrentSiteClaimed', 'isCurrentSiteClaimedByUserOrg', 'getWorksiteViews'])
     },
     methods: {
       enterNewSite() {
@@ -42,8 +38,8 @@
         this.$store.commit('resetCurrentSiteData');
         this.$store.commit('setSiteFormErrors', {})
       },
-      fireSearchFilterBtn() {
-        this.$store.commit('setActiveWorksiteView', {view: 'searchFilter'})
+      saveForm() {
+        this.$store.dispatch('saveSite');
       },
       contactOrg() {
         console.log("Contact org");
