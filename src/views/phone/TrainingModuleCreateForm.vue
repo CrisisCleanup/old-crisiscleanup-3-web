@@ -51,7 +51,7 @@
                     </b-list-group-item>
                   </b-list-group>
                   <b-card-body>
-                    <button class="btn btn-success" @click="addQuestion"><i class="icon-plus"></i></button>
+                    <b-button class="btn btn-success" @click.prevent="addQuestion"><i class="icon-plus"></i></b-button>
                   </b-card-body>
                 </b-card>
               <b-button type="submit" variant="primary">Save</b-button>

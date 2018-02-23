@@ -12,19 +12,19 @@ export default {
   },
 
   mutations: {
-    isAuthenticated (state, payload) {
+    isAuthenticated(state, payload) {
       state.isAuthenticated = payload.isAuthenticated
     },
 
-    setProfile (state, payload) {
+    setProfile(state, payload) {
       state.profile = payload.profile
     },
 
-    setLoginErrors (state, payload) {
+    setLoginErrors(state, payload) {
       state.loginErrors = payload.hasError;
     },
 
-    setIsTokenExpired (state, payload) {
+    setIsTokenExpired(state, payload) {
       state.isTokenExpired = payload.isTokenExpired;
     }
   },
@@ -32,11 +32,12 @@ export default {
   getters: {
     getUserId: state => state.profile.id,
     getUserName: state => state.profile.name,
-    getIsAuthenticated: state => state.isAuthenticated
+    getIsAuthenticated: state => state.isAuthenticated,
+    getProfile: state => state.profile
   },
 
   actions: {
-    login (context, payload) {
+    login(context, payload) {
       payload = payload || {};
       return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
         const decodedToken = jwt_decode(resp.data.access_token);
@@ -47,31 +48,31 @@ export default {
         context.commit('setProfile', {
           profile: decodedToken.user_claims
         });
-      }, function(error) {
+      }, function (error) {
         console.log(error);
-        context.commit('setLoginErrors', {hasError: true});
+        context.commit('setLoginErrors', { hasError: true });
       })
     },
 
     register(context, payload) {
-        payload = payload || {}
-        return vueAuthInstance.register(payload.user, payload.requestOptions).then(function() {
-            context.commit('isAuthenticated', {
-                isAuthenticated: vueAuthInstance.isAuthenticated()
-            })
+      payload = payload || {}
+      return vueAuthInstance.register(payload.user, payload.requestOptions).then(function () {
+        context.commit('isAuthenticated', {
+          isAuthenticated: vueAuthInstance.isAuthenticated()
         })
+      })
     },
 
     logout(context, payload) {
-        payload = payload || {}
-        return vueAuthInstance.logout(payload.requestOptions).then(function() {
-            context.commit('isAuthenticated', {
-                isAuthenticated: vueAuthInstance.isAuthenticated()
-            })
+      payload = payload || {}
+      return vueAuthInstance.logout(payload.requestOptions).then(function () {
+        context.commit('isAuthenticated', {
+          isAuthenticated: vueAuthInstance.isAuthenticated()
         })
+      })
     },
 
-    authenticate (context, payload) {
+    authenticate(context, payload) {
       payload = payload || {}
       return vueAuthInstance.authenticate(payload.provider, payload.userData, payload.requestOptions).then(function () {
         context.commit('isAuthenticated', {
@@ -80,14 +81,14 @@ export default {
       })
     },
 
-    checkToken ({state, commit}) {
+    checkToken({ state, commit }) {
       const token = vueAuthInstance.getToken();
-      var decodedToken = jwt.decode(token, {complete: true});
+      var decodedToken = jwt.decode(token, { complete: true });
       var dateNow = new Date();
 
       if (!decodedToken) {
         commit('setIsTokenExpired', false)
-      } else if(decodedToken.exp < dateNow.getTime()) {
+      } else if (decodedToken.exp < dateNow.getTime()) {
         commit('setIsTokenExpired', true)
       } else {
         commit('setIsTokenExpired', false)

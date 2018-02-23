@@ -103,115 +103,134 @@
   </div>
 </template>
 <script>
-  import Vue from 'vue';
-  import {mapGetters} from 'vuex';
+import Vue from "vue";
+import { mapGetters } from "vuex";
 
-  export default {
-    data() {
-        return {
-          callUserExists: false,
-          userProfile: {
-            name: null,
-            email: null,
-            phoneNumber: null,
-            myOrganization: null,
-            isContactForOrganization: false,
-            isAdmin: false
-          },
-          callCenterOptions: {
-            callCenterNumber: null,
-            willingToReceiveCalls: false,
-            willingToBeCallSupport: false,
-            willingToBeCallHero: false,
-            callLanguages: []
-          },
-          mapOptions: {
-            willingToBePinHero: false,
-          },
-          languageOptions: ["Spanish","Mandarin"],
-          organizationOptions: []  
-      }
-    },
-    created: function() {
-      this.populateInitialForm();
-    },
-    computed: {
-      ...mapGetters('auth', {
-        userId: 'getUserId',
-        authUserProfile: 'getProfile'
-      }),
-      ...mapGetters('phone', {
-        user: 'getUser'
-      })
-    },
-    methods: {
-      async populateInitialForm(){
-        //Get the user's caller information
-        await this.$store.dispatch('phone/getUserDetails', {userId: this.userId, overwrite: false}).then(() => {
-          if(this.user != null){
+export default {
+  data() {
+    return {
+      callUserExists: false,
+      userProfile: {
+        name: null,
+        email: null,
+        phoneNumber: null,
+        myOrganization: null,
+        isContactForOrganization: false,
+        isAdmin: false
+      },
+      callCenterOptions: {
+        callCenterNumber: null,
+        willingToReceiveCalls: false,
+        willingToBeCallSupport: false,
+        willingToBeCallHero: false,
+        callLanguages: []
+      },
+      mapOptions: {
+        willingToBePinHero: false
+      },
+      languageOptions: ["Spanish", "Mandarin"],
+      organizationOptions: []
+    };
+  },
+  created: function() {
+    this.populateInitialForm();
+  },
+  computed: {
+    ...mapGetters("auth", {
+      userId: "getUserId",
+      authUserProfile: "getProfile"
+    }),
+    ...mapGetters("phone", {
+      user: "getUser"
+    })
+  },
+  methods: {
+    async populateInitialForm() {
+      //Get the user's caller information
+      await this.$store
+        .dispatch("phone/getUserDetails", {
+          userId: this.userId,
+          overwrite: false
+        })
+        .then(() => {
+          if (this.user != null) {
             //var user = this.$store.state.phone.user;
-            this.callUserExists = true
+            this.callUserExists = true;
             this.callCenterOptions.callCenterNumber = this.user.last_used_phone_number;
             this.callCenterOptions.willingToReceiveCalls = this.user.willing_to_receive_calls;
             this.callCenterOptions.willingToBeCallSupport = this.user.willing_to_be_call_center_support;
             this.callCenterOptions.willingToBeCallHero = this.user.willing_to_be_call_hero;
-            if(this.user.supported_languages != null){
-              this.callCenterOptions.callLanguages = this.user.supported_languages.split(',');
+            if (this.user.supported_languages != null) {
+              this.callCenterOptions.callLanguages = this.user.supported_languages.split(
+                ","
+              );
             }
             this.mapOptions.willingToBePinHero = this.user.willing_to_be_pin_hero;
           }
-        }).catch(err => {
+        })
+        .catch(err => {
           this.callUserExists = false;
         });
-        //Set the current user details 
-        console.log(this.authUserProfile);
-        this.userProfile.myOrganization = this.$store.state.worker.currentOrgId;
-        this.userProfile.name = this.authUserProfile.name;
-        //NOTE: email and mobile are no longer part of the 
-        //user object property "identity" might be email ? 
-
-        //this.userProfile.email = this.authUserProfile.email;
-        //this.userProfile.phoneNumber = this.authUserProfile.mobile;
-        Vue.axios.get(`/organizations?is_active=true&ordering=-created_at&limit=500`).then(resp => {
-          this.organizationOptions = resp.data.results.map(function(organization) {
-            return {text: organization.name, value: organization.uid};
-          })
+      //Set the current user details
+      this.userProfile.myOrganization = this.$store.state.worker.currentOrgId;
+      this.userProfile.name = this.authUserProfile.name;
+      this.userProfile.email = this.$store.state.worker.currentUserEmail;
+      this.userProfile.phoneNumber = this.$store.state.worker.currentUserPhoneNumber;
+      Vue.axios
+        .get(`/organizations?is_active=true&ordering=-created_at&limit=500`)
+        .then(resp => {
+          this.organizationOptions = resp.data.results.map(function(
+            organization
+          ) {
+            return { text: organization.name, value: organization.uid };
+          });
         });
-      },
-      onSubmit (evt) {
-        evt.preventDefault();
-        //TODO: Save non-call center data
+    },
+    onSubmit(evt) {
+      evt.preventDefault();
+      //TODO: Save non-call center data
 
-        //Save call center information
-        var userData = {
-          id: this.userId,
-          name: this.userProfile.name,
-          willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
-          willing_to_be_call_center_support: this.callCenterOptions.willingToBeCallSupport,
-          willing_to_be_call_hero: this.callCenterOptions.willingToBeCallHero && this.callCenterOptions.willingToReceiveCalls, //They can't be a call hero and not receive calls
-          supported_languages: this.callCenterOptions.callLanguages.join(','),
-          willing_to_be_pin_hero: this.mapOptions.willingToBePinHero,
-          last_used_phone_number: this.userProfile.phoneNumber || this.callCenterOptions.callCenterNumber
-        };
-        if(userData.supported_languages == ""){
-          userData.supported_languages = null;
-        }
-        if(this.callUserExists) {
-          this.$store.dispatch('phone/updateUser', userData).then(() => {
-            this.$router.push({path: '/worker/dashboard'});
-          })
+      //Save call center information
+      var userData = {
+        id: this.userId,
+        name: this.userProfile.name,
+        willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
+        willing_to_be_call_center_support: this.callCenterOptions
+          .willingToBeCallSupport,
+        willing_to_be_call_hero:
+          this.callCenterOptions.willingToBeCallHero &&
+          this.callCenterOptions.willingToReceiveCalls, //They can't be a call hero and not receive calls
+        supported_languages: this.callCenterOptions.callLanguages.join(","),
+        willing_to_be_pin_hero: this.mapOptions.willingToBePinHero,
+        last_used_phone_number:
+          this.userProfile.phoneNumber ||
+          this.callCenterOptions.callCenterNumber
+      };
+      if (userData.supported_languages == "") {
+        userData.supported_languages = null;
+      }
+      if (this.callUserExists) {
+        this.$store.dispatch("phone/updateUser", userData).then(() => {
+          this.$router.push({ path: "/worker/dashboard" });
+        });
+      } else {
+        //Only create a new one if they checked call center / mapper options
+        if (
+          userData.willing_to_receive_calls ||
+          userData.willing_to_be_call_center_support ||
+          userData.willing_to_be_pin_hero
+        ) {
+          Vue.axios
+            .post(`${process.env.API_PHONE_ENDPOINT}/users`, userData)
+            .then(resp => {
+              this.$store.commit("phone/setUser", resp.data);
+              this.$router.push({ path: "/worker/dashboard" });
+            });
         } else {
-          //Only create a new one if they checked call center / mapper options
-          if(userData.willing_to_receive_calls || userData.willing_to_be_call_center_support || userData.willing_to_be_pin_hero) {
-            Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/users`, userData).then(resp => {
-              this.$store.commit('phone/setUser', resp.data)
-              this.$router.push({path: '/worker/dashboard'});
-            })
-          } else {
-            this.$router.push({path: '/worker/dashboard'});
-          }
+          this.$router.push({ path: "/worker/dashboard" });
         }
-      },
+      }
     }
   }
+};
 </script>
