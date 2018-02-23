@@ -21,6 +21,6 @@ export default function(claimed_by, status, work_type) {
     color = 'red';
   }
   var baseUrl = `${window.location.protocol}//${window.location.host}`;
-  return `${baseUrl}/static/img/map_icons/${work_type.replace(/\s+/g, '_')}_${color}.png`;
+  return `${baseUrl}/static/img/map_icons/${work_type.replace(/\s+/g, '_')}_red.png`;
 }
 
