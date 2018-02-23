@@ -15,10 +15,11 @@
             <div class = "card text-white bg-dark col-4 text-center">
                 <div class = "card-body">
                     <button v-bind:class="{'btn-success' : this.callState != 'AVAILABLE', 'btn-danger' : this.callState == 'AVAILABLE'}" v-on:click="startTakingCalls">{{this.getMessage()}}</button>
-                    <p class = "card-text">
+                    <!--TODO: queue functionality doesn't exist yet
+                        p class = "card-text">
                         calls in queue</br>
                         32
-                    </p>
+                    </p-->
                 </div>
             </div>
         </div>

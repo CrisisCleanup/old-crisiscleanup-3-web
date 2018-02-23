@@ -20,12 +20,12 @@
             <b-form-select v-model.trim="updatedGateway" :options="gatewayOptions"></b-form-select>
           </b-form-group>
 
-          <b-form-group
+          <!--b-form-group
             id="updatedStates"
             label="Also confirm the states you will make calls to"
             label-for="updatedStates">
             <b-form-input v-model.trim="updatedStates" v-bind:placeholder="user.last_used_state"></b-form-input>
-          </b-form-group>
+          </b-form-group-->
 
       <b-button type="submit" variant="light">Submit</b-button>
 
@@ -46,7 +46,7 @@
       return {
         updatedGateway: null,
         updatedPhone: null,
-        updatedStates: null,
+        //updatedStates: null,
         gatewayOptions: []
       };
     },
@@ -79,8 +79,8 @@
         //TODO: add functionality to turn states into an array or make singular 'confirm the state'
         var userData = {
           id: this.userId,
-          last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone,
-          last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
+          last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone
+          //last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
         }
 
         //update Gateway if necessary
@@ -93,7 +93,7 @@
         //after updating gateway - update user
         if (userData.id != null) {
           this.$store.dispatch('phone/updateUser', userData).then(() => {
-            this.$emit('confirm', {changedInfo: (this.updatedGateway != null || this.updatedPhone != null || this.updatedStates != null)});
+            this.$emit('confirm', {changedInfo: (this.updatedGateway != null || this.updatedPhone != null /*|| this.updatedStates != null*/)});
           }).catch(err => {
             console.log(err);
           }); 

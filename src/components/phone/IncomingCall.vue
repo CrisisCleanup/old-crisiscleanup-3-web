@@ -45,13 +45,13 @@
                                     </td>
                                 </tr>
                             </table>
-
-                    <!--b-tabs class>
+                    <!--TODO: In the future, add component to show information at bottom - Area for chat, map, etc. 
+                    <b-tabs class>
                         <b-tab title="Log" active>
                             <br>Log
                         </b-tab>
-                        <b-tab title="Intake" >
-                            <br>Intake
+                        <b-tab title="Chat" >
+                            <br>Chat
                         </b-tab>
                         <b-tab title="Map">
                             <br>Map

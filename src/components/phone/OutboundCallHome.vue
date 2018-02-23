@@ -233,7 +233,6 @@ export default {
                 this.makingCall = true
             },
             makeCall(){
-                alert("making call")
                 this.$emit('makingCall',this.outboundCallNumber)
             }
         }
