@@ -1,0 +1,222 @@
+<template>
+  <div>
+    <v-loading loader="getSite">
+      <template slot='spinner'>
+        <div class="row">
+          <div class="col">
+            <pulse-loader></pulse-loader>
+          </div>
+        </div>
+      </template>
+      <div class="row">
+        <div class="col">
+          <ul v-show="Object.keys(eventFormData).length === 0">
+            <li>Claimed By: {{eventFormData.claimed_by_uid}}</li>
+          </ul>
+          <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
+            <ul>
+              <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
+            </ul>
+          </div>
+          <form>
+            <div v-for="(value, key) in phaseCleanup.fields">
+              <FormSection :title-label="value.label_t"
+                           :label-name="key"
+                           :form-data="value"
+                           :event-form-data="eventFormData"
+                           :update-event-form-data="updateEventFormData"
+              ></FormSection>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br/>
+      <br/>
+    </v-loading>
+  </div>
+</template>
+
+<script>
+import EventData1 from '../../forms/1-hurricane_sandy_recovery.json';
+import EventData2 from '../../forms/2-hattiesburg_ms_tornado.json';
+import EventData3 from '../../forms/3-gordon_bartow_ga_tornado.json';
+import EventData4 from '../../forms/4-moore_ok_tornado.json';
+import EventData5 from '../../forms/5-black_forest_fire_co.json';
+import EventData6 from '../../forms/6-colorado_floods.json';
+import EventData7 from '../../forms/7-midwest_tornadoes.json';
+import EventData8 from '../../forms/8-midwest_winter_floods.json';
+import EventData9 from '../../forms/9-southern_tornadoes_dec_2015.json';
+import EventData10 from '../../forms/10-northern_illinois_tornadoes.json';
+import EventData11 from '../../forms/11-nj_coastal_floods_jan_2016.json';
+import EventData12 from '../../forms/12-eastcoast_snowstorms.json';
+import EventData13 from '../../forms/13-oct_2015_east_coast_floods.json';
+import EventData14 from '../../forms/14-ms_al_tornadoes_feb_2016.json';
+import EventData15 from '../../forms/15-la_ms_tx_flooding_march_2016.json';
+import EventData16 from '../../forms/16-oct_2015_tx_floods.json';
+// import EventData17 from '../../forms/17-va_tornadoes.json';
+import EventData18 from '../../forms/18-louisville_ms_torndao.json';
+import EventData19 from '../../forms/19-texas_oklahoma_floods.json';
+import EventData20 from '../../forms/20-flint_michigan_water_crisis.json';
+import EventData21 from '../../forms/21-long_island_nj_floods.json';
+import EventData22 from '../../forms/22-baxter_springs_ks.json';
+import EventData23 from '../../forms/23-columbia_ms_tornado.json';
+import EventData24 from '../../forms/24-se_michigan_floods.json';
+import EventData25 from '../../forms/25-sc_fast_track_repairs.json';
+import EventData26 from '../../forms/26-lusk_wy_flood.json';
+import EventData27 from '../../forms/27-se_tx_floods_april_2016.json';
+import EventData28 from '../../forms/28-may_2016_tx_floods.json';
+import EventData29 from '../../forms/29-ft_mcmurray_alberta_fire.json';
+import EventData30 from '../../forms/30-wv_va_june_2016_flood.json';
+import EventData31 from '../../forms/31-nederland_cold_springs_fire.json';
+import EventData32 from '../../forms/32-mn_storms_july_2016.json';
+import EventData33 from '../../forms/33-pine_bluffs_wy_hailstorms_jul_2016.json';
+import EventData34 from '../../forms/34-wv_minor_repairs_jun_2016.json';
+import EventData35 from '../../forms/35-roaring_lion_fire.json';
+import EventData36 from '../../forms/36-south_holland_il_flood.json';
+import EventData37 from '../../forms/37-la_ms_flood_aug_2016.json';
+import EventData38 from '../../forms/38-wyoming_mi_tornado_aug_2016.json';
+import EventData40 from '../../forms/40-mn_wi_ia_flood_sep_2016.json';
+import EventData41 from '../../forms/41-hurricane_matthew_all_states.json';
+import EventData42 from '../../forms/42-hurricane_hermine.json';
+import EventData43 from '../../forms/43-gatlinburg_tn_fire.json';
+import EventData44 from '../../forms/44-so_co_winds.json';
+import EventData45 from '../../forms/45-hattiesburg_petal_tornado.json';
+import EventData46 from '../../forms/46-s_ga_tornadoes_jan_2017.json';
+import EventData47 from '../../forms/47-new_orleans_tornadoes_feb_2017.json';
+import EventData48 from '../../forms/48-san_antonio_tx_tornadoes.json';
+import EventData49 from '../../forms/49-il_tornadoes_feb_2017.json';
+import EventData50 from '../../forms/50-eastern_mo_tornadoes_mar_2017.json';
+import EventData51 from '../../forms/51-virginia_beach_tornado_mar_2017.json';
+import EventData52 from '../../forms/52-east_texas_tornadoes_april_2017.json';
+import EventData53 from '../../forms/53-mo_flooding_may_2017.json';
+import EventData54 from '../../forms/54-troy_se_mi_floods_2017.json';
+import EventData55 from '../../forms/55-holmes_county_ms_tornadoes_may_2017.json';
+import EventData56 from '../../forms/56-nw_wi_tornado_may_2017.json';
+import EventData57 from '../../forms/57-mid_mi_floods_june_2017.json';
+import EventData58 from '../../forms/58-illinois_wisconsin_floods_jul_2017.json';
+import EventData59 from '../../forms/59-west_virginia_flood_jul_2017.json';
+import EventData60 from '../../forms/60-hurricane_harvey.json';
+import EventData61 from '../../forms/61-hurricane_irma.json';
+import EventData62 from '../../forms/62-hurricane_nate.json';
+import EventData63 from '../../forms/63-hudson_cedar_rock_nc_tornado.json';
+import EventData64 from '../../forms/64-terremotos_de_m├⌐xico_septiembre_2017.json';
+import EventData65 from '../../forms/65-northern_california_fires.json';
+import EventData66 from '../../forms/66-hurricane_maria.json';
+import EventData67 from '../../forms/67-bowie_county_tx_tornado.json';
+
+import FormSection from './FormSection.vue'
+import {loaded} from 'vue2-google-maps'
+import {mapGetters} from 'vuex';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
+export default {
+  data() {
+    return {}
+  },
+  mounted() {
+  },
+  computed: {
+    phaseCleanup: function() {
+      const eid = this.$store.state.worker.event.event_id;
+      switch(eid) {
+        case 1: return EventData1.phase_cleanup;
+        case 2: return EventData2.phase_cleanup;
+        case 3: return EventData3.phase_cleanup;
+        case 4: return EventData4.phase_cleanup;
+        case 5: return EventData5.phase_cleanup;
+        case 6: return EventData6.phase_cleanup;
+        case 7: return EventData7.phase_cleanup;
+        case 8: return EventData8.phase_cleanup;
+        case 9: return EventData9.phase_cleanup;
+        case 10: return EventData10.phase_cleanup;
+        case 11: return EventData11.phase_cleanup;
+        case 12: return EventData12.phase_cleanup;
+        case 13: return EventData13.phase_cleanup;
+        case 14: return EventData14.phase_cleanup;
+        case 15: return EventData15.phase_cleanup;
+        case 16: return EventData16.phase_cleanup;
+        // case 17: return EventData17.phase_cleanup;
+        case 18: return EventData18.phase_cleanup;
+        case 19: return EventData19.phase_cleanup;
+        case 20: return EventData20.phase_cleanup;
+        case 21: return EventData21.phase_cleanup;
+        case 22: return EventData22.phase_cleanup;
+        case 23: return EventData23.phase_cleanup;
+        case 24: return EventData24.phase_cleanup;
+        case 25: return EventData25.phase_cleanup;
+        case 26: return EventData26.phase_cleanup;
+        case 27: return EventData27.phase_cleanup;
+        case 28: return EventData28.phase_cleanup;
+        case 29: return EventData29.phase_cleanup;
+        case 30: return EventData30.phase_cleanup;
+        case 31: return EventData31.phase_cleanup;
+        case 32: return EventData32.phase_cleanup;
+        case 33: return EventData33.phase_cleanup;
+        case 34: return EventData34.phase_cleanup;
+        case 35: return EventData35.phase_cleanup;
+        case 36: return EventData36.phase_cleanup;
+        case 37: return EventData37.phase_cleanup;
+        case 38: return EventData38.phase_cleanup;
+        case 39: return EventData39.phase_cleanup;
+        case 40: return EventData40.phase_cleanup;
+        case 41: return EventData41.phase_cleanup;
+        case 42: return EventData42.phase_cleanup;
+        case 43: return EventData43.phase_cleanup;
+        case 44: return EventData44.phase_cleanup;
+        case 45: return EventData45.phase_cleanup;
+        case 46: return EventData46.phase_cleanup;
+        case 47: return EventData47.phase_cleanup;
+        case 48: return EventData48.phase_cleanup;
+        case 49: return EventData49.phase_cleanup;
+        case 50: return EventData50.phase_cleanup;
+        case 51: return EventData51.phase_cleanup;
+        case 52: return EventData52.phase_cleanup;
+        case 53: return EventData53.phase_cleanup;
+        case 54: return EventData54.phase_cleanup;
+        case 55: return EventData55.phase_cleanup;
+        case 56: return EventData56.phase_cleanup;
+        case 57: return EventData57.phase_cleanup;
+        case 58: return EventData58.phase_cleanup;
+        case 59: return EventData59.phase_cleanup;
+        case 60: return EventData60.phase_cleanup;
+        case 61: return EventData61.phase_cleanup;
+        case 62: return EventData62.phase_cleanup;
+        case 63: return EventData63.phase_cleanup;
+        case 64: return EventData64.phase_cleanup;
+        case 65: return EventData65.phase_cleanup;
+        case 66: return EventData66.phase_cleanup;
+        case 67: return EventData67.phase_cleanup;
+        default: return EventData60.phase_cleanup;
+      }
+    },
+    eventFormData: {
+      get: function() {
+        return this.$store.getters.getCurrentSiteData;
+      }
+    },
+    isSiteClaimed() {
+      return this.$store.getters.isCurrentSiteClaimed;
+    },
+    isCurrentSiteClaimedByUserOrg() {
+      return this.$store.getters.isCurrentSiteClaimedByUserOrg;
+    },
+    siteFormErrors() {
+      return this.$store.getters.getSiteFormErrors;
+    },
+    ...mapGetters('loading', ['isLoading', 'anyLoading'])
+  },
+  components: {
+    FormSection,
+    PulseLoader
+  },
+  methods: {
+    updateEventFormData (key, event) {
+      // this.eventFormData[key] = event.target.value;
+      let currentData = this.$store.getters.getCurrentSiteData;
+      let currentSiteData = Object.assign({}, currentData);
+      currentSiteData[key] = event.target.value;
+      this.$store.commit('setCurrentSiteData', currentSiteData);
+    }
+  }
+}
+</script>
