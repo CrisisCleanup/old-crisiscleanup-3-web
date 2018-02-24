@@ -7367,9 +7367,9 @@ vue-style-loader@3.0.1, vue-style-loader@^3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tables-2@^1.2.42:
-  version "1.2.42"
-  resolved "https://registry.yarnpkg.com/vue-tables-2/-/vue-tables-2-1.2.42.tgz#aa2bb21a15cc91165ec9cabc71a7b197d18690f2"
+vue-tables-2@^1.3.32:
+  version "1.3.32"
+  resolved "https://registry.yarnpkg.com/vue-tables-2/-/vue-tables-2-1.3.32.tgz#5b07cdf28edb0a5f945bc3cc931d28488019cc4d"
   dependencies:
     array-intersection "^0.1.2"
     clone "^2.1.0"

@@ -8,26 +8,27 @@
     </div>
     <div class="container-fluid" style="padding-top: 105px;">
       <!--<component :is="activeWorksiteAside"></component>-->
-      <IntakeFormAside v-if="activateEditWorksite"></IntakeFormAside>
+      <!--<IntakeFormAside v-if="activateEditWorksite"></IntakeFormAside>-->
+      <EventForm v-if="activateEditWorksite" />
     </div>
   </div>
 </template>
 
 <script>
-  import Vue from 'vue';
   import WorksiteControls from './WorksiteControls.vue';
   import IntakeFormAside from './IntakeFormAside';
   import Callout from '@/components/Callout';
+  import EventForm from '@/components/form/EventForm';
 
   export default {
     name: 'WorksiteAside',
     components: {
       WorksiteControls,
       IntakeFormAside,
-      Callout
+      Callout,
+      EventForm
     },
     computed: {
-
       activateEditWorksite() {
         return this.$store.getters.getWorksiteViews.editWorksite;
       },
