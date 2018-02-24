@@ -78,7 +78,6 @@
         this.$router.push('/worker/phone/welcome');
       },
       enterAvailableState() {
-        this.$store.commit('phone/available');
         this.showOutboundCallHome = true;
        
        //if an agent is not logged in, log in
@@ -89,18 +88,19 @@
         this.phoneService = new PhoneService();
         
         this.phoneService.login().then(() => {
-          this.phoneService.changeState(this.callState);
+          this.phoneService.changeState('AVAILABLE');
           this.loggedIn = true;
         }).catch(err => {
           console.log(err);
         });
         } else {
-          this.phoneService.changeState(this.callState).catch(err => {console.log(err)});
+          this.phoneService.changeState('AVAILABLE').catch(err => {console.log(err)});
         }      
       },
       enterAwayState() {
         //change state in store and call center to 'AWAY'
-        this.$store.commit('phone/away');
+        //this.$store.commit('phone/away');
+        this.phoneService.changeState('AWAY');
 
         this.showOutboundCallHome = false
         this.showIncomingCall = false
@@ -111,7 +111,6 @@
           this.$store.commit('setAsideView')
         }
 
-        this.phoneService.changeState(this.callState);
       },
       takeIncomingCall() {
         this.showIncomingCall = true;

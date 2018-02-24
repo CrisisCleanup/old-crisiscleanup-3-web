@@ -27,11 +27,8 @@ export default {
         needsWelcome(state) {
             state.needsWelcome = true;
         },
-        available(state) {
-            state.callState = 'AVAILABLE';
-        },
-        away(state) {
-            state.callState = 'AWAY';
+        setState(state, newState) {
+            state.callState = newState;
         }
     },
 
@@ -71,6 +68,9 @@ export default {
             return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.id, payload).then(resp => {
                 commit('setUser', resp.data)
             })
+        },
+        changeState({ commit, state }, newState) {
+            commit('setState', newState);
         }
     },
 };
