@@ -85,11 +85,14 @@
         if (this.loggedIn == false) {
 
         //start up new phone service instance when entering Switchboard for first time
+        //manually set state to available since the previous state is automatically 'AVAILABLE' on login
         this.phoneService = new PhoneService();
-        
         this.phoneService.login().then(() => {
-          this.phoneService.changeState('AVAILABLE');
-          this.loggedIn = true;
+          this.$store.dispatch('phone/changeState', 'AVAILABLE').then(() => {
+            console.log("this.callState = ", this.callState);
+            this.phoneService.changeState(this.callState);
+            this.loggedIn = true;
+          })
         }).catch(err => {
           console.log(err);
         });

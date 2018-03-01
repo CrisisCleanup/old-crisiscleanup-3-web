@@ -55,7 +55,7 @@
                                     <b-button variant='success' @click="makeCall">Call</b-button>
                                 </td>
                                 <td style = "width:10%" align="right">
-                                    <b-btn variant="danger" @click="cancelCall">Cancel</b-btn>
+                                    <b-btn variant="danger" @click="cancelCall">{{this.getCancelMessage()}}</b-btn>
                                 </td>
                             </tr>
                         </table>
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState} from 'vuex'
+import { mapMutations, mapState, mapGetters} from 'vuex'
 const PHONE_NUMBER_REGEX = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
 
 export default {
@@ -169,6 +169,9 @@ export default {
         ...mapState('phone', {
             state: state => state.callState
         }),
+        ...mapGetters('phone', {
+            callState: 'getCallState'
+        }),
         phoneState(){
             return PHONE_NUMBER_REGEX.test(this.outboundCallNumber)
         }
@@ -230,10 +233,17 @@ export default {
             },
             callRowClicked(call){
                 this.outboundCallNumber = call.number
-                this.makingCall = true
+                this.makingCall = tru
             },
             makeCall(){
                 this.$emit('makingCall',this.outboundCallNumber)
+            },
+            getCancelMessage() {
+                if (this.callState == 'AVAILABLE') {
+                    return 'Cancel';
+                } else {
+                    return 'Hangup';
+                }
             }
         }
 }

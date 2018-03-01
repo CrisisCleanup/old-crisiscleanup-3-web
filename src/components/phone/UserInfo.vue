@@ -14,7 +14,7 @@
             </div>
             <div class = "card text-white bg-dark col-4 text-center">
                 <div class = "card-body">
-                    <button v-bind:class="{'btn-success' : this.callState != 'AVAILABLE', 'btn-danger' : this.callState == 'AVAILABLE'}" v-on:click="startTakingCalls">{{this.getMessage()}}</button>
+                    <button v-bind:class="{'btn-success' : this.callState == 'AWAY', 'btn-danger' : this.callState != 'AWAY'}" v-on:click="startTakingCalls">{{this.getMessage()}}</button>
                     <!--TODO: queue functionality doesn't exist yet
                         p class = "card-text">
                         calls in queue</br>

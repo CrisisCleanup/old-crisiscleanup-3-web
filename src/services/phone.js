@@ -17,6 +17,8 @@ export default class PhoneService {
             callbacks: {
                 closeResponse: this.onCloseFunction,
                 openResponse: this.onOpenFunction,
+                newCallNotification: this.newCallFunction,
+                endCallNotification: this.endCallFunction,
             },
         });
         this.gateway = phone.state.gateway;
@@ -30,6 +32,14 @@ export default class PhoneService {
 
     onOpenFunction() {
         console.log('AgentLibrary open');
+    }
+
+    newCallFunction(info) {
+        console.log(info)
+    }
+
+    endCallFunction(info) {
+        console.log(info)
     }
 
     login() {
@@ -79,8 +89,8 @@ export default class PhoneService {
             this.cf.offhookInit((offhookInitResponse) => {
                 console.log('Offhook init response', offhookInitResponse);
                 //first input = number to call, second input = number that shows up
-                //TODO: change second input to gateway number
-                this.cf.manualOutdial(destination, this.user.last_used_phone_number, (manualOutdialResponse) => {
+                //TODO: remove hard-coded gateway number and used stored information
+                this.cf.manualOutdial(destination, '8445286581', (manualOutdialResponse) => {
                     console.log('Manual outdial response', manualOutdialResponse);
                     resolve();
                 });
