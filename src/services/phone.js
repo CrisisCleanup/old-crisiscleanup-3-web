@@ -19,6 +19,7 @@ export default class PhoneService {
                 openResponse: this.onOpenFunction,
             },
         });
+        
         this.gateway = phone.state.gateway;
         this.user = phone.state.user;
         this.loggedInAgentId = null;
