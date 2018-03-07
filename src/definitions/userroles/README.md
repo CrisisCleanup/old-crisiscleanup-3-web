@@ -30,10 +30,13 @@ User Roles
  - `userSpecialist`
    - Name: User Specialist
    - Description: A User Specialist is someone who knows how to use Crisis Cleanup well enough to help others. They can provide technical support to others and share their knowledge in written help documents.
+ - `guestWorker`
+   - Name: Guest Worker
+   - Description: A Guest Worker is an limited-trust member of the public, usually a spontaneous unaffiliated volunteer, that has been organized by a relief agency. A guest worker must request any other role to become another role. Once they are a full Worker, they may 
 
 Attributes
 -------------
- - `last_updated`: Date or datetime of last data model update.
+ - `lastUpdated`: Date or datetime of last data model update.
    - Applies to: All roles
    - Possible Values: Date or Datetime
    - Required: Yes
@@ -52,7 +55,7 @@ Attributes
    - Applies to: All roles
    - Possible Values: `true`, `false`
    - Required: Yes
-   - Default: `false`
+   - Default: `true`
  - `affiliateOrg`: Authority to affiliate the user's organization with another organization, thereby sharing more data between the organizations.
    - Applies to: All roles
    - Possible Values: `true`, `false`
@@ -92,8 +95,13 @@ Attributes
    - Applies to: All roles
    - Possible Values: `true`, `false`
    - Required: Yes
-   - Default: `false`
+   - Default: `true`
  - `viewUserContacts`: Allows user to view ALL contact details (including cell phone) of all other users from other organizations. If set to `false`, the role may only see limited user contact information, such as name and email. This setting is for Phone Agents who have a tendency to inappropriately share the cell phone numbers of relief volunteers with survivors.
+   - Applies to: All roles
+   - Possible Values: `true`, `false`
+   - Required: Yes
+   - Default: `true`
+ - `viewSensitive`: Allows users to access "sensitive" class information. Primarily used to ensure that Guest Workers cannot access sensitive data.
    - Applies to: All roles
    - Possible Values: `true`, `false`
    - Required: Yes
