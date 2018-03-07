@@ -105,6 +105,7 @@
 <script>
 import Vue from "vue";
 import { mapGetters } from "vuex";
+let DEFAULT_LANGUAGE_ID = 1;
 
 export default {
   data() {
@@ -123,7 +124,7 @@ export default {
         willingToReceiveCalls: false,
         willingToBeCallSupport: false,
         willingToBeCallHero: false,
-        callLanguages: [{id: 1, name: 'English'}]
+        callLanguages: [ DEFAULT_LANGUAGE_ID ]
       },
       mapOptions: {
         willingToBePinHero: false
@@ -151,12 +152,18 @@ export default {
         .dispatch("phone/getLanguages")
         .then((a) => {
           if (this.languages != null) {
-            this.languageOptions = this.languages.map((language) => {
-              return {
-                text: language.name,
-                value: language.id
-              };
-            })
+            var english = this.languages.find(lang => lang.name === 'English');
+            if (english) {
+              DEFAULT_LANGUAGE_ID = english.id;
+            }
+            this.languageOptions = this.languages
+              .filter(lang => lang.id !== DEFAULT_LANGUAGE_ID)
+              .map(language => {
+                return {
+                  text: language.name,
+                  value: language.id
+                };
+              });
           }
         });
       //Get the user's caller information
@@ -173,11 +180,7 @@ export default {
             this.callCenterOptions.willingToReceiveCalls = this.user.willing_to_receive_calls;
             this.callCenterOptions.willingToBeCallSupport = this.user.willing_to_be_call_center_support;
             this.callCenterOptions.willingToBeCallHero = this.user.willing_to_be_call_hero;
-            if (this.user.languages != null) {
-              this.callCenterOptions.callLanguages = this.user.languages.map((language) => {
-                return language.id;
-              });
-            }
+            this.callCenterOptions.callLanguages = this.user.languages;
             this.mapOptions.willingToBePinHero = this.user.willing_to_be_pin_hero;
           }
         })
@@ -204,6 +207,9 @@ export default {
       //TODO: Save non-call center data
 
       //Save call center information
+      if (this.callCenterOptions.callLanguages.indexOf(DEFAULT_LANGUAGE_ID) === -1) {
+        this.callCenterOptions.callLanguages.push(DEFAULT_LANGUAGE_ID);
+      }
       var userData = {
         id: this.userId,
         name: this.userProfile.name,
@@ -213,17 +219,12 @@ export default {
         willing_to_be_call_hero:
           this.callCenterOptions.willingToBeCallHero &&
           this.callCenterOptions.willingToReceiveCalls, //They can't be a call hero and not receive calls
-        languages: this.callCenterOptions.callLanguages.map(langId => {
-          return this.languages.find(language => language.id === langId);
-        }),
+        languages: this.callCenterOptions.callLanguages,
         willing_to_be_pin_hero: this.mapOptions.willingToBePinHero,
         last_used_phone_number:
           this.userProfile.phoneNumber ||
           this.callCenterOptions.callCenterNumber
       };
-      if (userData.languages == "") {
-        userData.languages = null;
-      }
       if (this.callUserExists) {
         this.$store.dispatch("phone/updateUser", userData).then(() => {
           this.$router.push({ path: "/worker/dashboard" });
