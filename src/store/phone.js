@@ -8,7 +8,8 @@ export default {
         caller: {},
         gateway: {},
         needsWelcome: true,
-        callState: 'AWAY'
+        callState: 'AWAY',
+        languages: [],
     },
 
     mutations: {
@@ -29,6 +30,9 @@ export default {
         },
         setState(state, newState) {
             state.callState = newState;
+        },
+        setLanguages(state, languages) {
+            state.languages = languages;
         }
     },
 
@@ -42,7 +46,8 @@ export default {
             } else {
                 return state.user.willing_to_receive_calls;
             }
-        }
+        },
+        getLanguages: state => state.languages
     },
 
     actions: {
@@ -53,6 +58,11 @@ export default {
                 })
             }
             return true;
+        },
+        getLanguages({ commit }) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/languages`).then(resp => {
+                commit('setLanguages', resp.data.results);
+            })
         },
         getCallerDetails({ commit, state }, callerId) {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {

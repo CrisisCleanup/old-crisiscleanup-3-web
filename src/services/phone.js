@@ -21,6 +21,7 @@ export default class PhoneService {
                 endCallNotification: this.endCallFunction,
             },
         });
+        
         this.gateway = phone.state.gateway;
         this.user = phone.state.user;
         this.loggedInAgentId = null;
