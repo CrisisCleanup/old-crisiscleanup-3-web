@@ -1328,13 +1328,15 @@ const messages = {
       map_specialist: "Map Specialist",
       translator: "Translator",
       support_agent: "Support Agent",
+      guest_worker: "Guest Worker",
       primary_contact_description: "A Primary Contact is the face of the organization to other relief agencies using Crisis Cleanup. A Primary Contact may also affiliate his or her organization with other organizations. An organization can (and should) have more than one Primary Contact.",
       team_leader_description: "A Team Leader leads a group of workers or volunteers in the field.",
       worker_description: "A Worker is a person who assists survivors over the phone or in person by doing activities like assessments, cleanup, debris removal, tree removal, etc. By default, all users are Workers.",
       phone_agent_description: "A Phone Agent answers and returns phone calls when the cleanup assistance hotline is active.",
       map_specialist_description: "A Map Specialist has access to special tools to place icons in their correct locations when they are in the wrong location or difficult to place.",
       translator_description: "A Translator is able to translate website content and/or phone calls into another language.",
-      support_agent_description: "A Support Agent is someone who knows how to use Crisis Cleanup well enough to help others. They can provide technical support to others and share their knowledge in written help documents."
+      support_agent_description: "A Support Agent is someone who knows how to use Crisis Cleanup well enough to help others. They can provide technical support to others and share their knowledge in written help documents.",
+      guest_worker_description: "A Guest Worker is an limited-trust member of the public, usually a spontaneous unaffiliated volunteer, that has been organized by a relief agency."
     }
   },
   es: {
@@ -2666,13 +2668,15 @@ const messages = {
       map_specialist: "Especialista mapa",
       translator: "Traductor",
       support_agent: "Agente de Soporte",
+      guest_worker: "Trabajadores huéspedes",
       primary_contact_description: "Un contacto principal es la cara de la organización a otros organismos de socorro con el Liberador de crisis. Un contacto principal también podrían estar afiliadas su organización con otras organizaciones. Una organización puede (y debe) tener más de un contacto principal.",
       team_leader_description: "Un jefe de equipo dirige un grupo de trabajadores o voluntarios en el campo.",
       worker_description: "Un trabajador es una persona que ayuda a los sobrevivientes a través del teléfono o en persona al hacer actividades como evaluaciones, la limpieza, remoción de escombros, eliminación de árboles, etc. Por defecto, todos los usuarios son los trabajadores.",
       phone_agent_description: "Un teléfono del agente de respuestas y vuelve llamadas telefónicas cuando la línea de asistencia de limpieza está activo.",
       map_specialist_description: "Un especialista en mapas tiene acceso a las herramientas especiales para colocar iconos en sus posiciones correctas cuando están en el lugar equivocado o difíciles de colocar.",
       translator_description: "Un traductor es capaz de traducir contenido del sitio web y / o llamadas telefónicas a otro idioma.",
-      support_agent_description: "Un agente de soporte es alguien que sabe cómo utilizar Liberador de crisis lo suficientemente bien como para ayudar a otros. Pueden proporcionar apoyo técnico a los demás y compartir sus conocimientos en documentos de ayuda escritas."
+      support_agent_description: "Un agente de soporte es alguien que sabe cómo utilizar Liberador de crisis lo suficientemente bien como para ayudar a otros. Pueden proporcionar apoyo técnico a los demás y compartir sus conocimientos en documentos de ayuda escritas.",
+      guest_worker_description: "Un trabajador de visitantes es un miembro limitada de la confianza del público, por lo general no afiliado voluntario espontáneo, que ha sido organizada por una agencia de alivio."
     }
   }
 };

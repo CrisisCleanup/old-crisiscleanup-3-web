@@ -25,12 +25,17 @@ Root Attributes
 
 Phase Attributes
 -------------
- - `preamble_t`: 
+ - `attribute_default`: If a required attribute is not defined, use this default
+   - Applies to: Phases
+   - Possible Values: string, `true`, `false`
+   - Required: Yes
+   - Default: `false`
+ - `preamble_t`: Introductory instructions on the form
    - Applies to: Phases
    - Possible Values: string, translation
    - Required: Yes
    - Default: Defined in translations.js
- - `is_active`: 
+ - `is_active`: The phase is active or not
    - Applies to: Phases
    - Possible Values: `true`, `false`
    - Required: Yes
