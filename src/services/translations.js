@@ -135,7 +135,7 @@ const messages = {
       send_invites: "Send Invites"
     },
     worksites: {
-      your_claimed_worksites: "Your Claimed Worksites"
+      your_claimed_worksites: "My Claimed Worksites"
     },
     realtimeMapFooter: {
       organizations: "Organizations",
