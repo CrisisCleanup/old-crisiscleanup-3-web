@@ -1,6 +1,5 @@
 <template>
   <div>
-    <b-container fluid>
     <b-row>
        <!-- ******************** Check-list ********************* -->
       <b-col md="4">
@@ -58,8 +57,6 @@
           </b-tab>
         </b-tabs>
       </b-card>
-
-    </b-container>
     </div>
 </template>
 

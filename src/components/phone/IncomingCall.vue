@@ -1,6 +1,6 @@
 <template>
     <div class = "row justify-content-center">
-        <div class = "col-6">
+        <div class = "col-12">
             <incoming-call-script :name="user.name" />
             <b-card-group deck>
                 <b-card no-body class="text-white bg-dark text-center"
@@ -64,23 +64,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import IncomingCallScript from '@/components/phone/IncomingCallScript'
+import { mapGetters } from "vuex";
+import IncomingCallScript from "@/components/phone/IncomingCallScript";
 
 export default {
-    components: {
-        'incoming-call-script': IncomingCallScript,
-    },
-    name: 'phone-incoming-call',
-    data() {
-        return {
-            boot_image: '../../static/img/map_icons/Muck_Out_orange.png'
-        };
-    },
-    computed: {
-        ...mapGetters('phone', {
-        user: 'getUser'
-        }),
-    }
-}
+  components: {
+    "incoming-call-script": IncomingCallScript
+  },
+  name: "phone-incoming-call",
+  data() {
+    return {
+      boot_image: "../../static/img/map_icons/Muck_Out_orange.png"
+    };
+  },
+  computed: {
+    ...mapGetters("phone", {
+      user: "getUser"
+    })
+  }
+};
 </script>

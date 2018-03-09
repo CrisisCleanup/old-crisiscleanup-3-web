@@ -1,6 +1,4 @@
 <template>
-<div class="row justify-content-center">
-  <div class="col-6">
     <b-form @submit="updateSessionInfo">
       <div class="card text-white bg-dark">
         <div class="card-body">
@@ -33,72 +31,83 @@
       </div>
 
     </b-form>
-  </div>
-</div>
 </template>
 
 <script>
-  import Vue from 'vue';
-  import { mapGetters } from 'vuex';
-  export default {
-    name: 'phone-session-info-confirm',
-    data() {
-      return {
-        updatedGateway: null,
-        updatedPhone: null,
-        //updatedStates: null,
-        gatewayOptions: []
-      };
-    },
-    created: function() {
-      this.getGatewayOptions();
-    },
-    computed: {
-      ...mapGetters('phone', {
-        user: 'getUser',
-        gateway: 'getGateway',
-      }),
-      ...mapGetters('auth', {
-        userId: 'getUserId'
-      })
-    },
-    methods: {
-      getGatewayOptions() {
-        Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
-            this.gatewayOptions = resp.data.results
-              .filter(function(gateway) {
-                return gateway.active;
-              }).map(function(gateway) {
-                return {text: gateway.name, value: gateway.id};
-              });
-        })
-      },
-      async updateSessionInfo(evt){
-        evt.preventDefault();
-        //Update the user's information
-        //TODO: add functionality to turn states into an array or make singular 'confirm the state'
-        var userData = {
-          id: this.userId,
-          last_used_phone_number: this.updatedPhone === null ? this.user.last_used_phone_number : this.updatedPhone
-          //last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
-        }
-
-        //update Gateway if necessary
-        if (this.updatedGateway != null) {
-          await this.$store.dispatch('phone/getGatewayDetails', this.updatedGateway).then(resp => {
-            userData.gateway = this.$store.state.phone.gateway.id;
+import Vue from "vue";
+import { mapGetters } from "vuex";
+export default {
+  name: "phone-session-info-confirm",
+  data() {
+    return {
+      updatedGateway: null,
+      updatedPhone: null,
+      //updatedStates: null,
+      gatewayOptions: []
+    };
+  },
+  created: function() {
+    this.getGatewayOptions();
+  },
+  computed: {
+    ...mapGetters("phone", {
+      user: "getUser",
+      gateway: "getGateway"
+    }),
+    ...mapGetters("auth", {
+      userId: "getUserId"
+    })
+  },
+  methods: {
+    getGatewayOptions() {
+      Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways`).then(resp => {
+        this.gatewayOptions = resp.data.results
+          .filter(function(gateway) {
+            return gateway.active;
           })
-        }
+          .map(function(gateway) {
+            return { text: gateway.name, value: gateway.id };
+          });
+      });
+    },
+    async updateSessionInfo(evt) {
+      evt.preventDefault();
+      //Update the user's information
+      //TODO: add functionality to turn states into an array or make singular 'confirm the state'
+      var userData = {
+        id: this.userId,
+        last_used_phone_number:
+          this.updatedPhone === null
+            ? this.user.last_used_phone_number
+            : this.updatedPhone
+        //last_used_state: this.updatedStates === null ? this.user.last_used_state : this.updatedStates
+      };
 
-        //after updating gateway - update user
-        if (userData.id != null) {
-          this.$store.dispatch('phone/updateUser', userData).then(() => {
-            this.$emit('confirm', {changedInfo: (this.updatedGateway != null || this.updatedPhone != null /*|| this.updatedStates != null*/)});
-          }).catch(err => {
+      //update Gateway if necessary
+      if (this.updatedGateway != null) {
+        await this.$store
+          .dispatch("phone/getGatewayDetails", this.updatedGateway)
+          .then(resp => {
+            userData.gateway = this.$store.state.phone.gateway.id;
+          });
+      }
+
+      //after updating gateway - update user
+      if (userData.id != null) {
+        this.$store
+          .dispatch("phone/updateUser", userData)
+          .then(() => {
+            this.$emit("confirm", {
+              changedInfo:
+                this.updatedGateway != null ||
+                this.updatedPhone != null /*|| this.updatedStates != null*/
+            });
+          })
+          .catch(err => {
             console.log(err);
-          }); 
-        }
+          });
       }
     }
   }
+};
 </script>
