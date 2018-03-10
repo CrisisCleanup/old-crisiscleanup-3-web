@@ -1,7 +1,8 @@
 {
   "event_id": 49,
-  "last_updated": "2018-02-04",
+  "last_updated": "2018-03-10",
   "phase_pda": {
+    "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
     "is_active": false,
     "allow_suggestions": true,
@@ -13,11 +14,6 @@
         "validation": null,
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",
-        "is_required": false,
-        "is_readonly": false,
-        "allow_edit_break_glass": false,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
         "if_selected_then_work_type": null,
         "fields": {
         }
@@ -25,6 +21,7 @@
     }
   },
   "phase_cleanup": {
+    "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
     "is_active": true,
     "allow_suggestions": true,
@@ -36,11 +33,8 @@
         "validation": null,
         "label_t": "formLabels.property_info",
         "help_text_t": "formLabels.property_info_help",
-        "is_required": false,
-        "is_readonly": false,
-        "allow_edit_break_glass": false,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
+        "data_sensitivity": "verySensitive",
+        "data_type": "personalInfo",
         "if_selected_then_work_type": null,
         "fields": {
           "request_date": {
@@ -48,11 +42,10 @@
             "validation": "datetime-local",
             "label_t": "formLabels.request_date",
             "help_text_t": null,
-            "is_required": false,
             "is_readonly": true,
             "allow_edit_break_glass": true,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -61,11 +54,8 @@
             "validation": "string",
             "label_t": "formLabels.name",
             "help_text_t": "formLabels.name_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.name_placeholder"
           },
@@ -74,11 +64,8 @@
             "validation": "string",
             "label_t": "formLabels.address",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -87,11 +74,8 @@
             "validation": "string",
             "label_t": "formLabels.city",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "public",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -104,7 +88,8 @@
             "is_readonly": true,
             "allow_edit_break_glass": true,
             "allow_toggle_hiding": true,
-            "is_hidden_default": false,
+            "data_sensitivity": "public",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.county_placeholder"
           },
@@ -113,11 +98,8 @@
             "validation": "string",
             "label_t": "formLabels.state",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "public",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -126,11 +108,8 @@
             "validation": "string",
             "label_t": "formLabels.zip_code",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -141,9 +120,10 @@
             "help_text_t": null,
             "is_required": true,
             "is_readonly": true,
-            "allow_edit_break_glass": false,
             "allow_toggle_hiding": true,
             "is_hidden_default": true,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null
           },
           "longitude": {
@@ -153,9 +133,10 @@
             "help_text_t": null,
             "is_required": true,
             "is_readonly": true,
-            "allow_edit_break_glass": false,
             "allow_toggle_hiding": true,
             "is_hidden_default": true,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null
           },
           "cross_street": {
@@ -163,11 +144,8 @@
             "validation": "string",
             "label_t": "formLabels.cross_street",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "sensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.cross_street_placeholder"
           },
@@ -177,10 +155,9 @@
             "label_t": "formLabels.phone1",
             "help_text_t": "formLabels.phone1_help",
             "is_required": true,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
             "allow_toggle_hiding": true,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.phone1_placeholder"
           },
@@ -189,11 +166,8 @@
             "validation": "string",
             "label_t": "formLabels.phone2",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -202,11 +176,8 @@
             "validation": "string",
             "label_t": "formLabels.time_to_call",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -215,11 +186,8 @@
             "validation": "string",
             "label_t": "formLabels.residence_type",
             "help_text_t": "formLabels.residence_type_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "options": [
               {
@@ -257,11 +225,8 @@
             "validation": "string",
             "label_t": "formLabels.dwelling_type",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "options": [
               {
@@ -307,11 +272,8 @@
             "validation": "string",
             "label_t": "formLabels.rent_or_own",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "options": [
               {
@@ -349,89 +311,35 @@
             "validation": "string",
             "label_t": "formLabels.work_without_resident",
             "help_text_t": "formLabels.work_without_resident_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null
           },
           "outbuilding_affected": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.outbuilding_affected",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": "inherit",
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
           },
           "exterior_property_affected": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.exterior_property_affected",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": "inherit",
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
           },
           "destruction_level": {
             "field_type": "select",
             "validation": "string",
             "label_t": "formLabels.destruction_level",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
             "if_selected_then_work_type": "inherit",
             "options": [
               {
@@ -465,141 +373,53 @@
             "validation": "string",
             "label_t": "formLabels.house_roof_damage",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": "inherit",
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
           },
           "outbuilding_roof_damage": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.outbuilding_roof_damage",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": "inherit",
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
           },
           "unsalvageable_structure": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.unsalvageable_structure",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": "structure",
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "structure"
           },
           "first_responder": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.first_responder",
             "help_text_t": "formLabels.first_responder_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
+            "if_selected_then_work_type": null
           },
           "older_than_60": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.older_than_60",
             "help_text_t": "formLabels.older_than_60_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
+            "if_selected_then_work_type": null
           },
           "special_needs": {
             "field_type": "textarea",
             "validation": "string",
             "label_t": "formLabels.special_needs",
             "help_text_t": "formLabels.special_needs_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.special_needs_placeholder"
           }
@@ -610,11 +430,8 @@
         "validation": null,
         "label_t": "formLabels.work_info",
         "help_text_t": "formLabels.work_info_help",
-        "is_required": false,
-        "is_readonly": false,
-        "allow_edit_break_glass": false,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
+        "data_sensitivity": "lessSensitive",
+        "data_type": "workInfo",
         "if_selected_then_work_type": null,
         "fields": {
           "tree_info": {
@@ -622,11 +439,8 @@
             "validation": null,
             "label_t": "formLabels.tree_info",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
             "if_selected_then_work_type": "trees",
             "fields": {
               "num_trees_down": {
@@ -634,11 +448,8 @@
                 "validation": "integer",
                 "label_t": "formLabels.num_trees_down",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "options": [
                   {
@@ -672,11 +483,8 @@
                 "validation": "integer",
                 "label_t": "formLabels.num_wide_trees",
                 "help_text_t": "formLabels.num_wide_trees_help",
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "options": [
                   {
@@ -710,11 +518,8 @@
                 "validation": "string",
                 "label_t": "formLabels.work_requested",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": null,
                 "placeholder_t": "formLabels.work_requested_placeholder"
               },
@@ -723,11 +528,8 @@
                 "validation": "string",
                 "label_t": "formLabels.notes",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": null,
                 "placeholder_t": "formLabels.notes_placeholder"
               }
@@ -738,11 +540,8 @@
             "validation": null,
             "label_t": "formLabels.debris_info",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
             "if_selected_then_work_type": "debris",
             "fields": {
               "nonvegitative_debris_removal": {
@@ -750,78 +549,27 @@
                 "validation": "string",
                 "label_t": "formLabels.nonvegitative_debris_removal",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "name_t": "",
-                    "value_null": null
-                  },
-                  {
-                    "name_t": "formOptions.yes",
-                    "value_checked": true
-                  },
-                  {
-                    "name_t": "formOptions.no",
-                    "value_unchecked": false
-                  }
-                ]
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
               },
               "vegitative_debris_removal": {
                 "field_type": "checkbox",
                 "validation": "string",
                 "label_t": "formLabels.vegitative_debris_removal",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "name_t": "",
-                    "value_null": null
-                  },
-                  {
-                    "name_t": "formOptions.yes",
-                    "value_checked": true
-                  },
-                  {
-                    "name_t": "formOptions.no",
-                    "value_unchecked": false
-                  }
-                ]
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
               },
               "heavy_machinary_required": {
                 "field_type": "checkbox",
                 "validation": "string",
                 "label_t": "formLabels.heavy_machinary_required",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "name_t": "",
-                    "value_null": null
-                  },
-                  {
-                    "name_t": "formOptions.yes",
-                    "value_checked": true
-                  },
-                  {
-                    "name_t": "formOptions.no",
-                    "value_unchecked": false
-                  }
-                ]
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
               }
             }
           },
@@ -830,11 +578,8 @@
             "validation": null,
             "label_t": "formLabels.tarping_info",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
             "if_selected_then_work_type": "tarp",
             "fields": {
               "outbuilding_roof_damage": {
@@ -842,37 +587,17 @@
                 "validation": "string",
                 "label_t": "formLabels.outbuilding_roof_damage",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "name_t": "",
-                    "value_null": null
-                  },
-                  {
-                    "name_t": "formOptions.yes",
-                    "value_checked": true
-                  },
-                  {
-                    "name_t": "formOptions.no",
-                    "value_unchecked": false
-                  }
-                ]
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
               },
               "tarps_needed": {
                 "field_type": "text",
                 "validation": "integer",
                 "label_t": "formLabels.tarps_needed",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "placeholder_t": null
               },
@@ -881,26 +606,9 @@
                 "validation": "string",
                 "label_t": "formLabels.help_install_tarp",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "name_t": "",
-                    "value_null": null
-                  },
-                  {
-                    "name_t": "formOptions.yes",
-                    "value_checked": true
-                  },
-                  {
-                    "name_t": "formOptions.no",
-                    "value_unchecked": false
-                  }
-                ]
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
               }
             }
           },
@@ -909,11 +617,8 @@
             "validation": null,
             "label_t": "formLabels.fencing_info",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
             "if_selected_then_work_type": "fence",
             "fields": {
               "damaged_fence_length": {
@@ -921,11 +626,8 @@
                 "validation": "string",
                 "label_t": "formLabels.damaged_fence_length",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "placeholder_t": null
               },
@@ -934,11 +636,8 @@
                 "validation": "string",
                 "label_t": "formLabels.fence_type",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "placeholder_t": null
               },
@@ -947,11 +646,8 @@
                 "validation": "string",
                 "label_t": "formLabels.fence_notes",
                 "help_text_t": null,
-                "is_required": false,
-                "is_readonly": false,
-                "allow_edit_break_glass": false,
-                "allow_toggle_hiding": false,
-                "is_hidden_default": false,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
                 "placeholder_t": null
               }
@@ -964,11 +660,8 @@
         "validation": null,
         "label_t": "formLabels.hazards_info",
         "help_text_t": null,
-        "is_required": false,
-        "is_readonly": false,
-        "allow_edit_break_glass": false,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
+        "data_sensitivity": "lessSensitive",
+        "data_type": "caseInfo",
         "if_selected_then_work_type": null,
         "fields": {
           "habitable": {
@@ -976,11 +669,8 @@
             "validation": "string",
             "label_t": "formLabels.habitable",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "options": [
               {
@@ -1002,89 +692,35 @@
             "validation": "string",
             "label_t": "formLabels.electricity",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null
           },
           "electrical_lines": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.electrical_lines",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null
           },
           "unsafe_roof": {
             "field_type": "checkbox",
             "validation": "string",
             "label_t": "formLabels.unsafe_roof",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "name_t": "",
-                "value_null": null
-              },
-              {
-                "name_t": "formOptions.yes",
-                "value_checked": true
-              },
-              {
-                "name_t": "formOptions.no",
-                "value_unchecked": false
-              }
-            ]
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null
           },
           "other_hazards": {
             "field_type": "textarea",
             "validation": "string",
             "label_t": "formLabels.other_hazards",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           }
@@ -1095,11 +731,8 @@
         "validation": null,
         "label_t": "formLabels.claim_status_report_info",
         "help_text_t": null,
-        "is_required": false,
-        "is_readonly": false,
-        "allow_edit_break_glass": false,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
+        "data_sensitivity": "sensitive",
+        "data_type": "caseInfo",
         "if_selected_then_work_type": null,
         "fields": {
           "status": {
@@ -1107,11 +740,8 @@
             "validation": "string",
             "label_t": "formLabels.status",
             "help_text_t": "formLabels.status_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "public",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "options": [
               {
@@ -1165,11 +795,8 @@
             "validation": "string",
             "label_t": "formLabels.debris_status",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "public",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": "inherit",
             "options": [
               {
@@ -1199,11 +826,9 @@
             "validation": "string",
             "label_t": "formLabels.assigned_to",
             "help_text_t": "formLabels.assigned_to_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
             "is_hidden_default": true,
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.assigned_to_placeholder"
           },
@@ -1212,11 +837,8 @@
             "validation": "integer",
             "label_t": "formLabels.total_volunteers",
             "help_text_t": "formLabels.total_volunteers_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.total_volunteers_placeholder"
           },
@@ -1225,11 +847,8 @@
             "validation": "float",
             "label_t": "formLabels.hours_worked_per_volunteer",
             "help_text_t": "formLabels.hours_worked_per_volunteer_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.hours_worked_per_volunteer_placeholder"
           },
@@ -1238,11 +857,8 @@
             "validation": "string",
             "label_t": "formLabels.initials_of_resident_present",
             "help_text_t": "formLabels.initials_of_resident_present_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -1251,11 +867,8 @@
             "validation": "string",
             "label_t": "formLabels.status_notes",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "verySensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
@@ -1264,11 +877,8 @@
             "validation": "string",
             "label_t": "formLabels.prepared_by",
             "help_text_t": "formLabels.prepared_by_help",
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.prepared_by_placeholder"
           },
@@ -1277,11 +887,8 @@
             "validation": "string",
             "label_t": "formLabels.do_not_work_before",
             "help_text_t": null,
-            "is_required": false,
-            "is_readonly": false,
-            "allow_edit_break_glass": false,
-            "allow_toggle_hiding": false,
-            "is_hidden_default": false,
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.do_not_work_before_placeholder"
           }
@@ -1290,6 +897,7 @@
     }
   },
   "phase_rebuild": {
+    "attribute_default": false,
     "is_active": false,
     "allow_suggestions": true,
     "allow_site_claim": true,
@@ -1300,11 +908,7 @@
         "validation": null,
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",
-        "is_required": false,
-        "is_readonly": false,
         "allow_edit_break_glass": true,
-        "allow_toggle_hiding": false,
-        "is_hidden_default": false,
         "if_selected_then_work_type": null,
         "fields": {
         }
