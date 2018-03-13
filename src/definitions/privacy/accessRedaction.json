@@ -1,0 +1,422 @@
+{
+  "defaultValue": "any",
+  "accessTypes":
+    {
+      "any":        {
+          "name_t": "accessRules.any_access",
+          "techDescription": "Any user"
+        },
+      "public":        {
+          "name_t": "accessRules.public_access",
+          "techDescription": "A Public user is a non-authenticated user, or an authenticated user that has no organization. This could happen if we allow members of the public to interact with their cases in the future.",
+          "accessLevel_t": "accessRules.public_access_access_level",
+          "examples_t": "accessRules.public_access_examples",
+          "description_t": "accessRules.public_access_description",
+          "limitations_t": "accessRules.public_access_limitations"
+        },
+      "statistics":        {
+          "name_t": "accessRules.statistics_access",
+          "techDescription": "A Statistics Access user is an authenticated user, usually state or federal government, that has no need for client information, but would like broad statistics about an incident.",
+          "accessLevel_t": "accessRules.statistics_access_access_level",
+          "examples_t": "accessRules.statistics_access_examples",
+          "description_t": "accessRules.statistics_access_description",
+          "limitations_t": "accessRules.statistics_access_limitations"
+        },
+      "situationalAwareness":        {
+          "name_t": "accessRules.situational_awareness",
+          "techDescription": "A Situational Awareness user is an authenticated user, usually local or state government, that has an interest in the wellbeing and status of individuals within their jurisdictions, but no business with information outside their jurisdictions.",
+          "accessLevel_t": "accessRules.situational_awareness_access_level",
+          "examples_t": "accessRules.situational_awareness_examples",
+          "description_t": "accessRules.situational_awareness_description",
+          "limitations_t": "accessRules.situational_awareness_limitations"
+        },
+      "coordination":        {
+          "name_t": "accessRules.coordination_access",
+          "techDescription": "A Coordination Access user is an usually a regional or national non-profit organization with local affiliates in the field.",
+          "accessLevel_t": "accessRules.coordination_access_access_level",
+          "examples_t": "accessRules.coordination_access_examples",
+          "description_t": "accessRules.coordination_access_description",
+          "limitations_t": "accessRules.coordination_access_limitations"
+        },
+      "ltr":        {
+          "name_t": "accessRules.ltr_access",
+          "techDescription": "A LTR Access user is usually a non-profit organization that does long-term case work or rebuilding within a specific location. They do not typically do cleanup work.",
+          "accessLevel_t": "accessRules.ltr_access_access_level",
+          "examples_t": "accessRules.ltr_access_examples",
+          "description_t": "accessRules.ltr_access_description",
+          "limitations_t": "accessRules.ltr_access_limitations"
+        },
+      "recovery":        {
+          "name_t": "accessRules.recovery_access",
+          "techDescription": "A Recovery Access user is a relief organization on the ground, actually doing work in any phase.",
+          "accessLevel_t": "accessRules.recovery_access_access_level",
+          "examples_t": "accessRules.recovery_access_examples",
+          "description_t": "accessRules.recovery_access_description",
+          "limitations_t": "accessRules.recovery_access_limitations"
+        }
+    },
+  "redactionConditions": [
+    {
+      "techDescription": "For a any type of user, show all case information for cases the user has either claimed or reported, regardless of the medium or location.",
+      "relationship": "claimedOrReportedCase",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, truncate all zip codes to five digits, and replace numbers with Xs in all other fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, display all public class information, regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Public user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
+      "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, display all public class information, regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Statistics Access user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
+      "accessType": "statistics",
+      "relationship": "noRelationship",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, replace verySensitive class information with a translated message if the case is within the users geofence, regardless of the medium if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "insideGeofence",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "inherit",
+        {
+          "replaceWithMessage_t": "accessRules.situational_awareness_no_relationship_msg"
+        }
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, show all case data for any other sensitivity class if the case is inside the users geofence, regardless of the medium, if the user has not claimed or reported the case.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "insideGeofence",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, replace verySensitive class information with a translated message if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "inherit",
+        {
+          "replaceWithMessage_t": "accessRules.situational_awareness_no_relationship_msg"
+        }
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, convert orgSensitive class information to a boolean true/false if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "inherit", "convertToBoolean"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, hide all sensitive class information, as though it does not exist, if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), if the case is outside the users geofence and the user has not claimed or reported the case, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "inherit", "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, show all public class information, if the case is outside the users geofence, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, hide all information by default, if it does not fall into one of the previous rules, if the case is outside the users geofence, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "situationalAwareness",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Coordination Access user, replace verySensitive class information with a translated message, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "inherit",
+        {
+          "replaceWithMessage_t": "accessRules.coordination_access_no_relationship_msg"
+        }
+      ]
+    },
+    {
+      "techDescription": "For a Coordination Access user, convert orgSensitive class information to a boolean true/false, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "inherit", "convertToBoolean"
+      ]
+    },
+    {
+      "techDescription": "For a Coordination Access user, hide all sensitive class information, as though it does not exist, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Coordination Access user, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), regardless of the location or medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "inherit", "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For a Coordination Access user, show all public class information, regardless of the location or medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Situational Awareness user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "coordination",
+      "relationship": "noRelationship",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, show all case information inside the users geofence, regardless of who reported or claimed it, and regardless of the medium.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "insideGeofence",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, replace verySensitive class information with a translated message, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "inherit",
+        {
+          "replaceWithMessage_t": "accessRules.ltr_access_no_relationship_msg"
+        }
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, convert orgSensitive class information to a boolean true/false, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "inherit", "convertToBoolean"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, hide all sensitive class information, as though it does not exist, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "inherit", "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, show all public class information, if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For an LTR Access user, hide all information by default, if it does not fall into one of the previous rules, if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "ltr",
+      "relationship": "noRelationship",
+      "geofence": "outsideGeofence",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "inherit", "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Recovery Access user, replace verySensitive class information with a translated message, regardless of the location, if the medium is download, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
+      "accessType": "recovery",
+      "relationship": "noRelationship",
+      "medium": "download",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "inherit",
+        {
+          "replaceWithMessage_t": "accessRules.recovery_access_no_relationship_msg"
+        }
+      ]
+    },
+    {
+      "techDescription": "For a Recovery Access user, show all other case information, regardless of the location, if the medium is download, if the user has not claimed or reported the case.",
+      "accessType": "recovery",
+      "relationship": "noRelationship",
+      "medium": "download",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Recovery Access user, show all other case information, regardless of the location, if the medium is anything other than download, if the user has not claimed or reported the case.",
+      "accessType": "recovery",
+      "relationship": "noRelationship",
+      "medium": "else",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    }
+  ]
+}
