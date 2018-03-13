@@ -804,27 +804,3 @@
     }
   }
 }
-  }
-}
-    }
-  },
-  "phase_rebuild": {
-    "attribute_default": false,
-    "is_active": false,
-    "allow_suggestions": true,
-    "allow_site_claim": true,
-    "allow_section_claim": true,
-    "fields": {
-      "not_created_info": {
-        "field_type": "section",
-        "validation": null,
-        "label_t": "formLabels.not_created_info",
-        "help_text_t": "formLabels.not_created_info_help",
-        "allow_edit_break_glass": true,
-        "if_selected_then_work_type": null,
-        "fields": {
-        }
-      }
-    }
-  }
-}
