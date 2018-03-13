@@ -1,6 +1,6 @@
 {
   "event_id": 11,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-03-12",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -995,21 +995,9 @@
             "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.do_not_work_before_placeholder"
-          },
-          "prepared_by": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.prepared_by",
-            "help_text_t": "formLabels.prepared_by_help",
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.prepared_by_placeholder"
           }
         }
       }
-  }
-}
     }
   },
   "phase_rebuild": {
