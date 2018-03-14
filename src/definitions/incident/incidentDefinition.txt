@@ -1,0 +1,10 @@
+Incident Definition
+id: [id]
+defaultForm: enum_string ["hurricane"|"flood"|"fire"|"snowstorm"|"ice"|"..."] (this will automatically load a default `form_pda`, `form_cleanup`, and `form_rebuild`)
+form: [foreign key to an incident form, or object]
+area: polygons (more than one, discontinuous OK)
+name: string
+incidentOccurDate: date
+incidentOpenDate: date/datetime
+timezone: string
+isArchived: boolean (makes the data unavailable, and not able to sign up for it any more. A user may request an admin to unarchive an incident.)
