@@ -135,7 +135,7 @@ const messages = {
       send_invites: "Send Invites"
     },
     worksites: {
-      your_claimed_worksites: "My Claimed Worksites"
+      your_claimed_worksites: "Your Claimed Worksites"
     },
     realtimeMapFooter: {
       organizations: "Organizations",
@@ -537,7 +537,20 @@ const messages = {
       dashboard_html_title: "Dashboard: Crisis Cleanup",
       worker_map_html_title: "Worker Map: Crisis Cleanup",
       my_organization_html_title: "My Organization: Crisis Cleanup",
-      charts_html_title: "Charts: Crisis Cleanup"
+      charts_html_title: "Charts: Crisis Cleanup",
+      privacy_html_title: "Privacy Policy: Crisis Cleanup",
+      map_html_title: "Map: Crisis Cleanup",
+      server_error_html_title: "Server Error: Crisis Cleanup",
+      login_html_title: "Login: Crisis Cleanup",
+      roadmap_html_title: "Roadmap: Crisis Cleanup",
+      donate_html_title: "Donate: Crisis Cleanup",
+      register_html_title: "Register: Crisis Cleanup",
+      terms_html_title: "Terms and Conditions: Crisis Cleanup",
+      training_html_title: "Training: Crisis Cleanup",
+      thank_you_html_title: "Thank You for Your Donation: Crisis Cleanup",
+      register_org_html_title: "Register Organization: Crisis Cleanup",
+      browse_worksites_html_title: "Browse Cases: Crisis Cleanup",
+      browse_orgs_html_title: "Browse Organizations: Crisis Cleanup"
     },
     roadmap: {
       mission_roadmap: "Mission and Roadmap",
@@ -1914,10 +1927,23 @@ const messages = {
       dashboard_html_title: "Tablero: Crisis Cleanup",
       worker_map_html_title: "Mapa del trabajador: Crisis Cleanup",
       my_organization_html_title: "Mi organización: Crisis Cleanup",
-      charts_html_title: "Gráficos: Crisis Cleanup"
+      charts_html_title: "Gráficos: Crisis Cleanup",
+      privacy_html_title: "Política de privacidad: Limpieza de la crisis",
+      map_html_title: "Mapa: Limpieza de la crisis",
+      server_error_html_title: "Error del servidor: Limpieza de la crisis",
+      login_html_title: "Entrada: Limpieza de la crisis",
+      roadmap_html_title: "Plan de trabajo: Limpieza de la crisis",
+      donate_html_title: "Donar: Limpieza de la crisis",
+      register_html_title: "Register: Limpieza de la crisis",
+      terms_html_title: "Términos y Condiciones: Limpieza de la crisis",
+      training_html_title: "Formación: Limpieza de la crisis",
+      thank_you_html_title: "Gracias por su donación: Limpieza de la crisis",
+      register_org_html_title: "Registro Organización: Limpieza de la crisis",
+      browse_worksites_html_title: "Explorar Casos: Limpieza de la crisis",
+      browse_orgs_html_title: "Explorar Organizaciones: Limpieza de la crisis"
     },
     roadmap: {
-      mission_roadmap: "Misión y Hoja de Ruta",
+      mission_roadmap: "Misión y Plan de trabajo",
       integrated_call_system: "Sistema de centro de llamadas completamente integrado",
       integrated_call_system_msg: "Después de los huracanes Harvey e Irma, nuestro centro de llamadas virtual recibió más de 60,000 llamadas. Pero la interfaz creó desafíos de capacitación, comunicación y control voluntario. Hemos diseñado una revisión en la aplicación del centro de llamadas para que sea más fácil de usar y más fácil para capacitar a voluntarios. Esta actualización permitirá que cualquier voluntario, en cualquier lugar, sea un héroe del centro de llamadas.",
       send_feedback: "Enviar comentarios",
