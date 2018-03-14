@@ -6,103 +6,105 @@
           <div class="card-body p-4">
             <div class="col-md-8">
               <div class="row">
-                <h1>Privacy and Security Policy</h1>
+                <h1>{{ $t('privacy.privacy_and_security_policy') }}</h1>
               </div>
               <div class="row">
-                <p>Crisis Cleanup, LLC ("Us," "We," or "Company") takes your privacy very seriously. This Privacy and Security Policy ("Policy") is designed to inform you, a user of our Service, about the types of information that we may gather or collect from or about you in connection with your use of the Service. It also explains the conditions under which we use and disclose that information.</p>
-                <p>Use of the Website and associated Services requires acceptance of this Policy. If you are not satisfied with any aspect of the policy, please discontinue using the Website and Service.</p>
-                <p>Changes to this Policy are discussed at the end of this document. Each time you use the Website, however, the current version of this Policy will apply. Accordingly, each time you use the Website you should check the date of this Policy (which appears at the end of this document) and review any changes since the last time you used the site.</p>
+                <p>{{ $t('privacy.purpose_intro') }}</p>
+                <p>{{ $t('privacy.must_accept') }}</p>
+                <p>{{ $t('privacy.check_for_changes') }}</p>
                 
-                <h3>1 Highlights &amp; Principles</h3>
-                <p><strong>This entire Policy contains very important information. Please read all of it.</strong> Notwithstanding, here are some highlights and principles you may find of particular interest:</p>
-                <p>By design, Crisis Cleanup is an open system. This means by default all other participants in the Service can view all information entered into the system.</p>
-                <p>You are responsible for obtaining Client consent before entering information into the system. We (and other participants) may contact you with reports, questions, and other messages designed to assist running the System.</p>
+                <h3>1 {{ $t('privacy.highlights_and_principles') }}</h3>
+                <p>{{ $t('privacy.read_it_all') }}</p>
+                <p>{{ $t('privacy.shared_with_all_participants') }}</p>
+                <p>{{ $t('privacy.client_consent') }}</p>
                         
-                <h3>2 Definitions</h3>
-                <p>The following words in this Privacy and Security Policy shall have the definitions below:</p>
+                <h3>2 {{ $t('privacy.definitions') }}</h3>
+                <p>{{ $t('privacy.definitions_intro') }}</p>
                 <ol class="outline two">
-                    <li><strong>Non-Personally-Identifying Information ("NPII")</strong>: Information that, without the aid of additional information, cannot be directly associated with a specific person.</li>
-                    <li><strong>Personally-Identifying Information ("PII")</strong>: By contrast, PII is information such as a name or email address that, without more, can be directly associated with a specific person.</li>
-                    <li><strong>You, or User</strong>: Has the same meaning as in the <a href="/terms">Terms and Conditions.</a></li>
-                    <li><strong>Company ("Us," or "We")</strong>: Has the same meaning as in the Terms and Conditions.</li>
-                    <li><strong>Service</strong>: Has the same meaning as in the Terms and Conditions.</li>
-                    <li><strong>Website</strong>: Has the same meaning as in the Terms and Conditions.</li>
-                    <li><strong>Your Materials</strong>: Has the same meaning as in the Terms and Conditions.</li>           
+                    <li>{{ $t('privacy.def_npii') }}</li>
+                    <li>{{ $t('privacy.def_pii') }}</li>
+                    <li>{{ $t('privacy.def_org_info') }}</li>
+                    <li>{{ $t('privacy.def_pub_info') }}</li>
+                    <li>{{ $t('privacy.def_you') }}</li>
+                    <li>{{ $t('privacy.def_company') }}</li>
+                    <li>{{ $t('privacy.def_service') }}</li>
+                    <li>{{ $t('privacy.def_terms_conditions') }}</li>
+                    <li>{{ $t('privacy.def_your_materials') }}</li>           
                 </ol>
                     
-                <h3>3 Children</h3>
-                <p>The Website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are under 13 years of age, you may not use this Service. Do not use the Service to store information about individuals under 13 years of age.</p>
+                <h3>3 {{ $t('privacy.children') }}</h3>
+                <p>{{ $t('privacy.not_for_under_13') }}</p>
             
-                <h3>4 Information Collected</h3> 
+                <h3>4 {{ $t('privacy.information_collected') }}</h3> 
                 <ol class="outline four">
-                  <li>Our goal is to help you understand not just what information we collect, but why and how we collect the information. The following table outlines what information we collect, how we collect it, and how we use it:
+                  <li>{{ $t('privacy.how_used_intro') }}
                   <table>
                     <thead>
                       <tr>
-                        <th>Information Collected</th>
-                        <th>Primary Purpose</th>
-                        <th>Required?</th>
-                        <th>Shared with Other Participants?</th>
-                        <th>Shared with Public?</th>
-                        <th>PII or NPII</th>
+                        <th>{{ $t('privacy.table_th_info_collected') }}</th>
+                        <th>{{ $t('privacy.table_th_info_primary_purpose') }}</th>
+                        <th>{{ $t('privacy.table_th_info_required') }}</th>
+                        <th>{{ $t('privacy.table_th_shared_participants') }}</th>
+                        <th>{{ $t('privacy.table_th_shared_public') }}</th>
+                        <th>{{ $t('privacy.table_th_pii_npii') }}</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Client Full Name, Address, Phone Number</td>
-                        <td>Empower disaster recovery organizations to help clients recover from disasters. Core to the proper functioning of the System.</td>
-                        <td>Required</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Not publically shared</td>
-                        <td>PII</td>                
+                        <td>{{ $t('privacy.table_client_contact_info') }}</td>
+                        <td>{{ $t('privacy.table_empower_recovery') }}</td>
+                        <td>{{ $t('privacy.table_required') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_not_shared_public') }}</td>
+                        <td>{{ $t('privacy.table_pii') }}</td>                
                       </tr>
                       <tr>
-                        <td>Property Latitutde and Longitude</td>
-                        <td>Derived from the address. Core to the proper functioning of the System.</td>
-                        <td>Required</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Not publically shared, except randomized to ~400 meters</td>
-                        <td>PII</td>                
+                        <td>{{ $t('privacy.table_lat_lon') }}</td>
+                        <td>{{ $t('privacy.table_derived_from_address') }}</td>
+                        <td>{{ $t('privacy.table_required') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_randomized_public') }}</td>
+                        <td>{{ $t('privacy.table_pii') }}</td>                
                       </tr> 
                       <tr>
-                        <td>Client Prioritization Information</td>
-                        <td>A variety of questions designed to help work teams prioritize work orders, such as special needs.</td>
-                        <td>Optional</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Not publically shared</td>
-                        <td>NPII</td>                
+                        <td>{{ $t('privacy.table_priortization_info') }}</td>
+                        <td>{{ $t('privacy.table_variety_questions') }}</td>
+                        <td>{{ $t('privacy.table_optional') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_not_shared_public') }}</td>
+                        <td>{{ $t('privacy.table_npii') }}</td>                
                       </tr>
                       <tr>
-                        <td>Client Property Damage Information</td>
-                        <td>A variety of questions designed to assess damage and help work teams respond appropriately.</td>
-                        <td>Optional</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Some shared publicly</td>
-                        <td>NPII</td>                
+                        <td>{{ $t('privacy.table_damage_info') }}</td>
+                        <td>{{ $t('privacy.table_variety_questions_response') }}</td>
+                        <td>{{ $t('privacy.table_optional') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_some_shared_public') }}</td>
+                        <td>{{ $t('privacy.table_npii') }}</td>                
                       </tr>
                       <tr>
-                        <td>Your Name &amp; Contact Information</td>
-                        <td>Log changes to Clients' records; allow other participating organizations to contact you or your organization; facilitate transparent collaboration; contact you with information relevant or related to your service or use of Crisis Cleanup; ask for permission to share other types of information with you.</td>
-                        <td>Required</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Not publically shared</td>
-                        <td>PII</td>                
+                        <td>{{ $t('privacy.table_your_name_contact') }}</td>
+                        <td>{{ $t('privacy.table_your_name_contact_purpose') }}</td>
+                        <td>{{ $t('privacy.table_required') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_not_shared_public') }}</td>
+                        <td>{{ $t('privacy.table_pii') }}</td>                
                       </tr>     
                       <tr>
-                        <td>Usage Habits, Computer System Information</td>
-                        <td>We track non-identified usage information through third party analytics such as Google Analytics to understand how customers use the site, and for troubleshooting. This information may include search strings. You may block cookies from these websites without adversely affecting the Service.</td>
-                        <td>Some Optional if you disable third party cookies</td>
-                        <td>Not shared except in aggregate</td>
-                        <td>Not shared except in aggregate</td>
-                        <td>NPII</td>                
+                        <td>{{ $t('privacy.table_usage_habits') }}</td>
+                        <td>{{ $t('privacy.table_usage_habits_google') }}</td>
+                        <td>{{ $t('privacy.table_some_optional_no_cookies') }}</td>
+                        <td>{{ $t('privacy.table_shared_only_aggregate') }}</td>
+                        <td>{{ $t('privacy.table_shared_only_aggregate') }}</td>
+                        <td>{{ $t('privacy.table_npii') }}</td>                
                       </tr>
                       <tr>
-                        <td>Your Materials</td>
-                        <td>If you upload pictures or videos of disaster-affected areas, they may be shared publically.</td>
-                        <td>Optional</td>
-                        <td>Shared with participating organizations</td>
-                        <td>Shared publicly</td>
-                        <td>NPII</td>                
+                        <td>{{ $t('privacy.table_your_materials') }}</td>
+                        <td>{{ $t('privacy.table_videos_pictures') }}</td>
+                        <td>{{ $t('privacy.table_optional') }}</td>
+                        <td>{{ $t('privacy.table_shared_orgs') }}</td>
+                        <td>{{ $t('privacy.table_shared_public') }}</td>
+                        <td>{{ $t('privacy.table_npii') }}</td>                
                       </tr>                
                     </tbody>
                   </table>
@@ -126,6 +128,7 @@
                     <li><strong>By Law or to Protect Rights</strong>: We disclose PII and NPII when required to do so by law, or in response to a subpoena or court order, to cooperate with a legitimate law enforcement investigation, or when we believe in our sole discretion that disclosure is reasonably necessary to protect our property or rights, or those of third parties or the public at large.</li>
                     <li><strong>Business Transfers; Bankruptcy</strong>: We reserve the right to transfer all PII and NPII in our possession to a successor organization in the event of a merger, acquisition, bankruptcy, or other sale of all or a portion of our assets. Other than to the extent ordered by a bankruptcy or other court, the use and disclosure of all transferred PII will be subject to this Policy, or to a new privacy policy if you are given notice of that new privacy policy and are given an opportunity to affirmatively opt-out of it. PII submitted or collected after a transfer, however, may be subject to a new privacy policy by the successor organization.</li>
                     <li><strong>Research or Historical Purposes</strong>: Crisis Cleanup information may be useful to improve future response and coordination efforts, or to ensure a correct historical narrative is preserved. We may partner and share information with recognized research institutions or organizations. However, we will only do so if the research project has been approved by an institutional review board or privacy board that has established protocols to ensure the privacy of the information shared.  We may also, upon request and at our sole discretion, share a reasonable amount of information with community or national historical preservation organizations in a manner reasonably designed to protect the identities of survivors, and after a reasonable time has passed from the disaster.</li>
+                    <li><strong>In the Public Interest</strong>: After disasters, such as a flood, Crisis Cleanup containst information (such as flood heights) that can help public officials determine the disaster's impact, cost, and possible mitigation strategies. Likewise, long-term recovery groups (LTRGs) and unmet needs committees want access to Crisis Cleanup information to help survivors for years after a disaster. In situations like these, we may share an appropriately limited amount of case information to aid the public interest. Though each request is unique, we generally do not share information like client names, phone numbers or email addresses with government. We always try to reach out to local VOADs (Voluntary Organizations Active in Disaster) to ensure the data is shared transparently, and consistent with local values.</li>
                     <li><strong>Other Purposes</strong>: As otherwise described in this Policy.</li>
                 </ol>
                     
