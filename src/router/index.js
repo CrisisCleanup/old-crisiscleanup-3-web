@@ -24,6 +24,7 @@ import Terms from '@/views/pages/Terms'
 import Privacy from '@/views/pages/Privacy'
 import Training from '@/views/pages/Training'
 import ThankYou from '@/views/pages/ThankYou'
+import About from '@/views/pages/About'
 
 
 import vueAuthInstance from '@/services/auth.js'
@@ -108,6 +109,12 @@ const router = new Router({
           name: 'Thank You',
           component: ThankYou,
           meta: {auth: false, title: i18n.t('routerIndex.thank_you_html_title')}
+        },
+        {
+          path: 'about',
+          name: 'About',
+          component: About,
+          meta: {auth: false, title: i18n.t('routerIndex.about_html_title')}
         },
         {
           path: 'register-organization',
