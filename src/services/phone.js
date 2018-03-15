@@ -21,10 +21,11 @@ export default class PhoneService {
                 endCallNotification: this.endCallFunction,
             },
         });
-        
+
         this.gateway = phone.state.gateway;
         this.user = phone.state.user;
         this.loggedInAgentId = null;
+        this.callInfo = {};
     }
 
     onCloseFunction() {
@@ -36,11 +37,18 @@ export default class PhoneService {
     }
 
     newCallFunction(info) {
-        console.log(info)
+        return new Promise(function(resolve, reject) {
+            console.log(info);
+            this.callInfo = info;
+            console.log("this.callInfo is ", this.callInfo)
+            resolve();
+        }); //try .bind(exists)
+
     }
 
     endCallFunction(info) {
-        console.log(info)
+        console.log(info);
+        this.callInfo = {};
     }
 
     login() {
@@ -74,9 +82,21 @@ export default class PhoneService {
 
     changeState(newState) {
         return new Promise((resolve, reject) => {
+            var state = newState;
             this.cf.setAgentState(newState, null, (setAgentStateResponse) => {
                 if (setAgentStateResponse.previousState != setAgentStateResponse.currentState) {
-                    store.dispatch('phone/changeState', setAgentStateResponse.currentState);
+                    if (setAgentStateResponse.currentState === 'ENGAGED') {
+                        console.log("store state = engaged");
+                        console.log("callinfo: ", this.callInfo.callType);
+                        if (this.callInfo.callType === 'INBOUND') {
+                            state = 'ENGAGED-INBOUND';
+                        } else if (this.callInfo.callType === 'OUTBOUND') {
+                            state = 'ENGAGED-OUTBOUND';
+                        }
+                    } else {
+                        state = newState;
+                    }
+                    store.dispatch('phone/changeState', state);
                     console.log('new store state: ', phone.state.callState);
                 }
                 console.log('Set agent state response', setAgentStateResponse);
@@ -91,11 +111,21 @@ export default class PhoneService {
                 console.log('Offhook init response', offhookInitResponse);
                 //first input = number to call, second input = number that shows up
                 //TODO: remove hard-coded gateway number and used stored information
-                this.cf.manualOutdial(destination, '8445286581', (manualOutdialResponse) => {
-                    console.log('Manual outdial response', manualOutdialResponse);
+                this.cf.manualOutdial(destination, '8445286581', () => {
                     resolve();
                 });
             });
         });
     }
+
+    hangup() {
+        return new Promise((resolve, reject) => {
+            this.cf.hangup(this.callInfo.sessionId);
+            this.cf.offhookTerm((offhookTermResponse) => {
+                console.log('Offhook term response', offhookTermResponse);
+                resolve();
+            });
+        });
+    }
+
 }

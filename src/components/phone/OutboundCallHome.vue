@@ -228,6 +228,7 @@ export default {
                 return call.identifier
             },
             cancelCall(){
+                this.$emit('cancelCall');
                 this.outboundCallNumber = ''
                 this.makingCall = false
             },
@@ -239,7 +240,7 @@ export default {
                 this.$emit('makingCall',this.outboundCallNumber)
             },
             getCancelMessage() {
-                if (this.callState == 'AVAILABLE') {
+                if (this.callState == 'AVAILABLE' || this.callState == 'RNA-STATE') {
                     return 'Cancel';
                 } else {
                     return 'Hangup';

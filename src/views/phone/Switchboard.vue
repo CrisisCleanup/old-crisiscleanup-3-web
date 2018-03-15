@@ -3,8 +3,8 @@
       <button @click="setNeedsWelcome">DEBUG: Set needs welcome = true</button>
       <br>
       <user-info v-on:stateChanged="setAvailability" v-on:needsEdit= "editSessionInfo"/>
-      <incoming-call v-if="showIncomingCall"/>
-      <outbound-call-home v-if="showOutboundCallHome" v-on:makingCall="makeOutboundCall"/>
+      <incoming-call v-if="this.callState == 'ENGAGED-INBOUND'"   />
+      <outbound-call-home v-if="showOutboundCallHome" v-on:makingCall="makeOutboundCall" v-on:cancelCall="cancelOutboundCall"/>
       <session-info-confirm v-on:confirm="sessionInfoConfirmed" v-if="showConfirmSessionInfo"/>
     </div>
 </template>
@@ -134,7 +134,16 @@
           this.phoneService.dial(destination)
         }
       }, 
-      logoutOfPhoneService() {
+      cancelOutboundCall() {
+        //currentState becomes 'TRANSITION'
+        //TODO: change store state based on user being on call
+        //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
+        //if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
+        //{
+          //TODO: regex check the destination
+          this.phoneService.hangup()
+        //}
+      }, logoutOfPhoneService() {
         //enter away state to hide necessary components, then log out of call center
         this.enterAwayState();
         this.phoneService.logout();
