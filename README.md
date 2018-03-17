@@ -1,11 +1,12 @@
 # Crisis Cleanup Web
 <p align="center"><a href="https://www.crisiscleanup.org" target="_blank"><img width="100"src="https://www.crisiscleanup.org/assets/ccu-logo-balloons-2a4fa4ff9ee5ad03846e1d7bdb3cc71d.png"></a></p>
 
+
 # Crisis Cleanup (3.X beta)
 
 Crisis Cleanup is a web platform that connects disaster recovery organization volunteers with people who need help after a disaster. The Crisis Cleanup platform has been used to connected 308,030 volunteers from 1,114 organizations with 57,166 households in 35 states and 79 disasters in 6 countries; a new disaster every two weeks.
 
-Crisis Cleanup works best in a collaborative environment where multiple voluntary organizations and agencies work together and coordinate efforts. Because these organizations do not take orders from one another, Crisis Cleanup is designed to facilitate Collaborative Accountability models of inter-agency interaction, rather than command-and-control operations, or or heirarchical accountability models of interaction. 
+Crisis Cleanup works best in a collaborative environment where multiple voluntary organizations and agencies work together and coordinate efforts. Because these organizations do not take orders from one another, Crisis Cleanup is designed to facilitate Collaborative Accountability models of inter-agency interaction, rather than command-and-control operations, or or heirarchical accountability models of interaction.
 
 This is the primary repository for the main Crisis Cleanup web application, a collaborative map-based coordination tool. This implementation is built upon a service-based model, designed for Google Cloud, with Python and PostgreSQL.
 
@@ -98,7 +99,7 @@ npm test
 1. Ensure you have the Microsoft .NET framework 2.0 or greater installed. https://www.microsoft.com/en-us/download/details.aspx?id=55170
 2. Install chocolately
     1. Open an administrator command prompt (https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx)
-    2. Install choco as administrator `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"` 
+    2. Install choco as administrator `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
     3. More info: https://chocolatey.org/install
 3. `choco install nodejs-lts -y` (requires that chocolately already been installed and configured. This will not work if node.js has already been installed in some other way.)
 4. `choco install yarn --version 1.3.2 -y` (requires that chocolately already been installed and configured)
