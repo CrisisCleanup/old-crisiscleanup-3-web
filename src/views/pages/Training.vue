@@ -277,7 +277,7 @@
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>11. All participating organizations can see what all of the other organizations are doing.</h5>
+                  <h5>11. {{ $t('training.q11_orgs_see_others') }}</h5>
                   <form>
                     <label for="answer_11_1">
                       <input type="radio" name="answer_11" id="answer_11_1" onclick="document.getElementById('no_11').style.display = 'none'; document.getElementById('yes_11').style.display = 'block'; document.getElementById('explanation_11').style.display = 'block';"> {{ $t('training.true') }}</label>
@@ -295,25 +295,25 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_11" style="display:none">
-                    <p>Crisis Cleanup makes coordination not only required, but easy. Every participating organization can see what the others are doing, significantly improving coordination and communication.</p>
+                    <p>{{ $t('training.exp11_coordination_easy_required') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>12. Who may enter work orders?</h5>
+                  <h5>12. {{ $t('training.q12_who_enters') }}</h5>
                   <form>
                     <label for="answer_12_2">
-                      <input type="radio" name="answer_12" id="answer_12_2" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> Any member of the public.</label>
+                      <input type="radio" name="answer_12" id="answer_12_2" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> {{ $t('training.a12_public') }}</label>
                     </input><br />
                     <label for="answer_12_1">
-                      <input type="radio" name="answer_12" id="answer_12_1" onclick="document.getElementById('no_12').style.display = 'none'; document.getElementById('yes_12').style.display = 'block'; document.getElementById('explanation_12').style.display = 'block';"> Any participating organization, including your own.</label>
+                      <input type="radio" name="answer_12" id="answer_12_1" onclick="document.getElementById('no_12').style.display = 'none'; document.getElementById('yes_12').style.display = 'block'; document.getElementById('explanation_12').style.display = 'block';"> {{ $t('training.a12_participating_orgs') }}</label>
                     </input><br />
                     <label for="answer_12_3">
-                      <input type="radio" name="answer_12" id="answer_12_3" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> Only 2-1-1 or other authorized call-in centers.</label>
+                      <input type="radio" name="answer_12" id="answer_12_3" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> {{ $t('training.a12_only_211') }}</label>
                     </input><br />
                     <label for="answer_12_4">
-                      <input type="radio" name="answer_12" id="answer_12_4" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> Only your state VOAD or system administrator.</label>
+                      <input type="radio" name="answer_12" id="answer_12_4" onclick="document.getElementById('no_12').style.display = 'block'; document.getElementById('yes_12').style.display = 'none'; document.getElementById('explanation_12').style.display = 'block';"> {{ $t('training.a12_only_voad_sysadmin') }}</label>
                     </input><br />
                   </form>
                   <div id="no_12" style="display:none">
@@ -323,25 +323,25 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_12" style="display:none">
-                    <p>To preserve confidentiality, only reputable organizations that interact directly with survivors in cleanup efforts may participate in Crisis Cleanup. Any participating organization may perform assessments and enter work orders into the system. While Crisis Cleanup may accept preliminary damage assessment information from the public sometime in the future, it does not currently.</p>
+                    <p>{{ $t('training.exp12_any_participating_org') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>13. What should you do if a fellow relief organization doesn't do a work order they've claimed?</h5>
+                  <h5>13. {{ $t('training.q13_what_if_others_fail') }}</h5>
                   <form>
                     <label for="answer_13_2">
-                      <input type="radio" name="answer_13" id="answer_13_2" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> Fill out a trouble ticket.</label>
+                      <input type="radio" name="answer_13" id="answer_13_2" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> {{ $t('training.a13_trouble_ticket') }}</label>
                     </input><br />
                     <label for="answer_13_3">
-                      <input type="radio" name="answer_13" id="answer_13_3" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> Nothing.</label>
+                      <input type="radio" name="answer_13" id="answer_13_3" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> {{ $t('training.a13_nothing') }}</label>
                     </input><br />
                     <label for="answer_13_4">
-                      <input type="radio" name="answer_13" id="answer_13_4" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> Break their kneecaps.</label>
+                      <input type="radio" name="answer_13" id="answer_13_4" onclick="document.getElementById('no_13').style.display = 'block'; document.getElementById('yes_13').style.display = 'none'; document.getElementById('explanation_13').style.display = 'block';"> {{ $t('training.a13_break_kneecaps') }}</label>
                     </input><br />
                     <label for="answer_13_1">
-                      <input type="radio" name="answer_13" id="answer_13_1" onclick="document.getElementById('no_13').style.display = 'none'; document.getElementById('yes_13').style.display = 'block'; document.getElementById('explanation_13').style.display = 'block';"> Contact that organization to see how you can help, and find out what's going on.</label>
+                      <input type="radio" name="answer_13" id="answer_13_1" onclick="document.getElementById('no_13').style.display = 'none'; document.getElementById('yes_13').style.display = 'block'; document.getElementById('explanation_13').style.display = 'block';"> {{ $t('training.a13_contact_org') }}</label>
                     </input><br />
                   </form>
                   <div id="no_13" style="display:none">
@@ -351,13 +351,13 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_13" style="display:none">
-                    <p>In every disaster some organizations claim work orders they can't fulfill, or fail to complete necessary paperwork. Technology won't solve that problem, but Crisis Cleanup does allow you to see the problem for the first time. And because you can see the problem, you can fix the problem by reaching out to, and supporting fellow relief agencies.</p>
+                    <p>{{ $t('training.exp13_coordinate') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>14. It is possible to download a copy of all work orders. <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
+                  <h5>14. {{ $t('training.q14_download_list_possible') }} <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
                   <form>
                     <label for="answer_14_1">
                       <input type="radio" name="answer_14" id="answer_14_1" onclick="document.getElementById('no_14').style.display = 'none'; document.getElementById('yes_14').style.display = 'block'; document.getElementById('explanation_14').style.display = 'block';"> {{ $t('training.true') }}</label>
@@ -375,14 +375,14 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_14" style="display:none">
-                    <p>You can always <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank>download a CSV</a> or Excel file with all work orders, for your records and to run reports.</p>
-                    <p>To protect privacy and survivors, CSV download files <a href="http://bit.ly/csvclaim">hide some key personal information</a> for any work orders your organization has not claimed or entered.</p>
+                    <p>{{ $t('training.exp14_download_csv') }}</p>
+                    <p>{{ $t('training.exp14_csv_hides_data') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>15. Each user is responsible to keep his/her own passwords secure.</h5>
+                  <h5>15. {{ $t('training.q15_safeguard_passwords') }}</h5>
                   <form>
                     <label for="answer_15_1">
                       <input type="radio" name="answer_15" id="answer_15_1" onclick="document.getElementById('no_15').style.display = 'none'; document.getElementById('yes_15').style.display = 'block'; document.getElementById('explanation_15').style.display = 'block';"> {{ $t('training.true') }}</label>
@@ -400,13 +400,13 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_15" style="display:none">
-                    <p>Please <a href="/password/new">reset your password</a> if your password has been compromised.</p>
+                    <p>{{ $t('training.exp15_reset_compromised_pw') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>16. You may use Crisis Cleanup for case management.</h5>
+                  <h5>16. {{ $t('training.q16_case_mgmt_ok') }}</h5>
                   <form>
                     <label for="answer_16_1">
                       <input type="radio" name="answer_16" id="answer_16_1" onclick="document.getElementById('no_16').style.display = 'none'; document.getElementById('yes_16').style.display = 'block'; document.getElementById('explanation_16').style.display = 'block';"> {{ $t('training.false') }}</label>
@@ -424,13 +424,13 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_16" style="display:none">
-                    <p>Crisis Cleanup is not designed to store sensitive personal information or be used for case management. See <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200798753-Mandatory-Training-Video" target=_blank>Training Video</a> and <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200819327-Client-Personal-Data-Collection-Policy" target=_blank>Client Data Collection Policy</a>.</p>
+                    <p>{{ $t('training.exp16_no_case_mgmt') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>17. Each organization should have one primary user.</h5>
+                  <h5>17. {{ $t('training.q17_one_user_per_org') }}</h5>
                   <form>
                     <label for="answer_17_1">
                       <input type="radio" name="answer_17" id="answer_17_1" onclick="document.getElementById('no_17').style.display = 'none'; document.getElementById('yes_17').style.display = 'block'; document.getElementById('explanation_17').style.display = 'block';"> {{ $t('training.false') }}</label>
@@ -448,27 +448,27 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_17" style="display:none">
-                    <p>Crisis Cleanup is designed for volunteer leaders on the ground. After you log in, invite all members of your team to Crisis Cleanup from the Dashboard.</p>
-                    <p>Seriously, you'll be sorry if you don't. Think about it: If you are the only person with access, then it is your job to print out and assign a bunch of paper work orders. Then it's your job to update each one. When half of them get lost in some truck, then it will be your job to call each survivor to see if anyone helped. And just as bad, it will be your job to sort through 90 pieces of paper and update the work order forms that do come back. All while managing a disaster.</p>
-                    <p>Take it from us, just invite your team leaders (and workers). They can update their own work orders, and you can focus on the 500 other things you need to do.</p>
+                    <p>{{ $t('training.exp17_invite_teammates') }}</p>
+                    <p>{{ $t('training.exp17_invite_teammates') }}</p>
+                    <p>{{ $t('training.exp17_invite_teammates_believe_us') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>18. What is the easiest way to get a list of work orders and run reports? <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
+                  <h5>18. {{ $t('training.q18_easiest_way_reports') }} <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
                   <form>
                     <label for="answer_18_2">
-                      <input type="radio" name="answer_18" id="answer_18_2" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> Email Crisis Cleanup and ask us to run a special report.</label>
+                      <input type="radio" name="answer_18" id="answer_18_2" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> {{ $t('training.a18_email_request_report') }}</label>
                     </input><br />
                     <label for="answer_18_1">
-                      <input type="radio" name="answer_18" id="answer_18_1" onclick="document.getElementById('no_18').style.display = 'none'; document.getElementById('yes_18').style.display = 'block'; document.getElementById('explanation_18').style.display = 'block';"> Download a CSV or Excel file with all of the work orders, so you can create your own reports.</label>
+                      <input type="radio" name="answer_18" id="answer_18_1" onclick="document.getElementById('no_18').style.display = 'none'; document.getElementById('yes_18').style.display = 'block'; document.getElementById('explanation_18').style.display = 'block';"> {{ $t('training.a18_download_csv') }}</label>
                     </input><br />
                     <label for="answer_18_3">
-                      <input type="radio" name="answer_18" id="answer_18_3" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> Copy each work order from the screen with a pen and paper.</label>
+                      <input type="radio" name="answer_18" id="answer_18_3" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> {{ $t('training.a18_pen_paper') }}</label>
                     </input><br />
                     <label for="answer_18_4">
-                      <input type="radio" name="answer_18" id="answer_18_4" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> Print each work order, one by one. Then hire highly trained orangutanes to analyze the data.</label>
+                      <input type="radio" name="answer_18" id="answer_18_4" onclick="document.getElementById('no_18').style.display = 'block'; document.getElementById('yes_18').style.display = 'none'; document.getElementById('explanation_18').style.display = 'block';"> {{ $t('training.a18_orangutanes') }}</label>
                     </input><br />
                   </form>
                   <div id="no_18" style="display:none">
@@ -478,7 +478,7 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_18" style="display:none">
-                    <p>We encourage each organization to download their work orders and run regular reports for county governments, OEMs, and other VOAD members. Please don't ask us to run reports for you. See the <a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/200603027-How-do-I-download-an-Excel-or-CSV-copy-of-the-data-" target=_blank>Help Article</a> and <a href="http://blog.crisiscleanup.org/2014/01/new-crisis-cleanup-features.html" target=_blank>Blog Post</a> on inter-organization stats/reports.</p>
+                    <p>{{ $t('training.exp18_run_own_reports') }}</p>
                   </div>
                 </div>
               </div>
@@ -486,26 +486,26 @@
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
                   <hr />
-                  <h3>Advanced Questions</h3>
-                  <p>Feeling good about your answers? Try these more advanced questions!</p>
+                  <h3>{{ $t('training.advanced_questions') }}</h3>
+                  <p>{{ $t('training.feeling_good_try_more') }}</p>
                 </div>
               </div>
 
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>19. How many work orders should you claim at one time? <small><a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/227036588-Work-Order-Case-Claiming-Policy" target="_blank">{{ $t('training.hint') }}</a></small></h5>
+                  <h5>19. {{ $t('training.q19_claim_how_many') }} <small><a href="https://crisiscleanup.zendesk.com/hc/en-us/articles/227036588-Work-Order-Case-Claiming-Policy" target="_blank">{{ $t('training.hint') }}</a></small></h5>
                   <form>
                     <label for="answer_19_2">
-                      <input type="radio" name="answer_19" id="answer_19_2" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> As many as you can.</label>
+                      <input type="radio" name="answer_19" id="answer_19_2" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> {{ $t('training.a19_as_many_as_possible') }}</label>
                     </input><br />
                     <label for="answer_19_3">
-                      <input type="radio" name="answer_19" id="answer_19_3" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> Wait, I can claim work orders?</label>
+                      <input type="radio" name="answer_19" id="answer_19_3" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> {{ $t('training.a19_can_i_claim') }}</label>
                     </input><br />
                     <label for="answer_19_1">
-                      <input type="radio" name="answer_19" id="answer_19_1" onclick="document.getElementById('no_19').style.display = 'none'; document.getElementById('yes_19').style.display = 'block'; document.getElementById('explanation_19').style.display = 'block';"> No more than your team can finish in six days.</label>
+                      <input type="radio" name="answer_19" id="answer_19_1" onclick="document.getElementById('no_19').style.display = 'none'; document.getElementById('yes_19').style.display = 'block'; document.getElementById('explanation_19').style.display = 'block';"> {{ $t('training.a19_finish_six_days') }}</label>
                     </input><br />
                     <label for="answer_19_4">
-                      <input type="radio" name="answer_19" id="answer_19_4" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> Claim all of them, and assign them to other organizations.</label>
+                      <input type="radio" name="answer_19" id="answer_19_4" onclick="document.getElementById('no_19').style.display = 'block'; document.getElementById('yes_19').style.display = 'none'; document.getElementById('explanation_19').style.display = 'block';"> {{ $t('training.a19_all_assign_other_orgs') }}</label>
                     </input><br />
                   </form>
                   <div id="no_19" style="display:none">
@@ -515,25 +515,25 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_19" style="display:none">
-                    <p>In general, only claim work orders/cases that you can complete in a few days. Never claim work orders/cases more than six days in advance. Never claim large numbers of work orders/cases in an area unless you intend to complete them all within six days at the most. Unclaim work orders/cases right away if you cannot complete them. Often there are multiple relief organizations who are available to help; claiming work orders weeks in advance delays service and cause volunteers to wait for no good reason. If another organization asks you to share a work order/case, please be nice and share.</p>
+                    <p>{{ $t('training.exp19_six_days_play_nice') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>20. What should you do before showing up at a site?</h5>
+                  <h5>20. {{ $t('training.q20_do_before_arrival') }}</h5>
                   <form>
                     <label for="answer_20_2">
-                      <input type="radio" name="answer_20" id="answer_20_2" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> Call the resident before arriving.</label>
+                      <input type="radio" name="answer_20" id="answer_20_2" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> {{ $t('training.a20_call_before') }}</label>
                     </input><br />
                     <label for="answer_20_3">
-                      <input type="radio" name="answer_20" id="answer_20_3" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> Ensure you take proper equipment.</label>
+                      <input type="radio" name="answer_20" id="answer_20_3" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> {{ $t('training.a20_proper_equipment') }}</label>
                     </input><br />
                     <label for="answer_20_4">
-                      <input type="radio" name="answer_20" id="answer_20_4" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> Make sure you have claimed the work order in Crisis Cleanup.</label>
+                      <input type="radio" name="answer_20" id="answer_20_4" onclick="document.getElementById('no_20').style.display = 'block'; document.getElementById('yes_20').style.display = 'none'; document.getElementById('explanation_20').style.display = 'block';"> {{ $t('training.a20_claim_in_ccu') }}</label>
                     </input><br />
                     <label for="answer_20_1">
-                      <input type="radio" name="answer_20" id="answer_20_1" onclick="document.getElementById('no_20').style.display = 'none'; document.getElementById('yes_20').style.display = 'block'; document.getElementById('explanation_20').style.display = 'block';"> All of the above.</label>
+                      <input type="radio" name="answer_20" id="answer_20_1" onclick="document.getElementById('no_20').style.display = 'none'; document.getElementById('yes_20').style.display = 'block'; document.getElementById('explanation_20').style.display = 'block';"> {{ $t('training.all_of_the_above') }}</label>
                     </input><br />
                   </form>
                   <div id="no_20" style="display:none">
@@ -543,25 +543,25 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_20" style="display:none">
-                    <p>Claim the work order to minimize duplication. Ensure that the resident is present before driving there, and that they still need help. Arrive with everything you need. When you are done, mark the work order closed.</p>
+                    <p>{{ $t('training.exp20_all_of_above') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>21. How many people from your organization should you invite? <small><a href="https://youtu.be/3wumEh8wcak?t=72" target="_blank">{{ $t('training.hint') }}</a></small></h5>
+                  <h5>21. {{ $t('training.q21_invite_how_many') }} <small><a href="https://youtu.be/3wumEh8wcak?t=72" target="_blank">{{ $t('training.hint') }}</a></small></h5>
                   <form>
                     <label for="answer_21_2">
-                      <input type="radio" name="answer_21" id="answer_21_2" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> No more than one or two people per organization.</label>
+                      <input type="radio" name="answer_21" id="answer_21_2" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> {{ $t('training.a21_only_one_two') }}</label>
                     </input><br />
                     <label for="answer_21_1">
-                      <input type="radio" name="answer_21" id="answer_21_1" onclick="document.getElementById('no_21').style.display = 'none'; document.getElementById('yes_21').style.display = 'block'; document.getElementById('explanation_21').style.display = 'block';"> All trusted members of your organization who will interact with survivors.</label>
+                      <input type="radio" name="answer_21" id="answer_21_1" onclick="document.getElementById('no_21').style.display = 'none'; document.getElementById('yes_21').style.display = 'block'; document.getElementById('explanation_21').style.display = 'block';"> {{ $t('training.a21_all_trusted') }}</label>
                     </input><br />
                     <label for="answer_21_3">
-                      <input type="radio" name="answer_21" id="answer_21_3" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> Any unvetted member of the public who wants to help.</label>
+                      <input type="radio" name="answer_21" id="answer_21_3" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> {{ $t('training.a21_public') }}</label>
                     </input><br />
                     <label for="answer_21_4">
-                      <input type="radio" name="answer_21" id="answer_21_4" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> It doesn't matter, as long as you invite your dog.</label>
+                      <input type="radio" name="answer_21" id="answer_21_4" onclick="document.getElementById('no_21').style.display = 'block'; document.getElementById('yes_21').style.display = 'none'; document.getElementById('explanation_21').style.display = 'block';"> {{ $t('training.a21_dog') }}</label>
                     </input><br />
                   </form>
                   <div id="no_21" style="display:none">
@@ -571,7 +571,7 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_21" style="display:none">
-                    <p>You should invite as many trusted volunteers and staff as possible to ensure that work order information is updated, and that volunteers can quickly and effectively organize. On one hand, experience has shown that organizations with few users are never able to update work orders. On the other hand, you should never invite untrusted members of the public.</p>
+                    <p>{{ $t('training.exp21_as_many_as_possible') }}</p>
                   </div>
                 </div>
               </div>
@@ -589,7 +589,7 @@
                       <input type="radio" name="answer_22" id="answer_22_4" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> Bag messy debris, such as wet drywall.</label>
                     </input><br />
                     <label for="answer_22_1">
-                      <input type="radio" name="answer_22" id="answer_22_1" onclick="document.getElementById('no_22').style.display = 'none'; document.getElementById('yes_22').style.display = 'block'; document.getElementById('explanation_22').style.display = 'block';"> All of the above.</label>
+                      <input type="radio" name="answer_22" id="answer_22_1" onclick="document.getElementById('no_22').style.display = 'none'; document.getElementById('yes_22').style.display = 'block'; document.getElementById('explanation_22').style.display = 'block';"> {{ $t('training.all_of_the_above') }}</label>
                     </input><br />
                   </form>
                   <div id="no_22" style="display:none">
@@ -699,7 +699,7 @@
                       <input type="radio" name="answer_26" id="answer_26_4" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> Remember that disasters are, by definition, overwhelming. So if you or they are feeling overwhelmed, you're probably doing it right.</label>
                     </input><br />
                     <label for="answer_26_1">
-                      <input type="radio" name="answer_26" id="answer_26_1" onclick="document.getElementById('no_26').style.display = 'none'; document.getElementById('yes_26').style.display = 'block'; document.getElementById('explanation_26').style.display = 'block';"> All of the above.</label>
+                      <input type="radio" name="answer_26" id="answer_26_1" onclick="document.getElementById('no_26').style.display = 'none'; document.getElementById('yes_26').style.display = 'block'; document.getElementById('explanation_26').style.display = 'block';"> {{ $t('training.all_of_the_above') }}</label>
                     </input><br />
                   </form>
                   <div id="no_26" style="display:none">
