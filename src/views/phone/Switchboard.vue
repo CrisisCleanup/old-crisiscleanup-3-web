@@ -105,41 +105,41 @@ export default {
         this.$store.commit("setAsideView");
       }
 
-      },
-      takeIncomingCall() {
-        this.showIncomingCall = true;
-        if (this.aside == false)
-        {
-          //if they are on a call and the aside is not already toggled open, open it 
-          document.body.classList.toggle('aside-menu-hidden', this.aside)
-          this.$store.commit('setAsideView')
-        }
-      },
-      makeOutboundCall(destination) {
-        //currentState becomes 'TRANSITION'
-        //TODO: change store state based on user being on call
-        //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
-        if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
-        {
-          //TODO: regex check the destination
-          this.phoneService.dial(destination)
-        }
-      }, 
-      cancelOutboundCall() {
-        //currentState becomes 'TRANSITION'
-        //TODO: change store state based on user being on call
-        //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
-        //if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
-        //{
-          //TODO: regex check the destination
-          this.phoneService.hangup()
-        //}
-      }, logoutOfPhoneService() {
-        //enter away state to hide necessary components, then log out of call center
-        this.enterAwayState();
-        this.phoneService.logout();
-        this.loggedIn = false;
+    },
+    takeIncomingCall() {
+      this.showIncomingCall = true;
+      if (this.aside == false)
+      {
+        //if they are on a call and the aside is not already toggled open, open it 
+        document.body.classList.toggle('aside-menu-hidden', this.aside)
+        this.$store.commit('setAsideView')
       }
+    },
+    makeOutboundCall(destination) {
+      //currentState becomes 'TRANSITION'
+      //TODO: change store state based on user being on call
+      //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
+      if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
+      {
+        //TODO: regex check the destination
+        this.phoneService.dial(destination)
+      }
+    }, 
+    cancelOutboundCall() {
+      //currentState becomes 'TRANSITION'
+      //TODO: change store state based on user being on call
+      //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
+      //if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
+      //{
+        //TODO: regex check the destination
+        this.phoneService.hangup()
+      //}
+    },
+    logoutOfPhoneService() {
+      //enter away state to hide necessary components, then log out of call center
+      this.enterAwayState();
+      this.phoneService.logout();
+      this.loggedIn = false;
     },
     makeOutboundCall(destination) {
       //currentState becomes 'TRANSITION'
