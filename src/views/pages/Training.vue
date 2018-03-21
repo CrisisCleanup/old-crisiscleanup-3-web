@@ -7,6 +7,8 @@
             <div class="col-md-12">
               <div class="row">
                 <h1>{{ $t('training.training_video_title') }}</h1>
+              </div>
+              <div class="row">
                 <h4>{{ $t('training.please_complete_training') }}</h4>
               </div>
               <div class="row">
@@ -577,16 +579,16 @@
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>22. What should you do with debris?</h5>
+                  <h5>22. {{ $t('training.q22_what_do_debris') }}</h5>
                   <form>
                     <label for="answer_22_2">
-                      <input type="radio" name="answer_22" id="answer_22_2" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> Pile debris on a public right-of-way (as neatly as you can).</label>
+                      <input type="radio" name="answer_22" id="answer_22_2" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> {{ $t('training.a22_pile_neatly') }}</label>
                     </input><br />
                     <label for="answer_22_3">
-                      <input type="radio" name="answer_22" id="answer_22_3" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> Become familiar with your local jurisdiction's rules for sorting garbage (e.g. separate compost, paint, batteries, etc.)</label>
+                      <input type="radio" name="answer_22" id="answer_22_3" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> {{ $t('training.a22_follow_local_rules') }}</label>
                     </input><br />
                     <label for="answer_22_4">
-                      <input type="radio" name="answer_22" id="answer_22_4" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> Bag messy debris, such as wet drywall.</label>
+                      <input type="radio" name="answer_22" id="answer_22_4" onclick="document.getElementById('no_22').style.display = 'block'; document.getElementById('yes_22').style.display = 'none'; document.getElementById('explanation_22').style.display = 'block';"> {{ $t('training.a22_bag_messy_debris') }}</label>
                     </input><br />
                     <label for="answer_22_1">
                       <input type="radio" name="answer_22" id="answer_22_1" onclick="document.getElementById('no_22').style.display = 'none'; document.getElementById('yes_22').style.display = 'block'; document.getElementById('explanation_22').style.display = 'block';"> {{ $t('training.all_of_the_above') }}</label>
@@ -599,13 +601,13 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_22" style="display:none">
-                    <p>Many jurisdictions will not carry away trash unless it is bagged, sorted, and placed on a public right-of-way (like the street or sidewalk).</p>
+                    <p>{{ $t('training.exp22_garbage_rules') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>23. You should add work orders your organization completed before joining Crisis Cleanup.</h5>
+                  <h5>23. {{ $t('training.q23_add_previous_work_orders') }}</h5>
                   <form>
                     <label for="answer_23_1">
                       <input type="radio" name="answer_23" id="answer_23_1" onclick="document.getElementById('no_23').style.display = 'none'; document.getElementById('yes_23').style.display = 'block'; document.getElementById('explanation_23').style.display = 'block';"> True.</label>
@@ -621,28 +623,31 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_23" style="display:none">
-                    <p>If you started working before using Crisis Cleanup, be sure to add the work orders. When you enter the work order, change the status to "Closed, completed" and click "Claim and Save". This has several benefits: <br />
-                          1. It will decrease the likelihood of duplication. <br />
-                          2. This list will be available to long-term recovery groups who can help the survivor for months or years to come. <br />
-                          3. It feels good to see a lot done on the map.</p>
+                    <p>{{ $t('training.exp23_add_previous_work_orders') }}
+                      <ol>
+                        <li>{{ $t('training.exp23_decrease_duplication') }}</li>
+                        <li>{{ $t('training.exp23_ltrg') }}</li>
+                        <li>{{ $t('training.exp23_feels_good') }}</li>
+                      </ol>
+                    </p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>24. If a reputable sister organization visits your area and asks you what to do, you should:</h5>
+                  <h5>24. {{ $t('training.q24_if_asks_for_direction') }}</h5>
                   <form>
                     <label for="answer_24_1">
-                      <input type="radio" name="answer_24" id="answer_24_1" onclick="document.getElementById('no_24').style.display = 'none'; document.getElementById('yes_24').style.display = 'block'; document.getElementById('explanation_24').style.display = 'block';"> Encourage them to register for Crisis Cleanup so they can manage their own work.</label>
+                      <input type="radio" name="answer_24" id="answer_24_1" onclick="document.getElementById('no_24').style.display = 'none'; document.getElementById('yes_24').style.display = 'block'; document.getElementById('explanation_24').style.display = 'block';"> {{ $t('training.a24_they_register_ccu') }}</label>
                     </input><br />
                     <label for="answer_24_2">
-                      <input type="radio" name="answer_24" id="answer_24_2" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> Claim work orders in Crisis Cleanup, then assign them to the sister organization; have them report to you.</label>
+                      <input type="radio" name="answer_24" id="answer_24_2" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> {{ $t('training.a24_they_report_to_you') }}</label>
                     </input><br />
                     <label for="answer_24_3">
-                      <input type="radio" name="answer_24" id="answer_24_3" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> Force all of their volunteers to work under your organization.</label>
+                      <input type="radio" name="answer_24" id="answer_24_3" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> {{ $t('training.a24_take_their_volunteers') }}</label>
                     </input><br />
                     <label for="answer_24_4">
-                      <input type="radio" name="answer_24" id="answer_24_4" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> Tell them to go home because you'll take care of everything.</label>
+                      <input type="radio" name="answer_24" id="answer_24_4" onclick="document.getElementById('no_24').style.display = 'block'; document.getElementById('yes_24').style.display = 'none'; document.getElementById('explanation_24').style.display = 'block';"> {{ $t('training.a24_say_go_home') }}</label>
                     </input><br />
                   </form>
                   <div id="no_24" style="display:none">
@@ -652,26 +657,26 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_24" style="display:none">
-                    <p>Crisis Cleanup fails whenever anyone tries to use it tell someone else what to do. If you try to be in charge of another organization (e.g. a sister church), their volunteers will waste a lot of time, the paperwork will get lost, and you will be overworked with trying to track them down and get their reports. Just let them log in themselves.</p>
-                    <p>Seriously. We'll hunt you down if we find out that you are using Crisis Cleanup to exert control over other organizations.</p>
+                    <p>{{ $t('training.exp24_be_collaborative') }}</p>
+                    <p>{{ $t('training.exo24_seriously_be_collaborative') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>25. When removing drywall after a flood, you should:</h5>
+                  <h5>25. {{ $t('training.q25_removing_drywall') }}</h5>
                   <form>
                     <label for="answer_25_1">
-                      <input type="radio" name="answer_25" id="answer_25_1" onclick="document.getElementById('no_25').style.display = 'none'; document.getElementById('yes_25').style.display = 'block'; document.getElementById('explanation_25').style.display = 'block';"> Cut it in a neat, straight line at 4 or 8 feet above the ground.</label>
+                      <input type="radio" name="answer_25" id="answer_25_1" onclick="document.getElementById('no_25').style.display = 'none'; document.getElementById('yes_25').style.display = 'block'; document.getElementById('explanation_25').style.display = 'block';"> {{ $t('training.a25_cut_4_8_feet_straight') }}</label>
                     </input><br />
                     <label for="answer_25_2">
-                      <input type="radio" name="answer_25" id="answer_25_2" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> Knock out just the visibly wet part of the drywall.</label>
+                      <input type="radio" name="answer_25" id="answer_25_2" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> {{ $t('training.a25_remove_just_wet_part') }}</label>
                     </input><br />
                     <label for="answer_25_3">
-                      <input type="radio" name="answer_25" id="answer_25_3" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> Leave the power on, and use a saw to cut through the drywall.</label>
+                      <input type="radio" name="answer_25" id="answer_25_3" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> {{ $t('training.a25_saw_with_power_on') }}</label>
                     </input><br />
                     <label for="answer_25_4">
-                      <input type="radio" name="answer_25" id="answer_25_4" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> Knock out the drywall with just a hammer.</label>
+                      <input type="radio" name="answer_25" id="answer_25_4" onclick="document.getElementById('no_25').style.display = 'block'; document.getElementById('yes_25').style.display = 'none'; document.getElementById('explanation_25').style.display = 'block';"> {{ $t('training.a25_just_use_hammer') }}</label>
                     </input><br />
                   </form>
                   <div id="no_25" style="display:none">
@@ -681,22 +686,22 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_25" style="display:none">
-                    <p>Water can seep up 18-24 inches above the visible water line. When you remove drywall, please cut it on a straight line at 4 or 8 feet, even if there was only 3 inches of water. When drywall is replaced, workers always replace entire sheets, which are 4x8 feet. Using just a hammer leaves jagged edges that will need to be trimmed later. Beware of live electrical wires inside of walls. Remove drywall screws if you can. When possible, leave a note explaining what your organization did. Help residents know that mold remediation takes several weeks, and they should not replace drywall immediately.</p>
+                    <p>{{ $t('training.exp25_drywall_process') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>26. When you encounter a stressed, frustrated, or unreasonable volunteer from another organization,</h5>
+                  <h5>26. {{ $t('training.q26_stressed_org') }}</h5>
                   <form>
                     <label for="answer_26_2">
-                      <input type="radio" name="answer_26" id="answer_26_2" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> Listen carefully and reflect back what you hear, without becoming defensive.</label>
+                      <input type="radio" name="answer_26" id="answer_26_2" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> {{ $t('training.a26_listen_reflect') }}</label>
                     </input><br />
                     <label for="answer_26_3">
-                      <input type="radio" name="answer_26" id="answer_26_3" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> Be patient. And maybe give them a hug. Or cookies.</label>
+                      <input type="radio" name="answer_26" id="answer_26_3" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> {{ $t('training.a26_patient_hug_cookies') }}</label>
                     </input><br />
                     <label for="answer_26_4">
-                      <input type="radio" name="answer_26" id="answer_26_4" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> Remember that disasters are, by definition, overwhelming. So if you or they are feeling overwhelmed, you're probably doing it right.</label>
+                      <input type="radio" name="answer_26" id="answer_26_4" onclick="document.getElementById('no_26').style.display = 'block'; document.getElementById('yes_26').style.display = 'none'; document.getElementById('explanation_26').style.display = 'block';"> {{ $t('training.a26_disasters_are_overwhelming') }}</label>
                     </input><br />
                     <label for="answer_26_1">
                       <input type="radio" name="answer_26" id="answer_26_1" onclick="document.getElementById('no_26').style.display = 'none'; document.getElementById('yes_26').style.display = 'block'; document.getElementById('explanation_26').style.display = 'block';"> {{ $t('training.all_of_the_above') }}</label>
@@ -709,19 +714,19 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_26" style="display:none">
-                    <p>Be patient with colleagues from other organizations, and know they are doing the best they can. They want to help, just like you.</p>
+                    <p>{{ $t('training.exp26_be_patient') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>27. If you see an icon that is out of place on the map, you should move it to the correct location.</h5>
+                  <h5>27. {{ $t('training.q27_move_misplaced_icons') }}</h5>
                   <form>
                     <label for="answer_27_1">
-                      <input type="radio" name="answer_27" id="answer_27_1" onclick="document.getElementById('no_27').style.display = 'none'; document.getElementById('yes_27').style.display = 'block'; document.getElementById('explanation_27').style.display = 'block';"> True.</label>
+                      <input type="radio" name="answer_27" id="answer_27_1" onclick="document.getElementById('no_27').style.display = 'none'; document.getElementById('yes_27').style.display = 'block'; document.getElementById('explanation_27').style.display = 'block';"> {{ $t('training.true') }}</label>
                     </input><br />
                     <label for="answer_27_2">
-                      <input type="radio" name="answer_27" id="answer_27_2" onclick="document.getElementById('no_27').style.display = 'block'; document.getElementById('yes_27').style.display = 'none'; document.getElementById('explanation_27').style.display = 'block';"> False.</label>
+                      <input type="radio" name="answer_27" id="answer_27_2" onclick="document.getElementById('no_27').style.display = 'block'; document.getElementById('yes_27').style.display = 'none'; document.getElementById('explanation_27').style.display = 'block';"> {{ $t('training.false') }}</label>
                     </input><br />
                   </form>
                   <div id="no_27" style="display:none">
@@ -731,7 +736,7 @@
                     <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
                   </div>
                   <div id="explanation_27" style="display:none">
-                    <p>To move an icon, click edit, drag it to the correct location, and click "Save."</p>
+                    <p>{{ $t('training.exp27_move_misplaced_icons') }}</p>
                   </div>
                 </div>
               </div>
