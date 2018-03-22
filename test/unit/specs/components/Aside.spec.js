@@ -3,6 +3,7 @@ import {mockRouter, mockHttp, mockStore} from 'vuenit';
 import { mount, shallow, createLocalVue } from 'vue-test-utils';
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
+import i18n from '@/services/i18n';
 
 
 describe('Aside.vue', () => {
@@ -13,7 +14,8 @@ describe('Aside.vue', () => {
   });
   const wrapper = shallow(Aside, {
     localVue,
-    store
+    store,
+    i18n
   });
 
   beforeEach(() => {

@@ -2,6 +2,7 @@ import {shallow} from 'vue-test-utils';
 import WorksiteControls from '@/components/aside/worksite/WorksiteControls';
 import sinon from "sinon";
 import {mockStore} from 'vuenit';
+import i18n from '@/services/i18n';
 
 describe('WorksiteControls.vue', () => {
   let getters;
@@ -20,9 +21,9 @@ describe('WorksiteControls.vue', () => {
     let wrapper;
 
     it('can render', () => {
-      const wrapper = shallow(WorksiteControls, { mocks: { $store } });
+      const wrapper = shallow(WorksiteControls, { i18n, mocks: { $store } });
       let allButtons = wrapper.findAll('button');
-      expect(allButtons.length).to.equal(5);
+      expect(allButtons.length).to.equal(4);
     });
 
   });
@@ -37,7 +38,7 @@ describe('WorksiteControls.vue', () => {
       const storeCommitStub = sinon.stub();
 
       $store = { getters: getters, commit: storeCommitStub }
-      wrapper = shallow(WorksiteControls, {mocks: {$store}});
+      wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
 
       wrapper.findAll('button').at(0).trigger('click');
       expect(storeCommitStub.called).to.be.true
@@ -67,7 +68,7 @@ describe('WorksiteControls.vue', () => {
       getters.isCurrentSiteClaimed = true;
       getters.isCurrentSiteClaimedByUserOrg = false;
       $store = { getters: getters }
-      wrapper = shallow(WorksiteControls, {mocks: { $store }});
+      wrapper = shallow(WorksiteControls, {i18n, mocks: { $store }});
       const btn = wrapper.find('#claim-btn');
       expect(btn.hasStyle('display', 'none')).to.be.true
     })
@@ -76,20 +77,20 @@ describe('WorksiteControls.vue', () => {
       getters.isCurrentSiteClaimedByUserOrg = false;
       getters.isCurrentSiteClaimed = false;
       $store = { getters: getters }
-      wrapper = shallow(WorksiteControls, {mocks: {$store}});
+      wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
       expect(btn.hasStyle('display', 'none')).to.be.false
-      expect(btn.text()).to.include('Claim')
+      expect(btn.text()).to.include('Unclaim')
     })
 
     it('should show unclaim if site is claimed by user org', () => {
       getters.isCurrentSiteClaimedByUserOrg = true;
       getters.isCurrentSiteClaimed = true;
       $store = { getters: getters }
-      wrapper = shallow(WorksiteControls, {mocks: {$store}});
+      wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
       expect(btn.hasStyle('display', 'none')).to.be.false
-      expect(btn.text()).to.include('Unclaim')
+      expect(btn.text()).to.include('Claim')
     })
 
   });

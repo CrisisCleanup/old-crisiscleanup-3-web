@@ -10,8 +10,13 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h1>{{ $t('registerOrg.register_org') }}</h1>
+                <h1 class="myCssClass">{{ $t('registerOrg.register_org') }}</h1>
                 <h3>{{ $t('registerOrg.survivor_register_msg') }}</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>{{ usersName }}</p>
               </div>
             </div>
             <br>
@@ -82,7 +87,7 @@
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
                   <b-form-input type="text" v-bind:placeholder = "$t('registerOrg.organization_name')" v-model="name"
-                                :state="orgFormErrors.hasOwnProperty('name') ? false : null" required></b-form-input>
+                                v-bind:state="orgFormErrors.hasOwnProperty('name') ? false : null" required></b-form-input>
                   <!--<b-form-invalid-feedback>{{errorName}}</b-form-invalid-feedback>-->
                 </div>
 
@@ -234,6 +239,12 @@
   </div>
 </template>
 
+<style scoped>
+  .myCssClass {
+    color: blue;
+  }
+</style>
+
 <script>
   import {mapGetters, mapActions} from 'vuex';
 
@@ -241,7 +252,9 @@
 
     name: 'RegisterOrganization',
     data() {
-      return {}
+      return {
+        usersName: "Tyler"
+      }
     },
     computed: {
       ...mapGetters(['getParticipatingEvents', 'getCurrentEvent']),
@@ -479,7 +492,13 @@
     methods: {
       ...mapActions(['postOrganization']),
       signUp() {
-        this.$store.dispatch('postOrganization');
+        this.validateForm();
+        // this.$store.dispatch('postOrganization');
+      },
+      validateForm() {
+        if (!isNaN(this.name)) {
+          this.orgFormErrors.name = true;
+        }
       }
     },
   }

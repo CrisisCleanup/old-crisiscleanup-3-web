@@ -1,12 +1,13 @@
-import {shallow, mount} from 'vue-test-utils';
+import {shallow} from 'vue-test-utils';
 import SiteIcon from '@/components/sites/SiteIcon.vue';
-import sinon from "sinon";
+import i18n from '@/services/i18n';
 
 describe('SiteIcon.vue', function() {
 
   describe('Status colors', function() {
     it('should be green if closed, completed', function() {
       const wrapper = shallow(SiteIcon, {
+        i18n,
         propsData: {
           siteStatus: 'Closed, completed',
           siteId: 22
@@ -18,6 +19,7 @@ describe('SiteIcon.vue', function() {
 
     it('should be yellow if Open, Assigned', function() {
       const wrapper = shallow(SiteIcon, {
+        i18n,
         propsData: {
           siteStatus: 'Open, assigned',
           siteId: 22
@@ -29,6 +31,7 @@ describe('SiteIcon.vue', function() {
 
     it('should be yellow if Open, partially completed', function() {
       const wrapper = shallow(SiteIcon, {
+        i18n,
         propsData: {
           siteStatus: 'Open, partially completed',
           siteId: 22
@@ -40,6 +43,7 @@ describe('SiteIcon.vue', function() {
 
     it('should be gray if other closed', function() {
       const wrapper = shallow(SiteIcon, {
+        i18n,
         propsData: {
           siteStatus: 'Closed, other',
           siteId: 22
@@ -51,6 +55,7 @@ describe('SiteIcon.vue', function() {
 
     it('should be orange if claimed', function() {
       const wrapper = shallow(SiteIcon, {
+        i18n,
         propsData: {
           siteStatus: 'something else',
           siteId: 22
