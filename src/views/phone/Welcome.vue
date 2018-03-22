@@ -10,8 +10,7 @@
             </b-list-group-item>
             <b-list-group-item @click="getUpToDate" href="#">Get Up To Date
               <i class="icon-check float-right" v-if="user.is_up_to_date" style="font-size:18pt"></i><i class="icon-exclamation float-right" v-else style="font-size:18pt"></i>      
-            </b-list-group-item>   
-            <h1 v-if="ok">Yes</h1>
+            </b-list-group-item>
             <b-list-group-item @click="getStarted" href="#" v-if="user.is_training_completed && user.is_up_to_date">Get Started
               <i class="icon-control-play float-right" style="font-size:18pt"></i>
             </b-list-group-item>
@@ -99,12 +98,8 @@ export default {
     },
     async getGatewayData() {
       //Get user's current gateway info
-      if (this.user.gateway != null) {
-        await this.$store
-          .dispatch("phone/getGatewayDetails", this.user.gateway)
-          .catch(err => {
-            console.log(err);
-          });
+      if (this.user.last_used_gateway != null) {
+        this.$store.commit("phone/setGateway", this.user.last_used_gateway);
       } else {
         //TODO: add default gateway
         console.log("no gateway specified for user");

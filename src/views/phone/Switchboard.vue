@@ -51,8 +51,6 @@ export default {
   },
   methods: {
     sessionInfoConfirmed(info) {
-      console.log("Session info confirmed", info);
-
       //if the gateway changed, logout and re-log back in
       if (info.changedInfo == true && this.phoneService) {
         this.logoutOfPhoneService();

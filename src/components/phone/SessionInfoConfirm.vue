@@ -48,6 +48,9 @@ export default {
   },
   created: function() {
     this.getGatewayOptions();
+    if (this.user && this.user.last_used_gateway) {
+      this.updatedGateway = this.user.last_used_gateway.id;
+    }
   },
   computed: {
     ...mapGetters("phone", {
@@ -88,7 +91,7 @@ export default {
         await this.$store
           .dispatch("phone/getGatewayDetails", this.updatedGateway)
           .then(resp => {
-            userData.gateway = this.$store.state.phone.gateway.id;
+            userData.last_used_gateway = this.$store.state.phone.gateway.id;
           });
       }
 
