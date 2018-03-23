@@ -1,16 +1,11 @@
 import Vue from 'vue';
 import AgentLibrary from '@/../vendor/cf-agent-library';
-import phone from '@/store/phone';
 import store from '@/store';
-
-/*const myPhoneNumber = '';
-const inboundNumber = '';
-const outboundNumber = '';
-const agentLogin = '';
-const agentPassword = ''; */
 
 export default class PhoneService {
     constructor() {
+        this.store = store;
+        this.phone = this.store.state.phone;
         this.cf = new AgentLibrary({
             // Caution, this is prod
             socketDest: 'wss://c01-con.vacd.biz:8080/', //'ws://d01-test.cf.dev:8080',
@@ -21,9 +16,8 @@ export default class PhoneService {
                 endCallNotification: this.endCallFunction,
             },
         });
-
-        this.gateway = phone.state.gateway;
-        this.user = phone.state.user;
+        this.gateway = this.phone.gateway;
+        this.user = this.phone.user;
         this.loggedInAgentId = null;
         this.callInfo = {};
     }
@@ -62,7 +56,6 @@ export default class PhoneService {
                 }
                 console.log('AgentLibrary successfully logged in');
                 this.loggedInAgentId = data.agentSettings.agentId;
-                //const hardCodedGateId = data.inboundSettings.availableQueues[0].gateId;
                 this.cf.configureAgent(this.user.last_used_phone_number, [this.gateway.external_gateway_id], null, null, null, null, (configureResponse) => {
                     console.log('Configure response', configureResponse);
                     resolve();
@@ -96,8 +89,9 @@ export default class PhoneService {
                     } else {
                         state = newState;
                     }
-                    store.commit('phone/setState', state);
-                    console.log('new store state: ', phone.state.callState);
+
+                    this.store.commit('phone/setState', state);
+                    console.log('new store state: ', this.phone.state.callState);
                 }
                 console.log('Set agent state response', setAgentStateResponse);
                 resolve();
