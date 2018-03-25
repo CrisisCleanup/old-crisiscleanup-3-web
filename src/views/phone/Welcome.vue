@@ -99,7 +99,11 @@ export default {
     async getGatewayData() {
       //Get user's current gateway info
       if (this.user.last_used_gateway != null) {
-        this.$store.commit("phone/setGateway", this.user.last_used_gateway);
+        await this.$store
+          .dispatch("phone/getGatewayDetails", this.user.last_used_gateway)
+          .catch(err => {
+            console.log(err);
+          });
       } else {
         //TODO: add default gateway
         console.log("no gateway specified for user");

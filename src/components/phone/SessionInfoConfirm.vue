@@ -49,7 +49,7 @@ export default {
   created: function() {
     this.getGatewayOptions();
     if (this.user && this.user.last_used_gateway) {
-      this.updatedGateway = this.user.last_used_gateway.id;
+      this.updatedGateway = this.user.last_used_gateway;
     }
   },
   computed: {
