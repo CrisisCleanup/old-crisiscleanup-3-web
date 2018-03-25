@@ -10,7 +10,7 @@
                             <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
                                 <tr>
                                     <td style="width:80%" align="left">
-                                        <p style = "font-size:medium; margin:0px">601-496-4984</p>
+                                        <p style = "font-size:medium; margin:0px">{{caller.phoneNumber}}</p>
                                         <p style = "font-size:small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
                                     </td>
                                     <td style = "width:20%" align="right">
@@ -79,7 +79,8 @@ export default {
   },
   computed: {
     ...mapGetters("phone", {
-      user: "getUser"
+      user: "getUser",
+      caller: "getCaller"
     })
   }
 };

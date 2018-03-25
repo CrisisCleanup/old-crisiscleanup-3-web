@@ -38,6 +38,7 @@ export default {
 
     getters: {
         getCallState: state => state.callState,
+        getCaller: state => state.caller,
         getUser: state => state.user,
         getGateway: state => state.gateway,
         getCallCenterAccessible: state => {

@@ -6,13 +6,27 @@ export default class PhoneService {
     constructor() {
         this.store = store;
         this.phone = this.store.state.phone;
+        let self = this;
         this.cf = new AgentLibrary({
             // Caution, this is prod
             socketDest: 'wss://c01-con.vacd.biz:8080/', //'ws://d01-test.cf.dev:8080',
             callbacks: {
                 closeResponse: this.onCloseFunction,
                 openResponse: this.onOpenFunction,
-                newCallNotification: this.newCallFunction,
+                // TODO: Figure out a way to access 'self' context when put in seperate function
+                newCallNotification: (info) => {
+                    return new Promise(function (resolve, reject) {
+                        let state = null;
+                        if (info.callType === 'INBOUND') {
+                            state = 'ENGAGED-INBOUND';
+                        } else if (info.callType === 'OUTBOUND') {
+                            state = 'ENGAGED-OUTBOUND';
+                        }
+                        self.store.commit('phone/setState', state);
+                        self.store.commit('phone/setCaller', { phoneNumber: info.dnis });
+                        resolve();
+                    })
+                },
                 endCallNotification: this.endCallFunction,
             },
         });
@@ -28,16 +42,6 @@ export default class PhoneService {
 
     onOpenFunction() {
         console.log('AgentLibrary open');
-    }
-
-    newCallFunction(info) {
-        return new Promise(function(resolve, reject) {
-            console.log(info);
-            this.callInfo = info;
-            console.log("this.callInfo is ", this.callInfo)
-            resolve();
-        }); //try .bind(exists)
-
     }
 
     endCallFunction(info) {
