@@ -14,7 +14,7 @@ describe('SiteIcon.vue', function() {
         }
       });
       const icon = wrapper.find('i');
-      expect(icon.hasStyle('color', '#32cd32')).to.be.true;
+      expect(icon.element.style.color).to.equal('rgb(50, 205, 50)');
     });
 
     it('should be yellow if Open, Assigned', function() {
@@ -26,7 +26,7 @@ describe('SiteIcon.vue', function() {
         }
       });
       const icon = wrapper.find('i');
-      expect(icon.hasStyle('color', '#fff000')).to.be.true;
+      expect(icon.element.style.color).to.equal('rgb(255, 240, 0)');
     });
 
     it('should be yellow if Open, partially completed', function() {
@@ -38,7 +38,7 @@ describe('SiteIcon.vue', function() {
         }
       });
       const icon = wrapper.find('i');
-      expect(icon.hasStyle('color', '#fff000')).to.be.true;
+      expect(icon.element.style.color).to.equal('rgb(255, 240, 0)');
     });
 
     it('should be gray if other closed', function() {
@@ -50,7 +50,7 @@ describe('SiteIcon.vue', function() {
         }
       });
       const icon = wrapper.find('i');
-      expect(icon.hasStyle('color', '#808080')).to.be.true;
+      expect(icon.element.style.color).to.equal('rgb(128, 128, 128)');
     });
 
     it('should be orange if claimed', function() {
@@ -62,7 +62,7 @@ describe('SiteIcon.vue', function() {
         }
       });
       const icon = wrapper.find('i');
-      expect(icon.hasStyle('color', '#ffa500')).to.be.true;
+      expect(icon.element.style.color).to.equal('rgb(255, 165, 0)');
     });
   });
 
