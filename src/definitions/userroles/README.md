@@ -101,14 +101,14 @@ Attributes
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `true`
- - `viewSensitive`: Allows users to access "sensitive" class information. Primarily used to ensure that Guest Workers cannot access sensitive data.
+ - `verySensitive`: Overrides how to treat "verySensitive" class data by applying a single redaction pattern to all verySensitive class data in all mediums, in all circumstances. This is for when a VRC invites guest workers to Crisis Cleanup. They are semi-trusted members of the public, but should not have access to very sensitive information. Note: This can create a serious administration challenge in the future when abused.
    - Applies to: All roles
-   - Possible Values: `true`, `false`
+   - Possible Values: `redactDigits` (preferred), `hideField`, `truncateToFive`, `redactAll`, `convertToBoolean`, `noRedaction`, `inherit`
    - Required: Yes
-   - Default: `true`
+   - Default: `inherit`
 
 ## Attribute Suffix Conventions
- - `_t`: This attribute must be translated, using `\src\services\translation.js`
+ - `_t`: This attribute must be translated. The value of a translatable key refers to a translated string key in `\src\services\translation.js`
 
 
 Current list of translatable attributes:
