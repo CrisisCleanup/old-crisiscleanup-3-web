@@ -40,7 +40,8 @@ export default {
       worksitesValueOfServices: 0
     },
     errors: {
-      siteFormErrors: {}
+      siteFormErrors: {},
+      loginFormErrors: {}
     },
     worksiteViews: {
       editWorksite: false,
@@ -131,6 +132,9 @@ export default {
     setSiteFormErrors (state, payload) {
       state.errors.siteFormErrors = payload;
     },
+    setLoginFormErrors (state, payload) {
+      state.errors.loginFormErrors = payload;
+    },
     setCurrentSiteDataData (state, payload) {
       state.siteData.data = payload.data;
     }
@@ -143,6 +147,7 @@ export default {
     getDashboardWorksites: state => state.dashboardWorksites,
     getWorksiteStats: state => state.worksiteStats,
     getSiteFormErrors: state => state.errors.siteFormErrors,
+    getLoginFormErrors: state => state.errors.loginFormErrors,
     getParticipatingEvents: state => state.participatingEvents,
     getWorksiteViews: state => state.worksiteViews,
     getCurrentEvent: state => state.event
@@ -210,8 +215,6 @@ export default {
       });
     },
     async changeEventContext({commit, dispatch, state}, eventId) {
-      console.log(eventId)
-      console.log(state.participatingEvents)
       const event = state.participatingEvents.find(val => val.event_id == eventId);
       commit('setEventContext', event);
       await dispatch('getWorksiteStats');
@@ -221,6 +224,13 @@ export default {
     searchWorksites({commit, dispatch, state}, searchCriteria) {
       Vue.axios.get(`/worksites?limit=10&legacy_event_id=${state.event.event_id}&search=${searchCriteria}`).then(resp => {
         commit('setSearchingWorksites', resp.data.results)
+      });
+    },
+    sendInvites({commit, dispatch, state}, invites) {
+      Vue.axios.post('/invites', invites).then(resp => {
+
+      }).catch(error => {
+        commit('setLoginFormErrors', error.response.data);
       });
     }
   }

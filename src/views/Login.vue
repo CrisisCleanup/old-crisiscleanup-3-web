@@ -69,6 +69,8 @@ export default {
 
       this.$store.dispatch('auth/login', { user }).then(() => {
         this.$router.push({path: '/worker/dashboard'});
+      }, (error) => {
+
       });
     }
   }
