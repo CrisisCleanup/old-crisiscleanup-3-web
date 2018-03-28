@@ -1,4 +1,4 @@
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 import WorksiteControls from '@/components/aside/worksite/WorksiteControls';
 import sinon from "sinon";
 import {mockStore} from 'vuenit';

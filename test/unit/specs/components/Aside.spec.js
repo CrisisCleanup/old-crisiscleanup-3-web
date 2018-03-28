@@ -1,6 +1,6 @@
 import Aside from '@/components/Aside';
 import {mockRouter, mockHttp, mockStore} from 'vuenit';
-import { mount, shallow, createLocalVue } from 'vue-test-utils';
+import { mount, shallow, createLocalVue } from '@vue/test-utils';
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import i18n from '@/services/i18n';

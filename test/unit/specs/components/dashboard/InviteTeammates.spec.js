@@ -1,4 +1,4 @@
-import {shallow, createLocalVue} from 'vue-test-utils';
+import {shallow, createLocalVue} from '@vue/test-utils';
 import InviteTeammates from '@/components/dashboard/InviteTeammates';
 import i18n from '@/services/i18n';
 import sinon from "sinon";

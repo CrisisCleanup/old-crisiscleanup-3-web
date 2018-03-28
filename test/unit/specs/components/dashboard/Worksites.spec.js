@@ -1,6 +1,6 @@
 import Worksites from '@/components/dashboard/Worksites.vue';
 import sinon from "sinon";
-import {shallow, mount, createLocalVue} from 'vue-test-utils';
+import {shallow, mount, createLocalVue} from '@vue/test-utils';
 // import {mount, shallow, cre} from 'avoriaz'
 import Vuex from 'vuex'
 
