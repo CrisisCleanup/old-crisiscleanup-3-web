@@ -1,6 +1,6 @@
 import Login from '@/views/Login';
 import {mockRouter, mockHttp, mockStore} from 'vuenit';
-import {shallow, createLocalVue} from 'vue-test-utils';
+import {shallow, createLocalVue} from '@vue/test-utils';
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import i18n from '@/services/i18n';
@@ -73,21 +73,6 @@ describe('Login.vue', function () {
 
   describe('Validation', function () {
 
-    it('should have an empty password at load in the UI', () => {
-      const wrapper = createBaseWrapper();
-      const testEmail = 'test@example.com'
-      wrapper.setData({email: testEmail});
-      const passwordInputField = wrapper.find('#login-email');
-      // console.log(passwordInputField);
-      // expect(passwordInputField.attributes().state).to.be.null;
-    });
-
-    it('should have an empty password at load in the UI', () => {
-      const wrapper = createBaseWrapper();
-      const testEmail = 'test@example.com'
-      wrapper.setData({email: testEmail});
-      const passwordInputField = wrapper.find('#login-email');
-    });
   });
 
   describe('Test Login', function () {

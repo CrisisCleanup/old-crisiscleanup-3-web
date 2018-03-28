@@ -1,4 +1,4 @@
-import {shallow, mount} from 'vue-test-utils';
+import {shallow, mount} from '@vue/test-utils';
 import IntakeFormAside from '@/components/aside/worksite/IntakeFormAside';
 import sinon from "sinon";
 import {mockStore} from 'vuenit';

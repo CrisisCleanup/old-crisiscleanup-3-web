@@ -1,4 +1,4 @@
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 import SiteIcon from '@/components/sites/SiteIcon.vue';
 import i18n from '@/services/i18n';
 
