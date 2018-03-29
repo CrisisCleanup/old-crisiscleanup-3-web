@@ -42,7 +42,7 @@
             this.successfulInvites = false;
           }, 3000);
         }, error => {
-          this.errorMessage = error.body[0].email[0]
+          this.errorMessage = error.msg;
         });
       }
     }
