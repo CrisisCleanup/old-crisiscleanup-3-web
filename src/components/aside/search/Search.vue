@@ -61,7 +61,6 @@
   import ContactDetails from './ContactDetails';
 
   import 'v-autocomplete/dist/v-autocomplete.css'
-  import CCUMapEventHub from '@/events/CCUMapEventHub'
 
   Vue.use(Autocomplete);
 
