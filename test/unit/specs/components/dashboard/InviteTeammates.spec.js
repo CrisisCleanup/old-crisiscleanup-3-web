@@ -9,24 +9,27 @@ localVue.use(Vuex);
 
 describe('InviteTeammates.vue', function () {
 
-  const worker = {
-    state: {},
-    getters: {
-      getLoginFormErrors: () => {
-        return {
-          'errors': []
+  let worker;
+
+  beforeEach(function () {
+
+    worker = {
+      state: {},
+      getters: {
+        getLoginFormErrors: () => {
+          return {
+            'errors': []
+          }
         }
+      },
+      actions: {
+        sendInvites: sinon.stub()
+      },
+      mutations: {
+        setLoginErrors: sinon.stub()
       }
-    },
-    actions: {
-      sendInvites: sinon.stub()
-    },
-    mutations: {
-      setLoginErrors: sinon.stub()
-    }
-  };
-
-
+    };
+  });
 
   const buildWrapper = ($store) => {
     return shallow(InviteTeammates, {
@@ -49,8 +52,9 @@ describe('InviteTeammates.vue', function () {
     expect(wrapper.vm.$data.invitees).to.equal("");
   });
 
-  it('single email invite with errors', async function() {
-    worker.actions.sendInvites = sinon.stub().resolves("")
+  it('single email invite with errors', async function () {
+    const errorMessage = {msg: "there is an error"};
+    worker.actions.sendInvites = sinon.stub().rejects(errorMessage);
     const $store = new Vuex.Store({
       modules: {
         worker
@@ -59,8 +63,10 @@ describe('InviteTeammates.vue', function () {
     const wrapper = buildWrapper($store);
     const submitInvitesBtn = wrapper.find('button');
     await submitInvitesBtn.trigger('click');
-    // expect(wrapper.vm.$data.formErrors).to.be.true;
+    expect(wrapper.vm.$data.errorMessage).to.equal(errorMessage.msg);
   });
+
+  it('should send a list of emails');
 
 
 });
