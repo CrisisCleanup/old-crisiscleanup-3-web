@@ -13,28 +13,24 @@ localVue.use(VueRouter);
 
 describe('WorksiteDetails.vue', function () {
 
-  let loginStub = sinon.stub();
+  let getSiteStub = sinon.stub();
 
-  const auth = {
-    state: {
-      isAuthenticated: false,
-      loginErrors: []
-    },
+  const worker = {
+    state: {},
     getters: {},
     actions: {
-      login: loginStub
+      getSite: getSiteStub
     },
-    mutations: {
-      getSite: sinon.stub()
-    }
+    mutations: {}
   };
 
   const $store = new Vuex.Store({
     modules: {
-      auth
-    },
+      worker: {
+        ...worker
+      }
+    }
   });
-
 
   const createBaseWrapper = (propsData = {}) => {
     return shallow(WorksiteDetails, {
@@ -62,6 +58,13 @@ describe('WorksiteDetails.vue', function () {
     });
 
     it('should not show if item is null', () => {
+      const wrapper = createBaseWrapper({
+        item: null
+      });
+      expect(wrapper.isVisible()).to.be.false;
+    });
+
+    it('should properly show if item is not null', () => {
       const mockItem = {
         name: 'test',
         address: '123 Apple St.',
@@ -69,47 +72,25 @@ describe('WorksiteDetails.vue', function () {
         phone: "123-456-7890"
       };
       const wrapper = createBaseWrapper({
-        item: null
+        item: mockItem
       });
-      expect(wrapper.isVisible()).to.be.false;
+      const ddElements = wrapper.findAll('dd');
+      expect(ddElements.at(0).text()).to.equal(mockItem.name);
+      expect(ddElements.at(1).text()).to.equal(mockItem.address);
+      expect(ddElements.at(2).text()).to.equal(mockItem.city);
+      expect(ddElements.at(3).text()).to.equal(mockItem.phone);
+    });
+
+    it('should login', () => {
+      const wrapper = createBaseWrapper({
+        item: {}
+      });
+      const btn = wrapper.find('button');
+      btn.trigger('click');
+      expect(getSiteStub.calledOnce).to.be.true;
     });
 
   });
 
-  // describe('Validation', function () {
-  //
-  //   it('should have an empty password at load in the UI', () => {
-  //     const wrapper = createBaseWrapper();
-  //     const testEmail = 'test@example.com'
-  //     wrapper.setData({email: testEmail});
-  //     const passwordInputField = wrapper.find('#login-email');
-  //     // console.log(passwordInputField);
-  //     // expect(passwordInputField.attributes().state).to.be.null;
-  //   });
-  //
-  //   it('should have an empty password at load in the UI', () => {
-  //     const wrapper = createBaseWrapper();
-  //     const testEmail = 'test@example.com'
-  //     wrapper.setData({email: testEmail});
-  //     const passwordInputField = wrapper.find('#login-email');
-  //   });
-  // });
-  //
-  // describe('Test Login', function () {
-  //
-  //   it('should login', () => {
-  //     const wrapper = shallow(Login, {
-  //       localVue,
-  //       mocks: {$store},
-  //       i18n
-  //     });
-  //     const loginBtn = wrapper.find('#login-submit-btn');
-  //     loginBtn.trigger('click');
-  //     expect(auth.mutations.setLoginErrors.calledOnce).to.be.true;
-  //     expect(loginStub.calledOnce).to.be.true;
-  //   });
-  //
-  //
-  // })
 
 });
