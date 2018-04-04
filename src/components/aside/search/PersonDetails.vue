@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item !== null">
+  <div v-show="item">
     <h4>Person Details</h4>
     <dl class="row">
       <dt class="col-sm-3">Name</dt>
