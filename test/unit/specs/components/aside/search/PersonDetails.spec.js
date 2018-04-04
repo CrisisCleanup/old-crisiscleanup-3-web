@@ -1,4 +1,4 @@
-import OrganizationDetails from '@/components/aside/search/OrganizationDetails';
+import PersonDetails from '@/components/aside/search/PersonDetails';
 import {shallow, createLocalVue} from '@vue/test-utils';
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
@@ -9,10 +9,10 @@ import sinon from "sinon";
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
-describe('OrganizationDetails.vue', function () {
+describe('PersonDetails.vue', function () {
 
   const createBaseWrapper = (propsData = {}) => {
-    return shallow(OrganizationDetails, {
+    return shallow(PersonDetails, {
       localVue,
       i18n,
       propsData
@@ -23,11 +23,10 @@ describe('OrganizationDetails.vue', function () {
 
     it('should show at load', () => {
       const mockItem = {
-        name: 'test',
-        address: '123 Apple St.',
-        city: 'New York',
-        phone: "123-456-7890",
-        email: "example@domain.com"
+        name: 'John Doe',
+        role: 'Volunteer',
+        title: 'President'
+
       };
       const wrapper = createBaseWrapper({
         item: mockItem
@@ -45,21 +44,19 @@ describe('OrganizationDetails.vue', function () {
 
     it('should properly show if item is not null', () => {
       const mockItem = {
-        name: 'test',
-        address: '123 Apple St.',
-        city: 'New York',
-        phone: "123-456-7890",
-        email: "example@domain.com"
+        name: 'John Doe',
+        role: 'Volunteer',
+        title: 'President'
+
       };
       const wrapper = createBaseWrapper({
         item: mockItem
       });
       const ddElements = wrapper.findAll('dd');
       expect(ddElements.at(0).text()).to.equal(mockItem.name);
-      expect(ddElements.at(1).text()).to.equal(mockItem.address);
-      expect(ddElements.at(2).text()).to.equal(mockItem.city);
-      expect(ddElements.at(3).text()).to.equal(mockItem.phone);
-      expect(ddElements.at(4).text()).to.equal(mockItem.email);
+      expect(ddElements.at(1).text()).to.equal(mockItem.role);
+      expect(ddElements.at(2).text()).to.equal(mockItem.title);
+
     });
 
   });
