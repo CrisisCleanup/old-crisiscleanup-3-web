@@ -1,4 +1,4 @@
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 import QuickStatCard from '@/components/dashboard/QuickStatCard';
 import i18n from '@/services/i18n';
 

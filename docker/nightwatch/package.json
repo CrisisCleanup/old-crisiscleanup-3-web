@@ -1,0 +1,15 @@
+{
+  "name": "ns-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^2.2.0",
+    "nightwatch": "^0.9.20"
+  }
+}

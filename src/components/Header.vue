@@ -5,8 +5,8 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
-        <select @change="updateEventContext" :value="getCurrentEvent.event_id">
-          <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
+        <select @change="updateEventContext" :value="getCurrentEvent.id">
+          <option v-for="event in getParticipatingEvents" v-bind:value="event.id">{{event.name}}</option>
         </select>
       </b-nav-item>
     </b-navbar-nav>

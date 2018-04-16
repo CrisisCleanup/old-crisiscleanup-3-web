@@ -1,10 +1,6 @@
 <template>
   <div class="animated fadeIn">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Event Worksites</h1>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-12">
         <div id="myworksite-table">
@@ -36,10 +32,11 @@
             }
           },
           requestFunction: function (data) {
+            const eid = this.$store.state.worker.event.id;
             const d = {
               limit: data.limit,
               offset: (data.page * data.limit),
-              legacy_event_id: 60,
+              event: eid,
               search: data.query
             };
             return this.axios.get('/worksites', {params: d});

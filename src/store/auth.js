@@ -39,7 +39,6 @@ export default {
       payload = payload || {};
       return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
         const decodedToken = jwt_decode(resp.data.access_token);
-        console.log(decodedToken)
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuthInstance.isAuthenticated()
         });
@@ -47,7 +46,6 @@ export default {
           profile: decodedToken.user_claims
         });
       }, function(error) {
-        console.log(error);
         context.commit('setLoginErrors', {hasError: true});
       })
     },

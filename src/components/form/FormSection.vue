@@ -1,6 +1,8 @@
 <template>
   <section>
+    <hr />
     <h5>{{ $t(titleLabel) }}</h5>
+    <hr />
     <div v-for="(value, key) in formData.fields">
       <div v-if="value.field_type=='text'">
         <TextField
@@ -14,9 +16,9 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
         />
       </div>
       <div v-else-if="value.field_type=='textarea'">
@@ -31,9 +33,9 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
         />
       </div>
       <div v-else-if="value.field_type=='select'">
@@ -48,9 +50,9 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
           :options="value.options"
         />
       </div>
@@ -69,9 +71,9 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
           :options="value.options"
           />
       </div>
@@ -95,7 +97,7 @@
   import CheckboxField from './CheckboxField';
   import TextAreaField from './TextAreaField';
   import SelectField from './SelectField';
-  import FormSection from './FormSubSection';
+  import coreFields from './coreFields';
 
   export default {
     name: 'FormSection',
@@ -127,9 +129,15 @@
       TextField,
       CheckboxField,
       TextAreaField,
-      SelectField,
-      FormSection
+      SelectField
     },
-    methods: {}
+    methods: {
+      getFormDataValue(key) {
+        if (!coreFields.includes(key)) {
+          return this.eventFormData.data[key];
+        }
+        return this.eventFormData[key];
+      }
+    }
   }
 </script>

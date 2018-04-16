@@ -61,7 +61,6 @@
   import ContactDetails from './ContactDetails';
 
   import 'v-autocomplete/dist/v-autocomplete.css'
-  import CCUMapEventHub from '@/events/CCUMapEventHub'
 
   Vue.use(Autocomplete);
 
@@ -106,11 +105,11 @@
       },
       update(text) {
         if (text !== '') {
-          const eventId = this.$store.state.worker.event.event_id;
+          const eventId = this.$store.state.worker.event.id;
           switch (this.selectedSearchOption) {
             case 0:
               this.template = ItemTemplate;
-              Vue.axios.get(`/worksites?limit=10&legacy_event_id=${eventId}&search=${text}`).then(resp => {
+              Vue.axios.get(`/worksites?limit=10&event=${eventId}&search=${text}`).then(resp => {
                 this.items = resp.data.results;
               });
               break;

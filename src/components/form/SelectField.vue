@@ -9,8 +9,8 @@
           <i class="fa fa-question"></i>
         </span>
       </label>
-      <select class="form-control" @change="(event) => updateValue(fieldKey, event)">
-        <option v-for="option in options" :value="option.value" :readonly="localIsReadonly" :required="isRequired" :selected="option.value == value">
+      <select class="form-control form-control-sm" @change="(event) => updateValue(fieldKey, event.target.value)">
+        <option v-for="option in options" :value="option.value" :readonly="localIsReadonly" :required="isRequired" :selected="option.value === value">
           {{ $t(option.name_t) }}
         </option>
       </select>
