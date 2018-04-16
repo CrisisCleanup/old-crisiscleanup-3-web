@@ -10,16 +10,18 @@
       </template>
       <div class="row">
         <div class="col">
-          <ul v-show="Object.keys(eventFormData).length === 0">
-            <li>Claimed By: {{eventFormData.claimed_by_uid}}</li>
-          </ul>
+          <div v-show="Object.keys(eventFormData).length > 0">
+            <span v-show="eventFormData.claimed_by !== null">Worksite Claimed By: {{eventFormData.claimed_by}}</span>
+            <br v-show="eventFormData.claimed_by !== null" />
+            <span v-show="eventFormData.case_number !== null">Case Number: {{eventFormData.case_number}}</span>
+          </div>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
               <li v-for="(val, key) in siteFormErrors">{{ key }}: {{ val[0] }}</li>
             </ul>
           </div>
           <form>
-            <div v-for="(value, key) in phaseCleanup.fields">
+            <div v-for="(value, key) in phaseCleanup.fields" ref="eventFormBase">
               <FormSection :title-label="value.label_t"
                            :label-name="key"
                            :form-data="value"
@@ -109,9 +111,12 @@ import EventData70 from '../../definitions/forms/70-wv_floods_feb_2018.json';
 import EventData71 from '../../definitions/forms/71-ma-noreaster.json';
 
 import FormSection from './FormSection.vue'
-import {loaded} from 'vue2-google-maps'
+import coreFields from './coreFields';
+
 import {mapGetters} from 'vuex';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import {loaded} from 'vue2-google-maps'
+import Vue from 'vue';
 
 export default {
   data() {
@@ -121,7 +126,7 @@ export default {
   },
   computed: {
     phaseCleanup: function() {
-      const eid = this.$store.state.worker.event.event_id;
+      const eid = this.$store.state.worker.event.id;
       switch(eid) {
         case 1: return EventData1.phase_cleanup;
         case 2: return EventData2.phase_cleanup;
@@ -213,14 +218,139 @@ export default {
     FormSection,
     PulseLoader
   },
+  mounted() {
+    this.fireFormReady();
+  },
   methods: {
-    updateEventFormData (key, event) {
-      // this.eventFormData[key] = event.target.value;
-      let currentData = this.$store.getters.getCurrentSiteData;
-      let currentSiteData = Object.assign({}, currentData);
-      currentSiteData[key] = event.target.value;
+    updateEventFormData (key, value) {
+      if (!coreFields.includes(key)) {
+        const d1 = this.$store.state.worker.siteData.data;
+        let newData = Object.assign({}, d1);
+        newData[key] = value;
+        this.$store.commit('setCurrentSiteDataData', {data: newData});
+      } else {
+        const d2 = this.$store.state.worker.siteData;
+        let currentSiteData = Object.assign({}, d2);
+        currentSiteData[key] = value;
+        this.$store.commit('setCurrentSiteData', currentSiteData);
+      }
+    },
+    updateSiteData (obj) {
+      console.log(obj)
+      let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData, obj);
       this.$store.commit('setCurrentSiteData', currentSiteData);
+    },
+    fireFormReady() {
+      var self = this;
+      loaded.then(() => {
+        let addressField = document.getElementById('addressCCU');
+        let cityField = document.getElementById('cityCCU');
+        let countyField = document.getElementById('countyCCU');
+        let stateField = document.getElementById('stateCCU');
+        let countryField = document.getElementById('countryCCU');
+        let zipField = document.getElementById('zip_codeCCU');
+        let options = {
+          types: ['geocode']
+        };
+        if (addressField) {
+          if (typeof(google.maps.places.Autocomplete) !== 'function') {
+            throw new Error('google.maps.places.Autocomplete is undefined. Did you add \'places\' to libraries when loading Google Maps?')
+          }
+
+          let addressAutocomplete = new google.maps.places.Autocomplete(addressField);
+          addressAutocomplete.addListener('place_changed', fillInAddress);
+          let workerMapObj = null;
+          setTimeout(() => {
+              if (window.googMap !== undefined && window.googMap !== null) {
+                console.log(window.googMap);
+                workerMapObj = window.googMap.$mapObject;
+                addressAutocomplete.bindTo('bounds', workerMapObj);
+              }
+          }, 500);
+
+          function setLatLng (position) {
+              if (typeof position.lat === 'function') {
+                self.updateSiteData({latitude: position.lat()});
+                self.updateSiteData({longitude: position.lng()});
+              }
+          }
+
+          function fillInAddress() {
+            var place = addressAutocomplete.getPlace();
+            var updateZip = false;
+            for (var i = 0; i < place.address_components.length; i++) {
+              var addressType = place.address_components[i].types[0];
+              switch (addressType) {
+                case 'street_number':
+                  self.updateSiteData({address: place.address_components[i].long_name});
+                  break;
+                case 'route':
+                  const addressCopy = self.eventFormData.address;
+                  self.updateSiteData({address: addressCopy + " " + place.address_components[i].long_name});
+                  break;
+                case 'locality':
+                  if (cityField) {
+                    self.updateSiteData({city: place.address_components[i].long_name});
+                  }
+                  break;
+                case 'administrative_area_level_2':
+                  if (countyField) {
+                    self.updateSiteData({county: place.address_components[i].long_name});
+                  }
+                  break;
+                case 'administrative_area_level_1':
+                  if (stateField) {
+                    self.updateSiteData({state: place.address_components[i].long_name});
+                  }
+                  break;
+                case 'country':
+                  if (countryField) {
+                    self.updateSiteData({country: place.address_components[i].long_name});
+                  }
+                  break;
+                case 'postal_code':
+                  if (zipField) {
+                    self.updateSiteData({zip_code: place.address_components[i].long_name});
+                    updateZip = true;
+                  }
+                  break;
+                case 'postal_code_suffix':
+                  if (zipField && updateZip) {
+                    const zipcode_copy = self.eventFormData.zip_code;
+                    self.updateSiteData({zip_code: zipcode_copy + "-" + place.address_components[i].long_name});
+                  }
+                  break;
+              }
+            }
+
+
+              if (!place.geometry) {
+                return;
+              }
+
+              setLatLng(place.geometry.location);
+
+              if (place.geometry.viewport) {
+                workerMapObj.fitBounds(place.geometry.viewport);
+              } else {
+                workerMapObj.setCenter(place.geometry.location);
+                workerMapObj.setZoom(17);
+              }
+
+              let autocompleteTrackingMarker = new google.maps.Marker({
+                draggable: true,
+                position: place.geometry.location,
+                map: workerMapObj
+              });
+
+              autocompleteTrackingMarker.addListener('drag', function () {
+                setLatLng(this.position);
+              });
+            }
+          }
+      })
     }
+
   }
 }
 </script>

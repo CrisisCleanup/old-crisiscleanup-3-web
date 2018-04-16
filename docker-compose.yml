@@ -1,0 +1,28 @@
+version: '2.2'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 9020:80
+#    volumes:
+#      - ./dist:/usr/share/nginx/html
+  chromedriver:
+    image: blueimp/chromedriver
+    environment:
+      - VNC_ENABLED=true
+      - EXPOSE_X11=true
+    ports:
+      - 5900:5900
+  nightwatch:
+    image: blueimp/nightwatch:0.9
+    init: true
+    command: --tag home
+    depends_on:
+      - chromedriver
+      - nginx
+    environment:
+      - WAIT_FOR_HOSTS=nginx:80 chromedriver:4444 chromedriver:6060
+    volumes:
+      - ./test/e2e:/home/node

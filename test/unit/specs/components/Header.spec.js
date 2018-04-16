@@ -1,10 +1,11 @@
 import Header from '@/components/Header';
 import BootstrapVue from 'bootstrap-vue'
-import {mount as mount2, mockRouter, mockHttp, mockStore} from 'vuenit';
-import { mount, shallow, createLocalVue } from 'vue-test-utils';
-import VueRouter from 'vue-router'
+import {mockRouter, mockHttp, mockStore} from 'vuenit';
+import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex'
 import i18n from '@/services/i18n';
+import sinon from 'sinon';
+
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
@@ -29,9 +30,20 @@ describe('Header.vue', () => {
     }
   };
 
+  const auth = {
+    namespaced: true,
+    getters: {
+      getUserName: sinon.stub()
+    },
+    actions: {
+      logout: sinon.stub()
+    }
+  };
+
   const $store = new Vuex.Store({
     modules: {
-      worker
+      worker,
+      auth
     }
   });
 

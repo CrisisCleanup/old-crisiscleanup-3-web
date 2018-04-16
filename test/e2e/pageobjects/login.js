@@ -1,9 +1,8 @@
 
 module.exports = {
-  url: 'http://localhost:8080/#/login',
-  // url: function() {
-  //   return this.api.launchUrl + '/#/login';
-  // },
+  url: function() {
+    return this.api.launch_url + '/login';
+  },
   elements: {
     email: {
       selector: '#login-email'

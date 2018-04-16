@@ -47,7 +47,8 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      loginTriggered: false
     }
   },
   computed: {
@@ -61,7 +62,8 @@ export default {
   },
   methods: {
     login() {
-      this.$store.commit('auth/setLoginErrors', {hasError: null});
+      // this.loginTriggered = true;
+      this.$store.commit('auth/setLoginErrors', {hasError: null, alpha: 2});
       const user = {
         email: this.email,
         password: this.password
@@ -69,6 +71,8 @@ export default {
 
       this.$store.dispatch('auth/login', { user }).then(() => {
         this.$router.push({path: '/worker/dashboard'});
+      }, (error) => {
+
       });
     }
   }

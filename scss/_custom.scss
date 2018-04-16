@@ -5,8 +5,11 @@ $goldenrod: #ffcc44;
 $baby: #41b7d8;
 
 
-
-
+label {
+  // Allow labels to use `margin` for spacing.
+  display: inline-block;
+  margin-bottom: .15rem;
+}
 
 
 footer {

@@ -8,8 +8,8 @@
           <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
           <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
                   v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed"
-                  v-text="isCurrentSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
-          <button id="historyBtn" v-show="getWorksiteViews && getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>
+                  v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
+          <!--<button id="historyBtn" v-show="getWorksiteViews && getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>-->
           <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
         </div>
       </div>
@@ -54,7 +54,11 @@
         console.log("Load History")
       },
       fireClaimBtn() {
-        this.$store.dispatch('claimSite');
+        if (this.isCurrentSiteClaimed) {
+          this.$store.dispatch('unclaimSite');
+        } else {
+          this.$store.dispatch('claimSite');
+        }
         // TODO: Update marker (emit/on or vuex computed prop)
 //        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
       },

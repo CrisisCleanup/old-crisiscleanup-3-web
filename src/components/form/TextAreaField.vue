@@ -8,7 +8,8 @@
     </span>
       <small v-if="allowEditBreakGlass">(<a href="#" @click="">edit</a>)</small>
     </label>
-    <textarea class="form-control" :readonly="localIsReadonly" :required="isRequired"></textarea>
+    <textarea class="form-control form-control-sm" :readonly="localIsReadonly" :required="isRequired"
+              :value="value" @input="(event) => updateValue(fieldKey, event.target.value)"></textarea>
   </div>
 </template>
 

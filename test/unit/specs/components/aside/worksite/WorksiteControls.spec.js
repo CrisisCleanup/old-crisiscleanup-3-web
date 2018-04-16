@@ -1,4 +1,4 @@
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 import WorksiteControls from '@/components/aside/worksite/WorksiteControls';
 import sinon from "sinon";
 import {mockStore} from 'vuenit';
@@ -11,7 +11,8 @@ describe('WorksiteControls.vue', () => {
   beforeEach(() => {
     getters = {
       isCurrentSiteClaimed: true,
-      isCurrentSiteClaimedByUserOrg: true
+      isCurrentSiteClaimedByUserOrg: true,
+      getWorksiteViews: false
     };
 
     $store = { getters: getters }
@@ -70,8 +71,8 @@ describe('WorksiteControls.vue', () => {
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: { $store }});
       const btn = wrapper.find('#claim-btn');
-      expect(btn.hasStyle('display', 'none')).to.be.true
-    })
+      expect(btn.element.style.display).to.equal('none');
+    });
 
     it('should show claim if site is not claimed by any org', () => {
       getters.isCurrentSiteClaimedByUserOrg = false;
@@ -79,9 +80,9 @@ describe('WorksiteControls.vue', () => {
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
-      expect(btn.hasStyle('display', 'none')).to.be.false
+      expect(btn.element.style.display).to.equal('');
       expect(btn.text()).to.include('Unclaim')
-    })
+    });
 
     it('should show unclaim if site is claimed by user org', () => {
       getters.isCurrentSiteClaimedByUserOrg = true;
@@ -89,7 +90,7 @@ describe('WorksiteControls.vue', () => {
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
-      expect(btn.hasStyle('display', 'none')).to.be.false
+      expect(btn.element.style.display).to.equal('');
       expect(btn.text()).to.include('Claim')
     })
 

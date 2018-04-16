@@ -14,11 +14,6 @@
                 <h3>{{ $t('registerOrg.survivor_register_msg') }}</h3>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <p>{{ usersName }}</p>
-              </div>
-            </div>
             <br>
 
             <div class="row">
@@ -251,11 +246,6 @@
   export default {
 
     name: 'RegisterOrganization',
-    data() {
-      return {
-        usersName: "Tyler"
-      }
-    },
     computed: {
       ...mapGetters(['getParticipatingEvents', 'getCurrentEvent']),
       orgFormErrors() {

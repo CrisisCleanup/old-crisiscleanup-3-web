@@ -1,9 +1,14 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+var envConfig = require('./prod.env');
+if (process.env.APP_ENV === 'functional') {
+  envConfig = require('./functional.env');
+}
+
 module.exports = {
   build: {
-    env: require('./prod.env'),
+    env: envConfig,
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
