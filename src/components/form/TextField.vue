@@ -1,7 +1,8 @@
 <template>
   <div class="form-group">
-    <label><span ref="isRequiredAsterisk" v-if="isRequired">*</span>{{ $t(labelT) }}
-    <span v-if="helpTextT" v-b-tooltip.hover aria-haspopup="true"
+    <label>
+      <span ref="isRequiredAsterisk" v-if="isRequired">*</span>{{ $t(labelT) }}
+      <span v-if="helpTextT" v-b-tooltip.hover aria-haspopup="true"
             class="has-tip tip-bottom"
             ref="helpTextSpan"
             :title="$t(helpTextT)">

@@ -1,4 +1,4 @@
-import TextField from '@/components/form/TextField';
+import CheckboxField from '@/components/form/CheckboxField';
 import {shallow, createLocalVue} from '@vue/test-utils';
 import i18n from '@/services/i18n';
 import BootstrapVue from 'bootstrap-vue'
@@ -7,10 +7,10 @@ import sinon from "sinon";
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
-describe('TextField.vue', function () {
+describe('CheckboxField.vue', function () {
 
   const createBaseWrapper = (propsData = {}) => {
-    return shallow(TextField, {
+    return shallow(CheckboxField, {
       localVue,
       i18n,
       propsData
@@ -48,46 +48,6 @@ describe('TextField.vue', function () {
     const wrapper = createBaseWrapper({});
     expect(wrapper.find({ref: 'helpTextSpan'}).exists()).to.be.false;
   });
-
-  it('should show allow break edit glass button', ()=> {
-    const wrapper = createBaseWrapper({
-      allowEditBreakGlass: true
-    });
-    expect(wrapper.find({ref: 'allowEditLink'}).exists()).to.be.true;
-  });
-
-  it('should NOT show allow break edit glass button', ()=> {
-    const wrapper = createBaseWrapper({
-      //allowEditBreakGlass: false
-    });
-    expect(wrapper.find({ref: 'allowEditLink'}).exists()).to.be.false;
-  });
-
-  it('should enable the input text field when break glass edit button is enabled and clicked', function() {
-  const wrapper = createBaseWrapper({
-    isReadonly: true,
-    allowEditBreakGlass: true
-  });
-  // input field is readonly
-  // 'edit' button/link is clicked
-  wrapper.find('a').trigger('click');
-  // clicking the 'edit' button will flip the state of 'localIsReadonly'
-  // in this case to false, which will cause the input field to be readable
-  expect(wrapper.vm.$data.localIsReadonly).to.be.false;
-
-  // the opposite state gets toggled here and the input field will switch back
-  // to being readonly
-  wrapper.find('a').trigger('click');
-  expect(wrapper.vm.$data.localIsReadonly).to.be.true;
-});
-
-  it('should mark the input field readonly if isReadonly prop is true', () => {
-  const wrapper = createBaseWrapper({
-    isReadonly: true
-  });
-  expect(wrapper.find('input').attributes()['readonly']).to.equal('readonly');
-
-});
 
   it('should make the input field required if isRequired prop is true', () => {
   const wrapper = createBaseWrapper({
