@@ -30,7 +30,7 @@
                   <li class="list-inline-item donor-level">
                     <button class="btn-primary">$25</button>
                   </li>
-                  <li class="list-inline-item align-top"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')""></li>
+                  <li class="list-inline-item align-top"><img class="workers" src="/static/img/general_icons/worker1.png" v-bind:alt = "$t('donation.worker_1_alt')"></li>
                 </ul>
               </div>
             </div>

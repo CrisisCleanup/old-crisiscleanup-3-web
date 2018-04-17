@@ -1,5 +1,10 @@
 <template>
   <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Browse Event Worksites</h1>
+      </div>
+    </div>
     <WorksiteDatatable></WorksiteDatatable>
   </div>
 </template>
