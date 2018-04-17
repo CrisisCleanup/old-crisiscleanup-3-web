@@ -233,8 +233,6 @@ export default {
     },
     async changeEventContext({commit, dispatch, state}, eventId) {
       const event = state.participatingEvents.find(val => val.id == eventId);
-      console.log(event)
-      console.log(eventId)
       commit('setEventContext', event);
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');

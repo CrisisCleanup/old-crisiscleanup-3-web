@@ -88,6 +88,8 @@ describe('Login.vue', function () {
       //expect(wrapper.vm.$data.loginTriggered).to.be.true;
       //expect(auth.mutations.setLoginErrors.calledOnce).to.be.true;
       //expect(loginStub.calledOnce).to.be.true;
+      expect(auth.mutations.setLoginErrors.calledOnce).to.be.true;
+      expect(loginStub.calledOnce).to.be.true;
     });
 
 
