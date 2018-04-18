@@ -85,7 +85,7 @@ describe('TextAreaField.vue', function () {
   const wrapper = createBaseWrapper({
     isReadonly: true
   });
-  expect(wrapper.find('input').attributes()['readonly']).to.equal('readonly');
+  expect(wrapper.find('textarea').attributes()['readonly']).to.equal('readonly');
 
 });
 
@@ -93,7 +93,7 @@ describe('TextAreaField.vue', function () {
   const wrapper = createBaseWrapper({
     isRequired: true
   });
-  expect(wrapper.find('input').attributes()['required']).to.equal('required');
+  expect(wrapper.find('textarea').attributes()['required']).to.equal('required');
 
 });
 
@@ -104,7 +104,7 @@ describe('TextAreaField.vue', function () {
     const wrapper = createBaseWrapper({
       updateValue: updateValueStub
     });
-    wrapper.find('input').trigger('input');
+    wrapper.find('textarea').trigger('input');
     expect(updateValueStub.calledOnce).to.be.true;
   });
 });

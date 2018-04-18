@@ -53,7 +53,7 @@ describe('SelectField.vue', function () {
   const wrapper = createBaseWrapper({
     isReadonly: true
   });
-  expect(wrapper.find('option').attributes()['readonly']).to.equal('readonly');
+  expect(wrapper.find('select').attributes()['readonly']).to.equal('readonly');
   //console.log(wrapper.find('option').attributes()['readonly']);
 });
 
@@ -61,7 +61,7 @@ describe('SelectField.vue', function () {
   const wrapper = createBaseWrapper({
     isRequired: true
   });
-  expect(wrapper.find('option').attributes()['required']).to.equal('required');
+  expect(wrapper.find('select').attributes()['required']).to.equal('required');
 
 });
 
@@ -72,7 +72,7 @@ describe('SelectField.vue', function () {
     const wrapper = createBaseWrapper({
       updateValue: updateValueStub
     });
-    wrapper.find('input').trigger('change');
+    wrapper.find('select').trigger('change');
     expect(updateValueStub.calledOnce).to.be.true;
   });
 });
