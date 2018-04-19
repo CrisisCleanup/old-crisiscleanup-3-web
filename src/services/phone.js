@@ -95,7 +95,7 @@ export default class PhoneService {
                     }
 
                     this.store.commit('phone/setState', state);
-                    console.log('new store state: ', this.phone.state.callState);
+                    console.log('new store state: ', this.phone.callState);
                 }
                 console.log('Set agent state response', setAgentStateResponse);
                 resolve();
