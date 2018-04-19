@@ -23,8 +23,19 @@ export default class PhoneService {
                             state = 'ENGAGED-OUTBOUND';
                         }
                         self.store.commit('phone/setState', state);
-                        self.store.commit('phone/setCaller', { phoneNumber: info.dnis });
-                        resolve();
+                        self.store.dispatch("phone/getCallerDetails", info.dnis).then((caller) => {
+                            // Save call info
+                            let call = {
+                                call_start: Date.now,
+                                user_number: info.dialDest,
+                                caller: caller.id,
+                                gateway: self.gateway.id,
+                                call_type: info.callType,
+                                ccu_number: info.ani,
+                                external_id: uii
+                            };
+                            self.store.dispatch("phone/updateCall", call).then(resolve());
+                        });
                     })
                 },
                 endCallNotification: this.endCallFunction,

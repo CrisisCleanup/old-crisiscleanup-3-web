@@ -10,7 +10,7 @@
                             <table style="width:96%; margin-left:2%; margin-right:2%; margin-top:2%">
                                 <tr>
                                     <td style="width:80%" align="left">
-                                        <p style = "font-size:medium; margin:0px">{{caller.phoneNumber}}</p>
+                                        <p style = "font-size:medium; margin:0px">{{caller.phone_number}}</p>
                                         <p style = "font-size:small; margin:0px">Florida: Jacksonville, Jacksonvile Beach, Lakeside</p> 
                                     </td>
                                     <td style = "width:20%" align="right">
@@ -77,6 +77,7 @@ export default {
       boot_image: "../../static/img/map_icons/Muck_Out_orange.png"
     };
   },
+
   computed: {
     ...mapGetters("phone", {
       user: "getUser",

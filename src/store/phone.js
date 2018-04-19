@@ -5,6 +5,7 @@ export default {
 
     state: {
         user: {},
+        call: {},
         caller: {},
         gateway: {},
         needsWelcome: true,
@@ -15,6 +16,9 @@ export default {
     mutations: {
         setUser(state, user) {
             state.user = user;
+        },
+        setCall(state, call) {
+            state.call = call;
         },
         setCaller(state, caller) {
             state.caller = caller;
@@ -50,7 +54,6 @@ export default {
         },
         getLanguages: state => state.languages
     },
-
     actions: {
         getUserDetails({ commit, state }, payload) {
             if (payload.overwrite || (!payload.overwrite && (state.user == null || state.user.id == null || state.user.id == undefined))) {
@@ -65,10 +68,29 @@ export default {
                 commit('setLanguages', resp.data.results);
             })
         },
-        getCallerDetails({ commit, state }, callerId) {
-            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + callerId + `/get_detail`).then(resp => {
-                commit('setCaller', resp.data)
-            })
+        getCallerDetails({ commit, state }, phoneNumber) {
+            return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + phoneNumber + `/get_detail`)
+                .then(resp => {
+                    commit('setCaller', resp.data)
+                })
+                .catch(err => {
+                    //If the caller doesn't exist, create them
+                    Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/callers`, { phone_number: phoneNumber }).then(resp => {
+                        commit('setCaller', resp.data)
+                    })
+                });
+        },
+        updateCall({ commit, state }, call) {
+            // If it has an id, update, otherwise create
+            if (call.id) {
+                return Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/calls`, call).then(resp => {
+                    commit('setCall', resp.data)
+                })
+            } else {
+                return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/calls/` + call.id, call).then(resp => {
+                    commit('setCall', resp.data)
+                })
+            }
         },
         getGatewayDetails({ commit, state }, gatewayId) {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/gateways/` + gatewayId + `/get_detail`).then(resp => {
