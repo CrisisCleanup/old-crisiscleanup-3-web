@@ -83,11 +83,10 @@ export default {
         this.phoneService
           .login()
           .then(() => {
-            this.$store.commit("phone/setState", "AVAILABLE").then(() => {
-              console.log("this.callState = ", this.callState);
-              this.phoneService.changeState(this.callState);
-              this.loggedIn = true;
-            });
+            this.$store.commit("phone/setState", "AVAILABLE");
+            console.log("this.callState = ", this.callState);
+            this.phoneService.changeState(this.callState);
+            this.loggedIn = true;
           })
           .catch(err => {
             console.log(err);
