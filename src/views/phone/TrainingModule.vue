@@ -117,7 +117,7 @@ export default {
         this.$http
           .post(
             `${process.env.API_PHONE_ENDPOINT}/users/` +
-              vm.$store.state.phone.user.id +
+              vm.$store.state.phone.user.cc_id +
               `/set_completed_training`,
             JSON.stringify(vm.id),
             {
