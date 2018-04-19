@@ -2,15 +2,16 @@
   <div>
     <div class="form-group">
       <label>
-        <span v-if="isRequired">*</span>{{ $t(labelT) }}
-        <span v-if="helpTextT !== null" v-b-tooltip.hover aria-haspopup="true"
+        <span ref="isRequiredAsterisk" v-if="isRequired">*</span>{{ $t(labelT) }}
+        <span v-if="helpTextT" v-b-tooltip.hover aria-haspopup="true"
               class="has-tip tip-bottom"
+              ref="helpTextSpan"
               :title="$t(helpTextT)">
           <i class="fa fa-question"></i>
         </span>
       </label>
-      <select class="form-control" @change="(event) => updateValue(fieldKey, event)">
-        <option v-for="option in options" :value="option.value" :readonly="localIsReadonly" :required="isRequired" :selected="option.value == value">
+      <select class="form-control form-control-sm" @change="(event) => updateValue(fieldKey, event.target.value)">
+        <option v-for="option in options" :value="option.value" :readonly="localIsReadonly" :required="isRequired" :selected="option.value === value">
           {{ $t(option.name_t) }}
         </option>
       </select>

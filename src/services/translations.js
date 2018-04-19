@@ -1,5 +1,8 @@
 const messages = {
   en: {
+    unitTest: {
+      t1: "TEST"
+    },
     publicHeader: {
       realtime_map: "Realtime Map",
       donate: "Donate",
