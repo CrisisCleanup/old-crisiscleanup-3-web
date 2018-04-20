@@ -116,7 +116,7 @@ export default {
         //Mark the training as completed
         this.$http
           .post(
-            `${process.env.API_PHONE_ENDPOINT}/users/` +
+            `${process.env.API_PHONE_ENDPOINT}/call-users/` +
               vm.$store.state.phone.user.cc_id +
               `/set_completed_training`,
             JSON.stringify(vm.id),

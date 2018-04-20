@@ -237,7 +237,7 @@ export default {
           userData.willing_to_be_pin_hero
         ) {
           Vue.axios
-            .post(`${process.env.API_PHONE_ENDPOINT}/users`, userData)
+            .post(`${process.env.API_PHONE_ENDPOINT}/call-users`, userData)
             .then(resp => {
               this.$store.commit("phone/setUser", resp.data);
               this.$router.push({ path: "/worker/dashboard" });

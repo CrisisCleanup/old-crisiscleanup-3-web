@@ -114,7 +114,7 @@ export default {
       this.$http
         .get(
           `${process.env
-            .API_PHONE_ENDPOINT}/users?willing_to_be_call_center_support=true`
+            .API_PHONE_ENDPOINT}/call-users?willing_to_be_call_center_support=true`
         )
         .then(r => {
           var callExperts = r.data.results;

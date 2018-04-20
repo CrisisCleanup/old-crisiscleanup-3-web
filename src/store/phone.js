@@ -54,7 +54,7 @@ export default {
     actions: {
         getUserDetails({ commit, state }, payload) {
             if (payload.overwrite || (!payload.overwrite && (state.user == null || state.user.cc_id == null || state.user.cc_id == undefined))) {
-                return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.userId + `/get_detail`).then(resp => {
+                return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/call-users/` + payload.userId + `/get_detail`).then(resp => {
                     commit('setUser', resp.data)
                 })
             }
@@ -76,7 +76,7 @@ export default {
             })
         },
         updateUser({ commit, state }, payload) {
-            return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/users/` + payload.id, payload).then(resp => {
+            return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/call-users/` + payload.id, payload).then(resp => {
                 commit('setUser', resp.data)
             })
         }
