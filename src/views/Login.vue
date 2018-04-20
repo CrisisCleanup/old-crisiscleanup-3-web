@@ -62,6 +62,13 @@ export default {
   },
   methods: {
     login() {
+        this.$notify({
+          group: 'foo',
+          title: 'Attempting to login',
+          text: 'Logging in',
+          position: 'top left',
+          width: 500
+        });
       // this.loginTriggered = true;
       this.$store.commit('auth/setLoginErrors', {hasError: null, alpha: 2});
       const user = {
@@ -72,7 +79,6 @@ export default {
       this.$store.dispatch('auth/login', { user }).then(() => {
         this.$router.push({path: '/worker/dashboard'});
       }, (error) => {
-
       });
     }
   }
