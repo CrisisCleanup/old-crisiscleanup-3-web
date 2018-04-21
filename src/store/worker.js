@@ -236,6 +236,8 @@ export default {
       commit('setEventContext', event);
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');
+      commit('resetCurrentSiteData');
+      commit('setSiteFormErrors', {});
       await dispatch('map/getWorksites', eventId);
     },
     searchWorksites({commit, dispatch, state}, searchCriteria) {

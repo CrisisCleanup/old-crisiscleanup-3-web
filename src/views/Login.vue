@@ -8,18 +8,17 @@
               <div class="card-body">
                 <h1>{{ $t('actions.login') }}</h1>
                 <p class="text-muted">{{ $t('login.sign_in_msg') }}</p>
+                <p class="red-text" v-if="loginErrors">{{ $t('login.invalid_credentials_msg') }}</p>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
                   <b-form-input id="login-email" v-model="email" type="text"
                                 v-bind:placeholder = "$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
-                  <b-form-invalid-feedback>{{ $t('login.invalid_credentials_msg') }}</b-form-invalid-feedback>
                 </div>
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
                   <b-form-input id="login-password" v-model="password" type="password"
                                 :state="loginErrors ? false : null"
                                 v-bind:placeholder = "$t('login.password_placeholder')"/>
-                  <b-form-invalid-feedback>{{ $t('login.invalid_credentials_msg') }}</b-form-invalid-feedback>
                 </div>
                 <div class="row">
                   <div class="col-6">
@@ -84,3 +83,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+  .red-text {
+    color: red;
+  }
+
+</style>

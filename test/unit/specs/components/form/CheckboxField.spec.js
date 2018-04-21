@@ -28,6 +28,7 @@ describe('CheckboxField.vue', function () {
       isRequired: true
     });
     expect(wrapper.find({ref: 'isRequiredAsterisk'}).exists()).to.be.true;
+    //console.log(wrapper.find({ref: 'isRequiredAsterisk'}));
   });
 
   it('should NOT show required label', () => {
@@ -64,7 +65,7 @@ describe('CheckboxField.vue', function () {
     const wrapper = createBaseWrapper({
       updateValue: updateValueStub
     });
-    wrapper.find('input').trigger('input');
+    wrapper.find('input').trigger('change');
     expect(updateValueStub.calledOnce).to.be.true;
   });
 });
