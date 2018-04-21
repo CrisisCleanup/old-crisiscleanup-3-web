@@ -199,6 +199,29 @@ export default {
         default: return EventData60.phase_cleanup;
       }
     },
+    allFields: function() {
+      let sections = [];
+
+      let traverseFields = function (fields, parent={}) {
+        for (const key in fields) {
+          const value = fields[key];
+          if (value['field_type'] === 'section') {
+            sections[key] = {
+              'work_type': value['if_selected_then_work_type'],
+              'children': []
+            };
+            traverseFields(value.fields, sections[key]);
+          } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
+            parent.children[key] = value['if_selected_then_work_type'];
+          }
+        }
+      };
+
+      const fields = this.phaseCleanup.fields;
+      traverseFields(fields);
+      console.log(sections)
+      return sections
+    },
     eventFormData: {
       get: function() {
         return this.$store.getters.getCurrentSiteData;
@@ -221,9 +244,21 @@ export default {
   },
   mounted() {
     this.fireFormReady();
+    let getAllFields = this.allFields;
   },
   methods: {
-    updateEventFormData (key, value) {
+    checkWorkType(ifSelectedWorksiteType, ifSelectedWorksiteTypeParent) {
+      if (ifSelectedWorksiteType !== null || ifSelectedWorksiteTypeParent !== null) {
+        if (ifSelectedWorksiteType !== null && ifSelectedWorksiteType !== 'inherit') {
+          return ifSelectedWorksiteType;
+        } else if (ifSelectedWorksiteTypeParent !== null && ifSelectedWorksiteType === 'inherit') {
+          return ifSelectedWorksiteTypeParent;
+        }
+      }
+      return null;
+    },
+    updateEventFormData (key, value, ifSelectedWorksiteType=null, ifSelectedWorksiteTypeParent=null) {
+      console.log("WORK TYPE DETERMINED: ", this.checkWorkType(ifSelectedWorksiteType, ifSelectedWorksiteTypeParent));
       if (!coreFields.includes(key)) {
         const d1 = this.$store.state.worker.siteData.data;
         let newData = Object.assign({}, d1);
@@ -237,7 +272,6 @@ export default {
       }
     },
     updateSiteData (obj) {
-      console.log(obj)
       let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData, obj);
       this.$store.commit('setCurrentSiteData', currentSiteData);
     },
