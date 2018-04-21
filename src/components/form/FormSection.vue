@@ -20,6 +20,7 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -38,6 +39,7 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -56,6 +58,7 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -78,6 +81,7 @@
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
           :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -132,12 +136,10 @@
       updateEventFormData: {
         type: Function
       },
-      sectionLevel: {
-      }
+      sectionLevel: {}
     },
     data() {
       return {
-        // trackingWorkType: ""
       }
     },
     computed: {},

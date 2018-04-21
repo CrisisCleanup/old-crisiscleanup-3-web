@@ -31,7 +31,13 @@
     },
     methods: {
       toggleCheck(event) {
-        this.updateValue(this.fieldKey, (event.target.checked) ? 'y' : 'n')
+        this.updateValue(
+          this.fieldKey,
+          (event.target.checked) ? 'y' : 'n',
+          this.parentFieldName,
+          this.ifSelectedThenWorkType,
+          this.parentIfSelectedThenWorkType
+        )
       }
     }
   }
