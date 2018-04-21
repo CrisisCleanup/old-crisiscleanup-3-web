@@ -260,7 +260,7 @@ export default {
         let activeChildrenCount = 0;
         let objects = lodashObject.pick(siteData, Object.keys(sectionChildren));
         lodashObject.forIn(objects, function (value, key) {
-          if (value && value !== 'n' && value !== '') {
+          if (value && value !== 'n' && value !== '' && value != 0) {
             activeChildrenCount++
           }
         });
@@ -279,19 +279,17 @@ export default {
         const d1 = this.$store.state.worker.siteData.data;
         const d3 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d1);
+        let baseData = Object.assign({}, d3);
         newData[key] = value;
-        console.log("before", d3['work_type']);
-        newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d3['work_type']);
-        console.log("after", newData['work_type']);
+        baseData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d3['work_type']);
         this.$store.commit('setCurrentSiteDataData', {data: newData});
+        this.$store.commit('setCurrentSiteData', baseData);
       } else {
         const d2 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d2);
         newData[key] = value;
-        console.log("fore", d2['work_type']);
         newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d2['work_type']);
-        console.log("after", newData['work_type']);
-        this.$store.commit('setCurrentSiteData', currentSiteData);
+        this.$store.commit('setCurrentSiteData', newData);
       }
     },
     updateSiteData (obj) {
