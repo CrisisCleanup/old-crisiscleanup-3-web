@@ -1,4 +1,4 @@
-import SelectField from '@/components/form/SelectField';
+import TextAreaField from '@/components/form/TextAreaField';
 import {shallow, createLocalVue} from '@vue/test-utils';
 import i18n from '@/services/i18n';
 import BootstrapVue from 'bootstrap-vue'
@@ -7,10 +7,10 @@ import sinon from "sinon";
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
-describe('SelectField.vue', function () {
+describe('TextAreaField.vue', function () {
 
   const createBaseWrapper = (propsData = {}) => {
-    return shallow(SelectField, {
+    return shallow(TextAreaField, {
       localVue,
       i18n,
       propsData
@@ -49,19 +49,51 @@ describe('SelectField.vue', function () {
     expect(wrapper.find({ref: 'helpTextSpan'}).exists()).to.be.false;
   });
 
+  it('should show allow break edit glass button', ()=> {
+    const wrapper = createBaseWrapper({
+      allowEditBreakGlass: true
+    });
+    expect(wrapper.find({ref: 'allowEditLink'}).exists()).to.be.true;
+  });
+
+  it('should NOT show allow break edit glass button', ()=> {
+    const wrapper = createBaseWrapper({
+      //allowEditBreakGlass: false
+    });
+    expect(wrapper.find({ref: 'allowEditLink'}).exists()).to.be.false;
+  });
+
+  it('should enable the input text field when break glass edit button is enabled and clicked', function() {
+  const wrapper = createBaseWrapper({
+    isReadonly: true,
+    allowEditBreakGlass: true
+  });
+  // input field is readonly
+  // 'edit' button/link is clicked
+  wrapper.find('a').trigger('click');
+  // clicking the 'edit' button will flip the state of 'localIsReadonly'
+  // in this case to false, which will cause the input field to be readable
+  expect(wrapper.vm.$data.localIsReadonly).to.be.false;
+
+  // the opposite state gets toggled here and the input field will switch back
+  // to being readonly
+  wrapper.find('a').trigger('click');
+  expect(wrapper.vm.$data.localIsReadonly).to.be.true;
+});
+
   it('should mark the input field readonly if isReadonly prop is true', () => {
   const wrapper = createBaseWrapper({
     isReadonly: true
   });
-  expect(wrapper.find('select').attributes()['readonly']).to.equal('readonly');
-  //console.log(wrapper.find('option').attributes()['readonly']);
+  expect(wrapper.find('textarea').attributes()['readonly']).to.equal('readonly');
+
 });
 
   it('should make the input field required if isRequired prop is true', () => {
   const wrapper = createBaseWrapper({
     isRequired: true
   });
-  expect(wrapper.find('select').attributes()['required']).to.equal('required');
+  expect(wrapper.find('textarea').attributes()['required']).to.equal('required');
 
 });
 
@@ -72,7 +104,7 @@ describe('SelectField.vue', function () {
     const wrapper = createBaseWrapper({
       updateValue: updateValueStub
     });
-    wrapper.find('select').trigger('change');
+    wrapper.find('textarea').trigger('input');
     expect(updateValueStub.calledOnce).to.be.true;
   });
 });

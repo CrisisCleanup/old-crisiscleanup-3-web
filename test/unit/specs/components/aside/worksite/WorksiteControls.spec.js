@@ -24,7 +24,7 @@ describe('WorksiteControls.vue', () => {
     it('can render', () => {
       const wrapper = shallow(WorksiteControls, { i18n, mocks: { $store } });
       let allButtons = wrapper.findAll('button');
-      expect(allButtons.length).to.equal(4);
+      expect(allButtons.length).to.equal(3);
     });
 
   });
@@ -81,7 +81,7 @@ describe('WorksiteControls.vue', () => {
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
       expect(btn.element.style.display).to.equal('');
-      expect(btn.text()).to.include('Unclaim')
+      expect(btn.text()).to.include('Claim')
     });
 
     it('should show unclaim if site is claimed by user org', () => {
@@ -91,10 +91,9 @@ describe('WorksiteControls.vue', () => {
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
       const btn = wrapper.find('#claim-btn');
       expect(btn.element.style.display).to.equal('');
-      expect(btn.text()).to.include('Claim')
+      expect(btn.text()).to.include('Unclaim')
     })
 
   });
 
 });
-
