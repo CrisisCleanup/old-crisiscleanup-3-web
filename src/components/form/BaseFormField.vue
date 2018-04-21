@@ -28,6 +28,9 @@
       ifSelectedThenWorkType: {
         type: String
       },
+      parentIfSelectedThenWorkType: {
+        type: String
+      },
       placeholderT: {
         type: String
       },
