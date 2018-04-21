@@ -40,6 +40,8 @@
 </template>
 
 <script>
+
+import lodashObject from 'lodash/object';
 import EventData1 from '../../definitions/forms/1-hurricane_sandy_recovery.json';
 import EventData2 from '../../definitions/forms/2-hattiesburg_ms_tornado.json';
 import EventData3 from '../../definitions/forms/3-gordon_bartow_ga_tornado.json';
@@ -121,9 +123,9 @@ import Vue from 'vue';
 
 export default {
   data() {
-    return {}
-  },
-  mounted() {
+    return {
+      cachedWorkTypes: {}
+    }
   },
   computed: {
     phaseCleanup: function() {
@@ -219,7 +221,6 @@ export default {
 
       const fields = this.phaseCleanup.fields;
       traverseFields(fields);
-      console.log(sections)
       return sections
     },
     eventFormData: {
@@ -244,30 +245,52 @@ export default {
   },
   mounted() {
     this.fireFormReady();
-    let getAllFields = this.allFields;
+    this.cachedWorkTypes = this.allFields;
   },
   methods: {
-    checkWorkType(ifSelectedWorksiteType, ifSelectedWorksiteTypeParent) {
-      if (ifSelectedWorksiteType !== null || ifSelectedWorksiteTypeParent !== null) {
-        if (ifSelectedWorksiteType !== null && ifSelectedWorksiteType !== 'inherit') {
-          return ifSelectedWorksiteType;
-        } else if (ifSelectedWorksiteTypeParent !== null && ifSelectedWorksiteType === 'inherit') {
-          return ifSelectedWorksiteTypeParent;
-        }
+    checkWorkType(parentFieldName, ifSelectedWorksiteType, siteData, existingWorkType) {
+      const sectionChildren = this.cachedWorkTypes[parentFieldName].children;
+      const sectionWorkType = this.cachedWorkTypes[parentFieldName].work_type;
+      let splitWorkTypes = existingWorkType.split('|||')
+      let wtSet = new Set(splitWorkTypes.map((item) => { return item.toLowerCase() }));
+      let selectedWorkType = null;
+      if (ifSelectedWorksiteType && ifSelectedWorksiteType !== 'inherit') {
+        selectedWorkType = ifSelectedWorksiteType;
+      } else {
+        let activeChildrenCount = 0;
+        let objects = lodashObject.pick(siteData, Object.keys(sectionChildren));
+        lodashObject.forIn(objects, function (value, key) {
+          if (value && value !== 'n' && value !== '') {
+            activeChildrenCount++
+          }
+        });
+        selectedWorkType = (activeChildrenCount > 0) ? sectionWorkType : null;
       }
-      return null;
+
+      if (selectedWorkType) {
+        wtSet.add(selectedWorkType);
+      } else {
+        wtSet.delete(sectionWorkType);
+      }
+      return Array.from(wtSet).join('|||');
     },
-    updateEventFormData (key, value, ifSelectedWorksiteType=null, ifSelectedWorksiteTypeParent=null) {
-      console.log("WORK TYPE DETERMINED: ", this.checkWorkType(ifSelectedWorksiteType, ifSelectedWorksiteTypeParent));
+    updateEventFormData (key, value, parentFieldName, ifSelectedWorksiteType=null, ifSelectedWorksiteTypeParent=null) {
       if (!coreFields.includes(key)) {
         const d1 = this.$store.state.worker.siteData.data;
+        const d3 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d1);
         newData[key] = value;
+        console.log("before", d3['work_type']);
+        newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d3['work_type']);
+        console.log("after", newData['work_type']);
         this.$store.commit('setCurrentSiteDataData', {data: newData});
       } else {
         const d2 = this.$store.state.worker.siteData;
-        let currentSiteData = Object.assign({}, d2);
-        currentSiteData[key] = value;
+        let newData = Object.assign({}, d2);
+        newData[key] = value;
+        console.log("fore", d2['work_type']);
+        newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d2['work_type']);
+        console.log("after", newData['work_type']);
         this.$store.commit('setCurrentSiteData', currentSiteData);
       }
     },

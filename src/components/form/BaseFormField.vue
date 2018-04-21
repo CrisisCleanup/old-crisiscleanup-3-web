@@ -42,6 +42,9 @@
       },
       fieldKey: {
         type: String
+      },
+      parentFieldName: {
+        type: String
       }
     },
     data() {

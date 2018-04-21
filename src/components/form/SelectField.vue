@@ -34,6 +34,7 @@
       fireChange(event) {
         this.updateValue(this.fieldKey,
           event.target.value,
+          this.parentFieldName,
           this.ifSelectedThenWorkType,
           this.parentIfSelectedThenWorkType
         );
