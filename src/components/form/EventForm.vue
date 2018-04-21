@@ -27,6 +27,7 @@
                            :form-data="value"
                            :event-form-data="eventFormData"
                            :update-event-form-data="updateEventFormData"
+                           :section-level="1"
               ></FormSection>
             </div>
           </form>

@@ -1,7 +1,11 @@
 <template>
   <section>
     <hr />
-    <h5>{{ $t(titleLabel) }}</h5>
+    <h3 v-if="sectionLevel == 1">{{ $t(titleLabel) }}</h3>
+    <h5 v-if="sectionLevel == 2">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 3">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 4">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 5">{{ $t(titleLabel) }}</h5>
     <hr />
     <div v-for="(value, key) in formData.fields">
       <div v-if="value.field_type=='text'">
@@ -86,6 +90,7 @@
                      :form-data="value"
                      :event-form-data="eventFormData"
                      :update-event-form-data="updateEventFormData"
+                     :section-level="sectionLevel + 1"
         />
       </div>
     </div>
@@ -122,6 +127,13 @@
       },
       updateEventFormData: {
         type: Function
+      },
+      sectionLevel: {
+      }
+    },
+    data() {
+      return {
+        // trackingWorkType: ""
       }
     },
     computed: {},
