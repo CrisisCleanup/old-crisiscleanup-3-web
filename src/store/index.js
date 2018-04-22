@@ -11,6 +11,7 @@ import auth from './auth.js'
 import worker from './worker.js'
 import publicModule from './public.js'
 import map from './map.js'
+import filters from './filters.js';
 
 // https://github.com/robinvdvleuten/vuex-persistedstate
 const persistedStateOptions = {
@@ -33,7 +34,8 @@ const store = new Vuex.Store({
     auth,
     worker,
     publicModule,
-    map
+    map,
+    filters
   },
   strict: process.env.NODE_ENV !== 'production',
   plugins: [VuexLoading.Store, createPersistedState(persistedStateOptions)]
