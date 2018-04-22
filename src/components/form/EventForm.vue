@@ -200,6 +200,7 @@ export default {
     },
     eventFormData: {
       get: function() {
+        this.loadAutocomplete();
         return this.$store.getters.getCurrentSiteData;
       }
     },
@@ -219,7 +220,7 @@ export default {
     PulseLoader
   },
   mounted() {
-    this.fireFormReady();
+    this.loadAutocomplete();
   },
   methods: {
     updateEventFormData (key, value) {
@@ -236,11 +237,10 @@ export default {
       }
     },
     updateSiteData (obj) {
-      console.log(obj)
       let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData, obj);
       this.$store.commit('setCurrentSiteData', currentSiteData);
     },
-    fireFormReady() {
+    loadAutocomplete() {
       var self = this;
       loaded.then(() => {
         let addressField = document.getElementById('addressCCU');
@@ -262,7 +262,6 @@ export default {
           let workerMapObj = null;
           setTimeout(() => {
               if (window.googMap !== undefined && window.googMap !== null) {
-                console.log(window.googMap);
                 workerMapObj = window.googMap.$mapObject;
                 addressAutocomplete.bindTo('bounds', workerMapObj);
               }

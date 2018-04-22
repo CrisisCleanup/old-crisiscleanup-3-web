@@ -82,7 +82,6 @@ export default {
         try {
           payload.data = JSON.parse("{" + payload.data.replace(/=>/g, ': ').replace(/\"/g, '"') + "}");
         } catch (e) {
-          console.log("Error parsing currentSiteData");
         }
       }
       state.siteData = payload;
