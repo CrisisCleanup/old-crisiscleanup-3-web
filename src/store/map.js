@@ -23,7 +23,8 @@ export default {
     },
     points: [],
     tempMarkers: [],
-    getMarkersFunc: null
+    getMarkersFunc: null,
+    activeMapFilters: [],
   },
 
   mutations: {
@@ -53,11 +54,16 @@ export default {
     },
     setTempMarkers (state, value) {
       state.tempMarkers = value;
+    },
+    addMapFilter (state, value) {
+      state.activeMapFilters.push(value);
+    },
+    removeMapFilter (state, value) {
+      state.activeMapFilters.pop(value);
     }
   },
 
   getters: {
-    getWorkerMap: state => state.workerMap,
   },
 
   actions: {
