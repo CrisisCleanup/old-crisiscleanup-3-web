@@ -128,7 +128,6 @@
             case 3:
               this.template = ContactItemTemplate;
               Vue.axios.get(`/contacts?limit=10&name__icontains=${text}`).then(resp => {
-                console.log(resp.data.results)
                 this.items = resp.data.results;
               });
               break;

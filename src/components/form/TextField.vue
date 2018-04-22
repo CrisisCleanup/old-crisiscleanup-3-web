@@ -10,7 +10,7 @@
     <small ref="allowEditLink" v-if="allowEditBreakGlass">(<a href="#" @click="breakGlass()">edit</a>)</small>
     </label>
     <input class="form-control form-control-sm" type="text" :readonly="localIsReadonly" :value="value" :required="isRequired"
-           @input="(event) => updateValue(fieldKey, event.target.value)" :id="fieldKey + 'CCU'" />
+           @input="(event) => inputEntered(event)" :id="fieldKey + 'CCU'" />
   </div>
 </template>
 
@@ -18,5 +18,15 @@
   import BaseFormField from './BaseFormField';
   export default {
     mixins: [BaseFormField],
+    methods: {
+      inputEntered(event) {
+        this.updateValue(this.fieldKey,
+          event.target.value,
+          this.parentFieldName,
+          this.ifSelectedThenWorkType,
+          this.parentIfSelectedThenWorkType
+        );
+      }
+    }
   }
 </script>

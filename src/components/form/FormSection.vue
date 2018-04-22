@@ -1,7 +1,11 @@
 <template>
   <section>
     <hr />
-    <h5>{{ $t(titleLabel) }}</h5>
+    <h3 v-if="sectionLevel == 1">{{ $t(titleLabel) }}</h3>
+    <h5 v-if="sectionLevel == 2">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 3">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 4">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 5">{{ $t(titleLabel) }}</h5>
     <hr />
     <div v-for="(value, key) in formData.fields">
       <div v-if="value.field_type=='text'">
@@ -15,6 +19,8 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -32,6 +38,8 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -49,6 +57,8 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -70,6 +80,8 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
@@ -86,6 +98,7 @@
                      :form-data="value"
                      :event-form-data="eventFormData"
                      :update-event-form-data="updateEventFormData"
+                     :section-level="sectionLevel + 1"
         />
       </div>
     </div>
@@ -122,6 +135,11 @@
       },
       updateEventFormData: {
         type: Function
+      },
+      sectionLevel: {}
+    },
+    data() {
+      return {
       }
     },
     computed: {},
