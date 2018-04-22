@@ -42,16 +42,12 @@
         this.$store.dispatch('saveSite');
       },
       contactOrg() {
-        console.log("Contact org");
       },
       firePrintBtn() {
-        console.log("Print")
       },
       fireEditBtn() {
-        console.log("Load Form")
       },
       fireHistoryBtn() {
-        console.log("Load History")
       },
       fireClaimBtn() {
         if (this.isCurrentSiteClaimed) {
