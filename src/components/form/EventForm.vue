@@ -241,7 +241,6 @@ export default {
       this.$store.commit('setCurrentSiteData', currentSiteData);
     },
     loadAutocomplete() {
-      console.log("Autocomplete called");
       var self = this;
       loaded.then(() => {
         let addressField = document.getElementById('addressCCU');
@@ -263,7 +262,6 @@ export default {
           let workerMapObj = null;
           setTimeout(() => {
               if (window.googMap !== undefined && window.googMap !== null) {
-                console.log(window.googMap);
                 workerMapObj = window.googMap.$mapObject;
                 addressAutocomplete.bindTo('bounds', workerMapObj);
               }

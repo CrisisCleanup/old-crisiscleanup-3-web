@@ -97,10 +97,8 @@ export default {
     activateAccount() {
       this.userInfo.key = this.$route.query.invitation_key
       this.$http.post(`/rest-auth/registration/`, this.userInfo).then(response => {
-        console.log(response);
         this.invitees = "";
       }, error => {
-        console.log(error);
         for (let k in this.errors) {
           this.errors[k].has = false;
         }

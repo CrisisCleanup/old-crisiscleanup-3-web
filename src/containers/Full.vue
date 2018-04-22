@@ -44,7 +44,6 @@
     computed: {
       name() {
         let r = this.$route.name
-        console.log(r);
         return r
       },
       list() {
