@@ -10,13 +10,23 @@
       <small ref="allowEditLink" v-if="allowEditBreakGlass">(<a href="#" @click="breakGlass">edit</a>)</small>
     </label>
     <textarea class="form-control form-control-sm" :readonly="localIsReadonly" :required="isRequired"
-              :value="value" @input="(event) => updateValue(fieldKey, event.target.value)"></textarea>
+              :value="value" @input="(event) => inputEntered(event)"></textarea>
   </div>
 </template>
 
 <script>
   import BaseFormField from './BaseFormField';
   export default {
-    mixins: [BaseFormField]
+    mixins: [BaseFormField],
+     methods: {
+     inputEntered(event) {
+        this.updateValue(this.fieldKey,
+          event.target.value,
+          this.parentFieldName,
+          this.ifSelectedThenWorkType,
+          this.parentIfSelectedThenWorkType
+        );
+      }
+    }
   }
 </script>
