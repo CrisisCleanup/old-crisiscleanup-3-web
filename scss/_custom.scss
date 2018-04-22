@@ -17,17 +17,22 @@ label {
 
   font-size: 12px;
 
-  color: #ffffff;
-  background: #44A4FC;
-  border-left: 5px solid #187FE7;
+  animation: 'Velocity';
+  speed: 4000;
+  duration: 4000;
+
+  color: black;
+  background: $goldenrod;
+  border-left: 5px solid; //#187FE7;
+  border-left-color: black;
 
   &.warn {
-    background: #ffb648;
+    background: orange;
     border-left-color: #f48a06;
   }
 
   &.error {
-    background: #E54D42;
+    background: orange;
     border-left-color: #B82E24;
   }
 
@@ -35,6 +40,22 @@ label {
     background: #68CD86;
     border-left-color: #42A85F;
   }
+}
+
+.notifications {
+  display: block;
+  left: 5px;
+  top: 5px;
+  position: fixed;
+  z-index: 5000;
+}
+
+.notification-wrapper {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 footer {

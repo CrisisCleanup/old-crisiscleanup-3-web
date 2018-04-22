@@ -52,7 +52,7 @@ export default {
       });
       this.$store.dispatch('saveSite').then((result) => {
           this.$notify({
-            type: 'notification.success',
+            type: 'notification',
             group: 'foo',
             title: 'Success!',
             text: 'Worksite saved.',
@@ -61,10 +61,10 @@ export default {
           });
       }, (error) => {
           this.$notify({
-            type: 'notification.success',
+            type: 'notification',
             group: 'foo',
-            title: 'Error!',
-            text: '',
+            title: 'Just a second!',
+            text: 'We need a little more information.',
             position: 'bottom center',
             width: 500
           });
