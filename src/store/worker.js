@@ -204,19 +204,27 @@ export default {
     },
     saveSite({commit, state}) {
       if (state.isNewSite) {
-        Vue.axios.post(`/worksites`, state.siteData).then(resp => {
-          commit('setCurrentSiteData', resp.data);
-          commit('setSiteFormErrors', {});
-        }).catch(error => {
-          commit('setSiteFormErrors', error.response.data)
+        return new Promise((resolve, reject) => {
+          Vue.axios.post(`/worksites`, state.siteData).then(resp => {
+            commit('setCurrentSiteData', resp.data);
+            commit('setSiteFormErrors', {});
+            resolve(resp);
+          }).catch(error => {
+            commit('setSiteFormErrors', error.response.data)
+            reject(error);
+          });
         });
       } else {
-        Vue.axios.patch(`/worksites/${state.siteData.id}`, state.siteData).then(resp => {
-          commit('setCurrentSiteData', resp.data);
-          commit('setSiteFormErrors', {});
-        }).catch(error => {
-          commit('setSiteFormErrors', error.response.data)
-        })
+        return new Promise((resolve, reject) => {
+          Vue.axios.patch(`/worksites/${state.siteData.id}`, state.siteData).then(resp => {
+            commit('setCurrentSiteData', resp.data);
+            commit('setSiteFormErrors', {});
+            resolve(resp);
+          }).catch(error => {
+            commit('setSiteFormErrors', error.response.data)
+            reject(error);
+          })
+        });
       }
     },
     getWorksiteStats({commit, state, dispatch}) {
