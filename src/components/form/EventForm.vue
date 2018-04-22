@@ -14,8 +14,8 @@
             <span v-show="eventFormData.claimed_by !== null">Worksite Claimed By: {{eventFormData.claimed_by}}</span>
             <br v-show="eventFormData.claimed_by !== null" />
             <span v-show="eventFormData.case_number !== null">Case Number: {{eventFormData.case_number}}</span>
-            <br v-show="eventFormData.work_type !== null" />
-            <span v-show="eventFormData.work_type !== null">Work Types: {{workTypes}}</span>
+            <br v-show="workTypes" />
+            <span v-show="workTypes">Work Types: {{workTypes}}</span>
           </div>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
@@ -226,6 +226,9 @@ export default {
       return sections
     },
     workTypes() {
+      if (!this.eventFormData.work_type) {
+        return null;
+      }
       let splitWorkTypes = this.eventFormData.work_type.split('|||');
       splitWorkTypes = splitWorkTypes.map(function(wt) {
         const words = wt.split('_');
@@ -298,7 +301,7 @@ export default {
         const d2 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d2);
         newData[key] = value;
-        newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d2['work_type']);
+        // newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d2['work_type']);
         this.$store.commit('setCurrentSiteData', newData);
       }
     },
