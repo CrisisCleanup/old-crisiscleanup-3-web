@@ -14,6 +14,8 @@
             <span v-show="eventFormData.claimed_by !== null">Worksite Claimed By: {{eventFormData.claimed_by}}</span>
             <br v-show="eventFormData.claimed_by !== null" />
             <span v-show="eventFormData.case_number !== null">Case Number: {{eventFormData.case_number}}</span>
+            <br v-show="eventFormData.work_type !== null" />
+            <span v-show="eventFormData.work_type !== null">Work Types: {{workTypes}}</span>
           </div>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
@@ -223,6 +225,14 @@ export default {
       traverseFields(fields);
       return sections
     },
+    workTypes() {
+      let splitWorkTypes = this.eventFormData.work_type.split('|||');
+      splitWorkTypes = splitWorkTypes.map(function(wt) {
+        const words = wt.split('_');
+        return words.join(' ');
+      });
+      return splitWorkTypes.join(', ');
+    },
     eventFormData: {
       get: function() {
         return this.$store.getters.getCurrentSiteData;
@@ -251,7 +261,7 @@ export default {
     checkWorkType(parentFieldName, ifSelectedWorksiteType, siteData, existingWorkType) {
       const sectionChildren = this.cachedWorkTypes[parentFieldName].children;
       const sectionWorkType = this.cachedWorkTypes[parentFieldName].work_type;
-      let splitWorkTypes = existingWorkType.split('|||')
+      let splitWorkTypes = existingWorkType.split('|||');
       let wtSet = new Set(splitWorkTypes.map((item) => { return item.toLowerCase() }));
       let selectedWorkType = null;
       if (ifSelectedWorksiteType && ifSelectedWorksiteType !== 'inherit') {
