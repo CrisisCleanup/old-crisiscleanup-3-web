@@ -69,7 +69,6 @@ export default {
     },
     postOrganization({ commit, state, dispatch}) {
       Vue.axios.post(`/organizations`, state.org).then(r => {
-        console.log(r);
       }).catch(error => {
         commit('setOrgFormErrors', error.response.data);
       });
