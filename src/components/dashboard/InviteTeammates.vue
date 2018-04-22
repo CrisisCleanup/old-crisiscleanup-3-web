@@ -6,7 +6,8 @@
              :state="formErrors && formErrors.hasOwnProperty('test') ? false : null"
              placeholder="i.e. john@example.com, jane@example.com, steve@example.com" id="emails-to-send"/>
       <div v-show="formErrors" class="invalid-feedback">{{errorMessage}}</div>
-      <div v-show="successfulInvites" class="success">{{ $t('inviteTeammates.invites_sent_success') }}</div>
+      <!-- <div v-show="successfulInvites" class="success">{{ $t('inviteTeammates.invites_sent_success') }}</div>
+      -->
     </div>
     <br/>
     <button class="btn btn-lg btn-primary" id="submit-invites-btn" @click="sendInvites()">{{
@@ -38,11 +39,28 @@
         this.$store.dispatch('sendInvites', invites).then(() => {
           this.successfulInvites = true;
           this.invitees = "";
+          this.$notify({
+            type: 'notification.warn',
+            group: 'foo',
+            title: 'Invites sent!',
+            text: 'Many hands make light work.',
+            position: 'bottom center',
+            width: 500
+          });
           setTimeout(() => {
             this.successfulInvites = false;
+            this.$notify({
+              type: 'notification.warn',
+              group: 'foo',
+              title: 'Oh no!',
+              text: 'Something went wrong. Try agin.',
+              position: 'bottom center',
+              width: 500
+            });
           }, 3000);
         }, error => {
           this.errorMessage = error.msg;
+
         });
       }
     }
