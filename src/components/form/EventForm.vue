@@ -302,7 +302,6 @@ export default {
         const d2 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d2);
         newData[key] = value;
-        // newData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d2['work_type']);
         this.$store.commit('setCurrentSiteData', newData);
       }
     },
