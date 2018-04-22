@@ -28,6 +28,9 @@
       ifSelectedThenWorkType: {
         type: String
       },
+      parentIfSelectedThenWorkType: {
+        type: String
+      },
       placeholderT: {
         type: String
       },
@@ -38,6 +41,9 @@
         type: Function
       },
       fieldKey: {
+        type: String
+      },
+      parentFieldName: {
         type: String
       }
     },

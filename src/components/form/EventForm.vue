@@ -14,6 +14,8 @@
             <span v-show="eventFormData.claimed_by !== null">Worksite Claimed By: {{eventFormData.claimed_by}}</span>
             <br v-show="eventFormData.claimed_by !== null" />
             <span v-show="eventFormData.case_number !== null">Case Number: {{eventFormData.case_number}}</span>
+            <br v-show="workTypes" />
+            <span v-show="workTypes">Work Types: {{workTypes}}</span>
           </div>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
@@ -27,6 +29,7 @@
                            :form-data="value"
                            :event-form-data="eventFormData"
                            :update-event-form-data="updateEventFormData"
+                           :section-level="1"
               ></FormSection>
             </div>
           </form>
@@ -39,6 +42,8 @@
 </template>
 
 <script>
+
+import lodashObject from 'lodash/object';
 import EventData1 from '../../definitions/forms/1-hurricane_sandy_recovery.json';
 import EventData2 from '../../definitions/forms/2-hattiesburg_ms_tornado.json';
 import EventData3 from '../../definitions/forms/3-gordon_bartow_ga_tornado.json';
@@ -120,9 +125,9 @@ import Vue from 'vue';
 
 export default {
   data() {
-    return {}
-  },
-  mounted() {
+    return {
+      cachedWorkTypes: {}
+    }
   },
   computed: {
     phaseCleanup: function() {
@@ -198,6 +203,39 @@ export default {
         default: return EventData60.phase_cleanup;
       }
     },
+    allFields: function() {
+      let sections = [];
+
+      let traverseFields = function (fields, parent={}) {
+        for (const key in fields) {
+          const value = fields[key];
+          if (value['field_type'] === 'section') {
+            sections[key] = {
+              'work_type': value['if_selected_then_work_type'],
+              'children': []
+            };
+            traverseFields(value.fields, sections[key]);
+          } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
+            parent.children[key] = value['if_selected_then_work_type'];
+          }
+        }
+      };
+
+      const fields = this.phaseCleanup.fields;
+      traverseFields(fields);
+      return sections
+    },
+    workTypes() {
+      if (!this.eventFormData.work_type) {
+        return null;
+      }
+      let splitWorkTypes = this.eventFormData.work_type.split('|||');
+      splitWorkTypes = splitWorkTypes.map(function(wt) {
+        const words = wt.split('_');
+        return words.join(' ');
+      });
+      return splitWorkTypes.join(', ');
+    },
     eventFormData: {
       get: function() {
         this.loadAutocomplete();
@@ -221,19 +259,50 @@ export default {
   },
   mounted() {
     this.loadAutocomplete();
+    this.cachedWorkTypes = this.allFields;
   },
   methods: {
-    updateEventFormData (key, value) {
+    checkWorkType(parentFieldName, ifSelectedWorksiteType, siteData, existingWorkType) {
+      const sectionChildren = this.cachedWorkTypes[parentFieldName].children;
+      const sectionWorkType = this.cachedWorkTypes[parentFieldName].work_type;
+      let splitWorkTypes = existingWorkType.split('|||');
+      let wtSet = new Set(splitWorkTypes.map((item) => { return item.toLowerCase() }));
+      let selectedWorkType = null;
+      if (ifSelectedWorksiteType && ifSelectedWorksiteType !== 'inherit') {
+        selectedWorkType = ifSelectedWorksiteType;
+      } else {
+        let activeChildrenCount = 0;
+        let objects = lodashObject.pick(siteData, Object.keys(sectionChildren));
+        lodashObject.forIn(objects, function (value, key) {
+          if (value && value !== 'n' && value !== '' && value != 0) {
+            activeChildrenCount++
+          }
+        });
+        selectedWorkType = (activeChildrenCount > 0) ? sectionWorkType : null;
+      }
+
+      if (selectedWorkType) {
+        wtSet.add(selectedWorkType);
+      } else {
+        wtSet.delete(sectionWorkType);
+      }
+      return Array.from(wtSet).join('|||');
+    },
+    updateEventFormData (key, value, parentFieldName, ifSelectedWorksiteType=null, ifSelectedWorksiteTypeParent=null) {
       if (!coreFields.includes(key)) {
         const d1 = this.$store.state.worker.siteData.data;
+        const d3 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d1);
+        let baseData = Object.assign({}, d3);
         newData[key] = value;
+        baseData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d3['work_type']);
         this.$store.commit('setCurrentSiteDataData', {data: newData});
+        this.$store.commit('setCurrentSiteData', baseData);
       } else {
         const d2 = this.$store.state.worker.siteData;
-        let currentSiteData = Object.assign({}, d2);
-        currentSiteData[key] = value;
-        this.$store.commit('setCurrentSiteData', currentSiteData);
+        let newData = Object.assign({}, d2);
+        newData[key] = value;
+        this.$store.commit('setCurrentSiteData', newData);
       }
     },
     updateSiteData (obj) {
