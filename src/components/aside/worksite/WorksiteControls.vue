@@ -50,9 +50,7 @@ export default {
         position: 'top left',
         width: 500
       });
-      this.$store.dispatch('saveSite').then(() => {
-        console.log(this.$store.getters.getSiteFormErrors);
-        if (!this.$store.getters.getSiteFormErrors) {
+      this.$store.dispatch('saveSite').then((result) => {
           this.$notify({
             type: 'notification.success',
             group: 'foo',
@@ -61,21 +59,17 @@ export default {
             position: 'bottom center',
             width: 500
           });
-        } else {
+      }, (error) => {
           this.$notify({
+            type: 'notification.success',
             group: 'foo',
-            type: 'notification.error',
-            title: 'Just a second!',
-            text: 'We need a little more information.',
+            title: 'Error!',
+            text: '',
             position: 'bottom center',
-            animation: 'Velocity',
-            width: 1000,
-            duration: 1000,
-            speed: 2000,
-            //clean: true
+            width: 500
           });
-        }
-      })
+
+      });
     },
     contactOrg() {
       console.log("Contact org");
