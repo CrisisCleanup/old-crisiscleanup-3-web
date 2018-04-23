@@ -6,7 +6,7 @@
     <div class="container" style="padding-top: 10px;">
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="claimedByNone"/>
+          <input class="form-check-input" type="checkbox" v-model="claimedByNone" @change="triggerMapRefresh"/>
           Claimed by None
         </label>
       </div>
@@ -64,6 +64,7 @@
 
 <script>
   import Callout from '@/components/Callout';
+  import CCUMapEventHub from '@/events/CCUMapEventHub';
 
   export default {
     components: {
@@ -148,6 +149,13 @@
     },
     mounted() {
     },
-    methods: {}
+    methods: {
+      triggerMapRefresh() {
+        const eid = this.$store.state.worker.event.id;
+        this.$store.dispatch('map/getWorksites', eid).then((resp) => {
+          CCUMapEventHub.$emit('site-search');
+        })
+      }
+    }
   }
 </script>
