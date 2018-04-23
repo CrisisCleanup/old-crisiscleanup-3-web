@@ -483,7 +483,7 @@
       ...mapActions(['postOrganization']),
       signUp() {
         this.validateForm();
-        // this.$store.dispatch('postOrganization');
+        this.$store.dispatch('postOrganization');
       },
       validateForm() {
         if (!isNaN(this.name)) {

@@ -67,10 +67,21 @@ export default {
   },
 
   actions: {
-    getWorksites({ commit, state }, eventId) {
-      const fields = "id,lat,lng,status,claimed_by_uid,work_type,city,reported_by_uid,name";
-      const endpoint = `/worksites?limit=500&event=${eventId}&fields=${fields}`;
-      return Vue.axios.get(endpoint).then(resp => {
+    getWorksites({ commit, state, rootState}, eventId) {
+      console.log(rootState.filters);
+      const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
+
+      const params = {
+        limit: 100,
+        event: eventId,
+        fields: fields
+      };
+
+      if (rootState.filters.claimedByNone) {
+        params.claimed_by = 'null'
+      }
+
+      return Vue.axios.get('/worksites', {params: params}).then(resp => {
         commit('setTempMarkers', resp.data.results);
       });
     },
