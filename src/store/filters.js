@@ -9,7 +9,8 @@ export default {
     primaryIsFloodDamage: false,
     primaryIsTrees: false,
     debrisRemoval: false,
-    other: false
+    other: false,
+    mold: false
   },
 
   mutations: {
@@ -45,6 +46,9 @@ export default {
     },
     setOther(state, value) {
       state.other = value;
+    },
+    setMold(state, value) {
+      state.mold = value;
     },
   },
 

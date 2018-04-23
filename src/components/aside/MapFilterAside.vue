@@ -7,54 +7,54 @@
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" v-model="claimedByNone" @change="triggerMapRefresh"/>
-          Claimed by None
+          Claimed by {{ userOrganization && userOrganization.name }}
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="reportedByNone"/>
-          Reported by None
+          <input class="form-check-input" type="checkbox" v-model="reportedByNone" @change="triggerMapRefresh"/>
+          Reported by {{ userOrganization && userOrganization.name }}
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="unclaimed"/>
+          <input class="form-check-input" type="checkbox" v-model="unclaimed" @change="triggerMapRefresh"/>
           Unclaimed
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="open"/>
+          <input class="form-check-input" type="checkbox" v-model="open" @change="triggerMapRefresh"/>
           Open
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="closed"/>
+          <input class="form-check-input" type="checkbox" v-model="closed" @change="triggerMapRefresh"/>
           Closed
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="primaryIsFloodDamage"/>
+          <input class="form-check-input" type="checkbox" v-model="primaryIsFloodDamage" @change="triggerMapRefresh"/>
           Primary problem is flood damage
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="primaryIsTrees"/>
+          <input class="form-check-input" type="checkbox" v-model="primaryIsTrees" @change="triggerMapRefresh"/>
           Primary problem is trees
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="debrisRemoval"/>
+          <input class="form-check-input" type="checkbox" v-model="debrisRemoval" @change="triggerMapRefresh"/>
           Debris removal
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="other"/>
+          <input class="form-check-input" type="checkbox" v-model="other" @change="triggerMapRefresh"/>
           Other
         </label>
       </div>
@@ -66,6 +66,8 @@
   import Callout from '@/components/Callout';
   import CCUMapEventHub from '@/events/CCUMapEventHub';
 
+  import {mapState} from 'vuex';
+
   export default {
     components: {
       Callout
@@ -74,6 +76,7 @@
       return {}
     },
     computed: {
+      ...mapState('auth', ['userOrganization']),
       claimedByNone: {
         get() {
           return this.$store.state.filters.claimedByNone;
