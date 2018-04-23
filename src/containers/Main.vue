@@ -1,5 +1,6 @@
 <template>
   <div class="fullsize-map">
+    <notifications group="core" />
     <PublicHeader/>
     <router-view class="fullsize-map"></router-view>
     <!--<LargeFooter/>-->

@@ -37,17 +37,21 @@ export default {
   actions: {
     login (context, payload) {
       payload = payload || {};
-      return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
-        const decodedToken = jwt_decode(resp.data.access_token);
-        context.commit('isAuthenticated', {
-          isAuthenticated: vueAuthInstance.isAuthenticated()
-        });
-        context.commit('setProfile', {
-          profile: decodedToken.user_claims
-        });
-      }, function(error) {
-        context.commit('setLoginErrors', {hasError: true});
-      })
+      return new Promise((resolve, reject) => {
+        vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
+          const decodedToken = jwt_decode(resp.data.access_token);
+          context.commit('isAuthenticated', {
+            isAuthenticated: vueAuthInstance.isAuthenticated()
+          });
+          context.commit('setProfile', {
+            profile: decodedToken.user_claims
+          });
+          resolve(resp);
+        }, function (error) {
+          context.commit('setLoginErrors', {hasError: true});
+          reject(error);
+        })
+      });
     },
 
     register (context, payload) {
