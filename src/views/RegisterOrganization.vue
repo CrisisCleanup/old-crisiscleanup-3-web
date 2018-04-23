@@ -511,7 +511,7 @@ export default {
             type: 'success',
             group: 'core',
             title: 'Success!',
-            text: 'Worksite saved.',
+            text: 'Organization saved.',
             width: 500,
             animation: 'Velocity',
             speed: 1000,
@@ -522,13 +522,12 @@ export default {
             type: 'error',
             group: 'core',
             title: 'Just a second!',
-            text: 'We need a little more information.',
+            text: 'Please review this form for errors',
             width: 500,
             animation: 'Velocity',
             speed: 1000,
             duration: 3000
           });
-
       });
     },
     validateForm() {
