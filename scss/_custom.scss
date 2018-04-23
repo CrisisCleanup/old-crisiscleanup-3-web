@@ -17,10 +17,6 @@ label {
 
   font-size: 12px;
 
-  animation: 'Velocity';
-  speed: 4000;
-  duration: 4000;
-
   color: black;
   background: $goldenrod;
   border-left: 5px solid; //#187FE7;
@@ -44,8 +40,8 @@ label {
 
 .notifications {
   display: block;
-  left: 5px;
-  top: 5px;
+  left: 10px;
+  top: 20px;
   position: fixed;
   z-index: 5000;
 }

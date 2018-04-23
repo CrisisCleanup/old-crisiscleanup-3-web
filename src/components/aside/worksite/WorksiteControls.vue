@@ -57,7 +57,10 @@ export default {
             title: 'Success!',
             text: 'Worksite saved.',
             position: 'bottom center',
-            width: 500
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
           });
       }, (error) => {
           this.$notify({
@@ -66,7 +69,10 @@ export default {
             title: 'Just a second!',
             text: 'We need a little more information.',
             position: 'bottom center',
-            width: 500
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
           });
 
       });
@@ -86,8 +92,30 @@ export default {
     fireClaimBtn() {
       if (this.isCurrentSiteClaimed) {
         this.$store.dispatch('unclaimSite');
+        this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'Worksite is now unclaimed!',
+        text: '',
+        position: 'bottom center',
+        width: 500,
+        animation: 'Velocity',
+        speed: 1000,
+        duration: 3000
+      });
       } else {
         this.$store.dispatch('claimSite');
+          this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'Worksite is now claimed!',
+        text: '',
+        position: 'bottom center',
+        width: 500,
+        animation: 'Velocity',
+        speed: 1000,
+        duration: 3000
+      });
       }
       // TODO: Update marker (emit/on or vuex computed prop)
       //        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));

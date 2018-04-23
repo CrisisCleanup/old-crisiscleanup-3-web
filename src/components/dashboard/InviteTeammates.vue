@@ -42,21 +42,16 @@
           this.$notify({
             type: 'notification.warn',
             group: 'foo',
-            title: 'Invites sent!',
-            text: 'Many hands make light work.',
+            title: 'Success!',
+            text: 'Invites have been sent.',
             position: 'bottom center',
-            width: 500
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
           });
           setTimeout(() => {
             this.successfulInvites = false;
-            this.$notify({
-              type: 'notification.warn',
-              group: 'foo',
-              title: 'Oh no!',
-              text: 'Something went wrong. Try agin.',
-              position: 'bottom center',
-              width: 500
-            });
           }, 3000);
         }, error => {
           this.errorMessage = error.msg;
