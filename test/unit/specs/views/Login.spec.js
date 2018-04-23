@@ -6,11 +6,13 @@ import Vuex from 'vuex'
 import i18n from '@/services/i18n';
 import BootstrapVue from 'bootstrap-vue'
 import sinon from "sinon";
+import Notifications from 'vue-notification';
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(Vuex);
 localVue.use(VueRouter);
+localVue.use(Notifications);
 
 describe('Login.vue', function () {
 
@@ -38,11 +40,12 @@ describe('Login.vue', function () {
     },
   });
 
+  const $notify = sinon.stub();
 
   const createBaseWrapper = () => {
     return shallow(Login, {
       localVue,
-      mocks: {$store},
+      mocks: {$store, $notify},
       i18n
     });
   };
