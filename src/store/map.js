@@ -78,7 +78,49 @@ export default {
       };
 
       if (rootState.filters.claimedByNone) {
-        params.claimed_by = 'null'
+        params.claimed_by = rootState.worker.currentOrgId;
+      }
+
+      if (rootState.filters.reportedByNone) {
+        params.reported_by = rootState.worker.currentOrgId;
+      }
+
+      if (rootState.filters.unclaimed) {
+        params.claimed_by__isnull = 'true'
+      }
+
+      if (rootState.filters.open) {
+        params.status_icontains = 'open'
+      }
+
+      if (rootState.filters.closed) {
+        params.status_icontains = 'closed'
+      }
+
+      let worktypes = [];
+
+      if (rootState.filters.primaryIsTrees) {
+        worktypes.push('trees');
+      }
+
+      if (rootState.filters.primaryIsFloodDamage) {
+        worktypes.push('flood');
+      }
+
+      if (rootState.filters.debrisRemoval) {
+        worktypes.push('debris');
+      }
+
+      if (rootState.filters.other) {
+        worktypes.push('other');
+      }
+
+      if (rootState.filters.moldRemediation) {
+        worktypes.push('mold');
+      }
+
+      if (worktypes.length > 0) {
+        params.worktypes_list = worktypes.join(',')
       }
 
       return Vue.axios.get('/worksites', {params: params}).then(resp => {

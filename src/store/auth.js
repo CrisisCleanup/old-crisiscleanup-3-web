@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     profile: {},
+    userOrganization: {},
     isAuthenticated: vueAuthInstance.isAuthenticated(),
     isTokenExpired: false,
     loginErrors: null
@@ -26,6 +27,10 @@ export default {
 
     setIsTokenExpired (state, payload) {
       state.isTokenExpired = payload.isTokenExpired;
+    },
+
+    setOrganizationInfo (state, payload) {
+      state.userOrganization = payload.userOrganization;
     }
   },
 
@@ -45,6 +50,9 @@ export default {
         context.commit('setProfile', {
           profile: decodedToken.user_claims
         });
+        context.commit('setOrganizationInfo', {
+          userOrganization: resp.data.organization
+        })
       }, function(error) {
         context.commit('setLoginErrors', {hasError: true});
       })
