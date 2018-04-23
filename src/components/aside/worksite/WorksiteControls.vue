@@ -41,39 +41,52 @@ export default {
       });
       this.$store.commit('resetCurrentSiteData');
       this.$store.commit('setSiteFormErrors', {})
+
+     this.$notify({
+        type: 'warn',
+        group: 'core',
+        title: 'New worksite form created.',
+        text: '',
+        width: 500,
+        animation: 'Velocity',
+        speed: 1000,
+        duration: 3000
+      });
     },
     saveForm() {
       this.$notify({
-        group: 'foo',
+        group: 'core',
         title: 'Saving...',
         //text: '',
-        position: 'top left',
-        width: 500
+        width: 500,
+        duration: 250
       });
       this.$store.dispatch('saveSite').then((result) => {
+        setTimeout(() => {
           this.$notify({
-            type: 'notification',
-            group: 'foo',
+            type: 'success',
+            group: 'core',
             title: 'Success!',
             text: 'Worksite saved.',
-            position: 'bottom center',
             width: 500,
             animation: 'Velocity',
             speed: 1000,
             duration: 3000
           });
+        }, 1000);
       }, (error) => {
+        setTimeout(() => {
           this.$notify({
-            type: 'notification',
-            group: 'foo',
+            type: 'error',
+            group: 'core',
             title: 'Just a second!',
-            text: 'We need a little more information.',
-            position: 'bottom center',
+            text: 'We need a little more information. Please review the form for errors.',
             width: 500,
             animation: 'Velocity',
             speed: 1000,
             duration: 3000
           });
+        }, 1000);
 
       });
     },
@@ -93,29 +106,27 @@ export default {
       if (this.isCurrentSiteClaimed) {
         this.$store.dispatch('unclaimSite');
         this.$notify({
-        type: 'notification.warn',
-        group: 'foo',
-        title: 'Worksite is now unclaimed!',
-        text: '',
-        position: 'bottom center',
-        width: 500,
-        animation: 'Velocity',
-        speed: 1000,
-        duration: 3000
-      });
+            type: 'warn',
+            group: 'core',
+            title: `You have unclaimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            text: '',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
       } else {
         this.$store.dispatch('claimSite');
           this.$notify({
-        type: 'notification.warn',
-        group: 'foo',
-        title: 'Worksite is now claimed!',
-        text: '',
-        position: 'bottom center',
-        width: 500,
-        animation: 'Velocity',
-        speed: 1000,
-        duration: 3000
-      });
+            type: 'warn',
+            group: 'core',
+            title: `You have claimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            text: '',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
       }
       // TODO: Update marker (emit/on or vuex computed prop)
       //        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
