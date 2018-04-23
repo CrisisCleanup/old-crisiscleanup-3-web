@@ -4,7 +4,6 @@
     <div class="container-fluid">
 
       <!--<b-form @submit="postOrganization">-->
-
       <div class="card mx-4">
 
         <div class="card-body p-4">
@@ -507,17 +506,31 @@ export default {
     ...mapActions(['postOrganization']),
     signUp() {
       this.validateForm();
-      this.$store.dispatch('postOrganization');
-      this.$notify({
-        type: 'notification.warn',
-        group: 'foo',
-        title: 'Success!',
-        text: 'Registration form was sent.',
-        position: 'bottom center',
-        width: 500,
-        animation: 'Velocity',
-        speed: 1000,
-        duration: 3000
+      this.$store.dispatch('postOrganization').then((result) => {
+          this.$notify({
+            type: 'notification',
+            group: 'foo',
+            title: 'Success!',
+            text: 'Worksite saved.',
+            position: 'bottom center',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+      }, (error) => {
+          this.$notify({
+            type: 'notification',
+            group: 'foo',
+            title: 'Just a second!',
+            text: 'We need a little more information.',
+            position: 'bottom center',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+
       });
     },
     validateForm() {
