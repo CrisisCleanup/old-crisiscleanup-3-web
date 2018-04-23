@@ -82,10 +82,27 @@ export default {
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
+      setTimeout(() => {
+          this.$notify({
+            type: 'warn',
+            group: 'core',
+            title: 'You have logged out successfully.',
+            text: '',
+            width: 500
+          });
+      }, 750);
+
       this.$router.push({path: '/'});
     },
     updateEventContext (e) {
       this.$store.dispatch('changeEventContext', e.target.value);
+      this.$notify({
+        type: 'success',
+        group: 'core',
+        title: 'You are now viewing the event:',
+        text: this.$store.getters.getCurrentEvent.name,
+        width: 500
+      });
     }
   }
 }
