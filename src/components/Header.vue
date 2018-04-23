@@ -82,10 +82,40 @@ export default {
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
+
+//Delete timeout.
+
+      setTimeout(() => {
+      this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'You have logged out successfully.',
+        text: '',
+        position: 'bottom center',
+        width: 500
+      });
+    }, 750);
+
       this.$router.push({path: '/'});
+      this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'You have logged out successfully.',
+        text: '',
+        position: 'bottom center',
+        width: 500
+      });
     },
     updateEventContext (e) {
       this.$store.dispatch('changeEventContext', e.target.value);
+      this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'You are now viewing the event:',
+        text: this.$store.getters.getCurrentEvent.name,
+        position: 'bottom center',
+        width: 500
+      });
     }
   }
 }

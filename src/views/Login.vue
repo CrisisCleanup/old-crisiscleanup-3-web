@@ -76,7 +76,21 @@ export default {
       };
 
       this.$store.dispatch('auth/login', { user }).then(() => {
-        this.$router.push({path: '/worker/dashboard'});
+      this.$router.push({path: '/worker/dashboard'});
+
+//Delete timeout.
+
+      setTimeout(() => {
+      this.$notify({
+        type: 'notification.warn',
+        group: 'foo',
+        title: 'Login successful!',
+        text: '',
+        position: 'bottom center',
+        width: 500
+      });
+    }, 1000);
+
       }, (error) => {
       });
     }
