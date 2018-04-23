@@ -40,11 +40,10 @@
           this.successfulInvites = true;
           this.invitees = "";
           this.$notify({
-            type: 'notification.warn',
-            group: 'foo',
+            type: 'warn',
+            group: 'core',
             title: 'Success!',
             text: 'Invites have been sent.',
-            position: 'bottom center',
             width: 500,
             animation: 'Velocity',
             speed: 1000,

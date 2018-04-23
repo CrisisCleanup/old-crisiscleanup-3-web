@@ -508,11 +508,10 @@ export default {
       this.validateForm();
       this.$store.dispatch('postOrganization').then((result) => {
           this.$notify({
-            type: 'notification',
-            group: 'foo',
+            type: 'success',
+            group: 'core',
             title: 'Success!',
             text: 'Worksite saved.',
-            position: 'bottom center',
             width: 500,
             animation: 'Velocity',
             speed: 1000,
@@ -520,11 +519,10 @@ export default {
           });
       }, (error) => {
           this.$notify({
-            type: 'notification',
-            group: 'foo',
+            type: 'error',
+            group: 'core',
             title: 'Just a second!',
             text: 'We need a little more information.',
-            position: 'bottom center',
             width: 500,
             animation: 'Velocity',
             speed: 1000,

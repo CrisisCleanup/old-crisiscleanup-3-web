@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <notifications group="foo" />
+    <notifications group="core" />
     <AppHeader/>
     <div class="app-body">
       <Sidebar :navItems="nav"/>
