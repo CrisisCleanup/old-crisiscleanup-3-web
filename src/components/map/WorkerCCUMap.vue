@@ -86,6 +86,10 @@
         this.addMarker(currentSite);
         this.centerOnSiteWithZoom();
       });
+
+      CCUMapEventHub.$on('re-render', (e) => {
+        this.renderMarkers();
+      });
     },
     beforeDestroy: function () {
       const a = {

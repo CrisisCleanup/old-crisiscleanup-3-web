@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     profile: {},
+    userOrganization: {},
     isAuthenticated: vueAuthInstance.isAuthenticated(),
     isTokenExpired: false,
     loginErrors: null
@@ -26,6 +27,10 @@ export default {
 
     setIsTokenExpired (state, payload) {
       state.isTokenExpired = payload.isTokenExpired;
+    },
+
+    setOrganizationInfo (state, payload) {
+      state.userOrganization = payload.userOrganization;
     }
   },
 
@@ -38,7 +43,7 @@ export default {
     login (context, payload) {
       payload = payload || {};
       return new Promise((resolve, reject) => {
-        vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
+        return vueAuthInstance.login(payload.user, payload.requestOptions).then(function (resp) {
           const decodedToken = jwt_decode(resp.data.access_token);
           context.commit('isAuthenticated', {
             isAuthenticated: vueAuthInstance.isAuthenticated()
@@ -46,11 +51,14 @@ export default {
           context.commit('setProfile', {
             profile: decodedToken.user_claims
           });
+          context.commit('setOrganizationInfo', {
+            userOrganization: resp.data.organization
+          })
           resolve(resp);
         }, function (error) {
           context.commit('setLoginErrors', {hasError: true});
           reject(error);
-        })
+        });
       });
     },
 

@@ -7,10 +7,10 @@
       <b-tab  title="<i class='icon-magnifier'></i>">
         <SearchFilterAside></SearchFilterAside>
       </b-tab>
-      <b-tab title="<i class='icon-printer'></i>">
-        <IconListAside/>
+      <b-tab title="<i class='fa fa-filter'></i>">
+        <MapFilterAside/>
       </b-tab>
-      <b-tab title="<i class='icon-speech'></i>">
+      <b-tab title="<i class='icon-printer'></i>">
         <NotificationAside/>
       </b-tab>
       <b-tab title="<i class='icon-settings'></i>">
@@ -30,12 +30,14 @@
   import SettingsAside from './aside/SettingsAside.vue';
   import WorksiteAside from './aside/worksite/WorksiteAside.vue';
   import SearchFilterAside from './aside/SearchFilterAside';
+  import MapFilterAside from "./aside/MapFilterAside";
 
   export default {
     name: 'aside',
     computed: {
     },
     components: {
+      MapFilterAside,
       WorksiteAside,
       IconListAside,
       NotificationAside,
