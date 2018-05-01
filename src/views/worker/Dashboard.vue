@@ -179,7 +179,7 @@
             <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">{{ $t('dashboard.est_commercial_value') }}</div>
+            <div class="text-muted">{{ $t('dashboard.est_commercial_value_services') }}</div>
             <strong>$4,896,000</strong>
             <b-progress class="progress-xs mt-2" :precision="1" variant="danger" :value="272"></b-progress>
           </li>
