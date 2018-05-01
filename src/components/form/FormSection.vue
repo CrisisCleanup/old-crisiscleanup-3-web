@@ -1,6 +1,12 @@
 <template>
   <section>
-    <h5>{{ $t(titleLabel) }}</h5>
+    <hr />
+    <h3 v-if="sectionLevel == 1">{{ $t(titleLabel) }}</h3>
+    <h5 v-if="sectionLevel == 2">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 3">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 4">{{ $t(titleLabel) }}</h5>
+    <h5 v-if="sectionLevel == 5">{{ $t(titleLabel) }}</h5>
+    <hr />
     <div v-for="(value, key) in formData.fields">
       <div v-if="value.field_type=='text'">
         <TextField
@@ -13,10 +19,12 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
         />
       </div>
       <div v-else-if="value.field_type=='textarea'">
@@ -30,10 +38,12 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
         />
       </div>
       <div v-else-if="value.field_type=='select'">
@@ -47,10 +57,12 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
           :options="value.options"
         />
       </div>
@@ -68,10 +80,12 @@
           :allow-toggle-hidding="value.allow_toggle_hiding"
           :is-hidden-default="value.is_hidden_default"
           :if-selected-then-work-type="value.if_selected_then_work_type"
+          :parent-if-selected-then-work-type="formData.if_selected_then_work_type"
+          :parent-field-name="labelName"
           :placeholder-t="value.placeholder_t"
-          :value="eventFormData[key]"
+          :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
-          :fieldKey="key"
+          :field-key="key"
           :options="value.options"
           />
       </div>
@@ -84,6 +98,7 @@
                      :form-data="value"
                      :event-form-data="eventFormData"
                      :update-event-form-data="updateEventFormData"
+                     :section-level="sectionLevel + 1"
         />
       </div>
     </div>
@@ -95,7 +110,7 @@
   import CheckboxField from './CheckboxField';
   import TextAreaField from './TextAreaField';
   import SelectField from './SelectField';
-  import FormSection from './FormSubSection';
+  import coreFields from './coreFields';
 
   export default {
     name: 'FormSection',
@@ -120,6 +135,11 @@
       },
       updateEventFormData: {
         type: Function
+      },
+      sectionLevel: {}
+    },
+    data() {
+      return {
       }
     },
     computed: {},
@@ -127,9 +147,15 @@
       TextField,
       CheckboxField,
       TextAreaField,
-      SelectField,
-      FormSection
+      SelectField
     },
-    methods: {}
+    methods: {
+      getFormDataValue(key) {
+        if (!coreFields.includes(key)) {
+          return this.eventFormData.data[key];
+        }
+        return this.eventFormData[key];
+      }
+    }
   }
 </script>

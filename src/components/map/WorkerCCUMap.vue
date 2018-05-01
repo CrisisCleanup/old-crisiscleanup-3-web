@@ -14,7 +14,6 @@
       style="width: 100%; height: 100%;"
       @click="mapIsClicked"
       @bounds_changed="mapBoundsChanged"
-      @center_changed="mapCenterChanged"
       @zoom_changed="setZoomLevel($event)"
       @dragstart="setDragging(true)"
       @dragend="setDragging(false)"
@@ -71,12 +70,11 @@
       },
     },
     mounted() {
+      window.testObj1 = 'testing';
       loaded.then(() => {
         DashboardEventHub.$emit('open-aside', 'test');
-        Vue.prototype.$map2 = () => {
-          return this.$refs.map.$mapObject;
-        };
-        const eid = this.$store.state.worker.event.event_id;
+        window.googMap = this.$refs.map;
+        const eid = this.$store.state.worker.event.id;
         //this.centerMap(this.$store.state.map.center)
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
           this.renderMarkers();
@@ -87,6 +85,10 @@
         const currentSite = this.$store.getters.getCurrentSiteData;
         this.addMarker(currentSite);
         this.centerOnSiteWithZoom();
+      });
+
+      CCUMapEventHub.$on('re-render', (e) => {
+        this.renderMarkers();
       });
     },
     beforeDestroy: function () {

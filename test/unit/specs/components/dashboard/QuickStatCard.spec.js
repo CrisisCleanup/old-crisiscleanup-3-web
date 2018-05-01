@@ -1,7 +1,6 @@
-import {shallow, mount} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 import QuickStatCard from '@/components/dashboard/QuickStatCard';
-import sinon from "sinon";
-import mockHttp from 'mock-http-client';
+import i18n from '@/services/i18n';
 
 describe('QuickStatCard.vue', function() {
 
@@ -13,6 +12,7 @@ describe('QuickStatCard.vue', function() {
       const className = 'bg-primary';
 
       const wrapper = shallow(QuickStatCard, {
+        i18n,
         propsData: {
           statName: statName,
           statQuantity: statQuantity,

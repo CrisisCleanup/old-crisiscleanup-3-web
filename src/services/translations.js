@@ -1,5 +1,8 @@
 const messages = {
   "en": {
+    "unitTest": {
+      "t1": "TEST"
+    },
     "publicHeader": {
       "realtime_map": "Realtime Map",
       "donate": "Donate",
@@ -1715,6 +1718,9 @@ const messages = {
     }
   },
   "es": {
+    "unitTest": {
+      "t1": "PRUEBA"
+    },
     "publicHeader": {
       "realtime_map": "Mapa en tiempo real",
       "donate": "Donar",

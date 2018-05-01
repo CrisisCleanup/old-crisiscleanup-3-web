@@ -1,21 +1,19 @@
 steps:
-- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
+- name: 'gcr.io/cloud-builders/yarn:node-8.11.0'
   args: ['install']
-#- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
-#  args: ['run', 'unit']
-- name: 'gcr.io/$PROJECT_ID/nodejs/yarn'
+- name: 'gcr.io/cloud-builders/yarn:node-8.11.0'
   args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/ccu3-web', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web']
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['delete', 'pods', '-lapp=ccu3-web,env=dev']
+  args: ['delete', 'pods', '-lapp=ccu3-web,env=staging']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['delete', 'pods', '-lapp=ccu3-web,env=staging']
+  args: ['delete', 'pods', '-lapp=ccu3-web,env=dev']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'

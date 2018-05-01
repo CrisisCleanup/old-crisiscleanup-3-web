@@ -28,7 +28,6 @@
       WorkerMap
     },
     beforeRouteLeave (to, from, next) {
-      console.log('CLOSING MAP')
       DashboardEventHub.$emit('close-aside', 'test');
       next(true);
     }

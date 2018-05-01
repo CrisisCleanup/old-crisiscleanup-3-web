@@ -8,6 +8,7 @@ import { sync } from 'vuex-router-sync'
 import store from './store'
 Vue.use(BootstrapVue);
 import i18n from './services/i18n';
+import './services/notifications';
 
 window.$ = window.jQuery = require('jquery');
 
