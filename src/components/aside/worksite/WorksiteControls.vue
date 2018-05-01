@@ -1,75 +1,148 @@
 <template>
-  <div >
-    <div class="row">
-      <div class="col">
-        <div class="mx-auto" role="group">
-          <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
-          <button type="button" v-show="getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">{{ $t('actions.save') }}</button>
-          <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
-          <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary"
-                  v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed"
-                  v-text="isCurrentSiteClaimed ? $t('actions.claim') : $t('actions.unclaim')"></button>
-          <button id="historyBtn" v-show="getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>
-          <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
-        </div>
+<div>
+  <div class="row">
+    <div class="col">
+      <div class="mx-auto" role="group">
+        <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
+        <button type="button" v-show="getWorksiteViews && getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">{{ $t('actions.save') }}</button>
+        <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
+        <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary" v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed" v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
+        <!--<button id="historyBtn" v-show="getWorksiteViews && getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>-->
+        <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
       </div>
-      <PrintWorksite />
     </div>
+    <PrintWorksite />
   </div>
+</div>
 </template>
-<script>
-  import PrintWorksite from './PrintWorksite';
-  import {mapGetters} from 'vuex';
-  export default {
-    data() {
-      return {
-        status: "Open, unassigned"
-      }
-    },
-    components: {
-      PrintWorksite
-    },
-    computed: {
-      ...mapGetters(['isCurrentSiteClaimed', 'isCurrentSiteClaimedByUserOrg', 'getWorksiteViews'])
-    },
-    methods: {
-      enterNewSite() {
-        this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
-        this.$store.commit('resetCurrentSiteData');
-        this.$store.commit('setSiteFormErrors', {})
-      },
-      saveForm() {
-        this.$store.dispatch('saveSite');
-      },
-      contactOrg() {
-        console.log("Contact org");
-      },
-      firePrintBtn() {
-        console.log("Print")
-      },
-      fireEditBtn() {
-        console.log("Load Form")
-      },
-      fireHistoryBtn() {
-        console.log("Load History")
-      },
-      fireClaimBtn() {
-        this.$store.dispatch('claimSite');
-        // TODO: Update marker (emit/on or vuex computed prop)
-//        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
-      },
-      statusChanged(event) {
-        const patchedSite = {
-          status: this.status
-        };
-        this.$http.patch(`/worksites/${this.siteId}`, patchedSite).then(resp => {
-          const data = resp.data;
-          this.claimedBy = data.claimedBy;
-          this.status = data.status;
-          this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
-        });
 
+
+<script>
+import PrintWorksite from './PrintWorksite';
+import {
+  mapGetters
+} from 'vuex';
+export default {
+  data() {
+    return {
+      status: "Open, unassigned"
+    }
+  },
+  components: {
+    PrintWorksite
+  },
+  computed: {
+    ...mapGetters(['isCurrentSiteClaimed', 'isCurrentSiteClaimedByUserOrg', 'getWorksiteViews'])
+  },
+  methods: {
+    enterNewSite() {
+      this.$store.commit('setActiveWorksiteView', {
+        view: 'editWorksite'
+      });
+      this.$store.commit('resetCurrentSiteData');
+      this.$store.commit('setSiteFormErrors', {})
+
+     this.$notify({
+        type: 'warn',
+        group: 'core',
+        title: 'New worksite form created.',
+        text: '',
+        width: 500,
+        animation: 'Velocity',
+        speed: 1000,
+        duration: 3000
+      });
+    },
+    saveForm() {
+      this.$notify({
+        group: 'core',
+        title: 'Saving...',
+        //text: '',
+        width: 500,
+        duration: 250
+      });
+      this.$store.dispatch('saveSite').then((result) => {
+        setTimeout(() => {
+          this.$notify({
+            type: 'success',
+            group: 'core',
+            title: 'Success!',
+            text: 'Worksite saved.',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+        }, 1000);
+      }, (error) => {
+        setTimeout(() => {
+          this.$notify({
+            type: 'error',
+            group: 'core',
+            title: 'Just a second!',
+            text: 'We need a little more information. Please review the form for errors.',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+        }, 1000);
+
+      });
+    },
+    contactOrg() {
+      console.log("Contact org");
+    },
+    firePrintBtn() {
+      console.log("Print")
+    },
+    fireEditBtn() {
+      console.log("Load Form")
+    },
+    fireHistoryBtn() {
+      console.log("Load History")
+    },
+    fireClaimBtn() {
+      if (this.isCurrentSiteClaimed) {
+        this.$store.dispatch('unclaimSite');
+        this.$notify({
+            type: 'warn',
+            group: 'core',
+            title: `You have unclaimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            text: '',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+      } else {
+        this.$store.dispatch('claimSite');
+          this.$notify({
+            type: 'warn',
+            group: 'core',
+            title: `You have claimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            text: '',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
       }
+      // TODO: Update marker (emit/on or vuex computed prop)
+      //        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
+    },
+    statusChanged(event) {
+      const patchedSite = {
+        status: this.status
+      };
+      this.$http.patch(`/worksites/${this.siteId}`, patchedSite).then(resp => {
+        const data = resp.data;
+        this.claimedBy = data.claimedBy;
+        this.status = data.status;
+        this.marker.setIcon(generateMarkerImagePath(this.claimedBy, this.status, this.workType));
+      });
+
     }
   }
+}
 </script>

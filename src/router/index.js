@@ -19,6 +19,7 @@ import RealtimeMap from '@/views/RealtimeMap'
 import Roadmap from '@/views/Roadmap'
 import Donate from '@/views/Donate'
 import BrowseWorksites from '@/views/worker/BrowseWorksites'
+import MyWorksites from '@/views/worker/MyWorksites'
 import BrowseOrganizations from '@/views/worker/BrowseOrganizations'
 import Terms from '@/views/pages/Terms'
 import Privacy from '@/views/pages/Privacy'
@@ -151,6 +152,12 @@ const router = new Router({
         },
         {
           path: 'worksites',
+          name: 'MyWorksites',
+          component: MyWorksites,
+          meta: {auth: true, title: 'My Work Orders'},
+        },
+        {
+          path: 'browse',
           name: 'BrowseWorksites',
           component: BrowseWorksites,
           meta: {auth: true, title: i18n.t('routerIndex.browse_worksites_html_title')}

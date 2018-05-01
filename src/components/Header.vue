@@ -3,14 +3,14 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <router-link class="navbar-brand" to="dashboard"></router-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
-    <b-nav is-nav-bar class="d-md-down-none">
+    <b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
-        <select @change="updateEventContext" :value="getCurrentEvent.event_id">
-          <option v-for="event in getParticipatingEvents" v-bind:value="event.event_id">{{event.name}}</option>
+        <select @change="updateEventContext" :value="getCurrentEvent.id">
+          <option v-for="event in getParticipatingEvents" v-bind:value="event.id">{{event.name}}</option>
         </select>
       </b-nav-item>
-    </b-nav>
-    <b-nav is-nav-bar class="ml-auto">
+    </b-navbar-nav>
+    <b-navbar-nav class="ml-auto">
       <!--
       <b-nav-item class="d-md-down-none" @click="asideToggle">
         <i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span>
@@ -34,7 +34,7 @@
         <!--<b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>-->
         <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
-    </b-nav>
+    </b-navbar-nav>
     <button class="navbar-toggler aside-menu-toggler" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
   </header>
 </template>
@@ -82,10 +82,27 @@ export default {
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
+      setTimeout(() => {
+          this.$notify({
+            type: 'warn',
+            group: 'core',
+            title: 'You have logged out successfully.',
+            text: '',
+            width: 500
+          });
+      }, 750);
+
       this.$router.push({path: '/'});
     },
     updateEventContext (e) {
       this.$store.dispatch('changeEventContext', e.target.value);
+      this.$notify({
+        type: 'success',
+        group: 'core',
+        title: 'You are now viewing the event:',
+        text: this.$store.getters.getCurrentEvent.name,
+        width: 500
+      });
     }
   }
 }
