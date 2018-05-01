@@ -253,7 +253,7 @@ export default {
       });
     },
     sendInvites({commit, dispatch, state}, invites) {
-      Vue.axios.post('/invites', invites).then(resp => {
+      Vue.axios.post('/invitations', invites).then(resp => {
 
       }).catch(error => {
         commit('setLoginFormErrors', error.response.data);

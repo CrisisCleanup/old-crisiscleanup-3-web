@@ -2,7 +2,7 @@
   <div>
     <p>{{ $t('inviteTeammates.invite_teammates_instructions') }}</p>
     <div class="form-group">
-      <input type="text" v-model="invitees"
+      <input type="text" v-model="invitees" class="form-control"
              :state="formErrors && formErrors.hasOwnProperty('test') ? false : null"
              placeholder="i.e. john@example.com, jane@example.com, steve@example.com" id="emails-to-send"/>
       <div v-show="formErrors" class="invalid-feedback">{{errorMessage}}</div>
@@ -34,7 +34,7 @@
     methods: {
       sendInvites() {
         const invites = this.invitees.split(',').map(emailAddress => {
-          return {"email": emailAddress}
+          return {"invitee_email": emailAddress.trim()}
         });
         this.$store.dispatch('sendInvites', invites).then(() => {
           this.successfulInvites = true;
