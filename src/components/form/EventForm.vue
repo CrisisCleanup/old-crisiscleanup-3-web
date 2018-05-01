@@ -114,6 +114,10 @@ import EventData68 from '../../definitions/forms/68-montecito_mudslides.json';
 import EventData69 from '../../definitions/forms/69-mi_il_in_floods_feb_2018.json';
 import EventData70 from '../../definitions/forms/70-wv_floods_feb_2018.json';
 import EventData71 from '../../definitions/forms/71-ma-noreaster.json';
+import EventData72 from '../../definitions/forms/72-st_clair_etowah_al_tornadoes';
+import EventData73 from '../../definitions/forms/73-april_2018_co_fires';
+import EventData74 from '../../definitions/forms/74-april_2018_nc_tornadoes';
+import EventData75 from '../../definitions/forms/75-kauai_flood';
 
 import FormSection from './FormSection.vue'
 import coreFields from './coreFields';
@@ -200,6 +204,14 @@ export default {
         case 65: return EventData65.phase_cleanup;
         case 66: return EventData66.phase_cleanup;
         case 67: return EventData67.phase_cleanup;
+        case 68: return EventData68.phase_cleanup;
+        case 69: return EventData69.phase_cleanup;
+        case 70: return EventData70.phase_cleanup;
+        case 71: return EventData71.phase_cleanup;
+        case 72: return EventData72.phase_cleanup;
+        case 73: return EventData73.phase_cleanup;
+        case 74: return EventData74.phase_cleanup;
+        case 75: return EventData75.phase_cleanup;
         default: return EventData60.phase_cleanup;
       }
     },
