@@ -2,9 +2,17 @@
 ## Attribute Definitions
 General Rules
 -------------
- - All user roles are non-heirarchical (e.g. non-inheriting).
+ - All user roles are as non-heirarchical (e.g. non-inheriting permissions) as possible.
  - A user may have more than one role.
- - If two roles conflict, then the user receives the more permissive role.
+ - A user may get a new role by:
+  - Selecting a role with an equal or lower level.
+  - Receiving an invitation/grant from another user of the target role.
+  - Requesting a role of a higher level:
+   - All current users with the target role receive an alert, and may approve, deny, or ignore the request.
+   - If any user with the target role approves the request, the new role is granted, and notifications are sent.
+   - If any user with the target role denies the request, the role is denied, and notifications are sent.
+   - If the requests are ignored, then the role will be granted after an arbitrary amount of time (e.g. 24 hours).
+ - If two permissions conflict, then the user receives the more permissive role.
    - Except that if the user role is `phoneAgent`, access to other users' contact information is limited, regardless of other roles.
 
 User Roles
@@ -101,11 +109,16 @@ Attributes
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `true`
- - `verySensitive`: Overrides how to treat "verySensitive" class data by applying a single redaction pattern to all verySensitive class data in all mediums, in all circumstances. This is for when a VRC invites guest workers to Crisis Cleanup. They are semi-trusted members of the public, but should not have access to very sensitive information. Note: This can create a serious administration challenge in the future when abused.
+ - `viewSensitive`: Overrides how to treat "verySensitive" class data by applying a single redaction pattern to all verySensitive class data in all mediums, in all circumstances. This is for when a VRC invites guest workers to Crisis Cleanup. They are semi-trusted members of the public, but should not have access to very sensitive information. Note: This can create a serious administration challenge in the future when abused.
    - Applies to: All roles
    - Possible Values: `redactDigits` (preferred), `hideField`, `truncateToFive`, `redactAll`, `convertToBoolean`, `noRedaction`, `inherit`
    - Required: Yes
-   - Default: `inherit`
+   - Default: `inherit` from organization
+ - `level`: The relative level of the role. E.g. "Primary Contact" is higher than "Worker." Used to mildly regulate access to certain features.
+   - Applies to: All roles
+   - Possible Values: integer
+   - Required: Yes
+   - Default: "2"
 
 ## Attribute Suffix Conventions
  - `_t`: This attribute must be translated. The value of a translatable key refers to a translated string key in `\src\services\translation.js`
