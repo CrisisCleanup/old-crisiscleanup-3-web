@@ -5,13 +5,13 @@ General Rules
  - All user roles are as non-heirarchical (e.g. non-inheriting permissions) as possible.
  - A user may have more than one role.
  - A user may get a new role by:
-  - Selecting a role with an equal or lower level.
-  - Receiving an invitation/grant from another user of the target role.
-  - Requesting a role of a higher level:
-   - All current users with the target role receive an alert, and may approve, deny, or ignore the request.
-   - If any user with the target role approves the request, the new role is granted, and notifications are sent.
-   - If any user with the target role denies the request, the role is denied, and notifications are sent.
-   - If the requests are ignored, then the role will be granted after an arbitrary amount of time (e.g. 24 hours).
+   - Selecting a role with an equal or lower level.
+   - Receiving an invitation/grant from another user of the target role.
+   - Requesting a role of a higher level:
+     - All current users with the target role receive an alert, and may approve, deny, or ignore the request.
+     - If any user with the target role approves the request, the new role is granted, and notifications are sent.
+     - If any user with the target role denies the request, the role is denied, and notifications are sent.
+     - If the requests are ignored, then the role will be granted after an arbitrary amount of time (e.g. 24 hours).
  - If two permissions conflict, then the user receives the more permissive role.
    - Except that if the user role is `phoneAgent`, access to other users' contact information is limited, regardless of other roles.
 
