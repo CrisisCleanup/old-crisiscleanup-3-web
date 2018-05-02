@@ -84,6 +84,9 @@ export default {
         } catch (e) {
         }
       }
+      if (payload.data === null || payload.data === undefined) {
+        payload.data = {};
+      }
       state.siteData = payload;
     },
     resetCurrentSiteData (state) {
