@@ -11,14 +11,16 @@
     "supportAgent": true,
     "crewManagement": true,
     "viewUserContacts": true,
-    "viewSensitive": "inherit"
+    "viewSensitive": "inherit",
+    "level": "2"
   },
   "primaryContact": {
     "lastUpdated": "2018-03-06",
     "name_t": "userRoles.primary_contact",
     "description_t": "userRoles.primary_contact_description",
     "affiliateOrg": true,
-    "supportAgent": false
+    "supportAgent": false,
+    "level": "1"
   },
   "teamLeader": {
     "lastUpdated": "2018-03-06",
@@ -61,7 +63,8 @@
     "name_t": "userRoles.support_agent",
     "description_t": "userRoles.support_agent_description",
     "isActive": false,
-    "crewManagement": false
+    "crewManagement": false,
+    "level": "1"
   },
   "guestWorker": {
     "lastUpdated": "2018-03-06",
@@ -72,6 +75,7 @@
     "removeWorkers": false,
     "advancedMaps": false,
     "supportAgent": false,
-    "viewSensitive": "redactDigits"
+    "viewSensitive": "redactDigits",
+    "level": "3"
   }
 }
