@@ -10,8 +10,9 @@
           <i class="fa fa-question"></i>
         </span>
       </label>
-      <select class="form-control form-control-sm" @change="(event) => updateValue(fieldKey, event.target.value)">
-        <option v-for="option in options" :value="option.value" :readonly="localIsReadonly" :required="isRequired" :selected="option.value === value">
+      <select class="form-control form-control-sm" @change="(event) => fireChange(event)"
+        :readonly="localIsReadonly" :required="isRequired">
+        <option v-for="option in options" :value="option.value" :selected="option.value === value">
           {{ $t(option.name_t) }}
         </option>
       </select>
@@ -27,6 +28,16 @@
     props: {
       options: {
         type: Array
+      }
+    },
+    methods: {
+      fireChange(event) {
+        this.updateValue(this.fieldKey,
+          event.target.value,
+          this.parentFieldName,
+          this.ifSelectedThenWorkType,
+          this.parentIfSelectedThenWorkType
+        );
       }
     }
   }

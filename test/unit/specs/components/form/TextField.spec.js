@@ -46,7 +46,6 @@ describe('TextField.vue', function () {
 
   it('should NOT present help text', () => {
     const wrapper = createBaseWrapper({});
-    console.log(wrapper.html());
     expect(wrapper.find({ref: 'helpTextSpan'}).exists()).to.be.false;
   });
 

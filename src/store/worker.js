@@ -82,8 +82,10 @@ export default {
         try {
           payload.data = JSON.parse("{" + payload.data.replace(/=>/g, ': ').replace(/\"/g, '"') + "}");
         } catch (e) {
-          console.log("Error parsing currentSiteData");
         }
+      }
+      if (payload.data === null || payload.data === undefined) {
+        payload.data = {};
       }
       state.siteData = payload;
     },
@@ -205,19 +207,27 @@ export default {
     },
     saveSite({commit, state}) {
       if (state.isNewSite) {
-        Vue.axios.post(`/worksites`, state.siteData).then(resp => {
-          commit('setCurrentSiteData', resp.data);
-          commit('setSiteFormErrors', {});
-        }).catch(error => {
-          commit('setSiteFormErrors', error.response.data)
+        return new Promise((resolve, reject) => {
+          Vue.axios.post(`/worksites`, state.siteData).then(resp => {
+            commit('setCurrentSiteData', resp.data);
+            commit('setSiteFormErrors', {});
+            resolve(resp);
+          }).catch(error => {
+            commit('setSiteFormErrors', error.response.data)
+            reject(error);
+          });
         });
       } else {
-        Vue.axios.patch(`/worksites/${state.siteData.id}`, state.siteData).then(resp => {
-          commit('setCurrentSiteData', resp.data);
-          commit('setSiteFormErrors', {});
-        }).catch(error => {
-          commit('setSiteFormErrors', error.response.data)
-        })
+        return new Promise((resolve, reject) => {
+          Vue.axios.patch(`/worksites/${state.siteData.id}`, state.siteData).then(resp => {
+            commit('setCurrentSiteData', resp.data);
+            commit('setSiteFormErrors', {});
+            resolve(resp);
+          }).catch(error => {
+            commit('setSiteFormErrors', error.response.data)
+            reject(error);
+          })
+        });
       }
     },
     getWorksiteStats({ commit, state, dispatch }) {
@@ -237,6 +247,8 @@ export default {
       commit('setEventContext', event);
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');
+      commit('resetCurrentSiteData');
+      commit('setSiteFormErrors', {});
       await dispatch('map/getWorksites', eventId);
     },
     searchWorksites({commit, dispatch, state}, searchCriteria) {
@@ -245,7 +257,7 @@ export default {
       });
     },
     sendInvites({commit, dispatch, state}, invites) {
-      Vue.axios.post('/invites', invites).then(resp => {
+      Vue.axios.post('/invitations', invites).then(resp => {
 
       }).catch(error => {
         commit('setLoginFormErrors', error.response.data);

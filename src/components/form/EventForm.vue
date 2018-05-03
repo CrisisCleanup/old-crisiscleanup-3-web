@@ -14,6 +14,8 @@
             <span v-show="eventFormData.claimed_by !== null">Worksite Claimed By: {{eventFormData.claimed_by}}</span>
             <br v-show="eventFormData.claimed_by !== null" />
             <span v-show="eventFormData.case_number !== null">Case Number: {{eventFormData.case_number}}</span>
+            <br v-show="workTypes" />
+            <span v-show="workTypes">Work Types: {{workTypes}}</span>
           </div>
           <div v-show="Object.keys(siteFormErrors).length !== 0" class="alert alert-danger" role="alert">
             <ul>
@@ -27,6 +29,7 @@
                            :form-data="value"
                            :event-form-data="eventFormData"
                            :update-event-form-data="updateEventFormData"
+                           :section-level="1"
               ></FormSection>
             </div>
           </form>
@@ -39,6 +42,8 @@
 </template>
 
 <script>
+
+import lodashObject from 'lodash/object';
 import EventData1 from '../../definitions/forms/1-hurricane_sandy_recovery.json';
 import EventData2 from '../../definitions/forms/2-hattiesburg_ms_tornado.json';
 import EventData3 from '../../definitions/forms/3-gordon_bartow_ga_tornado.json';
@@ -109,6 +114,10 @@ import EventData68 from '../../definitions/forms/68-montecito_mudslides.json';
 import EventData69 from '../../definitions/forms/69-mi_il_in_floods_feb_2018.json';
 import EventData70 from '../../definitions/forms/70-wv_floods_feb_2018.json';
 import EventData71 from '../../definitions/forms/71-ma-noreaster.json';
+import EventData72 from '../../definitions/forms/72-st_clair_etowah_al_tornadoes';
+import EventData73 from '../../definitions/forms/73-april_2018_co_fires';
+import EventData74 from '../../definitions/forms/74-april_2018_nc_tornadoes';
+import EventData75 from '../../definitions/forms/75-kauai_flood';
 
 import FormSection from './FormSection.vue'
 import coreFields from './coreFields';
@@ -120,9 +129,9 @@ import Vue from 'vue';
 
 export default {
   data() {
-    return {}
-  },
-  mounted() {
+    return {
+      cachedWorkTypes: {}
+    }
   },
   computed: {
     phaseCleanup: function() {
@@ -195,11 +204,53 @@ export default {
         case 65: return EventData65.phase_cleanup;
         case 66: return EventData66.phase_cleanup;
         case 67: return EventData67.phase_cleanup;
+        case 68: return EventData68.phase_cleanup;
+        case 69: return EventData69.phase_cleanup;
+        case 70: return EventData70.phase_cleanup;
+        case 71: return EventData71.phase_cleanup;
+        case 72: return EventData72.phase_cleanup;
+        case 73: return EventData73.phase_cleanup;
+        case 74: return EventData74.phase_cleanup;
+        case 75: return EventData75.phase_cleanup;
         default: return EventData60.phase_cleanup;
       }
     },
+    allFields: function() {
+      let sections = [];
+
+      let traverseFields = function (fields, parent={}) {
+        for (const key in fields) {
+          const value = fields[key];
+          if (value['field_type'] === 'section') {
+            sections[key] = {
+              'work_type': value['if_selected_then_work_type'],
+              'children': []
+            };
+            traverseFields(value.fields, sections[key]);
+          } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
+            parent.children[key] = value['if_selected_then_work_type'];
+          }
+        }
+      };
+
+      const fields = this.phaseCleanup.fields;
+      traverseFields(fields);
+      return sections
+    },
+    workTypes() {
+      if (!this.eventFormData.work_type) {
+        return null;
+      }
+      let splitWorkTypes = this.eventFormData.work_type.split('|||');
+      splitWorkTypes = splitWorkTypes.map(function(wt) {
+        const words = wt.split('_');
+        return words.join(' ');
+      });
+      return splitWorkTypes.join(', ');
+    },
     eventFormData: {
       get: function() {
+        this.loadAutocomplete();
         return this.$store.getters.getCurrentSiteData;
       }
     },
@@ -219,28 +270,58 @@ export default {
     PulseLoader
   },
   mounted() {
-    this.fireFormReady();
+    this.loadAutocomplete();
+    this.cachedWorkTypes = this.allFields;
   },
   methods: {
-    updateEventFormData (key, value) {
+    checkWorkType(parentFieldName, ifSelectedWorksiteType, siteData, existingWorkType) {
+      const sectionChildren = this.cachedWorkTypes[parentFieldName].children;
+      const sectionWorkType = this.cachedWorkTypes[parentFieldName].work_type;
+      let splitWorkTypes = existingWorkType.split('|||');
+      let wtSet = new Set(splitWorkTypes.map((item) => { return item.toLowerCase() }));
+      let selectedWorkType = null;
+      if (ifSelectedWorksiteType && ifSelectedWorksiteType !== 'inherit') {
+        selectedWorkType = ifSelectedWorksiteType;
+      } else {
+        let activeChildrenCount = 0;
+        let objects = lodashObject.pick(siteData, Object.keys(sectionChildren));
+        lodashObject.forIn(objects, function (value, key) {
+          if (value && value !== 'n' && value !== '' && value != 0) {
+            activeChildrenCount++
+          }
+        });
+        selectedWorkType = (activeChildrenCount > 0) ? sectionWorkType : null;
+      }
+
+      if (selectedWorkType) {
+        wtSet.add(selectedWorkType);
+      } else {
+        wtSet.delete(sectionWorkType);
+      }
+      return Array.from(wtSet).join('|||');
+    },
+    updateEventFormData (key, value, parentFieldName, ifSelectedWorksiteType=null, ifSelectedWorksiteTypeParent=null) {
       if (!coreFields.includes(key)) {
         const d1 = this.$store.state.worker.siteData.data;
+        const d3 = this.$store.state.worker.siteData;
         let newData = Object.assign({}, d1);
+        let baseData = Object.assign({}, d3);
         newData[key] = value;
+        baseData['work_type'] = this.checkWorkType(parentFieldName, ifSelectedWorksiteType, newData, d3['work_type']);
         this.$store.commit('setCurrentSiteDataData', {data: newData});
+        this.$store.commit('setCurrentSiteData', baseData);
       } else {
         const d2 = this.$store.state.worker.siteData;
-        let currentSiteData = Object.assign({}, d2);
-        currentSiteData[key] = value;
-        this.$store.commit('setCurrentSiteData', currentSiteData);
+        let newData = Object.assign({}, d2);
+        newData[key] = value;
+        this.$store.commit('setCurrentSiteData', newData);
       }
     },
     updateSiteData (obj) {
-      console.log(obj)
       let currentSiteData = Object.assign({}, this.$store.getters.getCurrentSiteData, obj);
       this.$store.commit('setCurrentSiteData', currentSiteData);
     },
-    fireFormReady() {
+    loadAutocomplete() {
       var self = this;
       loaded.then(() => {
         let addressField = document.getElementById('addressCCU');
@@ -262,7 +343,6 @@ export default {
           let workerMapObj = null;
           setTimeout(() => {
               if (window.googMap !== undefined && window.googMap !== null) {
-                console.log(window.googMap);
                 workerMapObj = window.googMap.$mapObject;
                 addressAutocomplete.bindTo('bounds', workerMapObj);
               }

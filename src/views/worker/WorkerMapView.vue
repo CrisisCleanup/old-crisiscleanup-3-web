@@ -4,6 +4,11 @@
   </div>
 </template>
 
+<style lang="scss">
+  // Import Main styles for this application
+  @import "./scss/crisiscleanup/_pins.scss";
+</style>
+
 <script>
   import WorkerMap from '@/components/map/WorkerMap.vue';
   import DashboardEventHub from '@/events/DashboardEventHub';
@@ -23,7 +28,6 @@
       WorkerMap
     },
     beforeRouteLeave (to, from, next) {
-      console.log('CLOSING MAP')
       DashboardEventHub.$emit('close-aside', 'test');
       next(true);
     }

@@ -1,5 +1,6 @@
 {
   "defaults": {
+    "instructions": "Apply the following default settings to each user role, unless the role contains a contrary setting.",
     "isActive": true,
     "affiliateOrg": false,
     "inviteWorkers": true,
@@ -10,7 +11,8 @@
     "supportAgent": true,
     "crewManagement": true,
     "viewUserContacts": true,
-    "viewSensitive": true
+    "viewSensitive": "inherit",
+    "level": "2"
   },
   "primaryContact": {
     "lastUpdated": "2018-03-06",
@@ -18,16 +20,17 @@
     "description_t": "userRoles.primary_contact_description",
     "affiliateOrg": true,
     "supportAgent": false,
+    "level": "1"
   },
   "teamLeader": {
     "lastUpdated": "2018-03-06",
     "name_t": "userRoles.team_leader",
-    "description_t": "userRoles.team_leader_description",
+    "description_t": "userRoles.team_leader_description"
   },
   "worker": {
     "lastUpdated": "2018-03-06",
     "name_t": "userRoles.worker",
-    "description_t": "userRoles.worker_description",
+    "description_t": "userRoles.worker_description"
   },
   "phoneAgent": {
     "lastUpdated": "2018-03-06",
@@ -37,7 +40,7 @@
     "phoneAgent": true,
     "translate": true,
     "crewManagement": false,
-    "viewUserContacts": false,
+    "viewUserContacts": false
   },
   "mapSpecialist": {
     "lastUpdated": "2018-03-06",
@@ -45,7 +48,7 @@
     "description_t": "userRoles.map_specialist_description",
     "isActive": false,
     "advancedMaps": true,
-    "crewManagement": false,
+    "crewManagement": false
   },
   "translator": {
     "lastUpdated": "2018-03-06",
@@ -53,7 +56,7 @@
     "description_t": "userRoles.translator_description",
     "isActive": false,
     "translate": true,
-    "crewManagement": false,
+    "crewManagement": false
   },
   "supportAgent": {
     "lastUpdated": "2018-03-06",
@@ -61,6 +64,7 @@
     "description_t": "userRoles.support_agent_description",
     "isActive": false,
     "crewManagement": false,
+    "level": "1"
   },
   "guestWorker": {
     "lastUpdated": "2018-03-06",
@@ -71,6 +75,7 @@
     "removeWorkers": false,
     "advancedMaps": false,
     "supportAgent": false,
-    "viewSensitive": false
+    "viewSensitive": "redactDigits",
+    "level": "3"
   }
 }
