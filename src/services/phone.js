@@ -32,7 +32,7 @@ export default class PhoneService {
                                 gateway: self.gateway.id,
                                 call_type: info.callType,
                                 ccu_number: info.ani,
-                                external_id: uii
+                                external_id: info.uii
                             };
                             self.store.dispatch("phone/updateCall", call).then(resolve());
                         });
@@ -106,7 +106,7 @@ export default class PhoneService {
                     }
 
                     this.store.commit('phone/setState', state);
-                    console.log('new store state: ', this.phone.state.callState);
+                    console.log('new store state: ', state);
                 }
                 console.log('Set agent state response', setAgentStateResponse);
                 resolve();

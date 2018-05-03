@@ -72,22 +72,24 @@ export default {
             return Vue.axios.get(`${process.env.API_PHONE_ENDPOINT}/callers/` + phoneNumber + `/get_detail`)
                 .then(resp => {
                     commit('setCaller', resp.data)
+                    return resp.data;
                 })
                 .catch(err => {
                     //If the caller doesn't exist, create them
                     Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/callers`, { phone_number: phoneNumber }).then(resp => {
                         commit('setCaller', resp.data)
+                        return resp.data;
                     })
                 });
         },
         updateCall({ commit, state }, call) {
             // If it has an id, update, otherwise create
             if (call.id) {
-                return Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/calls`, call).then(resp => {
+                return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/calls/` + call.id, call).then(resp => {
                     commit('setCall', resp.data)
                 })
             } else {
-                return Vue.axios.patch(`${process.env.API_PHONE_ENDPOINT}/calls/` + call.id, call).then(resp => {
+                return Vue.axios.post(`${process.env.API_PHONE_ENDPOINT}/calls`, call).then(resp => {
                     commit('setCall', resp.data)
                 })
             }
