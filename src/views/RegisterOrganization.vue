@@ -483,7 +483,29 @@
       ...mapActions(['postOrganization']),
       signUp() {
         this.validateForm();
-        // this.$store.dispatch('postOrganization');
+        this.$store.dispatch('postOrganization').then((result) => {
+          this.$notify({
+            type: 'success',
+            group: 'core',
+            title: 'Success!',
+            text: 'Organization saved.',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+        }, (error) => {
+          this.$notify({
+            type: 'error',
+            group: 'core',
+            title: 'Just a second!',
+            text: 'Please review this form for errors',
+            width: 500,
+            animation: 'Velocity',
+            speed: 1000,
+            duration: 3000
+          });
+        });
       },
       validateForm() {
         if (!isNaN(this.name)) {

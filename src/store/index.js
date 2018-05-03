@@ -11,6 +11,7 @@ import worker from './worker.js'
 import phone from './phone.js'
 import publicModule from './public.js'
 import map from './map.js'
+import filters from './filters.js';
 
 // https://github.com/robinvdvleuten/vuex-persistedstate
 const persistedStateOptions = {
@@ -29,15 +30,16 @@ const VuexLoading = createVuexLoader({
 Vue.use(VuexLoading);
 
 const store = new Vuex.Store({
-    modules: {
-        auth,
-        worker,
-        publicModule,
-        map,
-        phone
-    },
-    strict: process.env.NODE_ENV !== 'production',
-    plugins: [VuexLoading.Store, createPersistedState(persistedStateOptions)]
+  modules: {
+    auth,
+    worker,
+    publicModule,
+    map,
+    filters,
+    phone,
+  },
+  strict: process.env.NODE_ENV !== 'production',
+  plugins: [VuexLoading.Store, createPersistedState(persistedStateOptions)]
 });
 
 export default store

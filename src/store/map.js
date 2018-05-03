@@ -23,7 +23,8 @@ export default {
     },
     points: [],
     tempMarkers: [],
-    getMarkersFunc: null
+    getMarkersFunc: null,
+    activeMapFilters: [],
   },
 
   mutations: {
@@ -53,18 +54,76 @@ export default {
     },
     setTempMarkers (state, value) {
       state.tempMarkers = value;
+    },
+    addMapFilter (state, value) {
+      state.activeMapFilters.push(value);
+    },
+    removeMapFilter (state, value) {
+      state.activeMapFilters.pop(value);
     }
   },
 
   getters: {
-    getWorkerMap: state => state.workerMap,
   },
 
   actions: {
-    getWorksites({ commit, state }, eventId) {
-      const fields = "id,lat,lng,status,claimed_by_uid,work_type,city,reported_by_uid,name";
-      const endpoint = `/worksites?limit=500&event=${eventId}&fields=${fields}`;
-      return Vue.axios.get(endpoint).then(resp => {
+    getWorksites({ commit, state, rootState}, eventId) {
+      console.log(rootState.filters);
+      const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
+
+      const params = {
+        limit: 100,
+        event: eventId,
+        fields: fields
+      };
+
+      if (rootState.filters.claimedByNone) {
+        params.claimed_by = rootState.worker.currentOrgId;
+      }
+
+      if (rootState.filters.reportedByNone) {
+        params.reported_by = rootState.worker.currentOrgId;
+      }
+
+      if (rootState.filters.unclaimed) {
+        params.claimed_by__isnull = 'true'
+      }
+
+      if (rootState.filters.open) {
+        params.status_icontains = 'open'
+      }
+
+      if (rootState.filters.closed) {
+        params.status_icontains = 'closed'
+      }
+
+      let worktypes = [];
+
+      if (rootState.filters.primaryIsTrees) {
+        worktypes.push('trees');
+      }
+
+      if (rootState.filters.primaryIsFloodDamage) {
+        worktypes.push('flood');
+      }
+
+      if (rootState.filters.debrisRemoval) {
+        worktypes.push('debris');
+      }
+
+      if (rootState.filters.other) {
+        worktypes.push('other');
+      }
+
+      if (rootState.filters.moldRemediation) {
+        worktypes.push('mold');
+      }
+
+      if (worktypes.length > 0) {
+        params.worktypes_list = worktypes.join(',')
+      }
+
+      return Vue.axios.get('/worksites', {params: params}).then(resp => {
         commit('setTempMarkers', resp.data.results);
       });
     },

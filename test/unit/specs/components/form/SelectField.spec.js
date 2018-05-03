@@ -53,15 +53,15 @@ describe('SelectField.vue', function () {
   const wrapper = createBaseWrapper({
     isReadonly: true
   });
-  console.log(wrapper.find('input').attributes()['readonly']).to.equal('readonly');
-
+  expect(wrapper.find('select').attributes()['readonly']).to.equal('readonly');
+  //console.log(wrapper.find('option').attributes()['readonly']);
 });
 
   it('should make the input field required if isRequired prop is true', () => {
   const wrapper = createBaseWrapper({
     isRequired: true
   });
-  expect(wrapper.find('input').attributes()['required']).to.equal('required');
+  expect(wrapper.find('select').attributes()['required']).to.equal('required');
 
 });
 
@@ -72,7 +72,7 @@ describe('SelectField.vue', function () {
     const wrapper = createBaseWrapper({
       updateValue: updateValueStub
     });
-    wrapper.find('input').trigger('input');
+    wrapper.find('select').trigger('change');
     expect(updateValueStub.calledOnce).to.be.true;
   });
 });

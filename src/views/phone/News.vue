@@ -180,7 +180,7 @@ export default {
           .map(article => article.id);
         this.$http
           .post(
-            `${process.env.API_PHONE_ENDPOINT}/users/` +
+            `${process.env.API_PHONE_ENDPOINT}/call-users/` +
               vm.userId +
               `/set_read_articles`,
             read_article_ids

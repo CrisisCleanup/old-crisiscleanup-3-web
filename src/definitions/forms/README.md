@@ -172,3 +172,11 @@ Current list of translatable attributes (including in areas other than forms):
  - `placeholder_t`
 
 
+Adding New Definitions
+---------------
+1. New incident definition file is created following `EVENT_NUMBER-NAME.json` convention
+2. New definition file is added to `src/definitions/forms`
+3. New definition file is imported into `src/components/form/EventForm.vue` (around lines 47-116) 
+    - e.g. `import EventData72 from ../../definitions/forms/72-foo-bar.json`
+4. Case statement is added for new definition file in `src/components/form/EventForm.vue` (around lines 136-202)
+    - e.g. `case 72: return EventData72.phase_cleanup;`
