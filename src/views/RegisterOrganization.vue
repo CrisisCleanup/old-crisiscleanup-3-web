@@ -487,8 +487,8 @@
           this.$notify({
             type: 'success',
             group: 'core',
-            title: 'Success!',
-            text: 'Organization saved.',
+            title: this.$t('notify.success'),
+            text: this.$t('notify.org_saved'),
             width: 500,
             animation: 'Velocity',
             speed: 1000,
@@ -498,8 +498,8 @@
           this.$notify({
             type: 'error',
             group: 'core',
-            title: 'Just a second!',
-            text: 'Please review this form for errors',
+            title: this.$t('notify.wait'),
+            text: this.$t('notify.please_review_errors'),
             width: 500,
             animation: 'Velocity',
             speed: 1000,

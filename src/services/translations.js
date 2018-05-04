@@ -324,7 +324,9 @@ const messages = {
       "no_spotlight_msg": "Crisis Cleanup is primarily for relief agencies rather than the public (and therefore we don't seek the public spotlight), but occasionally you will see us in the news!",
       "in_the_news_msg": "See Crisis Cleanup In The News",
       "want_to_help": "Want to help?",
-      "help_ccu": "Help Crisis Cleanup"
+      "help_ccu": "Help Crisis Cleanup",
+      "ccu_open_source": "Crisis Cleanup is an <a href=\"https://github.com/CrisisCleanup/crisiscleanup-web\">open source project</a>.",
+      "ccu_volunteer_dev": "Crisis Cleanup is open source and powered mostly by dedicated volunteers. Support Crisis Cleanup with a <a href=\"http://bit.ly/CCUPatreon\" target=\"_blank\">monthly pledge</a>. If you are a <a href=\"https://github.com/CrisisCleanup/crisiscleanup-web#technologies\" target=\"_blank\">Python / Vue.js</a> programmer, check out the Crisis Cleanup <a href=\"https://github.com/CrisisCleanup/crisiscleanup-web\" target=\"_blank\">Github repository</a> and contact us."
     },
     "whyCCU": {
       "why_we_do_it": "Why we do it",
@@ -483,7 +485,7 @@ const messages = {
     },
     "login": {
       "sign_in_msg": "Sign in to your account",
-      "invalid_credentials_msg": "Invalid email or password.",
+      "invalid_credentials_msg": "Invalid email or password. (Or the website might be having connection problems which should resolve themselves shortly.)",
       "email_placeholder": "Email",
       "password_placeholder": "Password"
     },
@@ -1715,6 +1717,26 @@ const messages = {
       "helpdesk": "Helpdesk",
       "ccu_story": "The Crisis Cleanup Story",
       "h2prep_link": "Aaron Titus, Founder and Executive Director of Crisis Cleanup, tells the story of Crisis Cleanup in his recent book, <a href=\"http://h2prep.me/amazon\" target=\"_blank\"><em>How to Prepare for Everything</em></a> (<a href=\"http://h2prep.me/signed\" target=\"_blank\">Autorgraphed</a>). You may download a complementary excerpt here: <a href=\"http://h2prep.me/epliogue\" target=\"_blank\">Epilogue: Crisis Cleanup</a>."
+    },
+    "notify": {
+      "login_attempt": "Attempting to Login",
+      "logging_in": "Logging in",
+      "login_successful": "Login successful!",
+      "login_failed": "Login failed!",
+      "login_failed_msg": "We're sorry. Something went wrong. Please try again or reset your password.",
+      "success": "Success!",
+      "org_saved": "Organization saved.",
+      "wait": "Just a second!",
+      "please_review_errors": "Please review this form for errors.",
+      "new_worksite_form": "New worksite form created.",
+      "saving": "Saving...",
+      "case_saved": "Case saved.",
+      "need_more_info": "We need a little more information. Please review the form for errors.",
+      "unclaimed": "You have unclaimed case:",
+      "claimed": "You have claimed case:",
+      "invites_sent": "Invitations have been sent.",
+      "logged_out": "You have logged out successfully.",
+      "viewing_incident": "You are now viewing the incident:"
     }
   },
   "es": {
@@ -2042,7 +2064,9 @@ const messages = {
       "no_spotlight_msg": "Crisis Cleanup es principalmente para agencias de ayuda en lugar de ser para el público en general (y por lo tanto no buscamos ser el centro de atención pública), ¡pero de vez en cuando nos verá en las noticias!",
       "in_the_news_msg": "Ver Crisis Cleanup en las noticias",
       "want_to_help": "¿Quieres ayudar?",
-      "help_ccu": "Ayuda a Crisis Cleanup"
+      "help_ccu": "Ayuda a Crisis Cleanup",
+      "ccu_open_source": "Crisis Cleanup es una <a href=\"https://github.com/CrisisCleanup/crisiscleanup-web\"> proyecto de código abierto </a>.",
+      "ccu_volunteer_dev": "Crisis Cleanup es de código abierto y alimentado principalmente por voluntarios dedicados. Soporte de Crisis Cleanup con un <a target=\"_blank\"> href=\"http://bit.ly/CCUPatreon\" mensual promesa </a>. Si usted es un <a target=\"_blank\"> href=\"https://github.com/CrisisCleanup/crisiscleanup-web#technologies\" Python / Vue.js </a> programador, echa un vistazo a la Crisis Cleanup <a href = \"https://github.com/CrisisCleanup/crisiscleanup-web\" target = \"_ blank\"> Github repositorio </a> y ponerse en contacto con nosotros."
     },
     "whyCCU": {
       "why_we_do_it": "Por qué lo hacemos",
@@ -2201,7 +2225,7 @@ const messages = {
     },
     "login": {
       "sign_in_msg": "Iniciar sesión en su cuenta",
-      "invalid_credentials_msg": "Correo electrónico o contraseña inválidos",
+      "invalid_credentials_msg": "Correo electrónico o contraseña inválidos. (O el sitio web podría estar teniendo problemas de conexión que deberían resolverse en breve.)",
       "email_placeholder": "Correo electrónico",
       "password_placeholder": "Contraseña"
     },
@@ -2260,19 +2284,19 @@ const messages = {
       "my_organization_html_title": "Mi organización: Crisis Cleanup",
       "charts_html_title": "Gráficos: Crisis Cleanup",
       "privacy_html_title": "Privacidad y politicas de seguridad: Crisis Cleanup",
-      "map_html_title": "Mapa: Limpieza de la crisis",
-      "server_error_html_title": "Error del servidor: Limpieza de la crisis",
-      "login_html_title": "Entrada: Limpieza de la crisis",
-      "roadmap_html_title": "Plan de trabajo: Limpieza de la crisis",
-      "donate_html_title": "Donar: Limpieza de la crisis",
-      "register_html_title": "Register: Limpieza de la crisis",
-      "terms_html_title": "Términos y Condiciones: Limpieza de la crisis",
-      "training_html_title": "Formación: Limpieza de la crisis",
-      "thank_you_html_title": "Gracias por su donación: Limpieza de la crisis",
-      "register_org_html_title": "Registro Organización: Limpieza de la crisis",
-      "browse_worksites_html_title": "Explorar Casos: Limpieza de la crisis",
-      "browse_orgs_html_title": "Explorar Organizaciones: Limpieza de la crisis",
-      "about_html_title": "Acerca de limpieza de Crisis"
+      "map_html_title": "Mapa: Crisis Cleanup",
+      "server_error_html_title": "Error del servidor: Crisis Cleanup",
+      "login_html_title": "Entrada: Crisis Cleanup",
+      "roadmap_html_title": "Plan de trabajo: Crisis Cleanup",
+      "donate_html_title": "Donar: Crisis Cleanup",
+      "register_html_title": "Register: Crisis Cleanup",
+      "terms_html_title": "Términos y Condiciones: Crisis Cleanup",
+      "training_html_title": "Formación: Crisis Cleanup",
+      "thank_you_html_title": "Gracias por su donación: Crisis Cleanup",
+      "register_org_html_title": "Registro Organización: Crisis Cleanup",
+      "browse_worksites_html_title": "Explorar Casos: Crisis Cleanup",
+      "browse_orgs_html_title": "Explorar Organizaciones: Crisis Cleanup",
+      "about_html_title": "Acerca de Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Misión y Plan de trabajo",
@@ -3139,7 +3163,7 @@ const messages = {
       "def_incident": "<Strong> Incidente: </strong> Un desastre para los que se utiliza el servicio para coordinar las actividades de limpieza o restauración.",
       "def_your_materials": "<strong> Sus Materiales: </strong> Significa cualquier información del cliente, datos de localización, contenido, texto, grabación, imágenes, vídeo o cualquier otro contenido que usted envíe al Servicio directamente oa través de un servicio de terceros.",
       "def_trademarks": "<strong> Marcas registradas: </strong> Medios cierta propiedad intelectual propiedad o licencia de la Compañía que se utiliza para describir la empresa, sitio web o servicio. En particular \"marcas\" significa, sin limitación:",
-      "tm_ccu_name": "El nombre, \"Limpieza de la crisis\" y el dominio \"CrisisCleanup.org.\"",
+      "tm_ccu_name": "El nombre, \"Limpieza de la crisis\" y el dominio \"CrisisCleanup.org.\" ",
       "tm_ccu_logo": "El logotipo de Crisis Cleanup (s).",
       "tm_ccu_other_marks": "Cualesquiera otros signos distintivos razonablemente calculadas para distinguir la empresa, sitio web o servicio.",
       "tm_no_other_company": "La Compañía no hace ninguna afirmación de propiedad intelectual sobre las marcas registradas de otras organizaciones que pueden ser referenciadas en el Servicio.",
@@ -3433,6 +3457,26 @@ const messages = {
       "helpdesk": "Mesa de ayuda",
       "ccu_story": "La historia de la crisis de Limpieza",
       "h2prep_link": "Aaron Tito, Fundador y Director Ejecutivo de limpieza de crisis, cuenta la historia de limpieza de crisis en su reciente libro, <a href=\"http://h2prep.me/amazon\" target=\"_blank\"> <em> Preparación para todo </em> </a> (<a target=\"_blank\"> href=\"http://h2prep.me/signed\" Autorgraphed </a>). Puede descargar un extracto complementaria aquí: <a target=\"_blank\"> href=\"http://h2prep.me/epliogue\" Epílogo: Crisis de limpieza de </a>."
+    },
+    "notify": {
+      "login_attempt": "Tratar de iniciar sesión",
+      "logging_in": "Iniciar sesión",
+      "login_successful": "¡Inicio de sesión correcto!",
+      "login_failed": "¡Error de inicio de sesion!",
+      "login_failed_msg": "Lo sentimos. Algo salió mal. Inténtelo de nuevo o restablecer su contraseña.",
+      "success": "¡Éxito!",
+      "org_saved": "Organización salvó.",
+      "wait": "¡Sólo un segundo!",
+      "please_review_errors": "Por favor revise esta forma de errores.",
+      "new_worksite_form": "Nueva forma creada lugar de trabajo.",
+      "saving": "Ahorro...",
+      "case_saved": "Caso salvó.",
+      "need_more_info": "Necesitamos un poco más de información. Por favor revise el formulario de errores.",
+      "unclaimed": "Usted tiene caso sin reclamar:",
+      "claimed": "Que se han cobrado caso:",
+      "invites_sent": "Se han enviado invitaciones.",
+      "logged_out": "Ha iniciado sesión con éxito.",
+      "viewing_incident": "Ahora está viendo el incidente:"
     }
   }
 }
