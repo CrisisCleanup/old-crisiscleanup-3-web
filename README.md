@@ -111,6 +111,36 @@ npm test
 9. `yarn run dev` (It will automatically load and launch a new browser tab)
 10. `Ctrl+c` to kill the local server when done. Note: Powershell has a bug where `Ctrl+c` does not work. Try a regular administrative shell. (see https://stackoverflow.com/questions/42039231/ctrl-c-for-quitting-python-in-powershell-now-not-working)
 
+## Full Setup (Ubuntu)
+
+### Install nvm & node
+Run the following starting in home directory (`cd ~`)
+
+1. `sudo apt-get update`
+2. `sudo apt-get install build-essential libssl-dev`
+3. `curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash` 
+4. Add the following to your `~/.bash_profile`: 
+
+```
+export NVM_DIR="$HOME/.nvm"
+. "$NVM_DIR/nvm.sh"
+```
+5. Open a new terminal
+6. `nvm install 9.0.0`
+
+### Install yarn
+
+1. `curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
+2. `echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
+3. `sudo apt-get update && sudo apt-get install yarn`
+
+### Install Crisis Cleanup
+
+1. `git clone git@github.com:tsanders/crisiscleanup-web.git`
+2. `cd crisiscleanup3-web`
+3. `yarn install`
+4. `yarn run dev`
+
 ## Technologies
 Familiarity with these technologies will help you be a productive contributor:
 
