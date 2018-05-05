@@ -9,10 +9,21 @@ module.exports = {
   test_settings: {
     default: {
       globals: {
-        devServerURL: 'http://webapp' //+ (process.env.PORT || config.dev.port)
+        devServerURL: 'http://webapp'
       },
       launch_url: "http://webapp",
       selenium_host: "chromedriver"
+    },
+    grid: {
+      globals: {
+        devServerURL: 'http://webapp'
+      },
+      launch_url: "http://webapp",
+      selenium_host: "hub",
+      selenium_port: 4444,
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      },
     },
 
   }

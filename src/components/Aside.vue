@@ -1,16 +1,16 @@
 <template>
-  <aside class="aside-menu">
+  <aside class="aside-menu" id="ccu-right-aside">
     <b-tabs>
-      <b-tab  title="<i class='icon-direction'></i>">
+      <b-tab id="ccu-worksite-aside" title="<i class='icon-direction'></i>">
         <WorksiteAside/>
       </b-tab>
-      <b-tab  title="<i class='icon-magnifier'></i>">
+      <b-tab id="ccu-search-filter-aside" title="<i class='icon-magnifier'></i>">
         <SearchFilterAside></SearchFilterAside>
       </b-tab>
-      <b-tab title="<i class='fa fa-filter'></i>">
+      <b-tab id="ccu-map-filter-aside" title="<i class='fa fa-filter'></i>">
         <MapFilterAside/>
       </b-tab>
-      <b-tab title="<i class='icon-printer'></i>">
+      <b-tab id="ccu-notification-aside" title="<i class='icon-printer'></i>">
         <NotificationAside/>
       </b-tab>
       <b-tab title="<i class='icon-settings'></i>">

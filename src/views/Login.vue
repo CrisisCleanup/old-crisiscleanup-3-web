@@ -56,6 +56,9 @@
     components: {
 
     },
+    mounted() {
+      this.$store.commit('auth/setLoginErrors', {hasError: null});
+    },
     computed: {
       ...mapState('auth', ['isAuthenticated', 'loginErrors']),
       emailErrorState() {
@@ -74,7 +77,7 @@
           width: 500,
         });
         // this.loginTriggered = true;
-        this.$store.commit('auth/setLoginErrors', {hasError: null, alpha: 2});
+        this.$store.commit('auth/setLoginErrors', {hasError: null});
         const user = {
           email: this.email,
           password: this.password

@@ -1,12 +1,30 @@
+var commands = {
+  goToHome: function() {
+    return this.waitForElementVisible('@logo', 5000)
+      .click('@logo')
+  },
+  goToLogin: function() {
+    return this.section.header.click('@loginLink')
+  },
+};
 
 module.exports = {
   url: function() {
     return this.api.launch_url;
   },
+  commands: [commands],
+  elements: {
+    logo: {
+      selector: '.navbar-brand'
+    },
+  },
   sections: {
     header: {
       selector: '.app-header',
       elements: {
+        logo: {
+          selector: '.navbar-brand'
+        },
         realtimeMapLink: {
           selector: "a[href='/map']"
         },

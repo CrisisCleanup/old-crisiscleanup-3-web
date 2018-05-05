@@ -9,7 +9,7 @@
     <div class="container-fluid" style="padding-top: 105px;">
       <!--<component :is="activeWorksiteAside"></component>-->
       <!--<IntakeFormAside v-if="activateEditWorksite"></IntakeFormAside>-->
-      <EventForm v-if="activateEditWorksite" />
+      <EventForm id="ccu-event-form" v-if="activateEditWorksite" />
     </div>
   </div>
 </template>
