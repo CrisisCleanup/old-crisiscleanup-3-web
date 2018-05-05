@@ -10,7 +10,7 @@
       <small ref="allowEditLink" v-if="allowEditBreakGlass">(<a href="#" @click="breakGlass">edit</a>)</small>
     </label>
     <textarea class="form-control form-control-sm" :readonly="localIsReadonly" :required="isRequired"
-              :value="value" @input="(event) => inputEntered(event)"></textarea>
+              :value="value" @input="(event) => inputEntered(event)" :id="fieldKey + 'CCU'"></textarea>
   </div>
 </template>
 

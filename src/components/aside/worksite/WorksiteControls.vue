@@ -1,12 +1,12 @@
 <template>
-<div>
+<div id="ccu-worksite-controls">
   <div class="row">
     <div class="col">
       <div class="mx-auto" role="group">
-        <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
-        <button type="button" v-show="getWorksiteViews && getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">{{ $t('actions.save') }}</button>
+        <button id="ccu-new-site-button" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
+        <button type="button" v-show="getWorksiteViews && getWorksiteViews.editWorksite" @click="saveForm" id="ccu-save-btn" class="btn btn-secondary">{{ $t('actions.save') }}</button>
         <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
-        <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary" v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed" v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
+        <button id="ccu-claim-btn" @click="fireClaimBtn" class="btn btn-secondary" v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed" v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
         <!--<button id="historyBtn" v-show="getWorksiteViews && getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>-->
         <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
       </div>
