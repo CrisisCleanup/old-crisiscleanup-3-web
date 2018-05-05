@@ -1,14 +1,24 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-var envConfig = require('./prod.env');
-if (process.env.APP_ENV === 'functional') {
-  envConfig = require('./functional.env');
+console.log("ENV: ", process.env.APP_ENV);
+
+var env = null;
+switch(process.env.APP_ENV) {
+  case 'functional':
+    env = require('./functional.env');
+    break;
+  case 'local':
+    env = require('./local.env');
+    break;
+  case 'local-prod':
+    env = require('./local-prod.env');
+    break;
 }
 
 module.exports = {
   build: {
-    env: envConfig,
+    env: (env !== null) ? env : require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
@@ -27,7 +37,7 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
-    env: require('./dev.env'),
+    env:  (env !== null) ? env : require('./dev.env'),
     port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',

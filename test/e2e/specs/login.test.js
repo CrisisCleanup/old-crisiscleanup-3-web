@@ -20,7 +20,9 @@ module.exports = {
   'login with creds': function (browser) {
     var login = browser.page.login();
 
-    records.forEach(function (record) {
+    // records.forEach(function (record) {
+
+      let record = records[0];
 
       login.navigate()
         .assert.visible('@email')
@@ -31,7 +33,11 @@ module.exports = {
         .waitForElementVisible('#worker-dashboard', 2000)
         .assert.containsText('span.d-md-down-none', record.name.trim())
         .assert.urlContains('dashboard');
-    });
+
+
+      // browser.pause(60000);
+
+    // });
 
     browser.end();
   }
