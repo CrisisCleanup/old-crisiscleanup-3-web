@@ -42,8 +42,8 @@
           this.$notify({
             type: 'warn',
             group: 'core',
-            title: 'Success!',
-            text: 'Invites have been sent.',
+            title: this.$t('notify.success'),
+            text: this.$t('notify.invites_sent'),
             width: 500,
             animation: 'Velocity',
             speed: 1000,

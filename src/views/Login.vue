@@ -69,8 +69,8 @@
       login() {
         this.$notify({
           group: 'core',
-          title: 'Attempting to login',
-          text: 'Logging in',
+          title: this.$t('notify.login_attempt'),
+          text: this.$t('notify.logging_in'),
           width: 500,
         });
         // this.loginTriggered = true;
@@ -87,7 +87,7 @@
             this.$notify({
               type: 'success',
               group: 'core',
-              title: 'Login successful!',
+              title: this.$t('notify.login_successful'),
               text: '',
               width: 500,
             });
@@ -98,8 +98,8 @@
             this.$notify({
               type: 'error',
               group: 'core',
-              title: 'Login failed!',
-              text: '',
+              title: this.$t('notify.login_failed'),
+              text: this.$t('notify.login_failed_msg'),
               width: 500,
             });
           }, 1000);

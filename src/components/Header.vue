@@ -86,7 +86,7 @@ export default {
           this.$notify({
             type: 'warn',
             group: 'core',
-            title: 'You have logged out successfully.',
+            title: this.$t('notify.logged_out'),
             text: '',
             width: 500
           });
@@ -99,7 +99,7 @@ export default {
       this.$notify({
         type: 'success',
         group: 'core',
-        title: 'You are now viewing the event:',
+        title: this.$t('notify.viewing_incident'),
         text: this.$store.getters.getCurrentEvent.name,
         width: 500
       });
