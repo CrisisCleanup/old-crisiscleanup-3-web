@@ -1,6 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+
 console.log("ENV: ", process.env.APP_ENV);
 
 var env = null;
@@ -15,6 +16,8 @@ switch(process.env.APP_ENV) {
     env = require('./local-prod.env');
     break;
 }
+
+console.log("ENV: ", env);
 
 module.exports = {
   build: {
