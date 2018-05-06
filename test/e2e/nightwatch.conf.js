@@ -9,9 +9,11 @@ module.exports = {
   test_settings: {
     default: {
       globals: {
-        devServerURL: 'http://webapp'
+        devServerURL: 'http://webapp',
       },
       launch_url: "http://webapp",
+      // end_session_on_fail: false,
+      // skip_testcases_on_fail: false,
       selenium_host: "chromedriver"
     },
     grid: {
@@ -19,6 +21,8 @@ module.exports = {
         devServerURL: 'http://webapp'
       },
       launch_url: "http://webapp",
+      end_session_on_fail: false,
+      skip_testcases_on_fail: false,
       selenium_host: "hub",
       selenium_port: 4444,
       "desiredCapabilities": {

@@ -60,7 +60,7 @@ import EventData13 from '../../definitions/forms/13-oct_2015_east_coast_floods.j
 import EventData14 from '../../definitions/forms/14-ms_al_tornadoes_feb_2016.json';
 import EventData15 from '../../definitions/forms/15-la_ms_tx_flooding_march_2016.json';
 import EventData16 from '../../definitions/forms/16-oct_2015_tx_floods.json';
-// import EventData17 from '../../definitions/forms/17-va_tornadoes.json';
+import EventData17 from '../../definitions/forms/17-va_tornadoes.json';
 import EventData18 from '../../definitions/forms/18-louisville_ms_torndao.json';
 import EventData19 from '../../definitions/forms/19-texas_oklahoma_floods.json';
 import EventData20 from '../../definitions/forms/20-flint_michigan_water_crisis.json';
@@ -153,7 +153,7 @@ export default {
         case 14: return EventData14.phase_cleanup;
         case 15: return EventData15.phase_cleanup;
         case 16: return EventData16.phase_cleanup;
-        // case 17: return EventData17.phase_cleanup;
+        case 17: return EventData17.phase_cleanup;
         case 18: return EventData18.phase_cleanup;
         case 19: return EventData19.phase_cleanup;
         case 20: return EventData20.phase_cleanup;
