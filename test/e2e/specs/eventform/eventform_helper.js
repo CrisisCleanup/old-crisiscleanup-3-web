@@ -1,8 +1,8 @@
-var parse = require('csv-parse/lib/sync');
-var fs = require('fs');
-var path = './test.csv';
-var contents = fs.readFileSync(path);
-var records = parse(contents, {delimiter: ',', columns: true});
+let parse = require('csv-parse/lib/sync');
+let fs = require('fs');
+let path = './test.csv';
+let contents = fs.readFileSync(path);
+let records = parse(contents, {delimiter: ',', columns: true});
 
 let login = function (browser) {
   let record = records[0];
@@ -116,17 +116,10 @@ let getAllSections = function (fields) {
 let runTest = function (browser, i) {
 
   console.log(`EXECUTING: `, definitionPaths[i]);
-  var formDefintion = require(definitionPaths[i]);
+  let formDefintion = require(definitionPaths[i]);
   login(browser);
   browser.page.leftaside().clickWorkerMapLink();
-
-  const contextId = (i <= 38) ? i : i - 2;
-
-  // browser.useXpath();
-  // browser.page.header().waitForElementVisible('@contextSelector', 1000)
-  //     .click(`//*[@id="ccu-event-context-selector"]/option[@value=${i}]`)
   browser.page.header().setEventContext(i);
-  // browser.useCss();
 
   let eventform = browser.page.eventform();
   eventform.expect.element('@newWorksiteBtn').to.be.visible;
@@ -152,9 +145,28 @@ let runTest = function (browser, i) {
 };
 
 
+let traverseEventDefinition =  function(fields, sectionCallback=() => {}, fieldCallback=() => {}) {
+  let sections = {};
+
+  let traverseFields = function (fields, parent={}) {
+    for (const key in fields) {
+      const value = fields[key];
+      if (value['field_type'] === 'section') {
+        sectionCallback(key, value);
+        traverseFields(value.fields, sections[key]);
+      } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
+        fieldCallback(key, value);
+      }
+    }
+  };
+  traverseFields(fields);
+  return sections
+};
+
 module.exports = {
   login: login,
   definitionPaths: definitionPaths,
   getAllSections: getAllSections,
+  traverseEventDefinition: traverseEventDefinition,
   runTest: runTest
 };
