@@ -16,14 +16,39 @@ module.exports = {
     eventform.createNewWorksite();
 
     let sectionCallback = (key, value) => {
-      console.log('SECTION: ', key);
-      eventform.expect.element(`#ccu-section-${key}`).to.be.visible;
+      // console.log('SECTION: ', key);
+      // eventform.expect.element(`#ccu-section-${key}`).to.be.visible;
+    };
+
+    const coreFields = {
+      'name': 'Mary Doe',
+      'address': '5214 Lyons Avenue'
     };
 
     let fieldCallback = (key, value) => {
-      console.log('FIELD: ', key);
-      if (!['latitude', 'longitude'].includes(key)) {
+      // console.log('FIELD: ', key);
+      if (Object.keys(coreFields).includes(key)) {
+        const field = coreFields[key];
+
         eventform.expect.element(`#${key}CCU`).to.be.visible;
+        if (key === 'address') {
+          eventform.setValue(`#${key}CCU`, field);
+          browser.moveToElement(`#${key}CCU`, 10, 10, function() {
+            browser.setValue(`#${key}CCU`, browser.Keys.ARROW_DOWN);
+            browser.setValue(`#${key}CCU`, browser.Keys.ARROW_DOWN);
+            browser.setValue(`#${key}CCU`, browser.Keys.ENTER)
+            browser.pause(8000)
+            browser.expect.element('#cityCCU').to.have.value.not.equals('');
+            browser.expect.element('#countyCCU').to.have.value.not.equals('');
+            browser.expect.element('#stateCCU').to.have.value.not.equals('');
+            browser.expect.element('#zip_codeCCU').to.have.value.not.equals('');
+          });
+        } else {
+          eventform.setValue(`#${key}CCU`, field);
+
+        }
+
+
       }
     };
 
@@ -31,5 +56,7 @@ module.exports = {
     const sections = eventform_helper.traverseEventDefinition(fields, sectionCallback, fieldCallback);
     // console.log(JSON.stringify(sections, null, 2))
     // console.log(util.inspect(sections, false, null))
+    browser.end()
   },
 };
+// body > div:nth-child(9)
