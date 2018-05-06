@@ -1,7 +1,7 @@
 var commands = {
   setEventContext: function(eventId) {
     return this.waitForElementVisible('@contextSelector', 1000)
-      .click(`#ccu-event-context-selector > option:nth-child(${eventId - 1})`)
+      .click(`select[id="ccu-event-context-selector"] option[value="${eventId}"]`)
   },
 };
 
@@ -11,5 +11,12 @@ module.exports = {
     contextSelector: {
       selector: '#ccu-event-context-selector'
     },
+    logoutBtn: {
+      selector: '#logout-btn'
+    },
+    dropdownRight: {
+      selector: '.dropdown-menu-right'
+    }
   }
 };
+//*[@id="ccu-event-context-selector"]/option[51]
