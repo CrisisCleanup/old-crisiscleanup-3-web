@@ -116,7 +116,7 @@ let getAllSections = function (fields) {
 let runTest = function (browser, i) {
 
   console.log(`EXECUTING: `, definitionPaths[i]);
-  let formDefintion = require(definitionPaths[i]);
+  let formDefinition = require(definitionPaths[i]);
   login(browser);
   browser.page.leftaside().clickWorkerMapLink();
   browser.page.header().setEventContext(i);
@@ -127,19 +127,19 @@ let runTest = function (browser, i) {
 
   // browser.pause(20000);
 
-  const fields = formDefintion.phase_cleanup.fields;
-  const sections = getAllSections(fields);
+  let sectionCallback = (key, value) => {
+    eventform.expect.element(`#ccu-section-${key}`).to.be.visible;
+  };
 
-  for (let sectionKey in sections) {
-    let section = sections[sectionKey];
-    eventform.expect.element(`#ccu-section-${sectionKey}`).to.be.visible;
-    for (let fieldKey in section.children) {
-      if (['latitude', 'longitude'].includes(fieldKey)) {
-        continue;
-      }
-      eventform.expect.element(`#${fieldKey}CCU`).to.be.visible;
+  let fieldCallback = (key, value) => {
+    if (!['latitude', 'longitude'].includes(key)) {
+      eventform.expect.element(`#${key}CCU`).to.be.visible;
     }
-  }
+  };
+
+  const fields = formDefinition.phase_cleanup.fields;
+  traverseEventDefinition(fields, sectionCallback, fieldCallback);
+
   // browser.page.header().click('@logoutBtn');
   browser.end()
 };
