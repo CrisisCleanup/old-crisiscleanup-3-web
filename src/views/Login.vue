@@ -22,9 +22,7 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{
-                      $t('actions.login') }}
-                    </button>
+                    <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{ $t('actions.login') }} </button>
                   </div>
                   <!--<div class="col-6 text-right">-->
                   <!--<button type="button" class="btn btn-link px-0">{{ $t('actions.forgot_password') }}</button>-->
