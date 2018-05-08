@@ -8,6 +8,15 @@ var commands = {
       .setValue('@password', password)
       .click('@submit')
   },
+  submitCredentialsWithEnterBtn: function(email, password) {
+    // this.api.pause(1000);
+    return this.waitForElementVisible('@email', 1000)
+      .assert.visible('@email')
+      .assert.visible('@password')
+      .setValue('@email', email)
+      .setValue('@password', password)
+      .setValue(`@submit`, this.api.Keys.ENTER)
+  },
   clearFields: function() {
     return this.waitForElementVisible('@email', 1000)
       .clearValue('@email')

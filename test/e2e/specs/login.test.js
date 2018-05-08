@@ -30,6 +30,19 @@ module.exports = {
 
     browser.end();
   },
+  'login with creds with enter button': function (browser) {
+    var login = browser.page.login();
+
+    let record = records[0];
+
+    login.navigate()
+      .submitCredentialsWithEnterBtn(record.email, 'demotest')
+      .waitForElementVisible('#worker-dashboard', 2000)
+      .assert.containsText('span.d-md-down-none', record.name.trim())
+      .assert.urlContains('dashboard');
+
+    browser.end();
+  },
   'login with creds non-admin user': function (browser) {
     var login = browser.page.login();
 

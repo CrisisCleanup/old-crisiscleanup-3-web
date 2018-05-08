@@ -22,7 +22,7 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button id="login-submit-btn" @click="login" type="button" class="btn btn-primary px-4">{{
+                    <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{
                       $t('actions.login') }}
                     </button>
                   </div>

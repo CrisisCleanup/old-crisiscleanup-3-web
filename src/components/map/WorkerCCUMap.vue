@@ -13,11 +13,11 @@
       :options="options"
       style="width: 100%; height: 100%;"
       @click="mapIsClicked"
-      @bounds_changed="mapBoundsChanged"
       @zoom_changed="setZoomLevel($event)"
       @dragstart="setDragging(true)"
       @dragend="setDragging(false)"
       ref="map"
+      @center_changed="mapCenterChanged"
     >
     </gmap-map>
   </div>
@@ -49,7 +49,8 @@
         heatmap: null,
         points: [],
         markers: [],
-        $markerCluster: null
+        $markerCluster: null,
+        trackingMapCenter: {},
       }
     },
     computed: {
@@ -57,7 +58,6 @@
         center: state => state.center,
         zoomLevel: state => state.zoomLevel,
         dragging: state => state.dragging,
-        bounds: state => state.bounds,
         tempMarkers: state => state.tempMarkers
       }),
       ...mapGetters([
@@ -75,46 +75,52 @@
         DashboardEventHub.$emit('open-aside', 'test');
         window.googMap = this.$refs.map;
         const eid = this.$store.state.worker.event.id;
-        //this.centerMap(this.$store.state.map.center)
+        this.centerMap(this.$store.state.map.center)
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
-          this.renderMarkers();
+          // this.renderMarkers();
         });
       });
 
-      CCUMapEventHub.$on('site-search', (e) => {
-        const currentSite = this.$store.getters.getCurrentSiteData;
-        this.addMarker(currentSite);
-        this.centerOnSiteWithZoom();
+      loaded.then(() => {
+          CCUMapEventHub.$on('site-search', (e) => {
+            const currentSite = this.$store.getters.getCurrentSiteData;
+            this.addMarker(currentSite);
+            this.centerOnSiteWithZoom();
+          });
+
+          CCUMapEventHub.$on('map-filtered', (e) => {
+          });
+
+          CCUMapEventHub.$on('re-center-map', (e) => {
+            // new center for worksite area
+          });
       });
 
-      CCUMapEventHub.$on('re-render', (e) => {
-        this.renderMarkers();
-      });
+      // CCUMapEventHub.$on('re-render', (e) => {
+      //   this.renderMarkers();
+      // });
     },
     beforeDestroy: function () {
       const a = {
-        center: this.center,
+        center: this.trackingMapCenter,
         zoom: this.zoomLevel
       };
       this.$store.commit('setMapViewingArea', a);
-      this.$markerCluster.clearMarkers();
+      this.$store.commit('map/setCenter', this.trackingMapCenter);
+      if (this.$markerCluster !== undefined) {
+        this.$markerCluster.clearMarkers();
+      }
     },
     methods: {
       ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers', 'setCenter']),
       mapIsClicked() {
         CCUMapEventHub.$emit('map-is-clicked');
       },
-      mapBoundsChanged(event) {
-        const bounds = {
-          minLon: event.b.b,
-          minLat: event.f.b,
-          maxLon: event.b.f,
-          maxLat: event.f.f
-        };
-        this.$store.commit('map/setBounds', bounds);
-      },
       mapCenterChanged(event) {
-        this.$store.commit('map/setCenter', event);
+        this.trackingMapCenter = {
+          lat: event.lat(),
+          lng: event.lng()
+        };
       },
       draggingEnded(event) {
       },
@@ -161,11 +167,16 @@
       centerOnSite() {
         const currentSite = this.$store.getters.getCurrentSiteData;
         const latLng = new google.maps.LatLng(currentSite.lat, currentSite.lng);
-        this.$refs.map.$mapObject.panTo(latLng);
+
+        loaded.then(() => {
+          this.$refs.map.$mapObject.panTo(latLng);
+        });
       },
       centerMap(center) {
         const latLng = new google.maps.LatLng(center.lat, center.lng);
-        this.$refs.map.$mapObject.panTo(latLng);
+        loaded.then(() => {
+          this.$refs.map.$mapObject.panTo(latLng);
+        });
       },
       clearMarkers() {
         if (this.$markerCluster) {
@@ -222,6 +233,18 @@
           return this.addMarker(mark);
         });
         this.$markerCluster.addMarkers(markers);
+
+        const eventContextChanged = this.$store.getters.getEventJustChanged;
+        if (eventContextChanged) {
+          this.$store.commit('map/setZoomLevel', 7);
+          this.$store.commit('setEventContextJustChanged', false);
+        }
+        if (markers.length > 0 && eventContextChanged) {
+          this.centerMap({
+            lat: markers[0].position.lat(),
+            lng: markers[0].position.lng()
+          });
+        }
 
         // this.$store.commit('map/setGetMarkersFunc', function() {
         //   return this.markers;
