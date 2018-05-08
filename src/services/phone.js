@@ -15,7 +15,10 @@ export default class PhoneService {
                 openResponse: this.onOpenFunction,
                 // TODO: Figure out a way to access 'self' context when put in seperate function
                 newCallNotification: (info) => {
-                    return new Promise(function (resolve, reject) {
+                    console.log("callinfo: ", info);
+                    //need to store callInfo to get sessionId
+                    this.callInfo = info;
+                    return new Promise(function(resolve, reject) {
                         let state = null;
                         if (info.callType === 'INBOUND') {
                             state = 'ENGAGED-INBOUND';
@@ -23,7 +26,7 @@ export default class PhoneService {
                             state = 'ENGAGED-OUTBOUND';
                         }
                         self.store.commit('phone/setState', state);
-                        self.store.dispatch("phone/getCallerDetails", info.dnis).then((caller) => {
+                        self.store.dispatch("phone/getCallerDetails", info.ani).then((caller) => {
                             // Save call info
                             let call = {
                                 call_start: Date.now,
@@ -31,7 +34,7 @@ export default class PhoneService {
                                 caller: caller.id,
                                 gateway: self.gateway.id,
                                 call_type: info.callType,
-                                ccu_number: info.ani,
+                                ccu_number: info.ani, //we want to show the caller's number
                                 external_id: info.uii
                             };
                             self.store.dispatch("phone/updateCall", call).then(resolve());
@@ -70,6 +73,7 @@ export default class PhoneService {
                     throw new Error('Could not log in.');
                 }
                 console.log('AgentLibrary successfully logged in');
+                this.store.commit('phone/setState', "AVAILABLE");
                 this.loggedInAgentId = data.agentSettings.agentId;
                 this.cf.configureAgent(this.user.last_used_phone_number, [this.gateway.external_gateway_id], null, null, null, null, (configureResponse) => {
                     console.log('Configure response', configureResponse);
@@ -94,8 +98,6 @@ export default class PhoneService {
             this.cf.setAgentState(newState, null, (setAgentStateResponse) => {
                 if (setAgentStateResponse.previousState != setAgentStateResponse.currentState) {
                     if (setAgentStateResponse.currentState === 'ENGAGED') {
-                        console.log("store state = engaged");
-                        console.log("callinfo: ", this.callInfo.callType);
                         if (this.callInfo.callType === 'INBOUND') {
                             state = 'ENGAGED-INBOUND';
                         } else if (this.callInfo.callType === 'OUTBOUND') {
@@ -106,7 +108,6 @@ export default class PhoneService {
                     }
 
                     this.store.commit('phone/setState', state);
-                    console.log('new store state: ', state);
                 }
                 console.log('Set agent state response', setAgentStateResponse);
                 resolve();
@@ -130,6 +131,9 @@ export default class PhoneService {
     hangup() {
         return new Promise((resolve, reject) => {
             this.cf.hangup(this.callInfo.sessionId);
+            //TODO: inbound calls are not handling this hangup function correctly, I suspect we need to handle offhookTerm differently!
+            this.store.commit('phone/setState', "AVAILABLE");
+            console.log(this.store.callstate);
             this.cf.offhookTerm((offhookTermResponse) => {
                 console.log('Offhook term response', offhookTermResponse);
                 resolve();

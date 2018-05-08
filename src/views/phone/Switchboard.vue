@@ -1,8 +1,8 @@
 <template>
     <div>
       <user-info v-on:stateChanged="setAvailability" v-on:needsEdit="editSessionInfo"/>
-      <incoming-call v-if="this.callState == 'ENGAGED-INBOUND'"   />
-      <outbound-call-home v-if="showOutboundCallHome" v-on:makingCall="makeOutboundCall" v-on:cancelCall="cancelOutboundCall"/>
+      <incoming-call v-if="this.callState == 'ENGAGED-INBOUND'" v-on:cancelCall="cancelCall"  />
+      <outbound-call-home v-if="showOutboundCallHome" v-on:makingCall="makeOutboundCall" v-on:cancelCall="cancelCall"/>
 
     <b-modal ref="infoConfirmModal" centered @ok="editSessionInfoOk" hide-footer>
         <session-info-confirm v-on:confirm="sessionInfoConfirmed"/>
@@ -83,24 +83,23 @@ export default {
         this.phoneService
           .login()
           .then(() => {
-            this.$store.commit("phone/setState", "AVAILABLE");
-            console.log("this.callState = ", this.callState);
-            this.phoneService.changeState(this.callState);
             this.loggedIn = true;
           })
           .catch(err => {
             console.log(err);
           });
       }
+      else {
+            this.phoneService.changeState("AVAILABLE");
+      }
     },
     enterAwayState() {
       //change state in store and call center to 'AWAY'
-      //this.$store.commit('phone/away');
       this.phoneService.changeState("AWAY");
       this.showOutboundCallHome = false;
       this.showIncomingCall = false;
       if (this.aside == true) {
-        //if open, aside should close once the call ends
+        //TODO: the aside logic no longer works, need to refactor
         document.body.classList.toggle("aside-menu-hidden", this.aside);
         this.$store.commit("setAsideView");
       }
@@ -114,9 +113,6 @@ export default {
       }
     },
     makeOutboundCall(destination) {
-      //currentState becomes 'TRANSITION'
-      //TODO: change store state based on user being on call
-      //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
       if (
         this.loggedIn &&
         this.phoneService &&
@@ -127,10 +123,7 @@ export default {
         this.phoneService.dial(destination);
       }
     },
-    cancelOutboundCall() {
-      //currentState becomes 'TRANSITION'
-      //TODO: change store state based on user being on call
-      //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
+    cancelCall() {
       //if (this.loggedIn && this.phoneService && this.callState=="AVAILABLE" && destination )
       //{
       //TODO: regex check the destination
@@ -144,9 +137,6 @@ export default {
       this.loggedIn = false;
     },
     makeOutboundCall(destination) {
-      //currentState becomes 'TRANSITION'
-      //TODO: change store state based on user being on call
-      //TODO: refactor the hiding of components to be based on state and not "showIncomingCall, showOutboundCall, etc"
       if (
         this.loggedIn &&
         this.phoneService &&

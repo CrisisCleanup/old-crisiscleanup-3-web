@@ -43,6 +43,10 @@
                                             K12109
                                         </p>
                                     </td>
+                                    <!--TODO: this button looks awful, it is temporary -->                                
+                                    <td style = "width:10%" align="right">
+                                        <b-btn variant="danger" @click="cancelCall">Hangup</b-btn>
+                                    </td>
                                 </tr>
                             </table>
                     <!--TODO: In the future, add component to show information at bottom - Area for chat, map, etc. 
@@ -83,6 +87,11 @@ export default {
       user: "getUser",
       caller: "getCaller"
     })
+  },
+  methods: {
+    cancelCall() {
+      this.$emit("cancelCall");
+    },
   }
 };
 </script>

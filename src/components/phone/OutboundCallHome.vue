@@ -254,6 +254,7 @@ export default {
     cancelCall() {
       this.outboundCallNumber = "";
       this.makingCall = false;
+      this.$emit("cancelCall");
     },
     callRowClicked(call) {
       this.outboundCallNumber = call.number;
