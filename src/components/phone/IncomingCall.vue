@@ -78,7 +78,7 @@ export default {
   name: "phone-incoming-call",
   data() {
     return {
-      boot_image: "../../static/img/map_icons/Muck_Out_orange.png"
+      boot_image: "../../static/img/map_icons/Muck_Out_red.png"
     };
   },
 

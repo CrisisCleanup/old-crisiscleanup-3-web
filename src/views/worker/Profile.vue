@@ -211,7 +211,7 @@ export default {
         this.callCenterOptions.callLanguages.push(DEFAULT_LANGUAGE_ID);
       }
       var userData = {
-        id: this.userId,
+        cc_id: this.userId,
         name: this.userProfile.name,
         willing_to_receive_calls: this.callCenterOptions.willingToReceiveCalls,
         willing_to_be_call_center_support: this.callCenterOptions
