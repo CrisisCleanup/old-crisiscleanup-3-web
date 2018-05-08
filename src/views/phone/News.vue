@@ -103,7 +103,6 @@ export default {
           vm.$set(article, "isRead", articleFound === undefined ? false : true);
           vm.$set(article, "isDeleted", false);
         });
-        console.log(this.articles);
       });
     },
     articleModalOk(evt) {

@@ -118,7 +118,12 @@ export default {
         )
         .then(r => {
           var callExperts = r.data.results;
-          console.log(callExperts);
+          // Hard-coded
+          callExperts = [{
+            id: 1,
+            last_used_phone_number: '555-555-5555',
+            name: 'Steve Anderson'
+          }]
           if (callExperts != null && callExperts.length > 0) {
             callExperts.forEach(function(expert) {
               expert.number = expert.last_used_phone_number;

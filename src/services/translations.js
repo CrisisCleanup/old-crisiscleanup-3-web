@@ -557,7 +557,9 @@ const messages = {
       "browse_worksites_html_title": "Browse Cases: Crisis Cleanup",
       "browse_orgs_html_title": "Browse Organizations: Crisis Cleanup",
       "about_html_title": "About Crisis Cleanup",
-      "500_html_title": "500 Error Page"
+      "500_html_title": "500 Error Page",
+      "phone_html_title": "Phone: Crisis Cleanup",
+      "profile_html_title": "User Profile: Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Mission and Roadmap",
@@ -607,7 +609,8 @@ const messages = {
       "charts": "Charts",
       "stats": "Stats",
       "about": "About",
-      "help": "Help"
+      "help": "Help",
+      "phone": "Phone"
     },
     "index": {
       "title_html": "Crisis Cleanup: Collaborative Disaster Relief"
@@ -2298,7 +2301,8 @@ const messages = {
       "browse_worksites_html_title": "Explorar Casos: Crisis Cleanup",
       "browse_orgs_html_title": "Explorar Organizaciones: Crisis Cleanup",
       "about_html_title": "Acerca de Crisis Cleanup",
-      "500_html_title": "500 Error Page"
+      "500_html_title": "500 Error Page",
+      "phone_html_title": "Teléfono: Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Misión y Plan de trabajo",
@@ -2348,7 +2352,8 @@ const messages = {
       "charts": "Gráficos",
       "stats": "Estadísticas",
       "about": "Acerca de",
-      "help": "Ayuda"
+      "help": "Ayuda",
+      "phone": "Teléfono"
     },
     "index": {
       "title_html": "Crisis Cleanup: Ayuda colaborativa en desastres"

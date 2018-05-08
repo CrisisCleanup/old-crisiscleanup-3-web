@@ -6,7 +6,7 @@
                 <div class = "card-body">
                         <h6 class="card-title">{{ user.name }}</h6>
                         <p class="card-text">
-                            {{ user.last_used_phone_number }}</br>
+                            {{ user.last_used_phone_number | phone }}<br>
                             Taking calls from {{ gateway.name }}
                         </p>
                         <button class="btn-success" v-on:click="editUserInfo">Edit</button>
@@ -64,6 +64,12 @@ export default {
     goToWelcome() {
       this.$store.commit("phone/needsWelcome");
       this.$router.push("/worker/phone/welcome");
+    }
+  },
+  filters: {
+    phone: (phone) => {
+      // This could be improved and made a global filter
+      return phone.replace(/[^0-9]/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
     }
   }
 };
