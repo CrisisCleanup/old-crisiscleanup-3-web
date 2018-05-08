@@ -12,8 +12,14 @@ module.exports = {
         devServerURL: 'http://webapp',
       },
       launch_url: "http://webapp",
-      // end_session_on_fail: false,
-      // skip_testcases_on_fail: false,
+      end_session_on_fail: true,
+      skip_testcases_on_fail: false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : "/home/node/testing/reports/errors_screenshots",
+        "on_failure" : true,
+        "on_error" : false
+      },
       selenium_host: "chromedriver"
     },
     grid: {

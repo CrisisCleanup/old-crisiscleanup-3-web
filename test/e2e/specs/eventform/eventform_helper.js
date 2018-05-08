@@ -138,14 +138,13 @@ let runTest = function (browser, i) {
   };
 
   const fields = formDefinition.phase_cleanup.fields;
-  traverseEventDefinition(fields, sectionCallback, fieldCallback);
+  traverseEventDefinitionWithouRecord(fields, sectionCallback, fieldCallback);
 
   // browser.page.header().click('@logoutBtn');
   browser.end()
 };
 
-
-let traverseEventDefinition =  function(fields, sectionCallback=() => {}, fieldCallback=() => {}) {
+let traverseEventDefinitionWithouRecord =  function(fields, sectionCallback=() => {}, fieldCallback=() => {}) {
   let sections = {};
 
   let traverseFields = function (fields, parent={}) {
@@ -156,6 +155,24 @@ let traverseEventDefinition =  function(fields, sectionCallback=() => {}, fieldC
         traverseFields(value.fields, sections[key]);
       } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
         fieldCallback(key, value);
+      }
+    }
+  };
+  traverseFields(fields);
+  return sections
+};
+
+let traverseEventDefinition =  function(fields, record, sectionCallback=() => {}, fieldCallback=() => {}) {
+  let sections = {};
+
+  let traverseFields = function (fields, parent={}) {
+    for (const key in fields) {
+      const value = fields[key];
+      if (value['field_type'] === 'section') {
+        sectionCallback(key, value, record);
+        traverseFields(value.fields, sections[key]);
+      } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
+        fieldCallback(key, value, record);
       }
     }
   };

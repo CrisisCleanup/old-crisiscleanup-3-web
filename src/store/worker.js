@@ -20,8 +20,9 @@ export default {
     participatingEvents: [],
     event: {
       id: 60,
-      uid: ''
+      uid: '',
     },
+    eventJustChanged: false,
     currentUserId: 0,
     currentOrgId: 0,
     siteData: {
@@ -70,6 +71,9 @@ export default {
     },
     setEventContext (state, value) {
       state.event = value;
+    },
+    setEventContextJustChanged ( state, value ) {
+      state.eventJustChanged = value;
     },
     setCurrentUserId (state, payload) {
       state.currentUserId = payload;
@@ -158,7 +162,8 @@ export default {
     getLoginFormErrors: state => state.errors.loginFormErrors,
     getParticipatingEvents: state => state.participatingEvents,
     getWorksiteViews: state => state.worksiteViews,
-    getCurrentEvent: state => state.event
+    getCurrentEvent: state => state.event,
+    getEventJustChanged: state => state.eventJustChanged
   },
 
   actions: {
@@ -243,6 +248,7 @@ export default {
     },
     async changeEventContext({commit, dispatch, state}, eventId) {
       const event = state.participatingEvents.find(val => val.id == eventId);
+      commit('setEventContextJustChanged', true);
       commit('setEventContext', event);
       await dispatch('getWorksiteStats');
       await dispatch('getDashboardWorksites');
