@@ -18,6 +18,9 @@ switch(process.env.APP_ENV) {
   case 'realprod':
     env = require('./realprod.env');
     break;
+  case 'realstaging':
+    env = require('./realstaging.env');
+    break;
 }
 
 console.log("ENV: ", env);
