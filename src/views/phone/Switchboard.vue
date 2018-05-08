@@ -35,19 +35,19 @@ export default {
     return {
       showConfirmSessionInfo: true,
       showIncomingCall: false,
-      showOutboundCallHome: true,
+      showOutboundCallHome: false,
       phoneService: null,
       loggedIn: false
     };
   },
   computed: {
     ...mapState("phone", ["needsWelcome"]),
-    ...mapGetters({ aside: "getAsideView" }),
+    //...mapGetters({ aside: "getAsideView" }),
     ...mapGetters("phone", {
       gateway: "getGateway",
       callState: "getCallState"
     }),
-    ...mapMutations(["setAsideView"])
+    //...mapMutations(["setAsideView"])
   },
   methods: {
     sessionInfoConfirmed(info) {
@@ -101,7 +101,7 @@ export default {
       if (this.aside == true) {
         //TODO: the aside logic no longer works, need to refactor
         document.body.classList.toggle("aside-menu-hidden", this.aside);
-        this.$store.commit("setAsideView");
+        //this.$store.commit("setAsideView");
       }
     },
     takeIncomingCall() {
@@ -109,7 +109,7 @@ export default {
       if (this.aside == false) {
         //if they are on a call and the aside is not already toggled open, open it
         document.body.classList.toggle("aside-menu-hidden", this.aside);
-        this.$store.commit("setAsideView");
+        //this.$store.commit("setAsideView");
       }
     },
     makeOutboundCall(destination) {
