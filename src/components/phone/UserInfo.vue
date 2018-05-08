@@ -69,7 +69,10 @@ export default {
   filters: {
     phone: (phone) => {
       // This could be improved and made a global filter
-      return phone.replace(/[^0-9]/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      if (phone) {
+        return phone.replace(/[^0-9]/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      }
+      return '';
     }
   }
 };
