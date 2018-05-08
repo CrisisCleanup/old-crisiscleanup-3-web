@@ -78,7 +78,8 @@ describe('Login.vue', function () {
 
   });
 
-  describe('Test Login', function () {
+  describe.skip('Test Login', function () {
+
 
     it('should login', () => {
       const wrapper = shallow(Login, {
