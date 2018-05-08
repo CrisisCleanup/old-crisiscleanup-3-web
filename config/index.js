@@ -12,8 +12,11 @@ switch(process.env.APP_ENV) {
   case 'local':
     env = require('./local.env');
     break;
-  case 'local-prod':
-    env = require('./local-prod.env');
+  case 'realdev':
+    env = require('./realdev.env');
+    break;
+  case 'realprod':
+    env = require('./realprod.env');
     break;
 }
 
