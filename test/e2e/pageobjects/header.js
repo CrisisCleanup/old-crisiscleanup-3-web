@@ -1,11 +1,22 @@
+var commands = {
+  setEventContext: function(eventId) {
+    return this.waitForElementVisible('@contextSelector', 1000)
+      .click(`select[id="ccu-event-context-selector"] option[value="${eventId}"]`)
+  },
+};
 
 module.exports = {
+  commands: [commands],
   elements: {
-    header: {
-      selector: 'header .app-header'
+    contextSelector: {
+      selector: '#ccu-event-context-selector'
     },
-    realtimeMapLink: {
-      selector: 'a[href=/map]'
+    logoutBtn: {
+      selector: '#logout-btn'
     },
+    dropdownRight: {
+      selector: '.dropdown-menu-right'
+    }
   }
 };
+//*[@id="ccu-event-context-selector"]/option[51]

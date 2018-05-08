@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :id="'ccu-section-' + labelName">
     <hr />
     <h3 v-if="sectionLevel == 1">{{ $t(titleLabel) }}</h3>
     <h5 v-if="sectionLevel == 2">{{ $t(titleLabel) }}</h5>

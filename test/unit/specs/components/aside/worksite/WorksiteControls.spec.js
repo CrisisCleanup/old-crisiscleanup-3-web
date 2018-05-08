@@ -70,7 +70,7 @@ describe('WorksiteControls.vue', () => {
       getters.isCurrentSiteClaimedByUserOrg = false;
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: { $store }});
-      const btn = wrapper.find('#claim-btn');
+      const btn = wrapper.find('#ccu-claim-btn');
       expect(btn.element.style.display).to.equal('none');
     });
 
@@ -79,7 +79,7 @@ describe('WorksiteControls.vue', () => {
       getters.isCurrentSiteClaimed = false;
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
-      const btn = wrapper.find('#claim-btn');
+      const btn = wrapper.find('#ccu-claim-btn');
       expect(btn.element.style.display).to.equal('');
       expect(btn.text()).to.include('Claim')
     });
@@ -89,7 +89,7 @@ describe('WorksiteControls.vue', () => {
       getters.isCurrentSiteClaimed = true;
       $store = { getters: getters }
       wrapper = shallow(WorksiteControls, {i18n, mocks: {$store}});
-      const btn = wrapper.find('#claim-btn');
+      const btn = wrapper.find('#ccu-claim-btn');
       expect(btn.element.style.display).to.equal('');
       expect(btn.text()).to.include('Unclaim')
     })

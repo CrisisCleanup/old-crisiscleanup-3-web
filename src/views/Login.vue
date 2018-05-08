@@ -22,9 +22,7 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button id="login-submit-btn" @click="login" type="button" class="btn btn-primary px-4">{{
-                      $t('actions.login') }}
-                    </button>
+                    <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{ $t('actions.login') }} </button>
                   </div>
                   <!--<div class="col-6 text-right">-->
                   <!--<button type="button" class="btn btn-link px-0">{{ $t('actions.forgot_password') }}</button>-->
@@ -56,6 +54,9 @@
     components: {
 
     },
+    mounted() {
+      this.$store.commit('auth/setLoginErrors', {hasError: null});
+    },
     computed: {
       ...mapState('auth', ['isAuthenticated', 'loginErrors']),
       emailErrorState() {
@@ -69,12 +70,12 @@
       login() {
         this.$notify({
           group: 'core',
-          title: 'Attempting to login',
-          text: 'Logging in',
+          title: this.$t('notify.login_attempt'),
+          text: this.$t('notify.logging_in'),
           width: 500,
         });
         // this.loginTriggered = true;
-        this.$store.commit('auth/setLoginErrors', {hasError: null, alpha: 2});
+        this.$store.commit('auth/setLoginErrors', {hasError: null});
         const user = {
           email: this.email,
           password: this.password
@@ -87,7 +88,7 @@
             this.$notify({
               type: 'success',
               group: 'core',
-              title: 'Login successful!',
+              title: this.$t('notify.login_successful'),
               text: '',
               width: 500,
             });
@@ -98,8 +99,8 @@
             this.$notify({
               type: 'error',
               group: 'core',
-              title: 'Login failed!',
-              text: '',
+              title: this.$t('notify.login_failed'),
+              text: this.$t('notify.login_failed_msg'),
               width: 500,
             });
           }, 1000);

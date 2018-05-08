@@ -156,7 +156,6 @@
       triggerMapRefresh() {
         const eid = this.$store.state.worker.event.id;
         this.$store.dispatch('map/getWorksites', eid).then((resp) => {
-          CCUMapEventHub.$emit('site-search');
         })
       }
     }

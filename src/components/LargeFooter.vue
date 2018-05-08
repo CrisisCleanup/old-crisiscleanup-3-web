@@ -5,7 +5,7 @@
         <div class="col-md-3 footer-logo">
           <a href="/"><img src="/static/img/ccu-logo-white.png" class="img-fluid"></a>
           <h5>{{ $t('largeFooter.ready_to_deploy_msg') }}</h5>
-          <p>Crisis Cleanup is an <a href="https://github.com/CrisisCleanup/crisiscleanup">open source project</a></p>
+          <p>{{ $t('largeFooter.ccu_open_source') }}</p>
           <!--
           <ul class="sms-icons">
             <li><a href="https://www.facebook.com/Crisis-Cleanup-437690172982553/"><i class="fa fa-facebook"></i></a>
@@ -30,10 +30,7 @@
         <div class="col-md-3">
           <i class="fa fa-heart"></i>
           <h4>{{ $t('largeFooter.want_to_help') }}</h4>
-          <p>Crisis Cleanup is open source and powered mostly by dedicated volunteers. Support Crisis Cleanup with a
-            <a href="http://bit.ly/CCUPatreon" target="_blank">monthly pledge</a>. If you are a Ruby / PostgreSQL
-            programmer, check out the Crisis Cleanup
-            <a href="https://github.com/CrisisCleanup/crisiscleanup">Github repository</a> and contact us.</p>
+          <p>{{ $t('largeFooter.ccu_volunteer_dev') }}</p>
           <a href="https://www.patreon.com/crisiscleanup" target="_blank">{{ $t('largeFooter.help_ccu') }}</a>
         </div>
       </div>

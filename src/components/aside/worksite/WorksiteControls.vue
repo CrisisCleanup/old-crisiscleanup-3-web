@@ -1,12 +1,12 @@
 <template>
-<div>
+<div id="ccu-worksite-controls">
   <div class="row">
     <div class="col">
       <div class="mx-auto" role="group">
-        <button id="newSiteBtn" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
-        <button type="button" v-show="getWorksiteViews && getWorksiteViews.editWorksite" @click="saveForm" id="save-btn-top" class="btn btn-secondary">{{ $t('actions.save') }}</button>
+        <button id="ccu-new-site-button" @click="enterNewSite" class="btn btn-primary">{{ $t('actions.new') }}</button>
+        <button type="button" v-show="getWorksiteViews && getWorksiteViews.editWorksite" @click="saveForm" id="ccu-save-btn" class="btn btn-secondary">{{ $t('actions.save') }}</button>
         <!--<b-btn id="printBtn" v-b-modal.modal1>Print</b-btn>-->
-        <button id="claim-btn" @click="fireClaimBtn" class="btn btn-secondary" v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed" v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
+        <button id="ccu-claim-btn" @click="fireClaimBtn" class="btn btn-secondary" v-show="isCurrentSiteClaimedByUserOrg || !isCurrentSiteClaimed" v-text="!isCurrentSiteClaimed || isCurrentSiteClaimed === null ? $t('actions.claim') : $t('actions.unclaim')"></button>
         <!--<button id="historyBtn" v-show="getWorksiteViews && getWorksiteViews.editWorksite" class="btn btn-secondary">{{ $t('actions.history') }}</button>-->
         <!--<button @click="contactOrg" class="btn btn-secondary">Contact</button>-->
       </div>
@@ -45,7 +45,7 @@ export default {
      this.$notify({
         type: 'warn',
         group: 'core',
-        title: 'New worksite form created.',
+        title: this.$t('notify.new_worksite_form'),
         text: '',
         width: 500,
         animation: 'Velocity',
@@ -56,7 +56,7 @@ export default {
     saveForm() {
       this.$notify({
         group: 'core',
-        title: 'Saving...',
+        title: this.$t('notify.saving'),
         //text: '',
         width: 500,
         duration: 250
@@ -66,8 +66,8 @@ export default {
           this.$notify({
             type: 'success',
             group: 'core',
-            title: 'Success!',
-            text: 'Worksite saved.',
+            title: this.$t('notify.success'),
+            text: this.$t('notify.case_saved'),
             width: 500,
             animation: 'Velocity',
             speed: 1000,
@@ -79,8 +79,8 @@ export default {
           this.$notify({
             type: 'error',
             group: 'core',
-            title: 'Just a second!',
-            text: 'We need a little more information. Please review the form for errors.',
+            title: this.$t('notify.wait'),
+            text: this.$t('notify.need_more_info'),
             width: 500,
             animation: 'Velocity',
             speed: 1000,
@@ -108,7 +108,7 @@ export default {
         this.$notify({
             type: 'warn',
             group: 'core',
-            title: `You have unclaimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            title: `${this.$t('notify.unclaimed')} ${this.$store.state.worker.siteData.case_number}.`,
             text: '',
             width: 500,
             animation: 'Velocity',
@@ -120,7 +120,7 @@ export default {
           this.$notify({
             type: 'warn',
             group: 'core',
-            title: `You have claimed worksite ${this.$store.state.worker.siteData.case_number}.`,
+            title: `${this.$t('notify.claimed')} ${this.$store.state.worker.siteData.case_number}.`,
             text: '',
             width: 500,
             animation: 'Velocity',

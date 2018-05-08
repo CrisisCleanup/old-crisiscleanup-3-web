@@ -5,8 +5,8 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
-        <select @change="updateEventContext" :value="getCurrentEvent.id">
-          <option v-for="event in getParticipatingEvents" v-bind:value="event.id">{{event.name}}</option>
+        <select id="ccu-event-context-selector" @change="updateEventContext" :value="getCurrentEvent.id">
+          <option v-for="event in getParticipatingEvents" :value="event.id" :selected="event.id === getCurrentEvent.id">{{event.name}}</option>
         </select>
       </b-nav-item>
     </b-navbar-nav>
@@ -87,7 +87,7 @@ export default {
           this.$notify({
             type: 'warn',
             group: 'core',
-            title: 'You have logged out successfully.',
+            title: this.$t('notify.logged_out'),
             text: '',
             width: 500
           });
@@ -103,7 +103,7 @@ export default {
       this.$notify({
         type: 'success',
         group: 'core',
-        title: 'You are now viewing the event:',
+        title: this.$t('notify.viewing_incident'),
         text: this.$store.getters.getCurrentEvent.name,
         width: 500
       });

@@ -11,7 +11,7 @@
         </span>
       </label>
       <select class="form-control form-control-sm" @change="(event) => fireChange(event)"
-        :readonly="localIsReadonly" :required="isRequired">
+        :readonly="localIsReadonly" :required="isRequired" :id="fieldKey + 'CCU'">
         <option v-for="option in options" :value="option.value" :selected="option.value === value">
           {{ $t(option.name_t) }}
         </option>
