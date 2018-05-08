@@ -83,12 +83,15 @@
 
         this.$store.dispatch('auth/login', {user}).then(() => {
           this.$router.push({path: '/worker/dashboard'});
+          const successMsg = this.$t('notify.login_successful');
+          const failMsg = this.$t('notify.login_failed');
+          const failedMsg = this.$t('notify.login_failed_msg');
 
           setTimeout(() => {
             this.$notify({
               type: 'success',
               group: 'core',
-              title: this.$t('notify.login_successful'),
+              title: successMsg,
               text: '',
               width: 500,
             });
@@ -99,8 +102,8 @@
             this.$notify({
               type: 'error',
               group: 'core',
-              title: this.$t('notify.login_failed'),
-              text: this.$t('notify.login_failed_msg'),
+              title: failMsg,
+              text: failedMsg,
               width: 500,
             });
           }, 1000);
