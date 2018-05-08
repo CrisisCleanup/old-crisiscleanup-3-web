@@ -20,6 +20,9 @@ export default function(claimed_by, status, work_type) {
   } else {
     color = 'red';
   }
+  if (!work_type) {
+    work_type = "Report";
+  }
   var baseUrl = `${window.location.protocol}//${window.location.host}`;
   return `${baseUrl}/static/img/map_icons/${work_type.replace(/\s+/g, '_')}_red.png`;
 }

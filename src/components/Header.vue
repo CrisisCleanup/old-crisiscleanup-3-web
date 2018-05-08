@@ -6,7 +6,7 @@
     <b-navbar-nav class="d-md-down-none">
       <b-nav-item class="px-3">{{ $t('header.incident') }}:&nbsp;&nbsp;
         <select id="ccu-event-context-selector" @change="updateEventContext" :value="getCurrentEvent.id">
-          <option v-for="event in getParticipatingEvents" v-bind:value="event.id">{{event.name}}</option>
+          <option v-for="event in getParticipatingEvents" :value="event.id" :selected="event.id === getCurrentEvent.id">{{event.name}}</option>
         </select>
       </b-nav-item>
     </b-navbar-nav>

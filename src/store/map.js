@@ -32,10 +32,7 @@ export default {
       state.workerMap = payload.workerMap;
     },
     setCenter (state, value) {
-      state.center = {
-        lat: value.lat(),
-        lng: value.lng()
-      }
+      state.center = value;
     },
     setZoomLevel (state, value) {
       state.zoomLevel = value;
@@ -68,7 +65,6 @@ export default {
 
   actions: {
     getWorksites({ commit, state, rootState}, eventId) {
-      console.log(rootState.filters);
       const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
 
       const params = {
