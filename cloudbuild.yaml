@@ -2,23 +2,26 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
          '--build-arg',
-         'APP_ENV=${_APP_ENV}',
-         '-t', 'gcr.io/$PROJECT_ID/ccu3-web:latest',
-         '-t', 'gcr.io/$PROJECT_ID/ccu3-web:${_APP_ENV}',
+         'APP_ENV=staging',
+         '-t', 'gcr.io/$PROJECT_ID/ccu3-web:staging',
          '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web:latest']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web:${_APP_ENV}']
+  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web:staging']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['delete', 'pods', '-lapp=ccu3-web,env=staging']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build',
+         '--build-arg',
+         'APP_ENV=realdev',
+         '-t', 'gcr.io/$PROJECT_ID/ccu3-web:dev',
+         '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web:dev']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['delete', 'pods', '-lapp=ccu3-web,env=dev']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'
-substitutions:
-    _APP_ENV: prod
