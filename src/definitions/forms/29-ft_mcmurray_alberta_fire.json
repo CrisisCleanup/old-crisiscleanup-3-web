@@ -497,7 +497,7 @@
                       },
                       {
                         "value": "5",
-                        "name_t": "5+"
+                        "name_t": "five_plus"
                       }
                     ]
                   },
@@ -532,7 +532,7 @@
                       },
                       {
                         "value": "5",
-                        "name_t": "5+"
+                        "name_t": "five_plus"
                       }
                     ]
                   },
