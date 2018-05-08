@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
          '--build-arg',
-         'APP_ENV=staging',
+         'APP_ENV=realstaging',
          '-t', 'gcr.io/$PROJECT_ID/ccu3-web:staging',
          '.']
 - name: 'gcr.io/cloud-builders/docker'
