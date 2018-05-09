@@ -68,7 +68,7 @@ export default {
       const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
 
       const params = {
-        limit: 100,
+        limit: 1000,
         event: eventId,
         fields: fields
       };
