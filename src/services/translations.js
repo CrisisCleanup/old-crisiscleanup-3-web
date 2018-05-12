@@ -485,7 +485,7 @@ const messages = {
     },
     "login": {
       "sign_in_msg": "Sign in to your account",
-      "invalid_credentials_msg": "Invalid email or password. (Or the website might be having connection problems which should resolve themselves shortly.)",
+      "invalid_credentials_msg": "Invalid email or password. (Or the website might be having temporary connection problems.) Try again.",
       "email_placeholder": "Email",
       "password_placeholder": "Password"
     },
@@ -556,8 +556,7 @@ const messages = {
       "register_org_html_title": "Register Organization: Crisis Cleanup",
       "browse_worksites_html_title": "Browse Cases: Crisis Cleanup",
       "browse_orgs_html_title": "Browse Organizations: Crisis Cleanup",
-      "about_html_title": "About Crisis Cleanup",
-      "500_html_title": "500 Error Page"
+      "about_html_title": "About Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Mission and Roadmap",
@@ -1354,7 +1353,11 @@ const messages = {
       "map_specialist_description": "Public Access",
       "translator_description": "A Translator is able to translate website content and/or phone calls into another language.",
       "support_agent_description": "A Support Agent is someone who knows how to use Crisis Cleanup well enough to help others. They can provide technical support to others and share their knowledge in written help documents.",
-      "guest_worker_description": "A Guest Worker is an limited-trust member of the public, usually a spontaneous unaffiliated volunteer, that has been organized by a relief agency."
+      "guest_worker_description": "A Guest Worker is an limited-trust member of the public, usually a spontaneous unaffiliated volunteer, that has been organized by a relief agency.",
+      "admin": "Admin",
+      "portal_admin": "Portal Admin",
+      "admin_description": "System administrator of the entire system, and all portals",
+      "portal_admin_description": "An administrator of a single portal"
     },
     "accessRules": {
       "any_access": "Any Access",
@@ -1370,6 +1373,11 @@ const messages = {
       "ltr_access_examples": "Long Term Recovery Group, Unmet Needs Committee.",
       "ltr_access_limitations": "By default, you have access to all case data within your jurisdiction (e.g. county or parish). All sensitive information for cases outside your jurisdiction is hidden.",
       "ltr_access_no_relationship_msg": "To see this information, claim the work order: http://bit.ly/csvclaim",
+      "preliminary_access": "Preliminary Access",
+      "preliminary_access_access_level": "Full access for an organizaton's client data, but extremely restricted access to all other data, until the organization is approved by a full administrator.",
+      "preliminary_access_description": "Your organization has been preliminary approved by an administrator, but is awaiting final approval.",
+      "preliminary_access_examples": "Any organization that signs up through a portal branded by another organization.",
+      "preliminary_access_limitations": "While preliminarily approved, you receive access to client data, but very limited data on all other cases until you have been approved by an administrator.",
       "public_access": "Public Access",
       "public_access_access_level": "Access to de-identified public maps and data.",
       "public_access_description": "Members of the public who may benefit from basic, de-identified disaster information.",
@@ -2297,8 +2305,7 @@ const messages = {
       "register_org_html_title": "Registro Organización: Crisis Cleanup",
       "browse_worksites_html_title": "Explorar Casos: Crisis Cleanup",
       "browse_orgs_html_title": "Explorar Organizaciones: Crisis Cleanup",
-      "about_html_title": "Acerca de Crisis Cleanup",
-      "500_html_title": "500 Error Page"
+      "about_html_title": "Acerca de Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Misión y Plan de trabajo",
@@ -3095,7 +3102,11 @@ const messages = {
       "map_specialist_description": "Acceso público",
       "translator_description": "Un traductor es capaz de traducir contenido del sitio web y / o llamadas telefónicas a otro idioma.",
       "support_agent_description": "Un agente de soporte es alguien que sabe cómo utilizar Liberador de crisis lo suficientemente bien como para ayudar a otros. Pueden proporcionar apoyo técnico a los demás y compartir sus conocimientos en documentos de ayuda escritas.",
-      "guest_worker_description": "Un trabajador de visitantes es un miembro limitada de la confianza del público, por lo general no afiliado voluntario espontáneo, que ha sido organizada por una agencia de alivio."
+      "guest_worker_description": "Un trabajador de visitantes es un miembro limitada de la confianza del público, por lo general no afiliado voluntario espontáneo, que ha sido organizada por una agencia de alivio.",
+      "admin": "Administración",
+      "portal_admin": "portal de administración",
+      "admin_description": "administrador de sistemas de todo el sistema, y ​​todos los portales",
+      "portal_admin_description": "Un administrador de un portal único"
     },
     "accessRules": {
       "any_access": "cualquier acceso",
@@ -3111,6 +3122,11 @@ const messages = {
       "ltr_access_examples": "Long Term Recovery Group, insatisfecha Comité de Necesidades.",
       "ltr_access_limitations": "Por defecto, se tiene acceso a todos los datos de casos dentro de su jurisdicción (por ejemplo, el condado o parroquia). Toda la información confidencial de los casos fuera de su jurisdicción se oculta.",
       "ltr_access_no_relationship_msg": "Para ver esta información, reclamar la orden de trabajo: http://bit.ly/csvclaim",
+      "preliminary_access": "Acceso preliminar",
+      "preliminary_access_access_level": "El pleno acceso a los datos de clientes de una Organizaton, pero el acceso muy restringido a todos los demás datos, hasta que la organización es aprobado por un administrador completo.",
+      "preliminary_access_description": "Su organización ha sido preliminar aprobado por un administrador, pero está a la espera de su aprobación final.",
+      "preliminary_access_examples": "Cualquier organización que se registre a través de un portal de marca por otra organización.",
+      "preliminary_access_limitations": "Mientras aprobado preliminarmente, recibirá acceso a los datos del cliente, pero muy pocos datos sobre todos los demás casos, hasta que haya sido aprobado por un administrador.",
       "public_access": "Acceso público",
       "public_access_access_level": "El acceso a des-identificarse mapas y datos públicos.",
       "public_access_description": "Los miembros del público que pueden beneficiarse de la información básica de-identificado desastre.",

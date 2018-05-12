@@ -14,6 +14,14 @@
           "description_t": "accessRules.public_access_description",
           "limitations_t": "accessRules.public_access_limitations"
         },
+      "preliminary":        {
+          "name_t": "accessRules.preliminary",
+          "techDescription": "An oganization approved by a portal admin is automatically in preliminary status, regardless of any other roles it may also have below. A preliminarily approved organization may use the system and access its client's information, but access to all other information is strictly limited.",
+          "accessLevel_t": "accessRules.preliminary_access_level",
+          "examples_t": "accessRules.preliminary_access_examples",
+          "description_t": "accessRules.preliminary_access_description",
+          "limitations_t": "accessRules.preliminary_access_limitations"
+        },
       "statistics":        {
           "name_t": "accessRules.statistics_access",
           "techDescription": "A Statistics Access user is an authenticated user, usually state or federal government, that has no need for client information, but would like broad statistics about an incident.",
@@ -111,6 +119,60 @@
     {
       "techDescription": "For a Public user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
       "accessType": "public",
+      "relationship": "noRelationship",
+      "sensitivity": "else",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "preliminary",
+      "relationship": "noRelationship",
+      "sensitivity": "verySensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "preliminary",
+      "relationship": "noRelationship",
+      "sensitivity": "orgSensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
+      "accessType": "preliminary",
+      "relationship": "noRelationship",
+      "sensitivity": "sensitive",
+      "redactionPatterns": [
+        "hideField"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, truncate all zip codes to five digits, and replace numbers with Xs in all other fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
+      "accessType": "preliminary",
+      "relationship": "noRelationship",
+      "sensitivity": "lessSensitive",
+      "redactionPatterns": [
+        "truncateToFive", "redactDigits"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, display all public class information, regardless of the medium or location.",
+      "accessType": "preliminary",
+      "relationship": "noRelationship",
+      "sensitivity": "public",
+      "redactionPatterns": [
+        "noRedaction"
+      ]
+    },
+    {
+      "techDescription": "For a Preliminary user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
+      "accessType": "preliminary",
       "relationship": "noRelationship",
       "sensitivity": "else",
       "redactionPatterns": [

@@ -2,6 +2,10 @@
   "defaults": {
     "instructions": "Apply the following default settings to each user role, unless the role contains a contrary setting.",
     "isActive": true,
+    "createIncident": false,
+    "approveOrgsFull": false,
+    "approveOrgsPreliminary": false,
+    "editPortalSettings": false,
     "affiliateOrg": false,
     "inviteWorkers": true,
     "removeWorkers": true,
@@ -12,28 +16,50 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
-    "level": "2"
+    "level": "3"
+  },
+  "admin": {
+    "lastUpdated": "2018-05-11",
+    "name_t": "userRoles.admin",
+    "description_t": "userRoles.admin_description",
+    "createIncident": true,
+    "approveOrgsFull": true,
+    "approveOrgsPreliminary": true,
+    "editPortalSettings": true,
+    "affiliateOrg": true,
+    "level": "0"
+  },
+  "portal_admin": {
+    "lastUpdated": "2018-05-11",
+    "name_t": "userRoles.portal_admin",
+    "isActive": false,
+    "description_t": "userRoles.portal_admin_description",
+    "createIncident": true,
+    "approveOrgsPreliminary": true,
+    "editPortalSettings": true,
+    "affiliateOrg": true,
+    "level": "1"
   },
   "primaryContact": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.primary_contact",
     "description_t": "userRoles.primary_contact_description",
     "affiliateOrg": true,
     "supportAgent": false,
-    "level": "1"
+    "level": "2"
   },
   "teamLeader": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.team_leader",
     "description_t": "userRoles.team_leader_description"
   },
   "worker": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.worker",
     "description_t": "userRoles.worker_description"
   },
   "phoneAgent": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.phone_agent",
     "description_t": "userRoles.phone_agent_description",
     "isActive": false,
@@ -43,7 +69,7 @@
     "viewUserContacts": false
   },
   "mapSpecialist": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.map_specialist",
     "description_t": "userRoles.map_specialist_description",
     "isActive": false,
@@ -51,7 +77,7 @@
     "crewManagement": false
   },
   "translator": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.translator",
     "description_t": "userRoles.translator_description",
     "isActive": false,
@@ -59,15 +85,15 @@
     "crewManagement": false
   },
   "supportAgent": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.support_agent",
     "description_t": "userRoles.support_agent_description",
     "isActive": false,
     "crewManagement": false,
-    "level": "1"
+    "level": "2"
   },
   "guestWorker": {
-    "lastUpdated": "2018-03-06",
+    "lastUpdated": "2018-05-11",
     "name_t": "userRoles.guest_worker",
     "description_t": "userRoles.guest_worker_description",
     "isActive": false,
@@ -76,6 +102,6 @@
     "advancedMaps": false,
     "supportAgent": false,
     "viewSensitive": "redactDigits",
-    "level": "3"
+    "level": "4"
   }
 }
