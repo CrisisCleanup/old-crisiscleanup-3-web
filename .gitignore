@@ -16,3 +16,4 @@ dist/
 *.sln
 *.iml
 .tmp/
+scss/crisiscleanup/sprites
