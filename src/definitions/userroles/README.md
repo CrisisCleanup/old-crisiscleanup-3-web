@@ -17,6 +17,12 @@ General Rules
 
 User Roles
 -------------
+ - `admin`
+   - Name: Admin
+   - Description: An Admin is in charge of the entire system, and has authority to make changes or policies that affect all portals.
+ - `portal_admin`
+   - Name: Portal Admin
+   - Description: A Portal Admin is in charge of just one portal. This role may change all portal settings and approve organizations, giving them _preliminary_ status until an _admin_ approves the organization fully.
  - `primaryContact`
    - Name: Primary Contact
    - Description: A Primary Contact is the face of the organization to other relief agencies using Crisis Cleanup. A Primary Contact may also affiliate his or her organization with other organizations. An organization can (and should) have more than one Primary Contact. When a user selects to be a Primary Contact, all other Primary Contacts are alerted, so they may take action if the self-selection was in error.
@@ -64,6 +70,26 @@ Attributes
    - Possible Values: `true`, `false`
    - Required: Yes
    - Default: `true`
+ - `createIncident`: Authority to create a system-wide incident that will appear in all portals
+   - Applies to: _admin_ and _portal_admin_
+   - Possible Values: `true`, `false`
+   - Required: Yes
+   - Default: `false`
+ - `editPortalSettings`: Authority to edit a single portal's content and all settings. These might include hiding particular incidents, editing static content, banning a particular  uploading images, etc.
+   - Applies to: _admin_ and _portal_admin_
+   - Possible Values: `true`, `false`
+   - Required: Yes
+   - Default: `false`
+ - `approveOrgsFull`: Authority to fully approve and set roles for an organization that applies to access the entire system, including all portals
+   - Applies to: _admin_
+   - Possible Values: `true`, `false`
+   - Required: Yes
+   - Default: `false`
+ - `approveOrgsPreliminary`: Authority to approve an organization with preliminary status. When a _portal_admin_ approves an organization, that organization has "preliminary" access for privacy and redaction purposes, even if it has other roles. Preliminary access is defined in accessRedaction.json, but is strictly limited until approved by an admin.
+   - Applies to: _admin_ and _portal_admin_
+   - Possible Values: `true`, `false`
+   - Required: Yes
+   - Default: `false`
  - `affiliateOrg`: Authority to affiliate the user's organization with another organization, thereby sharing more data between the organizations.
    - Applies to: All roles
    - Possible Values: `true`, `false`
