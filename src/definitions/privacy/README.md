@@ -53,7 +53,7 @@ Root Attributes of `accessRedaction.json`
    - Default: `any`
  - `accessProfiles`: A list of all access profiles attributable to an organization.
    - Applies to: Root
-   - Possible Values: `any`, `public`, `statistics`, `situationalAwareness`, `coordination`, `ltr`, and `recovery`
+   - Possible Values: `any`, `public`, `preliminary`, `statistics`, `situationalAwareness`, `coordination`, `ltr`, and `recovery`
    - Required: Yes
    - Default: `null`
  - `redactionConditions`: All relevant combinations of organization, case, and system settings that result in a _Redaction Pattern_.
@@ -104,7 +104,7 @@ Redaction Conditions Attributes
    - Default: `null`
  - `accessProfile`: The _Access Profile_.
    - Applies to: `redactionConditions`
-   - Possible Values: `any`, `public`, `statistics`, `situationalAwareness`, `coordination`, `ltr`, `recovery`, `else`
+   - Possible Values: `any`, `public`, `preliminary`, `statistics`, `situationalAwareness`, `coordination`, `ltr`, `recovery`, `else`
    - Required: Yes
    - Default: `any`
  - `relationship`: The relationship of the user's organization with the case/client.
