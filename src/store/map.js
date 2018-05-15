@@ -65,10 +65,10 @@ export default {
 
   actions: {
     getWorksites({ commit, state, rootState}, eventId) {
-      const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
+      const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name,point";
 
       const params = {
-        limit: 1000,
+        limit: 100,
         event: eventId,
         fields: fields
       };

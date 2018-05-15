@@ -94,6 +94,16 @@
           CCUMapEventHub.$on('re-center-map', (e) => {
             // new center for worksite area
           });
+
+          CCUMapEventHub.$on('states-layer', (e) => {
+              Vue.axios.get('/states').then(resp => {
+                console.log(resp.data.results);
+                this.$refs.map.$mapObject.data.addGeoJson(resp.data);
+              });
+              this.$refs.map.$mapObject.data.setStyle({
+                fillColor: 'green'
+              });
+          });
       });
 
       // CCUMapEventHub.$on('re-render', (e) => {
