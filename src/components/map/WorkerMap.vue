@@ -1,35 +1,28 @@
 <template>
   <div class="fullsize-map">
-    <WorkerCCUMap></WorkerCCUMap>
+    <component :is="currentMap"></component>
   </div>
 </template>
 <script>
-  import CCUMapEventHub from '../../events/CCUMapEventHub';
-  import WorkerCCUMap from './WorkerCCUMap.vue';
+  import GoogleMap from './GoogleMap.vue';
+  import LeafletMap from './maps/LeafletMap';
 
   export default {
     name: 'WorkerMap',
     components: {
-      WorkerCCUMap,
+      GoogleMap,
+      LeafletMap
     },
     data() {
       return {
-        showInfoBox: false
+        currentMap: 'google-map'
       }
-    },
-    mounted: function () {
-      CCUMapEventHub.$on('site-clicked', (e) => {
-        this.showInfoBox = true;
-        // filters anchor
-        // Show filters
-      });
-      CCUMapEventHub.$on('close-infobox', () => {
-        this.showInfoBox = false;
-        // filters anchor
-        // Show filters
-      });
     },
   }
 </script>
 <style>
+  .fullsize-map {
+    height: 100%;
+    width: 100%;
+  }
 </style>

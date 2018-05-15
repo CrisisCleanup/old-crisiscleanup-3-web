@@ -1,5 +1,5 @@
 <template>
-  <div class="fullsize-map" style="position: relative;">
+  <div class="fullsize-map">
     <div id="floating-panel">
       <button class="btn-primary" @click="toggleHeatmap()">{{ $t('workerCCUMap.toggle_heatmap') }}</button>
       <!--<button @click="changeGradient()">{{ $t('workerCCUMap.change_gradient') }}</button>-->
