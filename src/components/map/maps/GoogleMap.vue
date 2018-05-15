@@ -27,16 +27,13 @@
 
   import * as VueGoogleMaps from 'vue2-google-maps';
   import Vue from 'vue';
-  import CCUMapEventHub from '../../events/CCUMapEventHub';
   import MarkerClusterer from 'marker-clusterer-plus';
   import {loaded} from 'vue2-google-maps'
-  import generateMarkerImagePath from './utils/markerImageManager';
-  import DashboardEventHub from '@/events/DashboardEventHub';
-  import {style as mapStyle} from './styles/snowOrange';
   import { mapState, mapMutations, mapGetters } from 'vuex';
-
-  let lodashArray = require('lodash/array');
-  let lodashCollection = require('lodash/collection');
+  import CCUMapEventHub from '@/events/CCUMapEventHub';
+  import DashboardEventHub from '@/events/DashboardEventHub';
+  import generateMarkerImagePath from '../utils/markerImageManager';
+  import {style as mapStyle} from '../styles/snowOrange';
 
   export default {
     data() {

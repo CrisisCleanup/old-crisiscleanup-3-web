@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-  import GoogleMap from './GoogleMap.vue';
+  import GoogleMap from './maps/GoogleMap.vue';
   import LeafletMap from './maps/LeafletMap';
 
   export default {
@@ -15,7 +15,7 @@
     },
     data() {
       return {
-        currentMap: 'google-map'
+        currentMap: 'leaflet-map'
       }
     },
   }
