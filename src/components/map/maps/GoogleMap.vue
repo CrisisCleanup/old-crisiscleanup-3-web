@@ -29,13 +29,14 @@
   import Vue from 'vue';
   import MarkerClusterer from 'marker-clusterer-plus';
   import {loaded} from 'vue2-google-maps'
-  import { mapState, mapMutations, mapGetters } from 'vuex';
+  import { mapMutations } from 'vuex';
   import CCUMapEventHub from '@/events/CCUMapEventHub';
-  import DashboardEventHub from '@/events/DashboardEventHub';
   import generateMarkerImagePath from '../utils/markerImageManager';
   import {style as mapStyle} from '../styles/snowOrange';
+  import BaseMap from './BaseMap';
 
   export default {
+    mixins: [BaseMap],
     data() {
       return {
         options: {
@@ -45,31 +46,18 @@
         },
         heatmap: null,
         points: [],
-        markers: [],
         $markerCluster: null,
         trackingMapCenter: {},
       }
     },
-    computed: {
-      ...mapState('map', {
-        center: state => state.center,
-        zoomLevel: state => state.zoomLevel,
-        dragging: state => state.dragging,
-        tempMarkers: state => state.tempMarkers
-      }),
-      ...mapGetters([
-        'getCurrentSiteData'
-      ])
-    },
+
     watch: {
       tempMarkers: function(val) {
         this.renderMarkers(this.$store.state.worker.mapViewingArea);
       },
     },
     mounted() {
-      window.testObj1 = 'testing';
       loaded.then(() => {
-        DashboardEventHub.$emit('open-aside', 'test');
         window.googMap = this.$refs.map;
         const eid = this.$store.state.worker.event.id;
         this.centerMap(this.$store.state.map.center)
@@ -120,9 +108,6 @@
     },
     methods: {
       ...mapMutations('map', ['setZoomLevel', 'setDragging', 'setMarkers', 'setCenter']),
-      mapIsClicked() {
-        CCUMapEventHub.$emit('map-is-clicked');
-      },
       mapCenterChanged(event) {
         this.trackingMapCenter = {
           lat: event.lat(),

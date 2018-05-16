@@ -1,6 +1,6 @@
 <template>
   <div>
-    <WorkerMap/>
+    <WorkerMap :map-impl="mapImpl"/>
   </div>
 </template>
 
@@ -19,6 +19,12 @@
 
   export default {
     name: 'WorkerMapView',
+    props: {
+      mapImpl: {
+        type: String,
+        default: 'leaflet-map'
+      }
+    },
     components: {
       WorkerMap
     },

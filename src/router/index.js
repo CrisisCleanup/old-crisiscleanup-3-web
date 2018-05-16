@@ -142,7 +142,15 @@ const router = new Router({
           path: 'map',
           name: 'WorkerMap',
           component: WorkerMapView,
-          meta: {auth: true, title: i18n.t('routerIndex.worker_map_html_title')}
+          props: {mapImpl: 'leaflet-map'},
+          meta: {auth: true}
+        },
+        {
+          path: 'google',
+          name: 'WorkerMap',
+          component: WorkerMapView,
+          props: {mapImpl: 'google-map'},
+          meta: {auth: true}
         },
         {
           path: 'my-organization',

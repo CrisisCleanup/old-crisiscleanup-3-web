@@ -1,6 +1,6 @@
 <template>
   <div class="fullsize-map">
-    <component :is="currentMap"></component>
+    <component :is="mapImpl"></component>
   </div>
 </template>
 <script>
@@ -8,6 +8,12 @@
   import LeafletMap from './maps/LeafletMap';
 
   export default {
+    props: {
+      mapImpl: {
+        type: String,
+        default: 'leaflet-map'
+      }
+    },
     name: 'WorkerMap',
     components: {
       GoogleMap,
@@ -15,7 +21,6 @@
     },
     data() {
       return {
-        currentMap: 'leaflet-map'
       }
     },
   }
