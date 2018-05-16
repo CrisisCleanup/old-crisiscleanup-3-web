@@ -33,10 +33,8 @@
   import CCUMapEventHub from '@/events/CCUMapEventHub';
   import generateMarkerImagePath from '../utils/markerImageManager';
   import {style as mapStyle} from '../styles/snowOrange';
-  import BaseMap from './BaseMap';
 
   export default {
-    mixins: [BaseMap],
     data() {
       return {
         options: {
