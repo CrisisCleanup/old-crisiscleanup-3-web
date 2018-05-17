@@ -2,6 +2,7 @@
   import * as L from 'leaflet';
   import Vue from 'vue';
   import supercluster from 'supercluster';
+  import { mapState, mapMutations, mapGetters } from 'vuex';
 
   let index;
 
@@ -16,12 +17,25 @@
         worksiteLayer: L.geoJson(null, {
           pointToLayer: this.createClusterIcon
         }),
+        activeWorksiteText: ''
       }
+    },
+    computed: {
+      ...mapState('map', {
+        pointParams: state => state.pointParams
+      })
+    },
+    watch: {
+      pointParams: function(val) {
+        this.loadWorksites();
+      },
     },
     mounted() {
       this.mapObject.on('moveend', this.updateCluster);
       this.worksiteLayer.addTo(this.mapObject);
-      this.initialLoadWorksites();
+      const eid = this.$store.state.worker.event.id;
+      this.$store.dispatch('map/getWorksites', eid).then((resp) => {});
+      // this.loadWorksites();
 
       this.worksiteLayer.on('click', (e) => {
         if (e.layer.feature.properties.cluster_id) {
@@ -36,11 +50,8 @@
       return null;
     },
     methods: {
-      initialLoadWorksites() {
-        const params = {
-          'worksite__event': this.$store.state.worker.event.id
-        };
-        Vue.axios.get('/points', {params: params}).then(resp => {
+      loadWorksites() {
+        Vue.axios.get('/worksites/points', {params: this.pointParams}).then(resp => {
           index = supercluster({
             log: false,
             radius: 50,
@@ -68,11 +79,12 @@
         if (!feature.properties.cluster) {
           // console.log(feature);
           let m = L.marker(latlng);
-          m.bindPopup(`ID: ${feature.id}`);
           m.on('click', () => {
             this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
-            this.$store.dispatch('getSite', feature.id).then(() => {
+            this.$store.dispatch('getSite', feature.id).then((worksite) => {
+              // m.setPopupContent(`${worksite.name}\n${worksite.case_number}`);
               this.flyToSite(m);
+              // m.bindPopup(`${worksite.name}\n${worksite.case_number}`).openPopup();
             });
           });
           return m;
