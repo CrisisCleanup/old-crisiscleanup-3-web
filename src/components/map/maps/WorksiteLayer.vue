@@ -1,4 +1,3 @@
-
 <script>
   import * as L from 'leaflet';
   import Vue from 'vue';
@@ -12,7 +11,7 @@
         type: Object
       }
     },
-    data () {
+    data() {
       return {
         worksiteLayer: L.geoJson(null, {
           pointToLayer: this.createClusterIcon
@@ -20,18 +19,18 @@
       }
     },
     mounted() {
-     this.mapObject.on('moveend', this.updateCluster);
-     this.worksiteLayer.addTo(this.mapObject);
-     this.initialLoadWorksites();
+      this.mapObject.on('moveend', this.updateCluster);
+      this.worksiteLayer.addTo(this.mapObject);
+      this.initialLoadWorksites();
 
-     this.worksiteLayer.on('click', (e) => {
-       if (e.layer.feature.properties.cluster_id) {
-         this.updateCluster(
-           e.latlng,
-           e.layer.feature.properties.cluster_id
-         );
-       }
-     });
+      this.worksiteLayer.on('click', (e) => {
+        if (e.layer.feature.properties.cluster_id) {
+          this.updateCluster(
+            e.latlng,
+            e.layer.feature.properties.cluster_id
+          );
+        }
+      });
     },
     render() {
       return null;
@@ -50,16 +49,16 @@
           this.updateCluster();
         });
       },
-      updateCluster(center=null, expansionZoom=null) {
+      updateCluster(center = null, expansionZoom = null) {
         if (center && expansionZoom) {
           this.mapObject.flyTo(center, index.getClusterExpansionZoom(expansionZoom));
         } else {
-            if (index !== undefined) {
-              const bounds = this.mapObject.getBounds();
-              const bbox = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
-              this.worksiteLayer.clearLayers();
-              this.worksiteLayer.addData(index.getClusters(bbox, this.mapObject.getZoom()))
-            }
+          if (index !== undefined) {
+            const bounds = this.mapObject.getBounds();
+            const bbox = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
+            this.worksiteLayer.clearLayers();
+            this.worksiteLayer.addData(index.getClusters(bbox, this.mapObject.getZoom()))
+          }
         }
       },
       createClusterIcon(feature, latlng) {
@@ -98,6 +97,7 @@
   .marker-cluster-small {
     background-color: rgba(181, 226, 140, 0.6);
   }
+
   .marker-cluster-small div {
     background-color: rgba(110, 204, 57, 0.6);
   }
@@ -105,6 +105,7 @@
   .marker-cluster-medium {
     background-color: rgba(241, 211, 87, 0.6);
   }
+
   .marker-cluster-medium div {
     background-color: rgba(240, 194, 12, 0.6);
   }
@@ -112,6 +113,7 @@
   .marker-cluster-large {
     background-color: rgba(253, 156, 115, 0.6);
   }
+
   .marker-cluster-large div {
     background-color: rgba(241, 128, 23, 0.6);
   }
@@ -120,6 +122,7 @@
     background-clip: padding-box;
     border-radius: 20px;
   }
+
   .marker-cluster div {
     width: 30px;
     height: 30px;
@@ -130,6 +133,7 @@
     border-radius: 15px;
     font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
   }
+
   .marker-cluster span {
     line-height: 30px;
   }

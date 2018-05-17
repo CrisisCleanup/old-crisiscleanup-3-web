@@ -1,4 +1,3 @@
-
 <script>
   import * as L from 'leaflet';
   import CCUMapEventHub from "@/events/CCUMapEventHub";
@@ -10,14 +9,13 @@
         type: Object
       }
     },
-    data () {
-      return {
-      }
+    data() {
+      return {}
     },
     mounted() {
-        CCUMapEventHub.$on('states-layer', (e) => {
-          this.addStateBoundaries();
-        });
+      CCUMapEventHub.$on('states-layer', (e) => {
+        this.addStateBoundaries();
+      });
     },
     render() {
       return null;
@@ -25,10 +23,11 @@
     methods: {
       addStateBoundaries() {
         function onEachFeature(feature, layer) {
-          if (feature.properties  && feature.properties.name) {
+          if (feature.properties && feature.properties.name) {
             layer.bindPopup(feature.properties.name);
           }
         }
+
         Vue.axios.get('/states').then(resp => {
           L.geoJSON(resp.data, {
             onEachFeature: onEachFeature
