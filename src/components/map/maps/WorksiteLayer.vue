@@ -61,6 +61,9 @@
           }
         }
       },
+      flyToSite(marker) {
+        this.mapObject.flyTo(marker.getLatLng());
+      },
       createClusterIcon(feature, latlng) {
         if (!feature.properties.cluster) {
           // console.log(feature);
@@ -69,7 +72,7 @@
           m.on('click', () => {
             this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
             this.$store.dispatch('getSite', feature.id).then(() => {
-              //this.centerOnSite();
+              this.flyToSite(m);
             });
           });
           return m;
