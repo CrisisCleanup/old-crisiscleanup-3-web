@@ -4258,6 +4258,10 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+leaflet-loading@^0.1.24:
+  version "0.1.24"
+  resolved "https://registry.yarnpkg.com/leaflet-loading/-/leaflet-loading-0.1.24.tgz#eafdfc188718eb13d3cf7b9226c4c06b16e92919"
+
 leaflet@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.3.1.tgz#86f336d2fb0e2d0ff446677049a5dc34cf0ea60e"
@@ -7478,9 +7482,9 @@ vuenit@^1.1.1:
     vue-inject "^1.0.0"
     vue-template-compiler "^2.4.4"
 
-vuex-loading@^0.1.14:
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/vuex-loading/-/vuex-loading-0.1.14.tgz#8f61ecb4b8c7e2893e39137950096bc9dc0bfd0b"
+vuex-loading@0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/vuex-loading/-/vuex-loading-0.2.5.tgz#0947ea2ba48c3111b9d0fc3d97d74fd2c31a3cf2"
 
 vuex-persistedstate@^2.0.0:
   version "2.0.0"

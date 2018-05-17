@@ -51,6 +51,8 @@
     },
     methods: {
       loadWorksites() {
+        // this.$vuexLoading.startLoading('worksite-points');
+        this.mapObject.fire('dataloading');
         Vue.axios.get('/worksites/points', {params: this.pointParams}).then(resp => {
           index = supercluster({
             log: false,
@@ -58,6 +60,8 @@
             maxZoom: 16
           }).load(resp.data.features);
           this.updateCluster();
+          // this.$vuexLoading.endLoading('worksite-points');
+          this.mapObject.fire('dataload');
         });
       },
       updateCluster(center = null, expansionZoom = null) {

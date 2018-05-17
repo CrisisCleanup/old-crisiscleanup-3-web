@@ -24,6 +24,7 @@ export default {
     pointParams: {},
     getMarkersFunc: null,
     activeMapFilters: [],
+    pointsLoading: false
   },
 
   mutations: {

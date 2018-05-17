@@ -11,6 +11,7 @@
   import * as L from 'leaflet';
   import WorksiteLayer from './WorksiteLayer';
   import StateLayer from './StateLayer';
+  import 'leaflet-loading'
 
   L.Icon.Default.imagePath = '.';
   // OR
@@ -41,7 +42,8 @@
     mounted() {
       let options = {
         center: this.center,
-        zoom: this.zoom
+        zoom: this.zoom,
+        loadingControl: true
       };
       this.initMap(options);
       this.addCircle();
@@ -70,6 +72,7 @@
 
 <style>
   @import "~leaflet/dist/leaflet.css";
+  @import "~leaflet-loading/src/Control.Loading.css";
 
   body {
     margin: 0px;
