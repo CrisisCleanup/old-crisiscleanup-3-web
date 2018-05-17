@@ -3,6 +3,7 @@
   <div id="full_div" class="fullsize-map">
     <div id="map" class="map" @click="mapClicked">
       <WorksiteLayer v-if="ready" :map-object="map" />
+      <StateLayer v-if="ready" :map-object="map" />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
   import CCUMapEventHub from "@/events/CCUMapEventHub";
   import Vue from 'vue';
   import WorksiteLayer from './WorksiteLayer';
+  import StateLayer from './StateLayer';
 
   L.Icon.Default.imagePath = '.';
   // OR
@@ -36,7 +38,8 @@
       }
     },
     components: {
-      WorksiteLayer
+      WorksiteLayer,
+      StateLayer
     },
     mounted() {
       let options = {
@@ -53,9 +56,6 @@
         this.map = L.map(this.$el, options);
         this.tileLayer.addTo(this.map);
         // this.map.on('click', this.mapClicked);
-        CCUMapEventHub.$on('states-layer', (e) => {
-          this.addStateBoundaries();
-        });
       },
       addCircle() {
         let circle = L.circle([39, -90], {
@@ -64,18 +64,6 @@
           fillOpacity: 0.5,
           radius: 20000
         }).addTo(this.map);
-      },
-      addStateBoundaries() {
-        function onEachFeature(feature, layer) {
-          if (feature.properties  && feature.properties.name) {
-            layer.bindPopup(feature.properties.name);
-          }
-        }
-        Vue.axios.get('/states').then(resp => {
-          L.geoJSON(resp.data, {
-            onEachFeature: onEachFeature
-          }).addTo(this.map);
-        });
       },
       mapClicked() {
         alert('Map clicked');

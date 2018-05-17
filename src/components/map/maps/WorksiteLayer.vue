@@ -1,36 +1,8 @@
 
 <script>
   import * as L from 'leaflet';
-  import CCUMapEventHub from "@/events/CCUMapEventHub";
   import Vue from 'vue';
   import supercluster from 'supercluster';
-
-  let createClusterIcon = (feature, latlng) => {
-    if (!feature.properties.cluster) {
-      // console.log(feature);
-      let m = L.marker(latlng);
-      m.bindPopup(`ID: ${feature.id}`);
-      m.on('click', () => {
-        Vue.store.commit('setActiveWorksiteView', {view: 'editWorksite'});
-        Vue.store.dispatch('getSite', feature.id).then(() => {
-          //this.centerOnSite();
-        });
-      });
-      return m;
-    }
-
-    const count = feature.properties.point_count;
-    const size =
-      count < 100 ? 'small' :
-        count < 1000 ? 'medium' : 'large';
-    const icon = L.divIcon({
-      html: '<div><span>' + feature.properties.point_count_abbreviated + '</span></div>',
-      className: 'marker-cluster marker-cluster-' + size,
-      iconSize: L.point(40, 40)
-    });
-
-    return L.marker(latlng, {icon: icon});
-  };
 
   let index;
 
@@ -43,32 +15,28 @@
     data () {
       return {
         worksiteLayer: L.geoJson(null, {
-          pointToLayer: createClusterIcon
+          pointToLayer: this.createClusterIcon
         }),
       }
     },
     mounted() {
-      this.initMap();
+     this.mapObject.on('moveend', this.updateCluster);
+     this.worksiteLayer.addTo(this.mapObject);
+     this.initialLoadWorksites();
+
+     this.worksiteLayer.on('click', (e) => {
+       if (e.layer.feature.properties.cluster_id) {
+         this.updateCluster(
+           e.latlng,
+           e.layer.feature.properties.cluster_id
+         );
+       }
+     });
     },
     render() {
       return null;
     },
     methods: {
-      initMap() {
-        this.mapObject.on('moveend', this.updateCluster);
-        this.worksiteLayer.addTo(this.mapObject);
-        this.initialLoadWorksites();
-        this.mapObject.on('moveend', this.updateCluster);
-
-        this.worksiteLayer.on('click', (e) => {
-          if (e.layer.feature.properties.cluster_id) {
-            this.updateCluster(
-              e.latlng,
-              e.layer.feature.properties.cluster_id
-            );
-          }
-        });
-      },
       initialLoadWorksites() {
         const params = {
           'worksite__event': this.$store.state.worker.event.id
@@ -94,6 +62,32 @@
             }
         }
       },
+      createClusterIcon(feature, latlng) {
+        if (!feature.properties.cluster) {
+          // console.log(feature);
+          let m = L.marker(latlng);
+          m.bindPopup(`ID: ${feature.id}`);
+          m.on('click', () => {
+            this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
+            this.$store.dispatch('getSite', feature.id).then(() => {
+              //this.centerOnSite();
+            });
+          });
+          return m;
+        }
+
+        const count = feature.properties.point_count;
+        const size =
+          count < 100 ? 'small' :
+            count < 1000 ? 'medium' : 'large';
+        const icon = L.divIcon({
+          html: '<div><span>' + feature.properties.point_count_abbreviated + '</span></div>',
+          className: 'marker-cluster marker-cluster-' + size,
+          iconSize: L.point(40, 40)
+        });
+
+        return L.marker(latlng, {icon: icon});
+      }
 
     }
   }
