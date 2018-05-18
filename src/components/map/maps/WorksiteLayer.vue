@@ -61,8 +61,20 @@
           }).load(resp.data.features);
           this.updateCluster();
           // this.$vuexLoading.endLoading('worksite-points');
+          this.checkIfEventContextChanged(resp.data.features[0])
           this.mapObject.fire('dataload');
         });
+      },
+      checkIfEventContextChanged(feature) {
+        const eventContextChanged = this.$store.getters.getEventJustChanged;
+        if (eventContextChanged) {
+          this.$store.commit('map/setZoomLevel', 7);
+          this.$store.commit('setEventContextJustChanged', false);
+        }
+        if (feature  && eventContextChanged) {
+          const coord = feature.geometry.coordinates;
+          this.mapObject.flyTo([coord[1], coord[0]]);
+        }
       },
       updateCluster(center = null, expansionZoom = null) {
         if (center && expansionZoom) {
