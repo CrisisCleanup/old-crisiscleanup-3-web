@@ -49,6 +49,15 @@
     render() {
       return null;
     },
+    beforeDestroy: function() {
+      const mapViewingArea = {
+        center: this.mapObject.getCenter(),
+        zoom: this.mapObject.getZoom()
+      }
+      this.$store.commit('map/setMapViewingArea', mapViewingArea);
+      this.$store.commit('map/setCenter', this.mapObject.getCenter());
+
+    },
     methods: {
       loadWorksites() {
         // this.$vuexLoading.startLoading('worksite-points');
@@ -121,8 +130,8 @@
 
     }
   }
+  // generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
 </script>
-
 <style>
 
   .marker-cluster-small {

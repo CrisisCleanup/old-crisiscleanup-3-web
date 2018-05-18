@@ -12,6 +12,7 @@
   import WorksiteLayer from './WorksiteLayer';
   import StateLayer from './StateLayer';
   import 'leaflet-loading'
+  import { mapGetters } from 'vuex';
 
   L.Icon.Default.imagePath = '.';
   // OR
@@ -27,8 +28,6 @@
     data() {
       return {
         ready: false,
-        center: L.latLng(39, -90),
-        zoom: 4,
         tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -39,10 +38,15 @@
       WorksiteLayer,
       StateLayer
     },
+    computed: {
+      ...mapGetters('map', [ 'getMapViewingArea' ]),
+    },
     mounted() {
+      let center = this.getMapViewingArea && this.getMapViewingArea.center;
+      let zoom = this.getMapViewingArea && this.getMapViewingArea.zoom;
       let options = {
-        center: this.center,
-        zoom: this.zoom,
+        center: center ? center : L.latLng(39, -90),
+        zoom: zoom ? zoom : 4,
         loadingControl: true
       };
       this.initMap(options);

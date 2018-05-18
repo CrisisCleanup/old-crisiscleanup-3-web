@@ -24,7 +24,8 @@ export default {
     pointParams: {},
     getMarkersFunc: null,
     activeMapFilters: [],
-    pointsLoading: false
+    pointsLoading: false,
+    mapViewingArea: null,
   },
 
   mutations: {
@@ -57,10 +58,14 @@ export default {
     },
     removeMapFilter (state, value) {
       state.activeMapFilters.pop(value);
+    },
+    setMapViewingArea (state, payload) {
+      state.mapViewingArea = payload;
     }
   },
 
   getters: {
+    getMapViewingArea: state => state.mapViewingArea,
   },
 
   actions: {
