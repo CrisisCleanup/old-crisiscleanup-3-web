@@ -2,7 +2,8 @@
   import * as L from 'leaflet';
   import Vue from 'vue';
   import supercluster from 'supercluster';
-  import { mapState, mapMutations, mapGetters } from 'vuex';
+  import getMarkerInfo from '../utils/markerImageManager';
+  import { mapState } from 'vuex';
 
   let index;
 
@@ -100,10 +101,15 @@
       flyToSite(marker) {
         this.mapObject.flyTo(marker.getLatLng());
       },
-      createClusterIcon(feature, latlng) {
-        if (!feature.properties.cluster) {
-          // console.log(feature);
-          let m = L.marker(latlng);
+      createMarkerIcon(feature, latlng) {
+          const markerInfo = getMarkerInfo(null, feature.properties.status, feature.properties.work_type);
+          console.log(markerInfo);
+          let i = L.icon({
+            // TODO: claimed_by
+            iconUrl: markerInfo.path,
+            className: markerInfo.cssClass
+          });
+          let m = L.marker(latlng, {icon: i});
           m.on('click', () => {
             this.$store.commit('setActiveWorksiteView', {view: 'editWorksite'});
             this.$store.dispatch('getSite', feature.id).then((worksite) => {
@@ -113,6 +119,10 @@
             });
           });
           return m;
+      },
+      createClusterIcon(feature, latlng) {
+        if (!feature.properties.cluster) {
+          return this.createMarkerIcon(feature, latlng);
         }
 
         const count = feature.properties.point_count;
@@ -127,7 +137,6 @@
 
         return L.marker(latlng, {icon: icon});
       }
-
     }
   }
   // generateMarkerImagePath(mark.claimed_by, mark.status, mark.work_type)
