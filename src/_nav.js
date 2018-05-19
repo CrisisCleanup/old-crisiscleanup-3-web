@@ -8,13 +8,8 @@ export default {
       icon: 'icon-home',
     },
     {
-      name: 'Leaflet Map',
+      name: i18n.t('nav.work_orders'),
       url: '/worker/map',
-      icon: 'fa fa-wrench',
-    },
-    {
-      name: 'Google Map',
-      url: '/worker/google',
       icon: 'fa fa-wrench',
     },
     {

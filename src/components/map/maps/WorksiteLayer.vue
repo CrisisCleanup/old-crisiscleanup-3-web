@@ -103,7 +103,6 @@
       },
       createMarkerIcon(feature, latlng) {
           const markerInfo = getMarkerInfo(null, feature.properties.status, feature.properties.work_type);
-          console.log(markerInfo);
           let i = L.icon({
             // TODO: claimed_by
             iconUrl: markerInfo.path,
@@ -131,7 +130,7 @@
             count < 1000 ? 'medium' : 'large';
         const icon = L.divIcon({
           html: '<div><span>' + feature.properties.point_count_abbreviated + '</span></div>',
-          className: 'marker-cluster marker-cluster-' + size,
+          className: 'marker-cluster marker-cluster-all',
           iconSize: L.point(40, 40)
         });
 
@@ -143,12 +142,12 @@
 </script>
 <style>
 
-  .marker-cluster-small {
-    background-color: rgba(181, 226, 140, 0.6);
+  .marker-cluster-all{
+    background-color: rgba(99, 99, 99, 0.99);
   }
 
-  .marker-cluster-small div {
-    background-color: rgba(110, 204, 57, 0.6);
+  .marker-cluster-all div {
+    background-color: rgba(203, 203, 201, 0.6);
   }
 
   .marker-cluster-medium {

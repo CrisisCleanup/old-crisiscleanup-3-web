@@ -146,13 +146,6 @@ const router = new Router({
           meta: {auth: true}
         },
         {
-          path: 'google',
-          name: 'WorkerMap',
-          component: WorkerMapView,
-          props: {mapImpl: 'google-map'},
-          meta: {auth: true}
-        },
-        {
           path: 'my-organization',
           name: 'MyOrganization',
           component: MyOrganization,

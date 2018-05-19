@@ -4,7 +4,6 @@
   </div>
 </template>
 <script>
-  import GoogleMap from './maps/GoogleMap.vue';
   import LeafletMap from './maps/LeafletMap';
 
   export default {
@@ -16,7 +15,6 @@
     },
     name: 'WorkerMap',
     components: {
-      GoogleMap,
       LeafletMap
     },
     data() {

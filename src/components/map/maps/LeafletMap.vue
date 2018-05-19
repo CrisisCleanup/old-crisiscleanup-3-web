@@ -11,8 +11,10 @@
   import * as L from 'leaflet';
   import WorksiteLayer from './WorksiteLayer';
   import StateLayer from './StateLayer';
-  import 'leaflet-loading'
+  import 'leaflet-loading';
+  import 'leaflet.gridlayer.googlemutant';
   import { mapGetters } from 'vuex';
+  import CCUMapEventHub from "@/events/CCUMapEventHub";
 
   L.Icon.Default.imagePath = '.';
   // OR
@@ -28,10 +30,10 @@
     data() {
       return {
         ready: false,
-        tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }),
+        // tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        //   maxZoom: 18,
+        //   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        // }),
       }
     },
     components: {
@@ -52,11 +54,18 @@
       this.initMap(options);
       this.addCircle();
       this.ready = true;
+      CCUMapEventHub.$on('aside-changed', () => {
+        setTimeout(() => { this.map.invalidateSize()}, 400);
+      })
     },
     methods: {
       initMap(options) {
         this.map = L.map(this.$el, options);
-        this.tileLayer.addTo(this.map);
+        // this.tileLayer.addTo(this.map);
+
+        L.gridLayer.googleMutant({
+          type: 'roadmap'
+        }).addTo(this.map);
         // this.map.on('click', this.mapClicked);
       },
       addCircle() {
