@@ -22,6 +22,12 @@
           Show U.S. Counties
         </label>
       </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" v-model="eventBoundaryLayerActivated" @change="switchEventBoundaryLayer"/>
+          Event Boundary
+        </label>
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +45,7 @@
         statesLayerActivated: false,
         countriesLayerActivated: false,
         countiesLayerActivated: false,
+        eventBoundaryLayerActivated: false
       }
     },
     // computed: {
@@ -73,6 +80,13 @@
           CCUMapEventHub.$emit('add-counties-layer');
         } else {
           CCUMapEventHub.$emit('remove-counties-layer');
+        }
+      },
+      switchEventBoundaryLayer() {
+        if (this.eventBoundaryLayerActivated) {
+          CCUMapEventHub.$emit('add-event-boundary-layer');
+        } else {
+          CCUMapEventHub.$emit('remove-event-boundary-layer');
         }
       }
     }

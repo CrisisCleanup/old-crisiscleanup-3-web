@@ -5,6 +5,7 @@
       <StateLayer v-if="ready" :map-object="map"/>
       <CountryLayer v-if="ready" :map-object="map"/>
       <CountyLayer v-if="ready" :map-object="map"/>
+      <EventBoundaryLayer v-if="ready" :map-object="map"/>
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import StateLayer from './StateLayer';
   import CountryLayer from './CountryLayer';
   import CountyLayer from './CountyLayer';
+  import EventBoundaryLayer from './EventBoundaryLayer';
   import 'leaflet-loading';
   import 'leaflet.gridlayer.googlemutant';
   import { mapGetters } from 'vuex';
@@ -41,10 +43,11 @@
       }
     },
     components: {
+      EventBoundaryLayer,
       WorksiteLayer,
       StateLayer,
       CountryLayer,
-      CountyLayer
+      CountyLayer,
     },
     computed: {
       ...mapGetters('map', [ 'getMapViewingArea' ]),
