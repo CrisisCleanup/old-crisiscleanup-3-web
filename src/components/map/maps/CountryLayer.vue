@@ -13,33 +13,39 @@
       return {}
     },
     mounted() {
-      CCUMapEventHub.$on('add-states-layer', (e) => {
-        this.addStateLayer();
+      CCUMapEventHub.$on('add-countries-layer', (e) => {
+        this.addCountriesLayer();
       });
-      CCUMapEventHub.$on('remove-states-layer', (e) => {
-        this.removeStateLayer();
+      CCUMapEventHub.$on('remove-countries-layer', (e) => {
+        this.removeCountriesLayer();
       });
     },
     render() {
       return null;
     },
     methods: {
-      addStateLayer() {
+      addCountriesLayer() {
         function onEachFeature(feature, layer) {
           if (feature.properties && feature.properties.name) {
             layer.bindPopup(feature.properties.name);
           }
         }
 
-        Vue.axios.get('/states').then(resp => {
-          this.stateLayer = L.geoJSON(resp.data, {
-            onEachFeature: onEachFeature
+        const style = {
+          "color": "#ff7780",
+          "weight": 3
+        };
+
+        Vue.axios.get('/countries').then(resp => {
+          this.countriesLayer = L.geoJSON(resp.data, {
+            onEachFeature: onEachFeature,
+            style: style
           }).addTo(this.mapObject);
         });
       },
-      removeStateLayer() {
-        if (this.stateLayer) {
-          this.stateLayer.remove();
+      removeCountriesLayer() {
+        if (this.countriesLayer) {
+          this.countriesLayer.remove();
         }
       }
     }

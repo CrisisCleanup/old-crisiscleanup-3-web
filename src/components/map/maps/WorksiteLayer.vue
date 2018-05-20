@@ -66,7 +66,7 @@
         Vue.axios.get('/worksites/points', {params: this.pointParams}).then(resp => {
           index = supercluster({
             log: false,
-            radius: 50,
+            radius: 150,
             maxZoom: 16
           }).load(resp.data.features);
           this.updateCluster();

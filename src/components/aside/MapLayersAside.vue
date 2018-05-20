@@ -6,8 +6,20 @@
     <div class="container" style="padding-top: 10px;">
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="states" @change="triggerMapLayerRefresh"/>
+          <input class="form-check-input" type="checkbox" v-model="statesLayerActivated" @change="switchStatesLayer"/>
           Show U.S. States
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" v-model="countriesLayerActivated" @change="switchCountriesLayer"/>
+          Show World Countries
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" v-model="countiesLayerActivated" @change="switchCountiesLayer"/>
+          Show U.S. Counties
         </label>
       </div>
     </div>
@@ -23,27 +35,45 @@
       Callout
     },
     data() {
-      return {}
-    },
-    computed: {
-      states: {
-        get() {
-          return this.$store.state.layers.states;
-        },
-        set(value) {
-          this.$store.commit('layers/setStatesLayer', value);
-        }
+      return {
+        statesLayerActivated: false,
+        countriesLayerActivated: false,
+        countiesLayerActivated: false,
       }
     },
+    // computed: {
+    //   states: {
+    //     get() {
+    //       return this.$store.state.layers.states;
+    //     },
+    //     set(value) {
+    //       this.$store.commit('layers/setStatesLayer', value);
+    //     }
+    //   }
+    // },
     mounted() {
     },
     methods: {
-      triggerMapLayerRefresh() {
-        console.log('Trigger STATES LAYER')
-        CCUMapEventHub.$emit('states-layer');
-        // const eid = this.$store.state.worker.event.id;
-        // this.$store.dispatch('map/getWorksites', eid).then((resp) => {
-        // })
+      switchStatesLayer() {
+        if (this.statesLayerActivated) {
+          CCUMapEventHub.$emit('add-states-layer');
+        } else {
+          CCUMapEventHub.$emit('remove-states-layer');
+        }
+      },
+      switchCountriesLayer() {
+        if (this.countriesLayerActivated) {
+          CCUMapEventHub.$emit('add-countries-layer');
+        } else {
+          CCUMapEventHub.$emit('remove-countries-layer');
+        }
+      },
+      switchCountiesLayer() {
+        if (this.countiesLayerActivated) {
+          CCUMapEventHub.$emit('add-counties-layer');
+        } else {
+          CCUMapEventHub.$emit('remove-counties-layer');
+        }
       }
     }
   }

@@ -3,6 +3,8 @@
     <div id="map" class="map" @click="mapClicked">
       <WorksiteLayer v-if="ready" :map-object="map"/>
       <StateLayer v-if="ready" :map-object="map"/>
+      <CountryLayer v-if="ready" :map-object="map"/>
+      <CountyLayer v-if="ready" :map-object="map"/>
     </div>
   </div>
 </template>
@@ -11,6 +13,8 @@
   import * as L from 'leaflet';
   import WorksiteLayer from './WorksiteLayer';
   import StateLayer from './StateLayer';
+  import CountryLayer from './CountryLayer';
+  import CountyLayer from './CountyLayer';
   import 'leaflet-loading';
   import 'leaflet.gridlayer.googlemutant';
   import { mapGetters } from 'vuex';
@@ -30,15 +34,17 @@
     data() {
       return {
         ready: false,
-        // tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        //   maxZoom: 18,
-        //   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        // }),
+        tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }),
       }
     },
     components: {
       WorksiteLayer,
-      StateLayer
+      StateLayer,
+      CountryLayer,
+      CountyLayer
     },
     computed: {
       ...mapGetters('map', [ 'getMapViewingArea' ]),
@@ -61,11 +67,11 @@
     methods: {
       initMap(options) {
         this.map = L.map(this.$el, options);
-        // this.tileLayer.addTo(this.map);
+        this.tileLayer.addTo(this.map);
 
-        L.gridLayer.googleMutant({
-          type: 'roadmap'
-        }).addTo(this.map);
+        // L.gridLayer.googleMutant({
+        //   type: 'roadmap'
+        // }).addTo(this.map);
         // this.map.on('click', this.mapClicked);
       },
       addCircle() {
