@@ -8,15 +8,6 @@ var commands = {
       .setValue('@password', password)
       .click('@submit')
   },
-  submitCredentialsWithEnterBtn: function(email, password) {
-    // this.api.pause(1000);
-    return this.waitForElementVisible('@email', 1000)
-      .assert.visible('@email')
-      .assert.visible('@password')
-      .setValue('@email', email)
-      .setValue('@password', password)
-      .setValue(`@submit`, this.api.Keys.ENTER)
-  },
   clearFields: function() {
     return this.waitForElementVisible('@email', 1000)
       .clearValue('@email')
@@ -26,11 +17,11 @@ var commands = {
 
 module.exports = {
   url: function() {
-    return this.api.launch_url + '/login';
+    return this.api.launch_url + '/register-organization';
   },
   commands: [commands],
   elements: {
-    event: {
+      event: {
       selector: '#ccu-regorg-event'
     },
     primaryFirstName: {
@@ -75,5 +66,4 @@ module.exports = {
     organizationTwitter: {
       selector: '#login-regorg-organization-twitter'
     },
-  }
-};
+  },

@@ -3,41 +3,44 @@
   <div class="animated fadeIn" id="worker-dashboard">
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <!--<b-card header="Worksites">-->
-          <worksites></worksites>
+         <worksites></worksites>
         <!--</b-card>-->
       </div>
-      <div class="col-md-6">
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <b-card v-bind:header = "$t('dashboard.invite_teammates')">
           <invite-teammates></invite-teammates>
         </b-card>
+      </div>
+    </div>
 
         <div class="row">
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.invited_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesCompleted"
                            card-color-class="bg-primary"
                            chart-component="CardLine1ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.active_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
                            card-color-class="bg-info"
                            chart-component="CardLine1ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.inactive_teammates_stat')"
                            :stat-quantity="getWorksiteStats.worksitesAssigned"
                            card-color-class="bg-warning"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.claimed_worksites_stat')"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
@@ -47,74 +50,67 @@
           </div><!--/.col-->
         </div><!--/.row-->
         <div class="row">
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.completed_worksites_stat')"
                            :stat-quantity="getWorksiteStats.worksitesCompleted"
+                           card-color-class="bg-danger"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-3 col-lg-3">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.incomplete_worksites_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
                            card-color-class="bg-primary"
                            chart-component="CardLine1ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
-            <QuickStatCard v-bind:stat-name = "$t('dashboard.incomplete_worksites_stat')"
-                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
-                           card-color-class="bg-info"
-                           chart-component="CardLine1ChartExample"
-            ></QuickStatCard>
-          </div><!--/.col-->
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.est_commercial_value')"
                            :stat-quantity="getWorksiteStats.worksitesAssigned"
-                           card-color-class="bg-warning"
+                           card-color-class="bg-info"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.volunteer_hours_stat')"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
-                           card-color-class="bg-danger"
-                           chart-component="CardLine3ChartExample"
-            ></QuickStatCard>
-          </div><!--/.col-->
-        </div><!--/.row-->
-        <div class="row">
-          <div class="col-sm-6 col-lg-6">
-            <QuickStatCard v-bind:stat-name = "$t('dashboard.average_wait_stat')"
-                           :stat-quantity="getWorksiteStats.worksitesCompleted"
-                           card-color-class="bg-primary"
-                           chart-component="CardLine1ChartExample"
-            ></QuickStatCard>
-          </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
-            <QuickStatCard v-bind:stat-name = "$t('dashboard.longest_wait_stat')"
-                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
-                           card-color-class="bg-info"
-                           chart-component="CardLine1ChartExample"
-            ></QuickStatCard>
-          </div><!--/.col-->
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-6">
-            <QuickStatCard v-bind:stat-name = "$t('dashboard.shortest_wait_stat')"
-                           :stat-quantity="getWorksiteStats.worksitesAssigned"
                            card-color-class="bg-warning"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
-          <div class="col-sm-6 col-lg-6">
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-3 col-lg-3">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.average_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesCompleted"
+                           card-color-class="bg-warning"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-3 col-lg-3">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.longest_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesOpenUnassigned"
+                           card-color-class="bg-danger"
+                           chart-component="CardLine1ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-3 col-lg-3">
+            <QuickStatCard v-bind:stat-name = "$t('dashboard.shortest_wait_stat')"
+                           :stat-quantity="getWorksiteStats.worksitesAssigned"
+                           card-color-class="bg-primary"
+                           chart-component="CardLine3ChartExample"
+            ></QuickStatCard>
+          </div><!--/.col-->
+          <div class="col-sm-3 col-lg-3">
             <QuickStatCard v-bind:stat-name = "$t('dashboard.num_old_open_unassigned_stat')"
                            stat-quantity="$8.3 million"
                            :stat-quantity="'$' + getWorksiteStats.worksitesValueOfServices.toLocaleString()"
-                           card-color-class="bg-danger"
+                           card-color-class="bg-info"
                            chart-component="CardLine3ChartExample"
             ></QuickStatCard>
           </div><!--/.col-->
         </div><!--/.row-->
-
-      </div>
-    </div>
 
     <b-card>
       <div class="row">
