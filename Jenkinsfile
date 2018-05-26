@@ -9,7 +9,7 @@ pipeline {
             label 'primary'
           }
           steps {
-            git credentialsId: 'jenkins-ssh-github', url: 'git@github.com:CrisisCleanup/crisiscleanup-web.git'
+            checkout scm
             googleCloudBuild(
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
@@ -32,7 +32,7 @@ steps:
             label 'primary'
           }
           steps {
-            git credentialsId: 'jenkins-ssh-github', url: 'git@github.com:CrisisCleanup/crisiscleanup-web.git'
+            checkout scm
             googleCloudBuild(
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
