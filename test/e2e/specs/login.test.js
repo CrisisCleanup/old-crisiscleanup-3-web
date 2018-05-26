@@ -23,7 +23,7 @@ module.exports = {
     let record = records[0];
 
     login.navigate()
-      .submitCredentials(record.email, 'demotest')
+      .submitCredentials(record.email, 'ccu12345')
       .waitForElementVisible('#worker-dashboard', 2000)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
@@ -36,7 +36,7 @@ module.exports = {
     let record = records[0];
 
     login.navigate()
-      .submitCredentialsWithEnterBtn(record.email, 'demotest')
+      .submitCredentialsWithEnterBtn(record.email, 'ccu12345')
       .waitForElementVisible('#worker-dashboard', 2000)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
