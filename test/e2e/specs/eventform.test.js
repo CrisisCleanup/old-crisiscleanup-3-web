@@ -1,7 +1,7 @@
 var parse = require('csv-parse/lib/sync');
 var fs = require('fs');
 var path = './test.csv';
-var hurricaneHarveyFormDefinition = require('../../definitions/forms/60-hurricane_harvey.json');
+var hurricaneHarveyFormDefinition = require('../definitions/forms/60-hurricane_harvey.json');
 
 var data = [];
 var contents = fs.readFileSync(path);
