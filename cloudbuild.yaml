@@ -25,3 +25,11 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ccu-1'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build',
+         '--build-arg',
+         'APP_ENV=functional',
+         '-t', 'gcr.io/$PROJECT_ID/ccu3-web:functional',
+         '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/ccu3-web:functional']
