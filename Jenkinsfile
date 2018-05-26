@@ -1,9 +1,8 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Cloud Build') {
       parallel {
-
         stage('Build functional') {
           agent {
             label 'primary'
@@ -13,17 +12,10 @@ pipeline {
             googleCloudBuild(
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
-              request: inline("""
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build',
-         '--build-arg',
-         'APP_ENV=functional',
-         '-t', 'gcr.io/\$PROJECT_ID/ccu3-web:functional',
-         '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/\$PROJECT_ID/ccu3-web:functional']
-"""))
+              substitutions: [
+                _APP_ENV: functional
+              ],
+              request: file('cloudbuild-buildonly.yaml'))
           }
         }
         /*
@@ -36,17 +28,10 @@ steps:
             googleCloudBuild(
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
-              request: inline("""
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build',
-         '--build-arg',
-         'APP_ENV=realdev',
-         '-t', 'gcr.io/\$PROJECT_ID/ccu3-web:dev',
-         '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/\$PROJECT_ID/ccu3-web:dev']
-"""))
+              substitutions: [
+                _APP_ENV: realdev
+              ],
+              request: file('cloudbuild-buildonly.yaml'))
           }
         }
         */
