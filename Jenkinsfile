@@ -1,17 +1,14 @@
 pipeline {
-  agent none
-  stages {
-    stage('Build and test') {
-      agent {
-        kubernetes {
-          label "mypod-${UUID.randomUUID().toString()}"
-          defaultContainer 'node'
-          yaml """
+  agent {
+    kubernetes {
+      label "mypod-${UUID.randomUUID().toString()}"
+      defaultContainer 'node'
+      yaml """
 apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: node
+  - name: nodejs
     image: node:9
     command:
     - cat
@@ -24,14 +21,18 @@ spec:
     persistentVolumeClaim:
       claimName: node-pvc
 """
-        }
-      }
+    }
+  }
+  stages {
+    stage('Build and test') {
       steps {
-        checkout scm
-        sh 'pwd'
-        sh 'yarn install'
-        sh 'ls -alh'
-        sh 'yarn run unit'
+        container('nodejs') {
+          checkout scm
+          sh 'pwd'
+          sh 'yarn install'
+          sh 'ls -alh'
+          sh 'yarn run unit'
+        }
       }
     }
     stage('Cloud Build') {
