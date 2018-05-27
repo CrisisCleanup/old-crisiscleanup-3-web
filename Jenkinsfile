@@ -1,6 +1,47 @@
 pipeline {
-  agent none
+  agent {
+    kubernetes {
+      label 'mypod'
+      defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    some-label: some-label-value
+spec:
+  containers:
+  - name: nodejs
+    image: node:9
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+      - mountPath: /app
+        name: node-storage
+  volumes:
+    - name: node-storage
+      persistentVolumeClaim:
+        claimName: node-pvc   
+"""
+    }
+  }
   stages {
+    stage('Build and test') {
+      steps {
+        container('nodejs') {
+          checkout scm
+          sh 'pwd'
+          sh 'ls -alh /app'
+          sh 'mkdir -p /app/node_modules && cp -rp /app/node_modules ./ && chmod 777 -R ./node_modules'
+          sh 'ls -alh'
+          sh 'yarn install'
+          sh 'yarn run unit'
+          sh 'ls -alh ./node_modules'
+          sh 'cp -rp ./node_modules /app/'
+        }
+      }
+    }
     stage('Cloud Build') {
       parallel {
         stage('Build functional') {
