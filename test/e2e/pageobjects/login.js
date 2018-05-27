@@ -1,7 +1,9 @@
+var WAITTIME = 5000;
+
 var commands = {
   submitCredentials: function(email, password) {
     // this.api.pause(1000);
-    return this.waitForElementVisible('@email', 1000)
+    return this.waitForElementVisible('@email', WAITTIME)
       .assert.visible('@email')
       .assert.visible('@password')
       .setValue('@email', email)
@@ -10,7 +12,7 @@ var commands = {
   },
   submitCredentialsWithEnterBtn: function(email, password) {
     // this.api.pause(1000);
-    return this.waitForElementVisible('@email', 1000)
+    return this.waitForElementVisible('@email', WAITTIME)
       .assert.visible('@email')
       .assert.visible('@password')
       .setValue('@email', email)
@@ -18,7 +20,7 @@ var commands = {
       .setValue(`@submit`, this.api.Keys.ENTER)
   },
   clearFields: function() {
-    return this.waitForElementVisible('@email', 1000)
+    return this.waitForElementVisible('@email', WAITTIME)
       .clearValue('@email')
       .clearValue('@password')
   }

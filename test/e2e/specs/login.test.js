@@ -5,6 +5,7 @@ var path = './test.csv';
 var data = [];
 var contents = fs.readFileSync(path);
 var records = parse(contents, {delimiter: ',', columns: true});
+var WAITTIME = 5000;
 
 module.exports = {
   '@tags': ['login'],
@@ -24,7 +25,7 @@ module.exports = {
 
     login.navigate()
       .submitCredentials(record.email, 'ccu12345')
-      .waitForElementVisible('#worker-dashboard', 2000)
+      .waitForElementVisible('#worker-dashboard', WAITTIME)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
 
@@ -37,7 +38,7 @@ module.exports = {
 
     login.navigate()
       .submitCredentialsWithEnterBtn(record.email, 'ccu12345')
-      .waitForElementVisible('#worker-dashboard', 2000)
+      .waitForElementVisible('#worker-dashboard', WAITTIME)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
 
@@ -50,7 +51,7 @@ module.exports = {
 
     login.navigate()
       .submitCredentials(record.email, 'demotest')
-      .waitForElementVisible('#worker-dashboard', 2000)
+      .waitForElementVisible('#worker-dashboard', WAITTIME)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
 
@@ -78,7 +79,7 @@ module.exports = {
       .assert.urlContains('login')
       .clearFields()
       .submitCredentials(record.email, 'demotest')
-      .waitForElementVisible('#worker-dashboard', 2000)
+      .waitForElementVisible('#worker-dashboard', WAITTIME)
       .assert.containsText('span.d-md-down-none', record.name.trim())
       .assert.urlContains('dashboard');
 
