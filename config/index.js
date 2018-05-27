@@ -9,6 +9,9 @@ switch(process.env.APP_ENV) {
   case 'functional':
     env = require('./functional.env');
     break;
+  case 'functionalci':
+    env = require('./functionalci.env');
+    break;
   case 'local':
     env = require('./local.env');
     break;

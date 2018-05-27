@@ -13,7 +13,7 @@ pipeline {
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
               substitutions: [
-                _APP_ENV: 'functional'
+                _APP_ENV: 'functionalci'
               ],
               request: file('cloudbuild-buildonly.yaml'))
           }
