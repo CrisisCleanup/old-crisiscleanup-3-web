@@ -46,6 +46,7 @@ spec:
               sh 'APP_ENV=functionalci yarn run build'
             }
             container('jnlp') {
+              sh 'cp ./Dockerfile-nginx ./dist/'
               googleCloudBuild(
                 credentialsId: 'crisiscleanup-201303',
                 source: local('dist'),
