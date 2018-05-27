@@ -43,20 +43,15 @@ spec:
         stage('Build functional') {
           steps {
             container('nodejs') {
-              sh 'ls -alh'
+              // FUNCTIONALCI
               sh 'APP_ENV=functionalci yarn run build'
+//              archiveArtifacts artifacts: './dist/'
             }
             container('jnlp') {
-              sh 'ls -alh'
-              sh 'ls -alh dist/'
-//              checkout scm
-//              googleCloudBuild(
-//                credentialsId: 'crisiscleanup-201303',
-//                source: local('.'),
-//                substitutions: [
-//                  _APP_ENV: 'functionalci'
-//                ],
-//                request: file('cloudbuild-buildonly.yaml'))
+              googleCloudBuild(
+                credentialsId: 'crisiscleanup-201303',
+                source: local('dist'),
+                request: file('cloudbuild-nginx.yaml'))
             }
 
           }
@@ -78,6 +73,12 @@ spec:
           }
         }
         */
+      }
+
+    }
+    post {
+      always {
+        archieve
       }
     }
   }
