@@ -11,7 +11,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    test: ci 
+    test: ci
 spec:
   containers:
   - name: node
@@ -75,3 +75,4 @@ spec:
     }
   }
 }
+
