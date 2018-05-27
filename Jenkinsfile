@@ -38,19 +38,20 @@ spec:
         }
       }
     }
-    stage('Cloud Build') {
+    stage('Functional environment build') {
       parallel {
         stage('Build functional') {
           steps {
             container('nodejs') {
-              // FUNCTIONALCI
               sh 'APP_ENV=functionalci yarn run build'
-//              archiveArtifacts artifacts: './dist/'
             }
             container('jnlp') {
               googleCloudBuild(
                 credentialsId: 'crisiscleanup-201303',
                 source: local('dist'),
+                substitutions: [
+                  _APP_ENV: functionalci
+                ],
                 request: file('cloudbuild-nginx.yaml'))
             }
 
