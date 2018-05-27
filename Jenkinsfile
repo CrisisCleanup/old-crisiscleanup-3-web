@@ -19,12 +19,21 @@ spec:
     command:
     - cat
     tty: true
+    volumeMounts:
+      - mountPath: /home/node
+      name: node-storage
+  volumes:
+  - name: node-storage
+    persistentVolumeClaim:
+      claimName: node-pvc
 """
         }
       }
       steps {
         checkout scm
+        sh 'pwd'
         sh 'yarn install'
+        sh 'ls -alh'
         sh 'yarn run unit'
       }
     }
