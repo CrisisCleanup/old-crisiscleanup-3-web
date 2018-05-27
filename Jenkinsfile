@@ -50,7 +50,7 @@ spec:
                 credentialsId: 'crisiscleanup-201303',
                 source: local('dist'),
                 substitutions: [
-                  _APP_ENV: functionalci
+                  _APP_ENV: 'functionalci'
                 ],
                 request: file('cloudbuild-nginx.yaml'))
             }
@@ -68,7 +68,7 @@ spec:
               credentialsId: 'crisiscleanup-201303',
               source: local('.'),
               substitutions: [
-                _APP_ENV: realdev
+                _APP_ENV: 'realdev'
               ],
               request: file('cloudbuild-buildonly.yaml'))
           }

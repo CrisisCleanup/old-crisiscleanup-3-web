@@ -37,6 +37,21 @@ module.exports = {
       },
       selenium_host: "localhost"
     },
+    local: {
+      globals: {
+        devServerURL: 'http://localhost:8080',
+      },
+      launch_url: "http://localhost:8080",
+      end_session_on_fail: true,
+      skip_testcases_on_fail: false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : "/tmp/screenshots",
+        "on_failure" : true,
+        "on_error" : false
+      },
+      selenium_host: "localhost"
+    },
     grid: {
       globals: {
         devServerURL: 'http://webapp'
