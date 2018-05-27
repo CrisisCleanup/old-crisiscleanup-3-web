@@ -31,13 +31,9 @@ spec:
       steps {
         container('nodejs') {
           checkout scm
-          sh 'pwd'
-          sh 'ls -alh /app'
           sh 'mkdir -p /app/node_modules && cp -rp /app/node_modules ./ && chmod 777 -R ./node_modules'
-          sh 'ls -alh'
           sh 'yarn install'
           sh 'yarn run unit'
-          sh 'ls -alh ./node_modules'
           sh 'cp -rp ./node_modules /app/'
         }
       }
@@ -45,18 +41,24 @@ spec:
     stage('Cloud Build') {
       parallel {
         stage('Build functional') {
-          agent {
-            label 'primary'
-          }
           steps {
-            checkout scm
-            googleCloudBuild(
-              credentialsId: 'crisiscleanup-201303',
-              source: local('.'),
-              substitutions: [
-                _APP_ENV: 'functionalci'
-              ],
-              request: file('cloudbuild-buildonly.yaml'))
+            container('nodejs') {
+              sh 'ls -alh'
+              sh 'APP_ENV=functionalci yarn run build'
+            }
+            container('jnlp') {
+              sh 'ls -alh'
+              sh 'ls -alh dist/'
+//              checkout scm
+//              googleCloudBuild(
+//                credentialsId: 'crisiscleanup-201303',
+//                source: local('.'),
+//                substitutions: [
+//                  _APP_ENV: 'functionalci'
+//                ],
+//                request: file('cloudbuild-buildonly.yaml'))
+            }
+
           }
         }
         /*
