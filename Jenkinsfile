@@ -76,11 +76,6 @@ spec:
       }
 
     }
-    post {
-      always {
-        archieve
-      }
-    }
   }
 }
 
