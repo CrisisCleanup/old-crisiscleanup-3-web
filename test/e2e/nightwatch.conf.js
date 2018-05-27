@@ -31,7 +31,7 @@ module.exports = {
       skip_testcases_on_fail: false,
       "screenshots" : {
         "enabled" : true,
-        "path" : "/home/node/reports/errors_screenshots",
+        "path" : "/reports/screenshots",
         "on_failure" : true,
         "on_error" : false
       },
