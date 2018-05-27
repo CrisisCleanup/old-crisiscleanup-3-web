@@ -1,11 +1,11 @@
 var commands = {
   createNewWorksite: function () {
-    return this.waitForElementVisible('@newWorksiteBtn', 1000)
+    return this.waitForElementVisible('@newWorksiteBtn', 5000)
       .click('@newWorksiteBtn')
       .expect.element('@outerForm').to.be.visible;
   },
   saveWorksite: function () {
-    return this.waitForElementVisible('@saveWorksiteBtn', 1000)
+    return this.waitForElementVisible('@saveWorksiteBtn', 5000)
       .click('@saveWorksiteBtn')
   },
 };

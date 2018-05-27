@@ -11,7 +11,7 @@ let login = function (browser) {
   let record = records[0];
   browser.page.login().navigate()
     .submitCredentials(record.email, 'demotest')
-    .waitForElementVisible('#worker-dashboard', 2000)
+    .waitForElementVisible('#worker-dashboard', 5000)
     .assert.urlContains('dashboard');
 };
 

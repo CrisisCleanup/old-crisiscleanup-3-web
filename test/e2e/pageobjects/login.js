@@ -2,7 +2,7 @@ var WAITTIME = 5000;
 
 var commands = {
   submitCredentials: function(email, password) {
-    // this.api.pause(1000);
+    // this.api.pause(5000);
     return this.waitForElementVisible('@email', WAITTIME)
       .assert.visible('@email')
       .assert.visible('@password')
@@ -11,7 +11,7 @@ var commands = {
       .click('@submit')
   },
   submitCredentialsWithEnterBtn: function(email, password) {
-    // this.api.pause(1000);
+    // this.api.pause(5000);
     return this.waitForElementVisible('@email', WAITTIME)
       .assert.visible('@email')
       .assert.visible('@password')

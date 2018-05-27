@@ -97,6 +97,7 @@ module.exports = {
 
     login.navigate()
       .submitCredentials("random3920393@example.com", 'wrongpassword')
+      .waitForElementVisible('div.card-body', WAITTIME)
       .assert.containsText('div.card-body', 'Invalid email or password')
       .assert.urlContains('login');
 
