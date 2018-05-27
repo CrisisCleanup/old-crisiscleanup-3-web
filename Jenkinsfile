@@ -4,14 +4,11 @@ pipeline {
     stage('Build and test') {
       agent {
         kubernetes {
-          label 'nodepod'
+          label "mypod-${UUID.randomUUID().toString()}"
           defaultContainer 'node'
           yaml """
 apiVersion: v1
 kind: Pod
-metadata:
-  labels:
-    test: ci
 spec:
   containers:
   - name: node
