@@ -44,12 +44,13 @@ spec:
           steps {
             container('nodejs') {
               sh 'APP_ENV=functionalci yarn run build'
+              sh 'mkdir dist-functionalci/'
+              sh 'cp ./Dockerfile-nginx ./dist-functionalci/'
             }
             container('jnlp') {
-              sh 'cp ./Dockerfile-nginx ./dist/'
               googleCloudBuild(
                 credentialsId: 'crisiscleanup-201303',
-                source: local('dist'),
+                source: local('dist-functionalci'),
                 substitutions: [
                   _APP_ENV: 'functionalci'
                 ],
