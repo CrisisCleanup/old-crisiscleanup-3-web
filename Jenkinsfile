@@ -46,6 +46,7 @@ spec:
               sh 'APP_ENV=functionalci yarn run build'
               sh 'mkdir dist-functionalci/'
               sh 'cp ./Dockerfile-nginx default.conf ./dist-functionalci/'
+              sh 'cp -rp ./dist/* ./dist-functionalci/'
             }
             container('jnlp') {
               googleCloudBuild(
