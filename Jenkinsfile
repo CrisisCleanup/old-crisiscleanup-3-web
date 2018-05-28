@@ -82,6 +82,9 @@ spec:
     }
   }
   post {
+    always {
+      junit 'report-unit.xml'
+    }
     success {
       slackSend(color: "good", message: "SUCCESS: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
     }
