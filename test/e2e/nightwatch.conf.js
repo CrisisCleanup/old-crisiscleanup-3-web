@@ -31,9 +31,9 @@ module.exports = {
       skip_testcases_on_fail: false,
       "screenshots" : {
         "enabled" : true,
-        "path" : "/reports/screenshots",
+        "path" : "./screenshots",
         "on_failure" : true,
-        "on_error" : false
+        "on_error" : true
       },
       selenium_host: "localhost"
     },
