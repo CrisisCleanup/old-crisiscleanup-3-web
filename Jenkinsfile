@@ -63,9 +63,6 @@ spec:
               _APP_ENV: 'functionalci'
             ],
             request: file('cloudbuild-nginx.yaml'))
-          build(job: 'crisiscleanup-jenkins-functional',
-            parameters: [string(name: 'upstreamBranch', value: $ { env.BRANCH_NAME })],
-            wait: false)
         }
       }
     }
@@ -76,6 +73,9 @@ spec:
     }
     success {
       slackSend(color: "good", message: "SUCCESS: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+      build(job: 'crisiscleanup-jenkins-functional',
+        parameters: [string(name: 'upstreamBranch', value: $ { env.BRANCH_NAME })],
+        wait: true)
     }
     failure {
       slackSend(color: "danger", message: "FAILED: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
