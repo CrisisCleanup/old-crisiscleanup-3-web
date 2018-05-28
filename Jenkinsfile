@@ -47,17 +47,47 @@ pipeline {
       }
     }
     */
-    stage('Build and deploy to dev and staging') {
+    stage('Build and deploy') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
       }
-      steps {
-        build(job: 'crisiscleanup-web-build',
-          parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
-          ],
-          propagate: true,
-          wait: true)
+      parallel {
+        stage('Functional env build') {
+          build(job: 'crisiscleanup-web-build',
+            parameters: [
+              string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
+              string(name: 'deployEnv', value: 'functionalci')
+            ],
+            propagate: true,
+            wait: true)
+        }
+        stage('Dev env build and deploy') {
+          build(job: 'crisiscleanup-web-build',
+            parameters: [
+              string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
+              string(name: 'deployEnv', value: 'realdev')
+            ],
+            propagate: true,
+            wait: true)
+        }
+        stage('Staging env build and deploy') {
+          build(job: 'crisiscleanup-web-build',
+            parameters: [
+              string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
+              string(name: 'deployEnv', value: 'realstaging')
+            ],
+            propagate: true,
+            wait: true)
+        }
+        stage('Prod env build') {
+          build(job: 'crisiscleanup-web-build',
+            parameters: [
+              string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
+              string(name: 'deployEnv', value: 'realprod')
+            ],
+            propagate: true,
+            wait: true)
+        }
       }
     }
   }
