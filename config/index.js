@@ -31,8 +31,8 @@ console.log("ENV: ", env);
 module.exports = {
   build: {
     env: (env !== null) ? env : require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, `../dist-${process.env.APP_ENV}/index.html`),
+    assetsRoot: path.resolve(__dirname, `../dist-${process.env.APP_ENV}`),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
