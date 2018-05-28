@@ -41,21 +41,55 @@ spec:
         }
       }
     }
-    stage('Functional build') {
+    stage('Functional environment build') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
       }
       steps {
         build(job: 'crisiscleanup-web-build',
           parameters: [
-            string(name: 'upstreamBranch', value: "${upstreamBranch}"),
+            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
             string(name: 'deployEnv', value: 'functionalci')
           ],
-          propagate: false,
+          propagate: true,
           wait: true)
+      }
+    }
+    stage('Functional environment test') {
+      when {
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
+      }
+      steps {
         build(job: 'crisiscleanup-functional-tests',
           parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
-          propagate: false,
+          propagate: true,
+          wait: true)
+      }
+    }
+    stage('Build for dev') {
+      when {
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
+      }
+      steps {
+        build(job: 'crisiscleanup-web-build',
+          parameters: [
+            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
+            string(name: 'deployEnv', value: 'realdev')
+          ],
+          propagate: true,
+          wait: true)
+      }
+    }
+    stage('Deploy to dev') {
+      when {
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
+      }
+      steps {
+        build(job: 'crisiscleanup-web-deploy',
+          parameters: [
+            string(name: 'deployEnv', value: "realdev")
+          ],
+          propagate: true,
           wait: true)
       }
     }
