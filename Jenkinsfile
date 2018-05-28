@@ -27,12 +27,9 @@ spec:
     }
   }
   stages {
-    stage('Build and test') {
+    stage('Build and unit test') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
-//        anyOf {
-//          branch 'master'; branch 'staging'
-//        }
       }
       steps {
         container('nodejs') {
@@ -44,26 +41,22 @@ spec:
         }
       }
     }
-    stage('Functional environment build') {
+    stage('Functional build') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
       }
       steps {
-        container('nodejs') {
-          sh 'APP_ENV=functionalci yarn run build'
-          sh 'mkdir dist-functionalci/'
-          sh 'cp ./Dockerfile-nginx default.conf ./dist-functionalci/'
-          sh 'cp -rp ./dist/* ./dist-functionalci/'
-        }
-        container('jnlp') {
-          googleCloudBuild(
-            credentialsId: 'crisiscleanup-201303',
-            source: local('dist-functionalci'),
-            substitutions: [
-              _APP_ENV: 'functionalci'
-            ],
-            request: file('cloudbuild-nginx.yaml'))
-        }
+        build(job: 'crisiscleanup-web-build',
+          parameters: [
+            string(name: 'upstreamBranch', value: "${upstreamBranch}"),
+            string(name: 'deployEnv', value: 'functionalci')
+          ],
+          propagate: false,
+          wait: true)
+        build(job: 'crisiscleanup-functional-tests',
+          parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
+          propagate: false,
+          wait: true)
       }
     }
   }
@@ -73,9 +66,7 @@ spec:
     }
     success {
       slackSend(color: "good", message: "SUCCESS: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
-      build(job: 'crisiscleanup-jenkins-functional',
-        parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
-        wait: true)
+
     }
     failure {
       slackSend(color: "danger", message: "FAILED: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
