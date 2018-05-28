@@ -68,6 +68,7 @@ module.exports = {
 
     browser.end();
   },
+  /*
   'login with bad credentials and then correct': function (browser) {
     var login = browser.page.login();
 
@@ -85,6 +86,7 @@ module.exports = {
 
     browser.end();
   },
+  */
   'go to login': function (browser) {
     let homePage = browser.page.home();
     homePage.navigate();
