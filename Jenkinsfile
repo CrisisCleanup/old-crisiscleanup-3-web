@@ -58,7 +58,6 @@ pipeline {
           ],
           propagate: true,
           wait: true)
-
       }
     }
   }
