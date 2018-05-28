@@ -8,7 +8,7 @@ var records = parse(contents, {delimiter: ',', columns: true});
 var WAITTIME = 5000;
 
 module.exports = {
-  '@tags': ['login'],
+  '@tags': ['login', 'smoke'],
   'login': function (browser) {
     var login = browser.page.login();
 
@@ -58,6 +58,7 @@ module.exports = {
     // browser.pause(60000);
     browser.end();
   },
+  /*
   'login with bad credentials': function (browser) {
     var login = browser.page.login();
 
@@ -68,7 +69,6 @@ module.exports = {
 
     browser.end();
   },
-  /*
   'login with bad credentials and then correct': function (browser) {
     var login = browser.page.login();
 

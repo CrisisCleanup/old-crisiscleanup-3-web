@@ -38,7 +38,7 @@ let getAllSections =  function(fields) {
 };
 
 module.exports = {
-  '@tags': ['eventform'],
+  '@tags': ['eventform', 'smoke'],
   'event form renders': function (browser) {
     login(browser);
     browser.page.leftaside().clickWorkerMapLink();
