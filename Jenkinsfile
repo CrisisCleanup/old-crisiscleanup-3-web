@@ -29,7 +29,7 @@ spec:
   stages {
     stage('Build and test') {
       when {
-        expression { BRANCH_NAME == ~/(feature\/*|jenkins)/ }
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
 //        anyOf {
 //          branch 'master'; branch 'staging'
 //        }
@@ -45,31 +45,27 @@ spec:
       }
     }
     stage('Functional environment build') {
-      parallel {
-        stage('Build functional') {
-          when {
-            expression { BRANCH_NAME == ~/(feature\/*|jenkins)/ }
-          }
-          steps {
-            container('nodejs') {
-              sh 'APP_ENV=functionalci yarn run build'
-              sh 'mkdir dist-functionalci/'
-              sh 'cp ./Dockerfile-nginx default.conf ./dist-functionalci/'
-              sh 'cp -rp ./dist/* ./dist-functionalci/'
-            }
-            container('jnlp') {
-              googleCloudBuild(
-                credentialsId: 'crisiscleanup-201303',
-                source: local('dist-functionalci'),
-                substitutions: [
-                  _APP_ENV: 'functionalci'
-                ],
-                request: file('cloudbuild-nginx.yaml'))
-            }
-            build(job: 'crisiscleanup-jenkins-functional',
-              parameters: [string(name: 'upstreamBranch', value: ${env.BRANCH_NAME})],
-              wait: false)
-          }
+      when {
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
+      }
+      steps {
+        container('nodejs') {
+          sh 'APP_ENV=functionalci yarn run build'
+          sh 'mkdir dist-functionalci/'
+          sh 'cp ./Dockerfile-nginx default.conf ./dist-functionalci/'
+          sh 'cp -rp ./dist/* ./dist-functionalci/'
+        }
+        container('jnlp') {
+          googleCloudBuild(
+            credentialsId: 'crisiscleanup-201303',
+            source: local('dist-functionalci'),
+            substitutions: [
+              _APP_ENV: 'functionalci'
+            ],
+            request: file('cloudbuild-nginx.yaml'))
+          build(job: 'crisiscleanup-jenkins-functional',
+            parameters: [string(name: 'upstreamBranch', value: $ { env.BRANCH_NAME })],
+            wait: false)
         }
       }
     }
