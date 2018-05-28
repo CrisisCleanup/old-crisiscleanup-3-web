@@ -6,6 +6,7 @@ pipeline {
     }
   }
   stages {
+    /*
     stage('Build and unit test') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
@@ -45,28 +46,15 @@ pipeline {
           wait: true)
       }
     }
-    stage('Build for dev') {
+    */
+    stage('Build and deploy to dev and staging') {
       when {
         expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
       }
       steps {
         build(job: 'crisiscleanup-web-build',
           parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}"),
-            string(name: 'deployEnv', value: 'realdev')
-          ],
-          propagate: true,
-          wait: true)
-      }
-    }
-    stage('Deploy to dev') {
-      when {
-        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
-      }
-      steps {
-        build(job: 'crisiscleanup-web-deploy',
-          parameters: [
-            string(name: 'deployEnv', value: "realdev")
+            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
           ],
           propagate: true,
           wait: true)
