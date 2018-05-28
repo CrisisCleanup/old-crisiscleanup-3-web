@@ -74,7 +74,7 @@ spec:
     success {
       slackSend(color: "good", message: "SUCCESS: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
       build(job: 'crisiscleanup-jenkins-functional',
-        parameters: [string(name: 'upstreamBranch', value: ${env.BRANCH_NAME})],
+        parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
         wait: true)
     }
     failure {
