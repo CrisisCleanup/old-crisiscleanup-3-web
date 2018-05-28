@@ -10,7 +10,7 @@ var records = parse(contents, {delimiter: ',', columns: true});
 let login = function (browser) {
   let record = records[0];
   browser.page.login().navigate()
-    .submitCredentials(record.email, 'demotest')
+    .submitCredentials(record.email, 'ccu12345')
     .waitForElementVisible('#worker-dashboard', 5000)
     .assert.urlContains('dashboard');
 };
