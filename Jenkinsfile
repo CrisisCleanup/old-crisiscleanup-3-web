@@ -28,6 +28,12 @@ spec:
   }
   stages {
     stage('Build and test') {
+      when {
+        expression { BRANCH_NAME == ~/(feature\/*|jenkins)/ }
+//        anyOf {
+//          branch 'master'; branch 'staging'
+//        }
+      }
       steps {
         container('nodejs') {
           checkout scm
@@ -41,6 +47,9 @@ spec:
     stage('Functional environment build') {
       parallel {
         stage('Build functional') {
+          when {
+            expression { BRANCH_NAME == ~/(feature\/*|jenkins)/ }
+          }
           steps {
             container('nodejs') {
               sh 'APP_ENV=functionalci yarn run build'
@@ -57,28 +66,12 @@ spec:
                 ],
                 request: file('cloudbuild-nginx.yaml'))
             }
-
+            build(job: 'crisiscleanup-jenkins-functional',
+              parameters: [string(name: 'upstreamBranch', value: ${env.BRANCH_NAME})],
+              wait: false)
           }
         }
-        /*
-        stage('Build dev') {
-          agent {
-            label 'primary'
-          }
-          steps {
-            checkout scm
-            googleCloudBuild(
-              credentialsId: 'crisiscleanup-201303',
-              source: local('.'),
-              substitutions: [
-                _APP_ENV: 'realdev'
-              ],
-              request: file('cloudbuild-buildonly.yaml'))
-          }
-        }
-        */
       }
-
     }
   }
   post {
