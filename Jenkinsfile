@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Deploy to dev and staging') {
       when {
-        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins)/ }
+        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins|PR-*)/ }
       }
       steps {
         build(job: 'crisiscleanup-web-deploy',
