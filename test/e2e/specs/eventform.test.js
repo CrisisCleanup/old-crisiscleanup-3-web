@@ -10,8 +10,8 @@ var records = parse(contents, {delimiter: ',', columns: true});
 let login = function (browser) {
   let record = records[0];
   browser.page.login().navigate()
-    .submitCredentials(record.email, 'demotest')
-    .waitForElementVisible('#worker-dashboard', 2000)
+    .submitCredentials(record.email, 'ccu12345')
+    .waitForElementVisible('#worker-dashboard', 5000)
     .assert.urlContains('dashboard');
 };
 
@@ -38,7 +38,7 @@ let getAllSections =  function(fields) {
 };
 
 module.exports = {
-  '@tags': ['eventform'],
+  '@tags': ['eventform', 'smoke'],
   'event form renders': function (browser) {
     login(browser);
     browser.page.leftaside().clickWorkerMapLink();

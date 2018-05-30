@@ -24,14 +24,29 @@ module.exports = {
     },
     jenkins: {
       globals: {
-        devServerURL: 'http://localhost:9000',
+        devServerURL: 'http://localhost',
       },
-      launch_url: "http://localhost:9000",
+      launch_url: "http://localhost",
+      end_session_on_fail: false,
+      skip_testcases_on_fail: false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : "./screenshots",
+        "on_failure" : true,
+        "on_error" : true
+      },
+      selenium_host: "localhost"
+    },
+    local: {
+      globals: {
+        devServerURL: 'http://localhost:8080',
+      },
+      launch_url: "http://localhost:8080",
       end_session_on_fail: true,
       skip_testcases_on_fail: false,
       "screenshots" : {
         "enabled" : true,
-        "path" : "/home/node/reports/errors_screenshots",
+        "path" : "/tmp/screenshots",
         "on_failure" : true,
         "on_error" : false
       },

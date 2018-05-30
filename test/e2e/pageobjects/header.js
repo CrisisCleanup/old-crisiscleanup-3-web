@@ -1,6 +1,6 @@
 var commands = {
   setEventContext: function(eventId) {
-    return this.waitForElementVisible('@contextSelector', 1000)
+    return this.waitForElementVisible('@contextSelector', 5000)
       .click(`select[id="ccu-event-context-selector"] option[value="${eventId}"]`)
   },
 };

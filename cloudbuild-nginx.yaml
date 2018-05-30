@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
-         '--build-arg',
-         'APP_ENV=${_APP_ENV}',
+         '-f',
+         './Dockerfile-nginx',
          '-t', 'gcr.io/$PROJECT_ID/ccu3-web:${_APP_ENV}',
          '.']
 images: ['gcr.io/$PROJECT_ID/ccu3-web:${_APP_ENV}']
 substitutions:
-    _APP_ENV: realdev
+    _APP_ENV: functionalci
