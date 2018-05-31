@@ -9,6 +9,7 @@ import store from './store'
 Vue.use(BootstrapVue);
 import i18n from './services/i18n';
 import './services/notifications';
+import loading from './services/loading';
 
 window.$ = window.jQuery = require('jquery');
 
@@ -20,6 +21,7 @@ let app = new Vue({
   router,
   store,
   i18n,
+  vueLoading: loading,
   template: '<App/>',
   components: {
     App

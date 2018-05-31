@@ -35,9 +35,10 @@ pipeline {
           wait: true)
       }
     }
-    stage('Deploy to dev and staging') {
+    stage('Deploy pull request to dev and staging') {
       when {
-        expression { BRANCH_NAME ==~ /(feature\/*|development|jenkins|PR-*)/ }
+        environment name: 'CHANGE_ID', value: ''
+        branch 'master'
       }
       steps {
         build(job: 'crisiscleanup-web-deploy',

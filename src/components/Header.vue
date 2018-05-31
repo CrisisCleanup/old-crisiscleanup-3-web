@@ -40,6 +40,7 @@
 </template>
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex';
+import CCUMapEventHub from "@/events/CCUMapEventHub";
 
 export default {
 
@@ -79,6 +80,7 @@ export default {
       this.rightAsideToggle["icon-arrow-left"] = !this.rightAsideToggle["icon-arrow-left"];
       this.rightAsideToggle["icon-arrow-right"] = !this.rightAsideToggle["icon-arrow-right"];
       document.body.classList.toggle('aside-menu-hidden')
+      CCUMapEventHub.$emit('aside-changed');
     },
     logout (e) {
       this.$store.dispatch('auth/logout');

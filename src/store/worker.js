@@ -29,7 +29,6 @@ export default {
       data: {}
     },
     isNewSite: false,
-    mapViewingArea: {},
     dashboardWorksites: {
       offset: 0,
       limit: 4,
@@ -105,9 +104,6 @@ export default {
     setIsNewSite (state, payload) {
       state.isNewSite = payload;
     },
-    setMapViewingArea (state, payload) {
-      state.mapViewingArea = payload;
-    },
     setDashboardWorksites (state, payload) {
       state.dashboardWorksites.worksites = payload;
     },
@@ -168,13 +164,18 @@ export default {
 
   actions: {
     getSite({ commit, state, dispatch }, siteId) {
-      startLoading(dispatch, 'getSite');
-      return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
-        commit('setCurrentSiteData', resp.data);
-        commit('setIsNewSite', false);
-        commit('setSiteFormErrors', {})
-        commit('setActiveWorksiteView', {view: 'editWorksite'});
-        endLoading(dispatch, 'getSite');
+      return new Promise((resolve, reject) => {
+        startLoading(dispatch, 'getSite');
+        return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
+          commit('setCurrentSiteData', resp.data);
+          commit('setIsNewSite', false);
+          commit('setSiteFormErrors', {})
+          commit('setActiveWorksiteView', {view: 'editWorksite'});
+          endLoading(dispatch, 'getSite');
+          resolve(resp.data);
+        }, function (error) {
+          reject(error);
+        });
       });
     },
     claimSite({commit, state}) {
