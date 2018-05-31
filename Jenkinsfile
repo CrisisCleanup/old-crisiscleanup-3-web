@@ -3,7 +3,7 @@ pipeline {
     label 'master'
   }
   environment {
-    TARGET_BRANCH = (env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME)
+    TARGET_BRANCH = env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME
   }
   stages {
     stage('Build and unit test') {
