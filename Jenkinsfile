@@ -1,9 +1,6 @@
 pipeline {
   agent {
-    kubernetes {
-      label 'jenkins-web'
-      defaultContainer 'jnlp'
-    }
+    label 'master'
   }
   stages {
     stage('Build and unit test') {
@@ -37,11 +34,16 @@ pipeline {
     }
     stage('Deploy pull request to dev and staging') {
       when {
-        environment name: 'CHANGE_ID', value: ''
-        branch 'master'
+        allOf {
+          changeRequest()
+          not {
+            branch 'master'
+          }
+        }
       }
       steps {
         build(job: 'crisiscleanup-web-deploy',
+
           parameters: [
             string(name: 'deployEnv', value: "devstaging")
           ],
@@ -62,7 +64,6 @@ pipeline {
           wait: true)
       }
     }
-    // TODO: Pull requests
   }
   post {
     success {
