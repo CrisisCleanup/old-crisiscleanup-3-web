@@ -3,7 +3,7 @@ pipeline {
     label 'master'
   }
   environment {
-    TARGET_BRANCH = env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME
+    TARGET_BRANCH = getTargetBranch()
   }
   stages {
     stage('Build and unit test') {
@@ -79,4 +79,8 @@ pipeline {
       slackSend(color: "warn", message: "UNSTABLE: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
     }
   }
+}
+
+def getTargetBranch() {
+  return env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME
 }
