@@ -2,12 +2,15 @@ pipeline {
   agent {
     label 'master'
   }
+  environment {
+    TARGET_BRANCH = (env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME)
+  }
   stages {
     stage('Build and unit test') {
       steps {
         build(job: 'crisiscleanup-web-unit',
           parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
+            string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")
           ],
           propagate: true,
           wait: true)
@@ -18,7 +21,7 @@ pipeline {
       steps {
         build(job: 'crisiscleanup-web-build',
           parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
+            string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")
           ],
           propagate: true,
           wait: true)
@@ -27,7 +30,7 @@ pipeline {
     stage('Functional environment test') {
       steps {
         build(job: 'crisiscleanup-functional-tests',
-          parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
+          parameters: [string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")],
           propagate: true,
           wait: true)
       }
