@@ -31,7 +31,7 @@
           }
         }
 
-        Vue.axios.get('/states').then(resp => {
+        Vue.axios.get('/geo/states').then(resp => {
           this.stateLayer = L.geoJSON(resp.data, {
             onEachFeature: onEachFeature
           }).addTo(this.mapObject);

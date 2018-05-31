@@ -15,6 +15,9 @@ switch(process.env.APP_ENV) {
   case 'local':
     env = require('./development/local.env');
     break;
+  case 'localstaging':
+    env = require('./development/local.env');
+    break;
   case 'realdev':
     env = require('./production/realdev.env');
     break;
