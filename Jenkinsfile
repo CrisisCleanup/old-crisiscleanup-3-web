@@ -1,16 +1,16 @@
 pipeline {
   agent {
-    kubernetes {
-      label 'jenkins-web'
-      defaultContainer 'jnlp'
-    }
+    label 'master'
+  }
+  environment {
+    TARGET_BRANCH = getTargetBranch()
   }
   stages {
     stage('Build and unit test') {
       steps {
         build(job: 'crisiscleanup-web-unit',
           parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
+            string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")
           ],
           propagate: true,
           wait: true)
@@ -21,7 +21,7 @@ pipeline {
       steps {
         build(job: 'crisiscleanup-web-build',
           parameters: [
-            string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")
+            string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")
           ],
           propagate: true,
           wait: true)
@@ -30,18 +30,23 @@ pipeline {
     stage('Functional environment test') {
       steps {
         build(job: 'crisiscleanup-functional-tests',
-          parameters: [string(name: 'upstreamBranch', value: "${env.BRANCH_NAME}")],
+          parameters: [string(name: 'upstreamBranch', value: "${env.TARGET_BRANCH}")],
           propagate: true,
           wait: true)
       }
     }
     stage('Deploy pull request to dev and staging') {
       when {
-        environment name: 'CHANGE_ID', value: ''
-        branch 'master'
+        allOf {
+          changeRequest()
+          not {
+            branch 'master'
+          }
+        }
       }
       steps {
         build(job: 'crisiscleanup-web-deploy',
+
           parameters: [
             string(name: 'deployEnv', value: "devstaging")
           ],
@@ -62,7 +67,6 @@ pipeline {
           wait: true)
       }
     }
-    // TODO: Pull requests
   }
   post {
     success {
@@ -75,4 +79,8 @@ pipeline {
       slackSend(color: "warn", message: "UNSTABLE: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
     }
   }
+}
+
+def getTargetBranch() {
+  return env.CHANGE_TARGET ? env.CHANGE_TARGET : env.BRANCH_NAME
 }

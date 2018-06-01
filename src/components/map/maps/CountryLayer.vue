@@ -36,7 +36,7 @@
           "weight": 3
         };
 
-        Vue.axios.get('/countries').then(resp => {
+        Vue.axios.get('/geo/countries').then(resp => {
           this.countriesLayer = L.geoJSON(resp.data, {
             onEachFeature: onEachFeature,
             style: style

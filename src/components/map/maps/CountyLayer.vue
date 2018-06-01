@@ -31,7 +31,7 @@
           }
         }
 
-        Vue.axios.get('/counties').then(resp => {
+        Vue.axios.get('/geo/counties').then(resp => {
           this.countiesLayer = L.geoJSON(resp.data, {
             onEachFeature: onEachFeature
           }).addTo(this.mapObject);

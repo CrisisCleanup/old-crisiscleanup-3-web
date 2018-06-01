@@ -36,7 +36,7 @@
     data() {
       return {
         ready: false,
-        tileLayer: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        tileLayer: L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }),

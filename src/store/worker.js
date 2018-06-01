@@ -19,7 +19,7 @@ export default {
   state: {
     participatingEvents: [],
     event: {
-      id: 60,
+      id: 55,
       uid: '',
     },
     eventJustChanged: false,
