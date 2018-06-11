@@ -9,25 +9,27 @@
                 <h1>{{ $t('actions.login') }}</h1>
                 <p class="text-muted">{{ $t('login.sign_in_msg') }}</p>
                 <p class="red-text" v-if="loginErrors">{{ $t('login.invalid_credentials_msg') }}</p>
-                <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <b-form-input id="login-email" v-model="email" type="text"
-                                v-bind:placeholder="$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
-                </div>
-                <div class="input-group mb-4">
-                  <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <b-form-input id="login-password" v-model="password" type="password"
-                                :state="loginErrors ? false : null"
-                                v-bind:placeholder="$t('login.password_placeholder')"/>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{ $t('actions.login') }} </button>
+                <b-form @submit="login">
+                  <div class="input-group mb-3">
+                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                    <b-form-input id="login-email" v-model="email" type="email" required
+                                  v-bind:placeholder="$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
                   </div>
-                  <!--<div class="col-6 text-right">-->
-                  <!--<button type="button" class="btn btn-link px-0">{{ $t('actions.forgot_password') }}</button>-->
-                  <!--</div>-->
-                </div>
+                  <div class="input-group mb-4">
+                    <span class="input-group-addon"><i class="icon-lock"></i></span>
+                    <b-form-input id="login-password" v-model="password" type="password" required
+                                  :state="loginErrors ? false : null"
+                                  v-bind:placeholder="$t('login.password_placeholder')"/>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button id="login-submit-btn" type="submit" class="btn btn-primary px-4">{{ $t('actions.login') }} </button>
+                    </div>
+                    <!--<div class="col-6 text-right">-->
+                    <!--<button type="button" class="btn btn-link px-0">{{ $t('actions.forgot_password') }}</button>-->
+                    <!--</div>-->
+                  </div>
+                </b-form>
               </div>
             </div>
           </div>
