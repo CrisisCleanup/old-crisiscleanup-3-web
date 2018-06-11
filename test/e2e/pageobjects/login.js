@@ -16,8 +16,7 @@ var commands = {
       .assert.visible('@email')
       .assert.visible('@password')
       .setValue('@email', email)
-      .setValue('@password', password)
-      .setValue(`@submit`, this.api.Keys.ENTER)
+      .setValue('@password', [password, this.api.Keys.ENTER])
   },
   clearFields: function() {
     return this.waitForElementVisible('@email', WAITTIME)
