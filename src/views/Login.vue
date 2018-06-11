@@ -9,10 +9,10 @@
                 <h1>{{ $t('actions.login') }}</h1>
                 <p class="text-muted">{{ $t('login.sign_in_msg') }}</p>
                 <p class="red-text" v-if="loginErrors">{{ $t('login.invalid_credentials_msg') }}</p>
-                <b-form @submit="login">
+                <b-form @submit="login" id="login-form">
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="icon-user"></i></span>
-                    <b-form-input id="login-email" v-model="email" type="email" required
+                    <b-form-input id="login-email" v-model="email" type="email" required autofocus
                                   v-bind:placeholder="$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
                   </div>
                   <div class="input-group mb-4">
@@ -23,6 +23,7 @@
                   </div>
                   <div class="row">
                     <div class="col-6">
+                      <!-- <button id="login-submit-btn" @keyup.enter="login" @click="login" type="button" class="btn btn-primary px-4">{{ $t('actions.login') }} </button> -->
                       <button id="login-submit-btn" type="submit" class="btn btn-primary px-4">{{ $t('actions.login') }} </button>
                     </div>
                     <!--<div class="col-6 text-right">-->
@@ -69,7 +70,8 @@
       }
     },
     methods: {
-      login() {
+      login(evt) {
+        evt.preventDefault();
         this.$notify({
           group: 'core',
           title: this.$t('notify.login_attempt'),
