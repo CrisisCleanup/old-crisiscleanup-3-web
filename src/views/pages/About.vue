@@ -48,7 +48,7 @@
                   <li><a href="https://crisiscleanup.zendesk.com/hc/en-us" v-html="about.helpdesk"></a></li>
                 </ul>
                 <h3 v-html="about.ccu_story"></h3>
-                <p v-html="about.h2Prep_link"></p>
+                <p v-html="about.h2prep_link"></p>
               </div>
             </div>
           </div>
