@@ -82,7 +82,7 @@ const router = new Router({
           meta: {auth: false, title: i18n.t('routerIndex.donate_html_title')}
         },
         {
-          path: 'register',
+          path: 'register-other',
           name: 'Register',
           component: Register,
           meta: {auth: false, title: i18n.t('routerIndex.register_html_title')}
@@ -118,7 +118,7 @@ const router = new Router({
           meta: {auth: false, title: i18n.t('routerIndex.about_html_title')}
         },
         {
-          path: 'register-organization',
+          path: 'register',
           name: 'Register Organization',
           component: RegisterOrganization,
           meta: {auth: false, title: i18n.t('routerIndex.register_org_html_title')}
