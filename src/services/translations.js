@@ -140,12 +140,7 @@ const messages = {
     "worksites": {
       "your_claimed_worksites": "Your Claimed Worksites"
     },
-    "realtimeMapFooter": {
-      "organizations": "Organizations",
-      "requests_help": "Requests for Help",
-      "completed": "Completed",
-      "in_progress": "In Progress"
-    },
+
     "status": {
       "open_unassigned": "Open, unassigned",
       "open_assigned": "Open, assigned",
@@ -1888,12 +1883,6 @@ const messages = {
     },
     "worksites": {
       "your_claimed_worksites": "Sus sitios reclamados"
-    },
-    "realtimeMapFooter": {
-      "organizations": "Organizaciones",
-      "requests_help": "Solicitudes de ayuda",
-      "completed": "Terminado",
-      "in_progress": "En progreso"
     },
     "status": {
       "open_unassigned": "Abierto, sin asignar",

@@ -13,7 +13,6 @@
     -->
     <BannerCycler></BannerCycler>
     <MoreInfoButton/>
-    <RealtimeMapFooter class="fixed-bottom"/>
     <gmap-map
       id="worker-map"
       :center="center"
@@ -67,7 +66,6 @@
   import generateMarkerImagePath from './utils/markerImageManager';
   import {style as mapStyle} from './styles/snowOrange';
   import fadeInMarker from './utils/mapAnimations';
-  import RealtimeMapFooter from './components/RealtimeMapFooter.vue';
   import BannerCycler from './components/BannerCycler.vue';
   import MoreInfoButton from './components/MoreInfoButton.vue';
   import MarkerInfo from './utils/MarkerInfo.js';
@@ -81,7 +79,6 @@
 
   export default {
     components: {
-      RealtimeMapFooter,
       BannerCycler,
       MoreInfoButton
     },
