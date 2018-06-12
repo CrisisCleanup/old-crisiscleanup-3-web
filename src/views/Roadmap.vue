@@ -3,7 +3,7 @@
 
 
     <Section class="roadmap-header">
-      <h2>{{ $t('roadmap.mission_roadmap') }}</h2>
+      <h2 v-html="roadmap.mission_roadmap') }}</h2>
     </Section>
     <section class="roadmap-expansion">
       <div id="accordion" role="tablist">
@@ -91,8 +91,8 @@
                data-parent="#accordion">
             <div class="card-body">
               <col-6>
-                <p>{{ $t('roadmap.crew_equipment_management_msg') }}</p>
-                <p>{{ $t('roadmap.crew_equipment_management_msg2') }}</p>
+                <p v-html="roadmap.crew_equipment_management_msg"></p>
+                <p v-html="roadmap.crew_equipment_management_msg2"></p>
               </col-6>
               <col-6>
                 <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewman.png" alt="">
@@ -121,7 +121,7 @@
             <div class="card-body">
               <row>
                 <col-6>
-                  <p>{{ $t('roadmap.critical_needs_msg') }}</p>
+                  <p v-html="roadmap.critical_needs_msg"></p>
                 </col-6>
                 <col-6>
                   <!--To add: Service Opportunity Search Filters go here-->
@@ -172,7 +172,7 @@
                 </col-6>
               </row>
               <row>
-                <p>{{ $t('roadmap.urgent_needs_msg') }}</p>
+                <p v-html="roadmap.urgent_needs_msg"></p>
               </row>
             </div>
           </div>
@@ -192,7 +192,7 @@
                data-parent="#accordion">
             <div class="card-body">
               <col-4>
-                <p>{{ $t('roadmap.hero_stories_msg') }}</p>
+                <p v-html="roadmap.hero_stories_msg"></p>
               </col-4>
               <col-8>
                 <img src="/static/img/front_end/roadmap-social.png" alt="" class="img-fluid">
@@ -218,16 +218,16 @@
                 <col>
                 <row><img src="/static/img/front_end/roadmap-recon1.png" alt="" class="img-fluid"></row>
                 <row>
-                  <p>{{ $t('roadmap.photo_recon_msg1') }}</p>
+                  <p v-html="roadmap.photo_recon_msg1"></p>
                 </row>
                 <col>
                 <row><img src="/static/img/front_end/roadmap-recon2.png" alt="" class="img-fluid"></row>
                 <row>
-                  <p>{{ $t('roadmap.photo_recon_msg2') }}</p>
+                  <p v-html="roadmap.photo_recon_msg2"></p>
                 </row>
                 <col>
                 <row>
-                  <p>{{ $t('roadmap.photo_recon_msg3') }}</p>
+                  <p v-html="roadmap.photo_recon_msg3"></p>
                 </row>
               </row>
               <row>
@@ -254,7 +254,7 @@
             <div class="card-body">
               <col-4>
                 <row>
-                  <p>{{ $t('roadmap.online_training_msg') }}</p>
+                  <p v-html="roadmap.online_training_msg"></p>
                 </row>
                 <row>
                   <img src="/static/img/front_end/roadmap-training1.png" alt="" class="img-fluid">
@@ -280,21 +280,21 @@
                data-parent="#accordion">
             <div class="card-body">
               <row>
-                <p>{{ $t('roadmap.communications_improvements_msg') }}</p>
+                <p v-html="roadmap.communications_improvements_msg"></p>
               </row>
               <row>
                 <ul>
-                  <li>{{ $t('roadmap.communications_improvements_li1') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li2') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li3') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li4') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li5') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li6') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li7') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li8') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li9') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li10') }}</li>
-                  <li>{{ $t('roadmap.communications_improvements_li11') }}</li>
+                  <li v-html="roadmap.communications_improvements_li1"></li>
+                  <li v-html="roadmap.communications_improvements_li2"></li>
+                  <li v-html="roadmap.communications_improvements_li3"></li>
+                  <li v-html="roadmap.communications_improvements_li4"></li>
+                  <li v-html="roadmap.communications_improvements_li5"></li>
+                  <li v-html="roadmap.communications_improvements_li6"></li>
+                  <li v-html="roadmap.communications_improvements_li7"></li>
+                  <li v-html="roadmap.communications_improvements_li8"></li>
+                  <li v-html="roadmap.communications_improvements_li9"></li>
+                  <li v-html="roadmap.communications_improvements_li10"></li>
+                  <li v-html="roadmap.communications_improvements_li11"></li>
                 </ul>
               </row>
             </div>
@@ -317,7 +317,45 @@
   export default {
     name: 'Roadmap',
     data() {
-      return {};
+      return {
+        roadmap: {
+          mission_roadmap: this.$t('roadmap.mission_roadmap'),
+          integrated_call_system: this.$t('roadmap.integrated_call_system'),
+          integrated_call_system_msg: this.$t('roadmap.integrated_call_system_msg'),
+          send_feedback: this.$t('roadmap.send_feedback'),
+          multi_lingual_support: this.$t('roadmap.multi_lingual_support'),
+          multi_lingual_support_msg: this.$t('roadmap.multi_lingual_support_msg'),
+          crew_equipment_management: this.$t('roadmap.crew_equipment_management'),
+          crew_equipment_management_msg: this.$t('roadmap.crew_equipment_management_msg'),
+          crew_equipment_management_msg2: this.$t('roadmap.crew_equipment_management_msg2'),
+          critical_needs: this.$t('roadmap.critical_needs'),
+          critical_needs_msg: this.$t('roadmap.critical_needs_msg'),
+          survivor_advocacy: this.$t('roadmap.survivor_advocacy'),
+          urgent_needs: this.$t('roadmap.urgent_needs'),
+          urgent_needs_msg: this.$t('roadmap.urgent_needs_msg'),
+          hero_stories: this.$t('roadmap.hero_stories'),
+          hero_stories_msg: this.$t('roadmap.hero_stories_msg'),
+          photo_recon: this.$t('roadmap.photo_recon'),
+          photo_recon_msg1: this.$t('roadmap.photo_recon_msg1'),
+          photo_recon_msg2: this.$t('roadmap.photo_recon_msg2'),
+          photo_recon_msg3: this.$t('roadmap.photo_recon_msg3'),
+          online_training: this.$t('roadmap.online_training'),
+          online_training_msg: this.$t('roadmap.online_training_msg'),
+          communications_improvements: this.$t('roadmap.communications_improvements'),
+          communications_improvements_msg: this.$t('roadmap.communications_improvements_msg'),
+          communications_improvements_li1: this.$t('roadmap.communications_improvements_li1'),
+          communications_improvements_li2: this.$t('roadmap.communications_improvements_li2'),
+          communications_improvements_li3: this.$t('roadmap.communications_improvements_li3'),
+          communications_improvements_li4: this.$t('roadmap.communications_improvements_li4'),
+          communications_improvements_li5: this.$t('roadmap.communications_improvements_li5'),
+          communications_improvements_li6: this.$t('roadmap.communications_improvements_li6'),
+          communications_improvements_li7: this.$t('roadmap.communications_improvements_li7'),
+          communications_improvements_li8: this.$t('roadmap.communications_improvements_li8'),
+          communications_improvements_li9: this.$t('roadmap.communications_improvements_li9'),
+          communications_improvements_li10: this.$t('roadmap.communications_improvements_li10'),
+          communications_improvements_li11: this.$t('roadmap.communications_improvements_li11')
+        }
+      }
     },
     computed: {},
     methods: {},

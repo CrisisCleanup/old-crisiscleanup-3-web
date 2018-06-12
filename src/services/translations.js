@@ -140,7 +140,12 @@ const messages = {
     "worksites": {
       "your_claimed_worksites": "Your Claimed Worksites"
     },
-
+    "realtimeMapFooter": {
+      "organizations": "Organizations",
+      "requests_help": "Requests for Help",
+      "completed": "Completed",
+      "in_progress": "In Progress"
+    },
     "status": {
       "open_unassigned": "Open, unassigned",
       "open_assigned": "Open, assigned",
@@ -487,19 +492,19 @@ const messages = {
     "registerOrg": {
       "register_org": "Register Your Organization",
       "survivor_register_msg": "If you need help, please, please, please do NOT sign up here. You are in the wrong place, and we can't help. Call 800-451-1954 or 844-965-1386",
-      "primary_contact": "Primary Contact",
-      "org_info": "Organization Info",
+      "primary_contact": "2. Primary Contact",
+      "org_info": "3. Organization Info",
       "use_local_org_name_msg": "Please use your local team name. E.g. \"American Red Cross-TX Chapter\" or \"LDS Church-Plainview Stake,\" NOT \"American Red Cross\" or \"LDS Church.\"",
-      "org_roles": "What Roles does Your Organization Fill?",
-      "choose_a_disaster": "Choose a Disaster",
+      "org_roles": "4. What Roles does Your Organization Fill?",
+      "choose_a_disaster": "1. Choose a Disaster",
       "first_name": "First Name",
-      "email": "Email",
+      "email": "Organization Email",
       "last_name": "Last Name",
       "cell_phone_number": "Cell Phone Number",
-      "organization_name": "Organization Name",
+      "organization_name": "Organization (E.g. American Red Cross-Charles County)",
       "address": "Address",
       "state": "State",
-      "referral": "Referral",
+      "referral": "How did you hear about us?",
       "facebook": "Facebook",
       "city": "City",
       "zip_code": "Zip Code",
@@ -1884,6 +1889,12 @@ const messages = {
     "worksites": {
       "your_claimed_worksites": "Sus sitios reclamados"
     },
+    "realtimeMapFooter": {
+      "organizations": "Organizaciones",
+      "requests_help": "Solicitudes de ayuda",
+      "completed": "Terminado",
+      "in_progress": "En progreso"
+    },
     "status": {
       "open_unassigned": "Abierto, sin asignar",
       "open_assigned": "Abierto, asignado",
@@ -2230,19 +2241,19 @@ const messages = {
     "registerOrg": {
       "register_org": "Registre su organización",
       "survivor_register_msg": "Si necesita ayuda, por favor, NO se registre aquí. Está en el lugar equivocado, y no podemos ayudar. Llame al 800-451-1954 o 844-965-1386",
-      "primary_contact": "Contacto principal",
-      "org_info": "Información de la organización",
+      "primary_contact": "2. Contacto principal",
+      "org_info": "3. Información de la organización",
       "use_local_org_name_msg": "Por favor use su nombre de equipo local. P.ej. \"American Red Cross-TX Chapter\" o \"LDS Church-Plainview Stake\", NO \"American Red Cross\" o \"LDS Church\".",
-      "org_roles": "¿Qué roles tiene su organización?",
-      "choose_a_disaster": "Elija un desastre",
+      "org_roles": "4. ¿Qué roles tiene su organización?",
+      "choose_a_disaster": "1. Elija un desastre",
       "first_name": "Primer Nombre",
-      "email": "Correo electrónico",
+      "email": "Correo electrónico de organización",
       "last_name": "Apellido",
       "cell_phone_number": "Número de Celular",
-      "organization_name": "Nombre de la Organización",
+      "organization_name": "Organización (por ejemplo, American Red Cross-Charles County)",
       "address": "Dirección",
       "state": "Estado",
-      "referral": "Referido",
+      "referral": "¿Como supiste de nosotros?",
       "facebook": "Facebook",
       "city": "Ciudad",
       "zip_code": "Código postal",
