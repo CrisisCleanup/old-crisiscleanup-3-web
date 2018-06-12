@@ -10,8 +10,8 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h1 class="myCssClass">{{ $t('registerOrg.register_org') }}</h1>
-                <h3>{{ $t('registerOrg.survivor_register_msg') }}</h3>
+                <h1 class="myCssClass" v-html="registerOrg.register_org"></h1>
+                <h3 v-html="registerOrg.survivor_register_msg"></h3>
               </div>
             </div>
             <br>
@@ -21,11 +21,11 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-12">
+                <h5 v-html="registerOrg.choose_a_disaster"></h5>
+
+              </div>
               <div class="col-md-6">
-                <b-form-fieldset
-                  v-bind:label = "$t('registerOrg.choose_a_disaster')"
-                  :label-cols="3"
-                  :horizontal="true">
                   <b-form-select
                     v-model="selectedEvent"
                     :options="getParticipatingEvents"
@@ -34,12 +34,11 @@
                     required
                     :state="orgFormErrors.hasOwnProperty('participating_event_uid') ? false : null">
                   </b-form-select>
-                </b-form-fieldset>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('registerOrg.primary_contact') }}</h5>
+                <h5 v-html="registerOrg.primary_contact"></h5>
 
               </div>
               <div class="col-md-6">
@@ -75,88 +74,51 @@
             <br>
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('registerOrg.org_info') }}</h5>
-                <h6>{{ $t('registerOrg.use_local_org_name_msg') }}</h6>
+                <h5 v-html="registerOrg.org_info"></h5>
+                <h6 v-html="registerOrg.use_local_org_name_msg"></h6>
               </div>
               <div class="col-md-6">
                 <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <span class="input-group-addon"><i class="icon-star"></i></span>
                   <b-form-input type="text" v-bind:placeholder = "$t('registerOrg.organization_name')" v-model="name"
                                 v-bind:state="orgFormErrors.hasOwnProperty('name') ? false : null" required></b-form-input>
                   <!--<b-form-invalid-feedback>{{errorName}}</b-form-invalid-feedback>-->
                 </div>
-
                 <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.address')" required
-                                v-model="address" :state="orgFormErrors.hasOwnProperty('address') ? false : null"></b-form-input>
+                  <span class="input-group-addon"><i class="icon-link"></i></span>
+                  <b-form-input type="url" class="form-control" v-bind:placeholder = "$t('registerOrg.website')"
+                                :state="orgFormErrors.hasOwnProperty('url') ? false : null"
+                                v-model="url"></b-form-input>
                 </div>
-
                 <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.state')" required
-                                :state="orgFormErrors.hasOwnProperty('state') ? false : null"
-                                v-model="state"></b-form-input>
-                </div>
-
-                <div class="input-group mb-4">
-                  <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.referral')" required
+                  <span class="input-group-addon"><i class="icon-users"></i></span>
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.referral')" 
                                 :state="orgFormErrors.hasOwnProperty('referral') ? false : null"
                                 v-model="referral"></b-form-input>
                 </div>
 
-                <div class="input-group mb-4">
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-social-facebook"></i></span>
                   <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.facebook')"
                                 :state="orgFormErrors.hasOwnProperty('facebook') ? false : null"
                                 v-model="facebook"></b-form-input>
                 </div>
-
-
-              </div>
-              <div class="col-md-6">
                 <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                  <b-form-input type="email" class="form-control" v-bind:placeholder = "$t('registerOrg.email')" required
-                                :state="orgFormErrors.hasOwnProperty('email') ? false : null"
-                                v-model="email"></b-form-input>
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.city')" required
-                                :state="orgFormErrors.hasOwnProperty('city') ? false : null"
-                                v-model="city"></b-form-input>
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-addon"><i class="icon-home"></i></span>
-                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.zip_code')" required pattern="[0-9]{5}"
-                                :state="orgFormErrors.hasOwnProperty('zip_code') ? false : null"
-                                v-model="zip_code"></b-form-input>
-                </div>
-
-                <div class="input-group mb-4">
-                  <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <b-form-input type="url" class="form-control" v-bind:placeholder = "$t('registerOrg.website')"
-                                :state="orgFormErrors.hasOwnProperty('url') ? false : null"
-                                v-model="url"></b-form-input>
-                </div>
-
-                <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-social-twitter"></i></span>
-                  <b-form-input type="password" class="form-control" v-bind:placeholder = "$t('registerOrg.twitter')"
+                  <b-form-input type="text" class="form-control" v-bind:placeholder = "$t('registerOrg.twitter')" 
                                 :state="orgFormErrors.hasOwnProperty('twitter') ? false : null"
                                 v-model="twitter"></b-form-input>
                 </div>
+
               </div>
 
             </div>
 
             <div class="row">
               <div class="col-md-12">
-                <h5>{{ $t('registerOrg.org_roles') }}</h5>
+                <h5 v-html="registerOrg.org_roles"></h5>
 
               </div>
               <div class="col-md-12">
@@ -246,6 +208,59 @@
   export default {
 
     name: 'RegisterOrganization',
+    data() {
+      return {
+        registerOrg: {
+          register_org: this.$t('registerOrg.register_org'),
+          survivor_register_msg: this.$t('registerOrg.survivor_register_msg'),
+          primary_contact: this.$t('registerOrg.primary_contact'),
+          org_info: this.$t('registerOrg.org_info'),
+          use_local_org_name_msg: this.$t('registerOrg.use_local_org_name_msg'),
+          org_roles: this.$t('registerOrg.org_roles'),
+          choose_a_disaster: this.$t('registerOrg.choose_a_disaster'),
+          first_name: this.$t('registerOrg.first_name'),
+          email: this.$t('registerOrg.email'),
+          last_name: this.$t('registerOrg.last_name'),
+          cell_phone_number: this.$t('registerOrg.cell_phone_number'),
+          organization_name: this.$t('registerOrg.organization_name'),
+          address: this.$t('registerOrg.address'),
+          state: this.$t('registerOrg.state'),
+          referral: this.$t('registerOrg.referral'),
+          facebook: this.$t('registerOrg.facebook'),
+          city: this.$t('registerOrg.city'),
+          zip_code: this.$t('registerOrg.zip_code'),
+          website: this.$t('registerOrg.website'),
+          twitter: this.$t('registerOrg.twitter'),
+          review_approve: this.$t('registerOrg.review_approve'),
+          review_approve_msg: this.$t('registerOrg.review_approve_msg'),
+          damage_assessment: this.$t('registerOrg.damage_assessment'),
+          damage_assessment_msg: this.$t('registerOrg.damage_assessment_msg'),
+          cleanup: this.$t('registerOrg.cleanup'),
+          cleanup_msg: this.$t('registerOrg.cleanup_msg'),
+          follow_up: this.$t('registerOrg.follow_up'),
+          follow_up_msg: this.$t('registerOrg.follow_up_msg'),
+          minor_repairs: this.$t('registerOrg.minor_repairs'),
+          minor_repairs_msg: this.$t('registerOrg.minor_repairs_msg'),
+          rebuilding: this.$t('registerOrg.rebuilding'),
+          rebuilding_msg: this.$t('registerOrg.rebuilding_msg'),
+          coordination: this.$t('registerOrg.coordination'),
+          coordination_msg: this.$t('registerOrg.coordination_msg'),
+          government: this.$t('registerOrg.government'),
+          government_msg: this.$t('registerOrg.government_msg'),
+          other_activity: this.$t('registerOrg.other_activity'),
+          other_activity_msg: this.$t('registerOrg.other_activity_msg'),
+          not_organization: this.$t('registerOrg.not_organization'),
+          not_organization_msg: this.$t('registerOrg.not_organization_msg'),
+          where_working: this.$t('registerOrg.where_working'),
+          publish_profile: this.$t('registerOrg.publish_profile'),
+          tos_priv_1: this.$t('registerOrg.tos_priv_1'),
+          tos_priv_tos: this.$t('registerOrg.tos_priv_tos'),
+          tos_priv_and: this.$t('registerOrg.tos_priv_and'),
+          tos_priv_priv: this.$t('registerOrg.tos_priv_priv'),
+          tos_priv_2: this.$t('registerOrg.tos_priv_2')
+        }
+      }
+    },
     computed: {
       ...mapGetters(['getParticipatingEvents', 'getCurrentEvent']),
       orgFormErrors() {

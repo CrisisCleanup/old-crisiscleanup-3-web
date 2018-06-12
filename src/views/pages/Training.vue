@@ -18,7 +18,7 @@
                 <h3>{{ $t('training.test_ccu_knowledge') }}</h3>
               </div>
               <div class="row">
-                <p>{{ $t('training.take_poll') }}</p>
+                <p v-html="training.take_poll"></p>
               </div>
               <hr />
               <div class="row">
@@ -34,13 +34,13 @@
 
                   </form>
                   <div id="no_1" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_1" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_1" style="display:none">
-                    <p>{{ $t('training.exp1_ccu_work_orders_only') }}</p>
+                    <p v-html="training.exp1_ccu_work_orders_only"></p>
                   </div>
                 </div>
               </div>
@@ -62,14 +62,14 @@
                     </input><br />
                   </form>
                   <div id="no_2" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_2" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_2" style="display:none">
-                    <p>{{ $t('training.exp2_ccu_free') }}</p>
-                    <p>{{ $t('training.exp2_donations_needed') }}</p>
+                    <p v-html="training.exp2_ccu_free"></p>
+                    <p v-html="training.exp2_donations_needed"></p>
                   </div>
                 </div>
               </div>
@@ -87,13 +87,13 @@
 
                   </form>
                   <div id="no_3" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_3" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_3" style="display:none">
-                    <p>{{ $t('training.exp3_field_workers') }}</p>
+                    <p v-html="training.exp3_field_workers"></p>
                   </div>
                 </div>
               </div>
@@ -111,13 +111,13 @@
 
                   </form>
                   <div id="no_4" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_4" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_4" style="display:none">
-                    <p>{{ $t('training.exp4_keep_confidential') }}</p>
+                    <p v-html="training.exp4_keep_confidential"></p>
                   </div>
                 </div>
               </div>
@@ -139,13 +139,13 @@
                     </input><br />
                   </form>
                   <div id="no_5" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_5" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_5" style="display:none">
-                    <p>{{ $t('training.exp5_ccu_not_in_charge') }}</p>
+                    <p v-html="training.exp5_ccu_not_in_charge"></p>
                   </div>
                 </div>
               </div>
@@ -163,13 +163,13 @@
 
                   </form>
                   <div id="no_6" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_6" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_6" style="display:none">
-                    <p>{{ $t('training.exp6_no_sensitive_info') }}</p>
+                    <p v-html="training.exp6_no_sensitive_info"></p>
                   </div>
                 </div>
               </div>
@@ -191,13 +191,13 @@
                     </input><br />
                   </form>
                   <div id="no_7" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_7" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_7" style="display:none">
-                    <p>{{ $t('training.exp7_bias_inclusion') }}</p>
+                    <p v-html="training.exp7_bias_inclusion"></p>
                   </div>
                 </div>
               </div>
@@ -215,13 +215,13 @@
 
                   </form>
                   <div id="no_8" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_8" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_8" style="display:none">
-                    <p>{{ $t('training.exp8_you_must_update') }}</p>
+                    <p v-html="training.exp8_you_must_update"></p>
                   </div>
                 </div>
               </div>
@@ -239,23 +239,23 @@
                       <input type="radio" name="answer_9" id="answer_9_1" onclick="document.getElementById('no_9').style.display = 'none'; document.getElementById('yes_9').style.display = 'block'; document.getElementById('explanation_9').style.display = 'block';"> {{ $t('training.a9_you') }}</label>
                     </input><br />
                     <label for="answer_9_4">
-                      <input type="radio" name="answer_9" id="answer_9_4" onclick="document.getElementById('no_9').style.display = 'block'; document.getElementById('yes_9').style.display = 'none'; document.getElementById('explanation_9').style.display = 'block';"> <a href="https://www.youtube.com/watch?feature=player_detailpage&v=KAWoP1kncRE#t=45" target=_blank>{{ $t('training.a9_this_guy') }}</a>. ({{ $t('training.hint') }}: {{ $t('training.a9_wrong_answer') }} :-)</label>
+                      <input type="radio" name="answer_9" id="answer_9_4" onclick="document.getElementById('no_9').style.display = 'block'; document.getElementById('yes_9').style.display = 'none'; document.getElementById('explanation_9').style.display = 'block';"> <a href="https://youtu.be/S4AmLcBLZWY?t=53" target=_blank>{{ $t('training.a9_this_guy') }}</a>. ({{ $t('training.hint') }}: {{ $t('training.a9_wrong_answer') }} :-)</label>
                     </input><br />
                   </form>
                   <div id="no_9" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_9" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_9" style="display:none">
-                    <p>{{ $t('training.exp9_community_in_charge') }}</p>
+                    <p v-html="training.exp9_community_in_charge"></p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="small-12 medium-12 large-12 columns">
-                  <h5>10. {{ $t('training.q10_unclaim_if_cannot_do') }} <a href="https://www.youtube.com/watch?v=tpMOgDr_KGI&feature=player_embedded#t=432" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
+                  <h5>10. {{ $t('training.q10_unclaim_if_cannot_do') }} <a href="https://youtu.be/3wumEh8wcak?t=417" target=_blank><small>{{ $t('training.hint') }}</small></a></h5>
                   <form>
                     <label for="answer_10_2">
                       <input type="radio" name="answer_10" id="answer_10_2" onclick="document.getElementById('no_10').style.display = 'block'; document.getElementById('yes_10').style.display = 'none'; document.getElementById('explanation_10').style.display = 'block';"> {{ $t('training.false') }}</label>
@@ -267,13 +267,13 @@
 
                   </form>
                   <div id="no_10" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_10" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_10" style="display:none">
-                    <p>{{ $t('training.exp10_unclaim_if_cannot_do') }}</p>
+                    <p v-html="training.exp10_unclaim_if_cannot_do"></p>
                   </div>
                 </div>
               </div>
@@ -291,13 +291,13 @@
 
                   </form>
                   <div id="no_11" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_11" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_11" style="display:none">
-                    <p>{{ $t('training.exp11_coordination_easy_required') }}</p>
+                    <p v-html="training.exp11_coordination_easy_required"></p>
                   </div>
                 </div>
               </div>
@@ -319,13 +319,13 @@
                     </input><br />
                   </form>
                   <div id="no_12" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_12" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_12" style="display:none">
-                    <p>{{ $t('training.exp12_any_participating_org') }}</p>
+                    <p v-html="training.exp12_any_participating_org"></p>
                   </div>
                 </div>
               </div>
@@ -347,13 +347,13 @@
                     </input><br />
                   </form>
                   <div id="no_13" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_13" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_13" style="display:none">
-                    <p>{{ $t('training.exp13_coordinate') }}</p>
+                    <p v-html="training.exp13_coordinate"></p>
                   </div>
                 </div>
               </div>
@@ -371,14 +371,14 @@
 
                   </form>
                   <div id="no_14" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_14" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_14" style="display:none">
-                    <p>{{ $t('training.exp14_download_csv') }}</p>
-                    <p>{{ $t('training.exp14_csv_hides_data') }}</p>
+                    <p v-html="training.exp14_download_csv"></p>
+                    <p v-html="training.exp14_csv_hides_data"></p>
                   </div>
                 </div>
               </div>
@@ -396,13 +396,13 @@
 
                   </form>
                   <div id="no_15" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_15" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_15" style="display:none">
-                    <p>{{ $t('training.exp15_reset_compromised_pw') }}</p>
+                    <p v-html="training.exp15_reset_compromised_pw"></p>
                   </div>
                 </div>
               </div>
@@ -420,13 +420,13 @@
 
                   </form>
                   <div id="no_16" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_16" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_16" style="display:none">
-                    <p>{{ $t('training.exp16_no_case_mgmt') }}</p>
+                    <p v-html="training.exp16_no_case_mgmt"></p>
                   </div>
                 </div>
               </div>
@@ -444,15 +444,15 @@
 
                   </form>
                   <div id="no_17" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_17" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_17" style="display:none">
-                    <p>{{ $t('training.exp17_invite_teammates') }}</p>
-                    <p>{{ $t('training.exp17_invite_teammates') }}</p>
-                    <p>{{ $t('training.exp17_invite_teammates_believe_us') }}</p>
+                    <p v-html="training.exp17_invite_teammates"></p>
+                    <p v-html="training.exp17_invite_teammates"></p>
+                    <p v-html="training.exp17_invite_teammates_believe_us"></p>
                   </div>
                 </div>
               </div>
@@ -474,13 +474,13 @@
                     </input><br />
                   </form>
                   <div id="no_18" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_18" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_18" style="display:none">
-                    <p>{{ $t('training.exp18_run_own_reports') }}</p>
+                    <p v-html="training.exp18_run_own_reports"></p>
                   </div>
                 </div>
               </div>
@@ -489,7 +489,7 @@
                 <div class="small-12 medium-12 large-12 columns">
                   <hr />
                   <h3>{{ $t('training.advanced_questions') }}</h3>
-                  <p>{{ $t('training.feeling_good_try_more') }}</p>
+                  <p v-html="training.feeling_good_try_more"></p>
                 </div>
               </div>
 
@@ -511,13 +511,13 @@
                     </input><br />
                   </form>
                   <div id="no_19" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_19" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_19" style="display:none">
-                    <p>{{ $t('training.exp19_six_days_play_nice') }}</p>
+                    <p v-html="training.exp19_six_days_play_nice"></p>
                   </div>
                 </div>
               </div>
@@ -539,13 +539,13 @@
                     </input><br />
                   </form>
                   <div id="no_20" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_20" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_20" style="display:none">
-                    <p>{{ $t('training.exp20_all_of_above') }}</p>
+                    <p v-html="training.exp20_all_of_above"></p>
                   </div>
                 </div>
               </div>
@@ -567,13 +567,13 @@
                     </input><br />
                   </form>
                   <div id="no_21" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_21" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_21" style="display:none">
-                    <p>{{ $t('training.exp21_as_many_as_possible') }}</p>
+                    <p v-html="training.exp21_as_many_as_possible"></p>
                   </div>
                 </div>
               </div>
@@ -595,13 +595,13 @@
                     </input><br />
                   </form>
                   <div id="no_22" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_22" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_22" style="display:none">
-                    <p>{{ $t('training.exp22_garbage_rules') }}</p>
+                    <p v-html="training.exp22_garbage_rules"></p>
                   </div>
                 </div>
               </div>
@@ -617,10 +617,10 @@
                     </input><br />
                   </form>
                   <div id="no_23" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_23" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_23" style="display:none">
                     <p>{{ $t('training.exp23_add_previous_work_orders') }}
@@ -651,14 +651,14 @@
                     </input><br />
                   </form>
                   <div id="no_24" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_24" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_24" style="display:none">
-                    <p>{{ $t('training.exp24_be_collaborative') }}</p>
-                    <p>{{ $t('training.exo24_seriously_be_collaborative') }}</p>
+                    <p v-html="training.exp24_be_collaborative"></p>
+                    <p v-html="training.exo24_seriously_be_collaborative"></p>
                   </div>
                 </div>
               </div>
@@ -680,13 +680,13 @@
                     </input><br />
                   </form>
                   <div id="no_25" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_25" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_25" style="display:none">
-                    <p>{{ $t('training.exp25_drywall_process') }}</p>
+                    <p v-html="training.exp25_drywall_process"></p>
                   </div>
                 </div>
               </div>
@@ -708,13 +708,13 @@
                     </input><br />
                   </form>
                   <div id="no_26" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_26" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_26" style="display:none">
-                    <p>{{ $t('training.exp26_be_patient') }}</p>
+                    <p v-html="training.exp26_be_patient"></p>
                   </div>
                 </div>
               </div>
@@ -730,13 +730,13 @@
                     </input><br />
                   </form>
                   <div id="no_27" style="display:none">
-                    <p style="color:red; font-weight: bold;">{{ $t('training.incorrect') }}</p>
+                    <p style="color:red; font-weight: bold;" v-html="training.incorrect"></p>
                   </div>
                   <div id="yes_27" style="display:none">
-                    <p style="color:green; font-weight: bold;">{{ $t('training.correct') }}</p>
+                    <p style="color:green; font-weight: bold;" v-html="training.correct"></p>
                   </div>
                   <div id="explanation_27" style="display:none">
-                    <p>{{ $t('training.exp27_move_misplaced_icons') }}</p>
+                    <p v-html="training.exp27_move_misplaced_icons"></p>
                   </div>
                 </div>
               </div>
@@ -750,6 +750,140 @@
 
 <script>
 export default {
-  name: 'Training'
+  name: 'Training',
+    data() {
+      return {
+        training: {
+          training_video_title: this.$t('training.training_video_title'),
+          please_complete_training: this.$t('training.please_complete_training'),
+          test_ccu_knowledge: this.$t('training.test_ccu_knowledge'),
+          take_poll: this.$t('training.take_poll'),
+          q1_ccu_multiple_uses: this.$t('training.q1_ccu_multiple_uses'),
+          false: this.$t('training.false'),
+          true: this.$t('training.true'),
+          incorrect: this.$t('training.incorrect'),
+          correct: this.$t('training.correct'),
+          exp1_ccu_work_orders_only: this.$t('training.exp1_ccu_work_orders_only'),
+          q2_ccu_cost: this.$t('training.q2_ccu_cost'),
+          a2_arm_leg: this.$t('training.a2_arm_leg'),
+          a2_free: this.$t('training.a2_free'),
+          a2_firstborn: this.$t('training.a2_firstborn'),
+          a2_thousand_dollars: this.$t('training.a2_thousand_dollars'),
+          exp2_ccu_free: this.$t('training.exp2_ccu_free'),
+          exp2_donations_needed: this.$t('training.exp2_donations_needed'),
+          q3_ccu_field_workers_use: this.$t('training.q3_ccu_field_workers_use'),
+          exp3_field_workers: this.$t('training.exp3_field_workers'),
+          q4_keep_confidential: this.$t('training.q4_keep_confidential'),
+          exp4_keep_confidential: this.$t('training.exp4_keep_confidential'),
+          q5_when_claim_work_order: this.$t('training.q5_when_claim_work_order'),
+          hint: this.$t('training.hint'),
+          a5_every_assessment: this.$t('training.a5_every_assessment'),
+          a5_when_ordered: this.$t('training.a5_when_ordered'),
+          a5_tuesdays_high_tide: this.$t('training.a5_tuesdays_high_tide'),
+          a5_when_convenient: this.$t('training.a5_when_convenient'),
+          exp5_ccu_not_in_charge: this.$t('training.exp5_ccu_not_in_charge'),
+          q6_store_sensitive_info: this.$t('training.q6_store_sensitive_info'),
+          exp6_no_sensitive_info: this.$t('training.exp6_no_sensitive_info'),
+          q7_kinds_of_orgs_allowed: this.$t('training.q7_kinds_of_orgs_allowed'),
+          a7_only_govt_approved: this.$t('training.a7_only_govt_approved'),
+          a7_only_voad: this.$t('training.a7_only_voad'),
+          a7_unaffiliated_volunteers: this.$t('training.a7_unaffiliated_volunteers'),
+          a7_reputable_relief_org: this.$t('training.a7_reputable_relief_org'),
+          exp7_bias_inclusion: this.$t('training.exp7_bias_inclusion'),
+          q8_you_must_update: this.$t('training.q8_you_must_update'),
+          exp8_you_must_update: this.$t('training.exp8_you_must_update'),
+          q9_who_is_in_charge: this.$t('training.q9_who_is_in_charge'),
+          a9_government: this.$t('training.a9_government'),
+          a9_voad: this.$t('training.a9_voad'),
+          a9_you: this.$t('training.a9_you'),
+          a9_this_guy: this.$t('training.a9_this_guy'),
+          a9_wrong_answer: this.$t('training.a9_wrong_answer'),
+          exp9_community_in_charge: this.$t('training.exp9_community_in_charge'),
+          q10_unclaim_if_cannot_do: this.$t('training.q10_unclaim_if_cannot_do'),
+          exp10_unclaim_if_cannot_do: this.$t('training.exp10_unclaim_if_cannot_do'),
+          q11_orgs_see_others: this.$t('training.q11_orgs_see_others'),
+          exp11_coordination_easy_required: this.$t('training.exp11_coordination_easy_required'),
+          q12_who_enters: this.$t('training.q12_who_enters'),
+          a12_public: this.$t('training.a12_public'),
+          a12_participating_orgs: this.$t('training.a12_participating_orgs'),
+          a12_only_211: this.$t('training.a12_only_211'),
+          a12_only_voad_sysadmin: this.$t('training.a12_only_voad_sysadmin'),
+          exp12_any_participating_org: this.$t('training.exp12_any_participating_org'),
+          q13_what_if_others_fail: this.$t('training.q13_what_if_others_fail'),
+          a13_trouble_ticket: this.$t('training.a13_trouble_ticket'),
+          a13_nothing: this.$t('training.a13_nothing'),
+          a13_break_kneecaps: this.$t('training.a13_break_kneecaps'),
+          a13_contact_org: this.$t('training.a13_contact_org'),
+          exp13_coordinate: this.$t('training.exp13_coordinate'),
+          q14_download_list_possible: this.$t('training.q14_download_list_possible'),
+          exp14_download_csv: this.$t('training.exp14_download_csv'),
+          exp14_csv_hides_data: this.$t('training.exp14_csv_hides_data'),
+          q15_safeguard_passwords: this.$t('training.q15_safeguard_passwords'),
+          exp15_reset_compromised_pw: this.$t('training.exp15_reset_compromised_pw'),
+          q16_case_mgmt_ok: this.$t('training.q16_case_mgmt_ok'),
+          exp16_no_case_mgmt: this.$t('training.exp16_no_case_mgmt'),
+          q17_one_user_per_org: this.$t('training.q17_one_user_per_org'),
+          exp17_invite_teammates: this.$t('training.exp17_invite_teammates'),
+          exp17_invite_teammates_seriously: this.$t('training.exp17_invite_teammates_seriously'),
+          exp17_invite_teammates_believe_us: this.$t('training.exp17_invite_teammates_believe_us'),
+          q18_easiest_way_reports: this.$t('training.q18_easiest_way_reports'),
+          a18_email_request_report: this.$t('training.a18_email_request_report'),
+          a18_download_csv: this.$t('training.a18_download_csv'),
+          a18_pen_paper: this.$t('training.a18_pen_paper'),
+          a18_orangutanes: this.$t('training.a18_orangutanes'),
+          exp18_run_own_reports: this.$t('training.exp18_run_own_reports'),
+          advanced_questions: this.$t('training.advanced_questions'),
+          feeling_good_try_more: this.$t('training.feeling_good_try_more'),
+          q19_claim_how_many: this.$t('training.q19_claim_how_many'),
+          a19_as_many_as_possible: this.$t('training.a19_as_many_as_possible'),
+          a19_can_i_claim: this.$t('training.a19_can_i_claim'),
+          a19_finish_six_days: this.$t('training.a19_finish_six_days'),
+          a19_all_assign_other_orgs: this.$t('training.a19_all_assign_other_orgs'),
+          exp19_six_days_play_nice: this.$t('training.exp19_six_days_play_nice'),
+          q20_do_before_arrival: this.$t('training.q20_do_before_arrival'),
+          a20_call_before: this.$t('training.a20_call_before'),
+          a20_proper_equipment: this.$t('training.a20_proper_equipment'),
+          a20_claim_in_ccu: this.$t('training.a20_claim_in_ccu'),
+          all_of_the_above: this.$t('training.all_of_the_above'),
+          exp20_all_of_above: this.$t('training.exp20_all_of_above'),
+          q21_invite_how_many: this.$t('training.q21_invite_how_many'),
+          a21_only_one_two: this.$t('training.a21_only_one_two'),
+          a21_all_trusted: this.$t('training.a21_all_trusted'),
+          a21_public: this.$t('training.a21_public'),
+          a21_dog: this.$t('training.a21_dog'),
+          exp21_as_many_as_possible: this.$t('training.exp21_as_many_as_possible'),
+          q22_what_do_debris: this.$t('training.q22_what_do_debris'),
+          a22_pile_neatly: this.$t('training.a22_pile_neatly'),
+          a22_follow_local_rules: this.$t('training.a22_follow_local_rules'),
+          a22_bag_messy_debris: this.$t('training.a22_bag_messy_debris'),
+          exp22_garbage_rules: this.$t('training.exp22_garbage_rules'),
+          q23_add_previous_work_orders: this.$t('training.q23_add_previous_work_orders'),
+          exp23_add_previous_work_orders: this.$t('training.exp23_add_previous_work_orders'),
+          exp23_decrease_duplication: this.$t('training.exp23_decrease_duplication'),
+          exp23_ltrg: this.$t('training.exp23_ltrg'),
+          exp23_feels_good: this.$t('training.exp23_feels_good'),
+          q24_if_asks_for_direction: this.$t('training.q24_if_asks_for_direction'),
+          a24_they_register_ccu: this.$t('training.a24_they_register_ccu'),
+          a24_they_report_to_you: this.$t('training.a24_they_report_to_you'),
+          a24_take_their_volunteers: this.$t('training.a24_take_their_volunteers'),
+          a24_say_go_home: this.$t('training.a24_say_go_home'),
+          exp24_be_collaborative: this.$t('training.exp24_be_collaborative'),
+          exo24_seriously_be_collaborative: this.$t('training.exo24_seriously_be_collaborative'),
+          q25_removing_drywall: this.$t('training.q25_removing_drywall'),
+          a25_cut_4_8_feet_straight: this.$t('training.a25_cut_4_8_feet_straight'),
+          a25_remove_just_wet_part: this.$t('training.a25_remove_just_wet_part'),
+          a25_saw_with_power_on: this.$t('training.a25_saw_with_power_on'),
+          a25_just_use_hammer: this.$t('training.a25_just_use_hammer'),
+          exp25_drywall_process: this.$t('training.exp25_drywall_process'),
+          q26_stressed_org: this.$t('training.q26_stressed_org'),
+          a26_listen_reflect: this.$t('training.a26_listen_reflect'),
+          a26_patient_hug_cookies: this.$t('training.a26_patient_hug_cookies'),
+          a26_disasters_are_overwhelming: this.$t('training.a26_disasters_are_overwhelming'),
+          exp26_be_patient: this.$t('training.exp26_be_patient'),
+          q27_move_misplaced_icons: this.$t('training.q27_move_misplaced_icons'),
+          exp27_move_misplaced_icons: this.$t('training.exp27_move_misplaced_icons')
+        }
+      }
+    }
 }
 </script>

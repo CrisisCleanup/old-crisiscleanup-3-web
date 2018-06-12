@@ -38,7 +38,7 @@ module.exports = {
           selector: "a[href='/map#go-whoweserve']"
         },
         registerOrganizationLink: {
-          selector: "a[href='/register-organization']"
+          selector: "a[href='/register']"
         },
         loginLink: {
           selector: "a[href='/login']"
