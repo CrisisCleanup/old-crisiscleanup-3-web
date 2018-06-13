@@ -11,6 +11,7 @@
       </main>
       <AppAside/>
     </div>
+    <AppFooter/>
   </div>
 </template>
 

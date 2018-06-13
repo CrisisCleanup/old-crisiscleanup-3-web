@@ -2,20 +2,26 @@
   <div class="fullsize-map">
     <notifications group="core" />
     <PublicHeader/>
-    <router-view class="fullsize-map"></router-view>
-    <!--<LargeFooter/>-->
+    <router-view></router-view>
+    <AppFooter class="public-footer"/>
   </div>
 </template>
 
+<style type="text/css">
+  .public-footer {
+    margin: 0 !important;
+  }
+</style>
+
 <script>
-import LargeFooter from '@/components/LargeFooter';
+import AppFooter from '@/components/Footer';
 import PublicHeader from '@/components/PublicHeader';
 
 export default {
   name: 'main',
   components: {
     PublicHeader,
-    LargeFooter,
+    AppFooter,
   },
   data () {
     return {
