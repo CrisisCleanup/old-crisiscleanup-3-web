@@ -305,7 +305,19 @@ const messages = {
       "in_city": "in {city} was helped by"
     },
     "footer": {
-      "powered_by": "Powered by"
+      "powered_by": "Powered by",
+      "home": "Home",
+      "about": "About",
+      "map": "Map",
+      "blog": "Blog",
+      "demo": "Demo",
+      "register": "Register",
+      "training": "Training",
+      "contact": "Contact",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "policies": "Policies",
+      "login": "Login"
     },
     "header": {
       "incident": "Incident"
@@ -2048,7 +2060,19 @@ const messages = {
       "in_city": "en {city} fue ayudado por"
     },
     "footer": {
-      "powered_by": "Creado por"
+      "powered_by": "Creado por",
+      "home": "Home",
+      "about": "About",
+      "map": "Map",
+      "blog": "Blog",
+      "demo": "Demo",
+      "register": "Register",
+      "training": "Training",
+      "contact": "Contact",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "policies": "Policies",
+      "login": "Login"
     },
     "header": {
       "incident": "Incidente"
