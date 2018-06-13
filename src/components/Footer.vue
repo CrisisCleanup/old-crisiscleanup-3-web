@@ -3,23 +3,23 @@
     <!-- &copy; 2018 <a href="https://www.crisiscleanup.org">CrisisCleanup, LLC</a>. -->
     <!--<span class="float-right">{{ $t('footer.powered_by') }} <a href="http://coreui.io">CoreUI</a></span>-->
     <router-link to="/">{{ footer.home }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/about">{{ footer.about }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/worker/map">{{ footer.map }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'About'}">{{ footer.about }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'WorkerMap'}">{{ footer.map }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="http://blog.crisiscleanup.org/">
       {{ footer.blog }}
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="demo.crisiscleanup.org">{{ footer.demo }}</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/register-organization">
+    <router-link :to="{name: 'Register Organization'}">
       {{ footer.register }}
     </router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/training">{{ footer.training }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/contact">{{ footer.contact }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/terms">{{ footer.terms }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/privacy">{{ footer.privacy }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'Training'}">{{ footer.training }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'Contact'}">{{ footer.contact }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'Terms'}">{{ footer.terms }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <router-link :to="{name: 'Privacy'}">{{ footer.privacy }}</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="https://crisiscleanup.zendesk.com/hc/en-us/sections/200166636-Policies">
       {{ footer.policies }}
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <router-link to="/login">{{ footer.login }}</router-link>
+    <router-link :to="{name: 'Login'}">{{ footer.login }}</router-link>
   </footer>
 </template>
 
