@@ -3,7 +3,7 @@
 
 
     <Section class="roadmap-header">
-      <h2 v-html="roadmap.mission_roadmap') }}</h2>
+      <h2 v-html="roadmap.mission_roadmap"></h2>
     </Section>
     <section class="roadmap-expansion">
       <div id="accordion" role="tablist">
@@ -21,13 +21,13 @@
                data-parent="#accordion">
             <div class="card-body">
               <col-2>
-                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone1.png" alt="">
+                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone1.jpg" alt="">
               </col-2>
               <col-2>
-                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone2.png" alt="">
+                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone2.jpg" alt="">
               </col-2>
               <col-2>
-                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone3.png" alt="">
+                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-phone3.jpg" alt="">
               </col-2>
               <col-6>
                 <row>
@@ -37,7 +37,7 @@
                   <button class="btn-primary">{{ $t('roadmap.send_feedback') }}</button>
                 </row>
               </col-6>
-              <img src="/static/img/front_end/roadmap-phone4.png" alt="" class="img-fluid">
+              <img src="/static/img/front_end/roadmap-phone4.jpg" alt="" class="img-fluid">
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
             <div class="card-body">
               <row>
                 <col-2>
-                  <img src="/static/img/front_end/roadmap-multilanguage1.png" alt="" class="img-fluid">
+                  <img src="/static/img/front_end/roadmap-multilanguage1.jpg" alt="" class="img-fluid">
                 </col-2>
                 <col-6>
                   <row>
@@ -66,7 +66,7 @@
                     </p>
                   </row>
                   <row>
-                    <img src="/static/img/front_end/roadmap-multilanguage2.png" alt="" class="img-fluid">
+                    <img src="/static/img/front_end/roadmap-multilanguage2.jpg" alt="" class="img-fluid">
                   </row>
                   <row>
                     <button class="btn-primary">{{ $t('roadmap.send_feedback') }}</button>
@@ -100,7 +100,7 @@
                 <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewbobcat.png" alt="">
                 <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewman.png" alt="">
                 <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewbobcat.png" alt="">
-                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crews1.png" alt="">
+                <img class="img-fluid align-top" src="/static/img/front_end/roadmap-crewman.png" alt="">
               </col-6>
             </div>
           </div>
@@ -129,10 +129,10 @@
               </row>
               <row>
                 <col-6>
-                  <img src="/static/img/front_end/roadmap-layers1.png" alt="" class="img-fluid">
+                  <img src="/static/img/front_end/roadmap-layers1.jpg" alt="" class="img-fluid">
                 </col-6>
                 <col-6>
-                  <img src="/static/img/front_end/roadmap-layers2.png" alt="" class="img-fluid">
+                  <img src="/static/img/front_end/roadmap-layers2.jpg" alt="" class="img-fluid">
                 </col-6>
               </row>
             </div>
@@ -195,7 +195,7 @@
                 <p v-html="roadmap.hero_stories_msg"></p>
               </col-4>
               <col-8>
-                <img src="/static/img/front_end/roadmap-social.png" alt="" class="img-fluid">
+                <img src="/static/img/front_end/roadmap-social.jpg" alt="" class="img-fluid">
               </col-8>
             </div>
           </div>
@@ -216,12 +216,12 @@
             <div class="card-body">
               <row>
                 <col>
-                <row><img src="/static/img/front_end/roadmap-recon1.png" alt="" class="img-fluid"></row>
+                <row><img src="/static/img/front_end/roadmap-recon1.jpg" alt="" class="img-fluid"></row>
                 <row>
                   <p v-html="roadmap.photo_recon_msg1"></p>
                 </row>
                 <col>
-                <row><img src="/static/img/front_end/roadmap-recon2.png" alt="" class="img-fluid"></row>
+                <row><img src="/static/img/front_end/roadmap-recon2.jpg" alt="" class="img-fluid"></row>
                 <row>
                   <p v-html="roadmap.photo_recon_msg2"></p>
                 </row>
@@ -231,9 +231,9 @@
                 </row>
               </row>
               <row>
-                <img src="/static/img/front_end/roadmap-recon3.png" alt="" class="img-fluid">
-                <img src="/static/img/front_end/roadmap-recon4.png" alt="" class="img-fluid">
-                <img src="/static/img/front_end/roadmap-recon5.png" alt="" class="img-fluid">
+                <img src="/static/img/front_end/roadmap-recon3.jpg" alt="" class="img-fluid">
+                <img src="/static/img/front_end/roadmap-recon4.jpg" alt="" class="img-fluid">
+                <img src="/static/img/front_end/roadmap-recon5.jpg" alt="" class="img-fluid">
               </row>
             </div>
           </div>
@@ -257,11 +257,11 @@
                   <p v-html="roadmap.online_training_msg"></p>
                 </row>
                 <row>
-                  <img src="/static/img/front_end/roadmap-training1.png" alt="" class="img-fluid">
+                  <img src="/static/img/front_end/roadmap-training1.jpg" alt="" class="img-fluid">
                 </row>
               </col-4>
-              <col-4><img src="/static/img/front_end/roadmap-training2.png" alt="" class="img-fluid"></col-4>
-              <col-4><img src="/static/img/front_end/roadmap-training3.png" alt="" class="img-fluid"></col-4>
+              <col-4><img src="/static/img/front_end/roadmap-training2.jpg" alt="" class="img-fluid"></col-4>
+              <col-4><img src="/static/img/front_end/roadmap-training3.jpg" alt="" class="img-fluid"></col-4>
             </div>
           </div>
         </div>
