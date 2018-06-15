@@ -89,8 +89,7 @@
     "name_t": "userRoles.support_agent",
     "description_t": "userRoles.support_agent_description",
     "isActive": false,
-    "crewManagement": false,
-    "level": "2"
+    "crewManagement": false
   },
   "guestWorker": {
     "lastUpdated": "2018-05-11",
