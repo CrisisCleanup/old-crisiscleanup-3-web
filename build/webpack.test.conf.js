@@ -13,7 +13,7 @@ var webpackConfig = merge(baseConfig, {
   devtool: '#inline-source-map',
   resolveLoader: {
     alias: {
-      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option
+      // necessary to to make lang='scss' work in test when using vue-loader's ?inject option
       // see discussion at https://github.com/vuejs/vue-loader/issues/724
       'scss-loader': 'sass-loader'
     }
@@ -22,13 +22,16 @@ var webpackConfig = merge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env': require('../config/test.env')
     })
-  ]
+  ],
+  externals:{
+      'fs': 'commonjs fs'
+  }
 });
 
 // no need for app entry during tests
 delete webpackConfig.entry;
 
-module.exports.externals = [require('webpack-node-externals')()];
+// module.exports.externals = [require('webpack-node-externals')()];
 module.exports.devtool = 'inline-cheap-module-source-map';
 
 module.exports = webpackConfig;
