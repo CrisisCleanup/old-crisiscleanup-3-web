@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img class="img-fluid why-image rotatemobileleft" src="/static/img/stories/richmeseda.png" v-bind:alt = "$t('whyCCU.rich_daughter_alt')">
+                  <img class="img-fluid why-image rotatemobileleft" src="/static/img/stories/richmeseda.jpg" v-bind:alt = "$t('whyCCU.rich_daughter_alt')">
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img class="img-fluid rotatemobileleft" src="/static/img/stories/neilglassman.jpeg" v-bind:alt = "$t('whyCCU.neil_glassman_alt')">
+                  <img class="img-fluid rotatemobileleft" src="/static/img/stories/neilglassman.jpg" v-bind:alt = "$t('whyCCU.neil_glassman_alt')">
                 </div>
               </div>
             </div>

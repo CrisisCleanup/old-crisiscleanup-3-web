@@ -12,7 +12,7 @@
         <ul class="list-inline d-flex flex-wrap">  <!--d-flex plus flex-wrap fixes the nasty behavior when image cards and button cards dont want to line up.-->
           <li class="list-inline-item">
             <div class="card major-cards bg-dark">
-              <img class="card-img-top" src="/static/img/front_end/logo-connectfirst.png" v-bind:alt = "$t('poweredBy.connectfirst_logo_alt')">
+              <img class="card-img-top" src="/static/img/front_end/logo-connectfirst.jpg" v-bind:alt = "$t('poweredBy.connectfirst_logo_alt')">
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted">Connect First</small>
               </div>
@@ -20,7 +20,7 @@
           </li>
           <li class="list-inline-item">
             <div class="card major-cards bg-dark">
-              <img class="card-img-top" src="/static/img/front_end/logo-volunteerflorida@2x.png" v-bind:alt = "$t('poweredBy.vf_logo_alt')">
+              <img class="card-img-top" src="/static/img/front_end/logo-volunteerflorida@2x.jpg" v-bind:alt = "$t('poweredBy.vf_logo_alt')">
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted">Volunteer Florida</small>
               </div>
@@ -28,7 +28,7 @@
           </li>
           <li class="list-inline-item">
             <div class="card major-cards bg-dark">
-              <img class="card-img-top" src="/static/img/front_end/logo-galleryfurniture.png" v-bind:alt = "$t('poweredBy.gallery_furniture_logo_alt')">
+              <img class="card-img-top" src="/static/img/front_end/logo-galleryfurniture.jpg" v-bind:alt = "$t('poweredBy.gallery_furniture_logo_alt')">
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted">Gallery Furniture</small>
               </div>
@@ -110,7 +110,7 @@
           </li>
           <li class="list-inline-item">
             <div class="card minor-cards bg-dark">
-              <img class="card-img-top" src="/static/img/front_end/logo-connectfirst.png" v-bind:alt = "$t('poweredBy.connectfirst_logo_alt')">
+              <img class="card-img-top" src="/static/img/front_end/logo-connectfirst.jpg" v-bind:alt = "$t('poweredBy.connectfirst_logo_alt')">
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted">Connect First</small>
               </div>
@@ -215,7 +215,7 @@
           </li>
           <li class="list-inline-item">
             <div class="card major-cards bg-dark">
-              <img class="card-img-top" src="/static/img/people/photo-tylersanders.png" v-bind:alt = "$t('poweredBy.tyler_sanders_photo_alt')">
+              <img class="card-img-top" src="/static/img/people/photo-tylersanders.jpg" v-bind:alt = "$t('poweredBy.tyler_sanders_photo_alt')">
               <div class="card-footer the-card-footer d-flex">
                 <small class="text-muted">Tyler Sanders</small>
               </div>
