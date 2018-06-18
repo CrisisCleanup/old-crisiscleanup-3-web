@@ -28,7 +28,7 @@ var checkSizeOfAllImages = function() {
 };
 
 describe('All Image Size Check', function() {
-  it('All Image size should be less than 300K', function(done) {
+  it(`All Image size should be less than ${FILE_SIZE_LIMIT}K`, function(done) {
     checkSizeOfAllImages()
     .then(function(res){
       expect(res).to.equal(0);
