@@ -27,12 +27,14 @@
         <!--<b-dropdown-item><i class="fa fa-tasks"></i> {{ $t('actions.tasks') }}<span class="badge badge-danger">42</span></b-dropdown-item>-->
         <!--<b-dropdown-item><i class="fa fa-comments"></i> {{ $t('actions.comments') }}<span class="badge badge-warning">42</span></b-dropdown-item>-->
         <!--<b-dropdown-header tag="div" class="text-center"><strong>{{ $t('actions.settings') }}</strong></b-dropdown-header>-->
-        <!--<b-dropdown-item><i class="fa fa-user"></i> {{ $t('actions.profile') }}</b-dropdown-item>-->
+        <b-dropdown-item @click="profile"><i class="fa fa-user"></i> {{ $t('actions.profile') }}</b-dropdown-item>
+        <b-dropdown-item @click="settings"><i class="fa fa-cog"></i> {{ $t('actions.settings') }}</b-dropdown-item>
+        <b-dropdown-item @click="changePassword"><i class="fa fa-lock"></i> {{ $t('actions.change_password') }}</b-dropdown-item>
         <!--<b-dropdown-item><i class="fa fa-wrench"></i> {{ $t('actions.settings') }}</b-dropdown-item>-->
         <!--<b-dropdown-divider></b-dropdown-divider>-->
         <!--<b-dropdown-item><i class="fa fa-shield"></i> {{ $t('actions.lock_account') }}</b-dropdown-item>-->
-        <!--<b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item>-->
-        <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-lock"></i> {{ $t('actions.logout') }}</b-dropdown-item>
+        <!-- <b-dropdown-item id="logout-btn" @click="account"><i class="fa fa-cog"></i> {{ $t('actions.account') }}</b-dropdown-item> -->
+        <b-dropdown-item id="logout-btn" @click="logout"><i class="fa fa-sign-out"></i> {{ $t('actions.logout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
     <button class="navbar-toggler aside-menu-toggler" type="button" @click="asideToggle"><i v-bind:class="rightAsideToggle"></i></button>
@@ -81,6 +83,12 @@ export default {
       this.rightAsideToggle["icon-arrow-right"] = !this.rightAsideToggle["icon-arrow-right"];
       document.body.classList.toggle('aside-menu-hidden')
       CCUMapEventHub.$emit('aside-changed');
+    },
+    profile (e) {
+      this.$router.push({path: '/worker/profile'});
+    },
+    settings (e) {
+      this.$router.push({path: '/worker/settings'});
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
