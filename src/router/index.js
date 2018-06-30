@@ -6,8 +6,10 @@ import Full from '@/containers/Full'
 import Main from '@/containers/Main'
 
 import WorkerDashboard from '@/views/worker/Dashboard'
-import MyOrganization from '@/views/worker/MyOrganization';
-import WorkerMapView from '@/views/worker/WorkerMapView';
+import MyOrganization from '@/views/worker/MyOrganization'
+import WorkerMapView from '@/views/worker/WorkerMapView'
+import Profile from '@/views/worker/Profile'
+import Settings from '@/views/worker/Settings'
 import Charts from '@/views/Charts'
 
 import Page404 from '@/views/pages/Page404'
@@ -174,6 +176,18 @@ const router = new Router({
           name: 'Charts',
           component: Charts,
           meta: {auth: true, title: i18n.t('routerIndex.charts_html_title')}
+        },
+        {
+          path: 'settings',
+          name: 'Settings',
+          component: Settings,
+          meta: {auth: true, title: i18n.t('routerIndex.settings_html_title')}
+        },
+        {
+          path: 'profile',
+          name: 'Profile',
+          component: Profile,
+          meta: {auth: true, title: i18n.t('routerIndex.profile_html_title')}
         },
       ]
     },

@@ -45,6 +45,7 @@ const messages = {
       "login": "Login",
       "logout": "Logout",
       "forgot_password": "Forgot password?",
+      "change_password": "Change Passowrd",
       "save_unclaim": "Save & Unclaim",
       "unclaim": "Unclaim",
       "contact": "Contact",
@@ -556,6 +557,7 @@ const messages = {
       "worker_map_html_title": "Worker Map: Crisis Cleanup",
       "my_organization_html_title": "My Organization: Crisis Cleanup",
       "charts_html_title": "Charts: Crisis Cleanup",
+      "profile_html_title": "Worker Profile: Crisis Cleanup",
       "privacy_html_title": "Privacy and Security Policy: Crisis Cleanup",
       "map_html_title": "Map: Crisis Cleanup",
       "server_error_html_title": "Server Error: Crisis Cleanup",
@@ -1759,6 +1761,28 @@ const messages = {
       "invites_sent": "Invitations have been sent.",
       "logged_out": "You have logged out successfully.",
       "viewing_incident": "You are now viewing the incident:"
+    },
+    "profile": {
+      "first_name_placeholder": "First Name",
+      "last_name_placeholder": "Last Name",
+      "role_placeholder": "Role",
+      "assets_placeholder": "Assets",
+      "email_placeholder": "Email",
+      "mobile_placeholder": "Mobile Phone Number",
+      "preferred_language_placeholder": "Preferred Language",
+      "save": "Save",
+      "move_organizations": "Move Organizations",
+      "invite_others_to": "Invite Others To",
+      "first_name_error": "First Name is required",
+      "last_name_error": "Last Name is required",
+      "role_error": "Role is required",
+      "assets_error": "Assets is required",
+      "email_error": "Email is required",
+      "mobile_phone_error": "Mobile Phone is required"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Spanish"
     }
   },
   "es": {
@@ -1807,6 +1831,7 @@ const messages = {
       "login": "Iniciar sesión",
       "logout": "Cerrar sesión",
       "forgot_password": "¿Olvidó su contraseña?",
+      "change_password": "Change Passowrd",
       "save_unclaim": "Guardar y Deshacer reclamo",
       "unclaim": "Deshacer reclamo",
       "contact": "Contactar",
@@ -2318,6 +2343,7 @@ const messages = {
       "worker_map_html_title": "Mapa del trabajador: Crisis Cleanup",
       "my_organization_html_title": "Mi organización: Crisis Cleanup",
       "charts_html_title": "Gráficos: Crisis Cleanup",
+      "profile_html_title": "Worker Profile: Crisis Cleanup",
       "privacy_html_title": "Privacidad y politicas de seguridad: Crisis Cleanup",
       "map_html_title": "Mapa: Crisis Cleanup",
       "server_error_html_title": "Error del servidor: Crisis Cleanup",
@@ -3521,6 +3547,28 @@ const messages = {
       "invites_sent": "Se han enviado invitaciones.",
       "logged_out": "Ha iniciado sesión con éxito.",
       "viewing_incident": "Ahora está viendo el incidente:"
+    },
+    "profile": {
+      "first_name_placeholder": "First Name",
+      "last_name_placeholder": "Last Name",
+      "role_placeholder": "Role",
+      "assets_placeholder": "Assets",
+      "email_placeholder": "Email",
+      "mobile_placeholder": "Mobile Phone Number",
+      "preferred_language_placeholder": "Preferred Language",
+      "save": "Save",
+      "move_organizations": "Move Organizations",
+      "invite_others_to": "Invite Others To",
+      "first_name_error": "First Name is required",
+      "last_name_error": "Last Name is required",
+      "role_error": "Role is required",
+      "assets_error": "Assets is required",
+      "email_error": "Email is required",
+      "mobile_phone_error": "Mobile Phone is required"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Spanish"
     }
   }
 }
