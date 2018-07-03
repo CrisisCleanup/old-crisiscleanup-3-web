@@ -45,7 +45,7 @@ const messages = {
       "login": "Login",
       "logout": "Logout",
       "forgot_password": "Forgot password?",
-      "change_password": "Change Passowrd",
+      "change_password": "Change Password",
       "save_unclaim": "Save & Unclaim",
       "unclaim": "Unclaim",
       "contact": "Contact",
@@ -1771,6 +1771,7 @@ const messages = {
       "mobile_placeholder": "Mobile Phone Number",
       "preferred_language_placeholder": "Preferred Language",
       "save": "Save",
+      "update_email": "Update Email",
       "move_organizations": "Move Organizations",
       "invite_others_to": "Invite Others To",
       "first_name_error": "First Name is required",
@@ -1782,7 +1783,25 @@ const messages = {
     },
     "languages": {
       "en": "English",
-      "es": "Spanish"
+      "en-us": "US English",
+      "en-au": "Australian English",
+      "en-ca": "Canadian English",
+      "es": "Spanish",
+      "es-mx": "Mexican Spanish"
+    },
+    "assets": {
+      "chainsaw": "Chainsaw",
+      "van": "Van",
+      "bus": "Bus",
+      "pump": "Pump",
+      "compressor": "Compressor",
+      "trailer": "Trailer",
+      "backhoe": "Backhoe",
+      "skid_steer": "Skid Steer",
+      "bulldozer": "Bulldozer",
+      "excavator": "Excavator",
+      "dump_truck": "Dump Truck",
+      "forklift": "Forklift"
     }
   },
   "es": {
@@ -3557,6 +3576,7 @@ const messages = {
       "mobile_placeholder": "Mobile Phone Number",
       "preferred_language_placeholder": "Preferred Language",
       "save": "Save",
+      "update_email": "Update Email",
       "move_organizations": "Move Organizations",
       "invite_others_to": "Invite Others To",
       "first_name_error": "First Name is required",
@@ -3567,8 +3587,26 @@ const messages = {
       "mobile_phone_error": "Mobile Phone is required"
     },
     "languages": {
-      "en": "English",
-      "es": "Spanish"
+      "en": "Inglés",
+      "en-us": "Inglés americano",
+      "en-au": "Inglés australiano",
+      "en-ca": "Inglés canadiense",
+      "es": "Español",
+      "es-mx": "español mexicano"
+    },
+    "assets": {
+      "chainsaw": "motosierra",
+      "van": "camioneta",
+      "bus": "Autobús",
+      "pump": "Bomba",
+      "compressor": "Compresor",
+      "trailer": "Remolque",
+      "backhoe": "Retroexcavadora",
+      "skid_steer": "Minicargador",
+      "bulldozer": "Excavadora",
+      "excavator": "Excavador",
+      "dump_truck": "Camión de la basura",
+      "forklift": "Máquina elevadora"
     }
   }
 }

@@ -90,6 +90,8 @@ export default {
     settings (e) {
       this.$router.push({path: '/worker/settings'});
     },
+    changePassword (e) {
+    },
     logout (e) {
       this.$store.dispatch('auth/logout');
       setTimeout(() => {
