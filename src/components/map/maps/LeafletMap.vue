@@ -36,9 +36,22 @@
     data() {
       return {
         ready: false,
-        tileLayer: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // tileLayer: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //   maxZoom: 18,
+        //   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        // }),
+        tileLayer: L.tileLayer('https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/normal.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
+          attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+          subdomains: '1234',
+          mapID: 'newest',
+          app_id: process.env.LEAFLET_MAP_APP_ID,
+          app_code: process.env.LEAFLET_MAP_APP_CODE,
+          base: 'base',
           maxZoom: 18,
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          type: 'maptile',
+          language: 'eng',
+          format: 'png8',
+          size: '256'
         }),
       }
     },
