@@ -84,11 +84,12 @@ export default {
     },
     logout (e) {
       this.$store.dispatch('auth/logout');
+      const title = this.$t('notify.logged_out');
       setTimeout(() => {
           this.$notify({
             type: 'warn',
             group: 'core',
-            title: this.$t('notify.logged_out'),
+            title: title,
             text: '',
             width: 500
           });
