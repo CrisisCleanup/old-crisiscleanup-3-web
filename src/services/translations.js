@@ -569,7 +569,8 @@ const messages = {
       "register_org_html_title": "Register Organization: Crisis Cleanup",
       "browse_worksites_html_title": "Browse Cases: Crisis Cleanup",
       "browse_orgs_html_title": "Browse Organizations: Crisis Cleanup",
-      "about_html_title": "About Crisis Cleanup"
+      "about_html_title": "About Crisis Cleanup",
+      "500_html_title": "Internal Error: Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Mission and Roadmap",
@@ -2331,7 +2332,8 @@ const messages = {
       "register_org_html_title": "Registro Organización: Crisis Cleanup",
       "browse_worksites_html_title": "Explorar Casos: Crisis Cleanup",
       "browse_orgs_html_title": "Explorar Organizaciones: Crisis Cleanup",
-      "about_html_title": "Acerca de Crisis Cleanup"
+      "about_html_title": "Acerca de Crisis Cleanup",
+      "500_html_title": "Internal Error: Crisis Cleanup"
     },
     "roadmap": {
       "mission_roadmap": "Misión y Plan de trabajo",

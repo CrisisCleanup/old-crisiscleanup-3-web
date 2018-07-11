@@ -201,7 +201,7 @@ router.beforeEach(function (to, from, next) {
       }
     } else {
       if (vueAuthInstance.isAuthenticated()) {
-        router.push({name: 'Home'})
+        router.push({name: 'Worker'})
       } else {
         next()
       }

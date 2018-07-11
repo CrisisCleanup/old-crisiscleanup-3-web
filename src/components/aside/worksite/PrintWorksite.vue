@@ -1,20 +1,3 @@
-<script>
-  export default {
-    props: [
-    ],
-    data() {
-      return {
-      }
-    },
-    computed: {
-      site() {
-        return this.$store.getters.getCurrentSiteData;
-      },
-    },
-    methods: {
-    }
-  }
-</script>
 <style scoped>
   .question {
     width: 280px;
@@ -872,7 +855,11 @@
     },
     components: {},
     mounted() {},
-    computed: {},
+    computed: {
+      site() {
+        return this.$store.getters.getCurrentSiteData;
+      },
+    },
     methods: {}
   }
 
