@@ -1,6 +1,6 @@
 {
   "event_id": 26,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-08",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -358,18 +358,7 @@
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit"
-              }
-            }
-          },
-          "flood_damage_info": {
-            "field_type": "section",
-            "validation": null,
-            "label_t": "formLabels.flood_damage_info",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "workInfo",
-            "if_selected_then_work_type": "flood",
-            "fields": {
+              },
               "flood_height": {
                 "field_type": "text",
                 "validation": "integer",
@@ -613,7 +602,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -648,7 +637,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },

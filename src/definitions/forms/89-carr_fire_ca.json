@@ -1,6 +1,6 @@
 {
   "event_id": 89,
-  "last_updated": "2018-07-29",
+  "last_updated": "2018-08-08",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -551,15 +551,6 @@
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
                     "if_selected_then_work_type": "inherit"
-                  },
-                  "well_cap_replacement": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.well_cap_replacement",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
                   }
                 }
               },
@@ -702,6 +693,80 @@
                     "field_type": "checkbox",
                     "validation": "string",
                     "label_t": "formLabels.create_defensible_space",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  }
+                }
+              },
+              "retardant_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.retardant_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "retardant_cleanup",
+                "fields": {
+                  "retardant_clean_home": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_home",
+                    "help_text_t": "formLabels.retardant_clean_home_help",
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_clean_outbuilding": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_outbuilding",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_clean_vehicle": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_vehicle",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_material_wood": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_material_wood",
+                    "help_text_t": "formLabels.retardant_material_wood_help",
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_material_metal": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_material_metal",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_material_concrete": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_material_concrete",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "inherit"
+                  },
+                  "retardant_material_other": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_material_other",
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
