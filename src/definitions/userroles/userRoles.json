@@ -37,6 +37,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "0"
   },
   "portal_admin": {
@@ -58,6 +59,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "1"
 
   },
@@ -80,6 +82,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "2"
   },
   "incidentPrimaryContact": {
@@ -101,6 +104,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "2"
   },
   "teamLeader": {
@@ -122,6 +126,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "3"
   },
   "worker": {
@@ -143,6 +148,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": true,
     "level": "3"
   },
   "phoneAgent": {
@@ -164,6 +170,7 @@
     "crewManagement": false,
     "viewUserContacts": false,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "3"
   },
   "mapSpecialist": {
@@ -185,6 +192,7 @@
     "crewManagement": false,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "3"
   },
   "translator": {
@@ -206,6 +214,7 @@
     "crewManagement": false,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "3"
   },
   "supportAgent": {
@@ -227,6 +236,7 @@
     "crewManagement": false,
     "viewUserContacts": true,
     "viewSensitive": "inherit",
+    "isDefault": false,
     "level": "3"
   },
   "guestWorker": {
@@ -248,6 +258,7 @@
     "crewManagement": true,
     "viewUserContacts": true,
     "viewSensitive": "redactDigits",
+    "isDefault": false,
     "level": "4"
   }
 }
