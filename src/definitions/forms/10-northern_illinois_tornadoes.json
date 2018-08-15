@@ -1,6 +1,6 @@
 {
   "event_id": 10,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -302,7 +302,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "trees_heavy_equipment"
                   },
                   "physical_labor": {
                     "field_type": "checkbox",
@@ -331,7 +331,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "other"
                   },
                   "needs_clothing": {
                     "field_type": "checkbox",
@@ -340,7 +340,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "other"
                   },
                   "needs_shelter": {
                     "field_type": "checkbox",
@@ -349,7 +349,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "other"
                   },
                   "needs_tarp": {
                     "field_type": "checkbox",
@@ -358,7 +358,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "other"
                   },
                   "tree_debris": {
                     "field_type": "checkbox",
@@ -367,7 +367,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "other"
                   },
                   "minor_home_repair": {
                     "field_type": "checkbox",
@@ -394,7 +394,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "demolition"
                   },
                   "other_needs": {
                     "field_type": "textarea",
@@ -403,7 +403,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "verySensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "demolition",
                     "placeholder_t": null
                   }
                 }
@@ -502,7 +502,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": null,
                 "options": [
                   {
                     "value": null,

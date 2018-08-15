@@ -1,6 +1,6 @@
 {
   "event_id": 3,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -263,7 +263,7 @@
             "help_text_t": null,
             "data_sensitivity": "verySensitive",
             "data_type": "personalInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "special_needs": {
             "field_type": "textarea",
@@ -338,7 +338,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "structure",
                 "placeholder_t": null
               },
               "debris_removal": {
@@ -348,7 +348,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "structure"
               },
               "broken_glass": {
                 "field_type": "checkbox",
@@ -357,7 +357,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "structure"
               },
               "heavy_item_removal": {
                 "field_type": "checkbox",
@@ -366,7 +366,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "structure"
               },
               "appliance_removal": {
                 "field_type": "checkbox",
@@ -375,7 +375,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "structure"
               },
               "work_requested": {
                 "field_type": "textarea",
@@ -415,7 +415,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -439,7 +439,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -450,7 +450,7 @@
                 "help_text_t": "formLabels.num_wide_trees_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -474,7 +474,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               }
@@ -496,7 +496,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "carpet_removal": {
                 "field_type": "checkbox",
@@ -505,7 +505,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "hardwood_floor_removal": {
                 "field_type": "checkbox",
@@ -514,7 +514,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "drywall_removal": {
                 "field_type": "checkbox",
@@ -523,7 +523,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "standing_water": {
                 "field_type": "checkbox",
@@ -532,7 +532,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "mold_remediation": {
                 "field_type": "checkbox",
@@ -680,7 +680,7 @@
             "help_text_t": null,
             "data_sensitivity": "public",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -777,6 +777,30 @@
           }
         }
       }
+    }
+  },
+  "phase_rebuild": {
+    "attribute_default": false,
+    "is_active": false,
+    "allow_suggestions": true,
+    "allow_site_claim": true,
+    "allow_section_claim": true,
+    "fields": {
+      "not_created_info": {
+        "field_type": "section",
+        "validation": null,
+        "label_t": "formLabels.not_created_info",
+        "help_text_t": "formLabels.not_created_info_help",
+        "allow_edit_break_glass": true,
+        "if_selected_then_work_type": null,
+        "fields": {
+        }
+      }
+    }
+  }
+}
+  }
+}
     }
   },
   "phase_rebuild": {

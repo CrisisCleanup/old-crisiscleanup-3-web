@@ -1,6 +1,6 @@
 {
   "event_id": 41,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -312,7 +312,7 @@
             "help_text_t": null,
             "data_sensitivity": "verySensitive",
             "data_type": "personalInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "first_responder": {
             "field_type": "checkbox",
@@ -386,7 +386,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "public",
                     "data_type": "caseInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": null,
                     "options": [
                       {
                         "value": null,
@@ -477,7 +477,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "muck_out",
                     "options": [
                       {
                         "value": null,
@@ -512,7 +512,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "muck_out",
                     "options": [
                       {
                         "value": null,
@@ -583,7 +583,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   },
                   "hardwood_floor_removal": {
                     "field_type": "checkbox",
@@ -592,7 +592,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   },
                   "tile_removal": {
                     "field_type": "checkbox",
@@ -601,7 +601,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   },
                   "drywall_removal": {
                     "field_type": "checkbox",
@@ -610,7 +610,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   },
                   "appliance_removal": {
                     "field_type": "checkbox",
@@ -619,7 +619,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   },
                   "heavy_item_removal": {
                     "field_type": "checkbox",
@@ -628,7 +628,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "muck_out"
                   }
                 }
               },
@@ -648,7 +648,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "trees",
                     "options": [
                       {
                         "value": "0",
@@ -672,7 +672,7 @@
                       },
                       {
                         "value": "5",
-                        "name_t": "formOptions.five_plus"
+                        "name_t": "5+"
                       }
                     ]
                   },
@@ -683,7 +683,7 @@
                     "help_text_t": "formLabels.num_wide_trees_help",
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "trees",
                     "options": [
                       {
                         "value": "0",
@@ -707,7 +707,7 @@
                       },
                       {
                         "value": "5",
-                        "name_t": "formOptions.five_plus"
+                        "name_t": "5+"
                       }
                     ]
                   }
@@ -729,7 +729,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "tarp"
                   },
                   "outbuilding_roof_damage": {
                     "field_type": "checkbox",
@@ -738,7 +738,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "tarp"
                   },
                   "tarps_needed": {
                     "field_type": "text",
@@ -747,7 +747,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "tarp",
                     "placeholder_t": null
                   },
                   "help_install_tarp": {
@@ -757,7 +757,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "tarp"
                   }
                 }
               },
@@ -777,7 +777,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "debris"
                   },
                   "vegitative_debris_removal": {
                     "field_type": "checkbox",
@@ -786,7 +786,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "debris"
                   },
                   "debris_description": {
                     "field_type": "textarea",
@@ -795,7 +795,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "verySensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "debris",
                     "placeholder_t": null
                   }
                 }
@@ -816,7 +816,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "mold_remediation",
                     "options": [
                       {
                         "value": null,
@@ -851,7 +851,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "mold_remediation"
                   },
                   "mold_scraping": {
                     "field_type": "checkbox",
@@ -860,7 +860,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "mold_remediation"
                   },
                   "mold_spraying": {
                     "field_type": "checkbox",
@@ -869,7 +869,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "mold_remediation"
                   },
                   "mold_replace_studs": {
                     "field_type": "checkbox",
@@ -878,7 +878,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "mold_remediation"
                   },
                   "mold_hvac": {
                     "field_type": "checkbox",
@@ -887,7 +887,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "mold_remediation"
                   },
                   "notes": {
                     "field_type": "textarea",
@@ -917,7 +917,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_furnace": {
                     "field_type": "checkbox",
@@ -926,7 +926,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_water_heater": {
                     "field_type": "checkbox",
@@ -935,7 +935,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_plumbing": {
                     "field_type": "checkbox",
@@ -944,7 +944,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_drainage": {
                     "field_type": "checkbox",
@@ -953,7 +953,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_sewer_septic": {
                     "field_type": "checkbox",
@@ -962,7 +962,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_caulking": {
                     "field_type": "checkbox",
@@ -971,7 +971,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_appliances": {
                     "field_type": "textarea",
@@ -980,7 +980,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "verySensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "rebuild",
                     "placeholder_t": null
                   },
                   "maintenance_hvac": {
@@ -990,7 +990,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_electrical": {
                     "field_type": "checkbox",
@@ -999,7 +999,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_roof": {
                     "field_type": "checkbox",
@@ -1008,7 +1008,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_siding": {
                     "field_type": "checkbox",
@@ -1017,7 +1017,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_doors": {
                     "field_type": "checkbox",
@@ -1026,7 +1026,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "maintenance_windows": {
                     "field_type": "checkbox",
@@ -1035,7 +1035,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "rebuild"
                   },
                   "other_needs": {
                     "field_type": "textarea",
@@ -1044,7 +1044,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "verySensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "rebuild",
                     "placeholder_t": null
                   }
                 }
@@ -1108,7 +1108,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "sensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": null
               },
               "other_hazards": {
                 "field_type": "textarea",
@@ -1193,7 +1193,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": null,
                 "options": [
                   {
                     "value": null,
