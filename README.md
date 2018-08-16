@@ -3,25 +3,25 @@
 
 # Crisis Cleanup (3.X beta)
 
-Crisis Cleanup is a web platform that connects disaster recovery organization volunteers with people who need help after a disaster. The Crisis Cleanup platform has been used to connected 308,030 volunteers from 1,114 organizations with 57,166 households in 35 states and 79 disasters in 6 countries; a new disaster every two weeks.
+Crisis Cleanup is a web platform that connects disaster recovery organization volunteers with people who need help after a disaster. The Crisis Cleanup platform has been used to connected 324,990 volunteers from 1,188 organizations with 57,186 households in 39 states and 99 disasters in 6 countries; a new disaster every two weeks.
 
 Crisis Cleanup works best in a collaborative environment where multiple voluntary organizations and agencies work together and coordinate efforts. Because these organizations do not take orders from one another, Crisis Cleanup is designed to facilitate Collaborative Accountability models of inter-agency interaction, rather than command-and-control operations, or or heirarchical accountability models of interaction. 
 
 This is the primary repository for the main Crisis Cleanup web application, a collaborative map-based coordination tool. This implementation is built upon a service-based model, designed for Google Cloud, with Python and PostgreSQL.
 
-Other Project Stats (As of 2018-03-06)
+Other Project Stats (As of 2018-08-16)
 -------------
 
  - 25%: Increase in volunteer efficiency through re-engagement and elimination of time spent on travel, coordination, collaboration, and management.
- - 14,291: Households that could not have been helped without Crisis Cleanup.
+ - 14,296: Households that could not have been helped without Crisis Cleanup.
  - 3.4 Million: Number of volunteer hours facilitated.
  - 858,000: Volunteer hours that would have otherwise been wasted in management, travel, and overhead without Crisis Cleanup.
- - $408.0 Million: Minimum total market value of services to survivors.
- - $1324: Value of each cleanup volunteer to his/her community.
- - $102.0 Million: Market value of services to survivors that would have otherwise been wasted in travel, management, overhead, and standing in lines.
- - $49,582: Money Crisis Cleanup has saved survivors every single day since July 18, 2012.
- - $10,527: Average commercial value of service to each homeowner.
- - $267: Return on investment to survivors, for every $1 invested in Crisis Cleanup.
+ - $399.7 Million: Minimum total market value of services to survivors.
+ - $1230: Value of each cleanup volunteer to his/her community.
+ - $99.9 Million: Market value of services to survivors that would have otherwise been wasted in travel, management, overhead, and standing in lines.
+ - $45,016: Money Crisis Cleanup has saved survivors every single day since July 18, 2012.
+ - $10,367: Average commercial value of service to each homeowner.
+ - $220: Return on investment to survivors, for every $1 invested in Crisis Cleanup.
 How we calculate these statistics: http://blog.crisiscleanup.org/2017/10/how-we-calculate-value-of-services.html
 
 Find out more
