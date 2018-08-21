@@ -1,6 +1,6 @@
 {
   "event_id": 90,
-  "last_updated": "2018-08-14",
+  "last_updated": "2018-08-21",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -272,6 +272,24 @@
             "validation": "string",
             "label_t": "formLabels.first_responder",
             "help_text_t": "formLabels.first_responder_help",
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
+            "if_selected_then_work_type": null
+          },
+          "veteran": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.veteran",
+            "help_text_t": null,
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
+            "if_selected_then_work_type": null
+          },
+          "registered_veteran": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.registered_veteran",
+            "help_text_t": null,
             "data_sensitivity": "verySensitive",
             "data_type": "personalInfo",
             "if_selected_then_work_type": null
