@@ -1,6 +1,6 @@
 {
   "event_id": 8,
-  "last_updated": "2018-08-14",
+  "last_updated": "2018-08-22",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -1008,8 +1008,6 @@
           }
         }
       }
-  }
-}
     }
   },
   "phase_rebuild": {
