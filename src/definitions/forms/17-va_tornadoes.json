@@ -1,6 +1,6 @@
 {
   "event_id": 17,
-  "last_updated": "2018-08-14",
+  "last_updated": "2018-08-22",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -634,257 +634,255 @@
                 }
               }
             }
-          }
-        }
-      },
-      "hazards_info": {
-        "field_type": "section",
-        "validation": null,
-        "label_t": "formLabels.hazards_info",
-        "help_text_t": null,
-        "data_sensitivity": "lessSensitive",
-        "data_type": "caseInfo",
-        "if_selected_then_work_type": null,
-        "fields": {
-          "habitable": {
-            "field_type": "select",
-            "validation": "string",
-            "label_t": "formLabels.habitable",
+          },
+          "hazards_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.hazards_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "fields": {
+              "habitable": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.habitable",
+                "help_text_t": null,
+                "data_sensitivity": "sensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "yes",
+                    "name_t": "formOptions.yes"
+                  },
+                  {
+                    "value": "no",
+                    "name_t": "formOptions.no"
+                  }
+                ]
+              },
+              "electricity": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.electricity",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null
+              },
+              "electrical_lines": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.electrical_lines",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null
+              },
+              "unsafe_roof": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.unsafe_roof",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null
+              },
+              "unrestrained_animals": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.unrestrained_animals",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null
+              },
+              "other_hazards": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.other_hazards",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": null
+              }
+            }
+          },
+          "claim_status_report_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.claim_status_report_info",
             "help_text_t": null,
             "data_sensitivity": "sensitive",
             "data_type": "caseInfo",
             "if_selected_then_work_type": null,
-            "options": [
-              {
-                "value": null,
-                "name_t": "actions.choose_one_select"
+            "fields": {
+              "status": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.status",
+                "help_text_t": "formLabels.status_help",
+                "data_sensitivity": "public",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": "open_unassigned",
+                    "name_t": "status.open_unassigned"
+                  },
+                  {
+                    "value": "open_assigned",
+                    "name_t": "status.open_assigned"
+                  },
+                  {
+                    "value": "open_partially_completed",
+                    "name_t": "status.open_partially_completed"
+                  },
+                  {
+                    "value": "open_needs_follow_up",
+                    "name_t": "status.open_needs_follow_up"
+                  },
+                  {
+                    "value": "closed_completed",
+                    "name_t": "status.closed_completed"
+                  },
+                  {
+                    "value": "closed_incomplete",
+                    "name_t": "status.closed_incomplete"
+                  },
+                  {
+                    "value": "closed_out_of_scope",
+                    "name_t": "status.closed_out_of_scope"
+                  },
+                  {
+                    "value": "closed_done_by_others",
+                    "name_t": "status.closed_done_by_others"
+                  },
+                  {
+                    "value": "closed_no_help_wanted",
+                    "name_t": "status.closed_no_help_wanted"
+                  },
+                  {
+                    "value": "closed_rejected",
+                    "name_t": "status.closed_rejected"
+                  },
+                  {
+                    "value": "closed_duplicate",
+                    "name_t": "status.closed_duplicate"
+                  }
+                ]
               },
-              {
-                "value": "yes",
-                "name_t": "formOptions.yes"
+              "debris_status": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.debris_status",
+                "help_text_t": null,
+                "data_sensitivity": "public",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "untouched",
+                    "name_t": "formOptions.untouched"
+                  },
+                  {
+                    "value": "piled_on_property",
+                    "name_t": "formOptions.piled_on_property"
+                  },
+                  {
+                    "value": "piled_on_public_right_of_way",
+                    "name_t": "formOptions.piled_on_public_right_of_way"
+                  },
+                  {
+                    "value": "removed_from_property_public_right_of_way",
+                    "name_t": "formOptions.removed_from_property_public_right_of_way"
+                  }
+                ]
               },
-              {
-                "value": "no",
-                "name_t": "formOptions.no"
+              "assigned_to": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.assigned_to",
+                "help_text_t": "formLabels.assigned_to_help",
+                "is_hidden_default": true,
+                "data_sensitivity": "orgSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.assigned_to_placeholder"
+              },
+              "total_volunteers": {
+                "field_type": "text",
+                "validation": "integer",
+                "label_t": "formLabels.total_volunteers",
+                "help_text_t": "formLabels.total_volunteers_help",
+                "data_sensitivity": "orgSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.total_volunteers_placeholder"
+              },
+              "hours_worked_per_volunteer": {
+                "field_type": "text",
+                "validation": "float",
+                "label_t": "formLabels.hours_worked_per_volunteer",
+                "help_text_t": "formLabels.hours_worked_per_volunteer_help",
+                "data_sensitivity": "orgSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.hours_worked_per_volunteer_placeholder"
+              },
+              "initials_of_resident_present": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.initials_of_resident_present",
+                "help_text_t": "formLabels.initials_of_resident_present_help",
+                "data_sensitivity": "sensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": null
+              },
+              "status_notes": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.status_notes",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": null
+              },
+              "prepared_by": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.prepared_by",
+                "help_text_t": "formLabels.prepared_by_help",
+                "data_sensitivity": "orgSensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.prepared_by_placeholder"
+              },
+              "do_not_work_before": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.do_not_work_before",
+                "help_text_t": null,
+                "data_sensitivity": "sensitive",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.do_not_work_before_placeholder"
               }
-            ]
-          },
-          "electricity": {
-            "field_type": "checkbox",
-            "validation": "string",
-            "label_t": "formLabels.electricity",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null
-          },
-          "electrical_lines": {
-            "field_type": "checkbox",
-            "validation": "string",
-            "label_t": "formLabels.electrical_lines",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null
-          },
-          "unsafe_roof": {
-            "field_type": "checkbox",
-            "validation": "string",
-            "label_t": "formLabels.unsafe_roof",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null
-          },
-          "unrestrained_animals": {
-            "field_type": "checkbox",
-            "validation": "string",
-            "label_t": "formLabels.unrestrained_animals",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "workInfo",
-            "if_selected_then_work_type": null
-          },
-          "other_hazards": {
-            "field_type": "textarea",
-            "validation": "string",
-            "label_t": "formLabels.other_hazards",
-            "help_text_t": null,
-            "data_sensitivity": "verySensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": null
+            }
           }
-        }
-      },
-      "claim_status_report_info": {
-        "field_type": "section",
-        "validation": null,
-        "label_t": "formLabels.claim_status_report_info",
-        "help_text_t": null,
-        "data_sensitivity": "sensitive",
-        "data_type": "caseInfo",
-        "if_selected_then_work_type": null,
-        "fields": {
-          "status": {
-            "field_type": "select",
-            "validation": "string",
-            "label_t": "formLabels.status",
-            "help_text_t": "formLabels.status_help",
-            "data_sensitivity": "public",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "value": "open_unassigned",
-                "name_t": "status.open_unassigned"
-              },
-              {
-                "value": "open_assigned",
-                "name_t": "status.open_assigned"
-              },
-              {
-                "value": "open_partially_completed",
-                "name_t": "status.open_partially_completed"
-              },
-              {
-                "value": "open_needs_follow_up",
-                "name_t": "status.open_needs_follow_up"
-              },
-              {
-                "value": "closed_completed",
-                "name_t": "status.closed_completed"
-              },
-              {
-                "value": "closed_incomplete",
-                "name_t": "status.closed_incomplete"
-              },
-              {
-                "value": "closed_out_of_scope",
-                "name_t": "status.closed_out_of_scope"
-              },
-              {
-                "value": "closed_done_by_others",
-                "name_t": "status.closed_done_by_others"
-              },
-              {
-                "value": "closed_no_help_wanted",
-                "name_t": "status.closed_no_help_wanted"
-              },
-              {
-                "value": "closed_rejected",
-                "name_t": "status.closed_rejected"
-              },
-              {
-                "value": "closed_duplicate",
-                "name_t": "status.closed_duplicate"
-              }
-            ]
-          },
-          "debris_status": {
-            "field_type": "select",
-            "validation": "string",
-            "label_t": "formLabels.debris_status",
-            "help_text_t": null,
-            "data_sensitivity": "public",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "value": null,
-                "name_t": "actions.choose_one_select"
-              },
-              {
-                "value": "untouched",
-                "name_t": "formOptions.untouched"
-              },
-              {
-                "value": "piled_on_property",
-                "name_t": "formOptions.piled_on_property"
-              },
-              {
-                "value": "piled_on_public_right_of_way",
-                "name_t": "formOptions.piled_on_public_right_of_way"
-              },
-              {
-                "value": "removed_from_property_public_right_of_way",
-                "name_t": "formOptions.removed_from_property_public_right_of_way"
-              }
-            ]
-          },
-          "assigned_to": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.assigned_to",
-            "help_text_t": "formLabels.assigned_to_help",
-            "is_hidden_default": true,
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.assigned_to_placeholder"
-          },
-          "total_volunteers": {
-            "field_type": "text",
-            "validation": "integer",
-            "label_t": "formLabels.total_volunteers",
-            "help_text_t": "formLabels.total_volunteers_help",
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.total_volunteers_placeholder"
-          },
-          "hours_worked_per_volunteer": {
-            "field_type": "text",
-            "validation": "float",
-            "label_t": "formLabels.hours_worked_per_volunteer",
-            "help_text_t": "formLabels.hours_worked_per_volunteer_help",
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.hours_worked_per_volunteer_placeholder"
-          },
-          "initials_of_resident_present": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.initials_of_resident_present",
-            "help_text_t": "formLabels.initials_of_resident_present_help",
-            "data_sensitivity": "sensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": null
-          },
-          "status_notes": {
-            "field_type": "textarea",
-            "validation": "string",
-            "label_t": "formLabels.status_notes",
-            "help_text_t": null,
-            "data_sensitivity": "verySensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": null
-          },
-          "prepared_by": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.prepared_by",
-            "help_text_t": "formLabels.prepared_by_help",
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.prepared_by_placeholder"
-          },
-          "do_not_work_before": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.do_not_work_before",
-            "help_text_t": null,
-            "data_sensitivity": "sensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.do_not_work_before_placeholder"
-          }
-        }
-      }
     }
   },
   "phase_rebuild": {
