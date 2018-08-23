@@ -26,6 +26,9 @@ User Roles
  - `primaryContact`
    - Name: Primary Contact
    - Description: A Primary Contact is the face of the organization to other relief agencies using Crisis Cleanup. A Primary Contact may also affiliate his or her organization with other organizations. An organization can (and should) have more than one Primary Contact. When a user selects to be a Primary Contact, all other Primary Contacts are alerted, so they may take action if the self-selection was in error.
+ - `incidentPrimaryContact`
+   - Name: Incident Primary Contact
+   - Description: An Incident Primary Contact is the face of the organization to other relief agencies using Crisis Cleanup for a particular disaster or incident. An Incident Primary Contact may also affiliate his or her organization with other organizations. An organization can (and should) have more than one Incident Primary Contact. When a user selects to be an Incident Primary Contact, all other Incident Primary Contacts are alerted, so they may take action if the self-selection was in error.
  - `teamLeader`
    - Name: Team Leader
    - Description: A Team Leader leads a group of workers or volunteers in the field.

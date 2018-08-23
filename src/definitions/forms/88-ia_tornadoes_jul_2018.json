@@ -1,6 +1,6 @@
 {
-  "event_id": 26,
-  "last_updated": "2018-08-08",
+  "event_id": 88,
+  "last_updated": "2018-07-26",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -37,16 +37,6 @@
         "data_type": "personalInfo",
         "if_selected_then_work_type": null,
         "fields": {
-          "name": {
-            "field_type": "text",
-            "validation": "string",
-            "label_t": "formLabels.name",
-            "help_text_t": "formLabels.name_help",
-            "data_sensitivity": "verySensitive",
-            "data_type": "personalInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.name_placeholder"
-          },
           "request_date": {
             "field_type": "text",
             "validation": "datetime-local",
@@ -59,15 +49,15 @@
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
-          "do_not_work_before": {
+          "name": {
             "field_type": "text",
             "validation": "string",
-            "label_t": "formLabels.do_not_work_before",
-            "help_text_t": null,
-            "data_sensitivity": "sensitive",
-            "data_type": "caseInfo",
+            "label_t": "formLabels.name",
+            "help_text_t": "formLabels.name_help",
+            "data_sensitivity": "verySensitive",
+            "data_type": "personalInfo",
             "if_selected_then_work_type": null,
-            "placeholder_t": "formLabels.do_not_work_before_placeholder"
+            "placeholder_t": "formLabels.name_placeholder"
           },
           "address": {
             "field_type": "text",
@@ -191,6 +181,92 @@
             "if_selected_then_work_type": null,
             "placeholder_t": null
           },
+          "residence_type": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.residence_type",
+            "help_text_t": "formLabels.residence_type_help",
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
+              },
+              {
+                "value": "primary_living_in_home",
+                "name_t": "formOptions.primary_living_in_home"
+              },
+              {
+                "value": "primary_displaced_from_home",
+                "name_t": "formOptions.primary_displaced_from_home"
+              },
+              {
+                "value": "second_home",
+                "name_t": "formOptions.second_home"
+              },
+              {
+                "value": "guest_home",
+                "name_t": "formOptions.guest_home"
+              },
+              {
+                "value": "other_secondary_property",
+                "name_t": "formOptions.other_secondary_property"
+              },
+              {
+                "value": "non_residence",
+                "name_t": "formOptions.non_residence"
+              }
+            ]
+          },
+          "dwelling_type": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.dwelling_type",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
+              },
+              {
+                "value": "house",
+                "name_t": "formOptions.house"
+              },
+              {
+                "value": "duplex",
+                "name_t": "formOptions.duplex"
+              },
+              {
+                "value": "mobile_home",
+                "name_t": "formOptions.mobile_home"
+              },
+              {
+                "value": "apartment",
+                "name_t": "formOptions.apartment"
+              },
+              {
+                "value": "condo",
+                "name_t": "formOptions.condo"
+              },
+              {
+                "value": "townhouse",
+                "name_t": "formOptions.townhouse"
+              },
+              {
+                "value": "rv",
+                "name_t": "formOptions.rv"
+              },
+              {
+                "value": "other",
+                "name_t": "workType.other"
+              }
+            ]
+          },
           "rent_or_own": {
             "field_type": "select",
             "validation": "string",
@@ -239,14 +315,85 @@
             "data_type": "caseInfo",
             "if_selected_then_work_type": null
           },
-          "member_of_assessing_organization": {
+          "outbuilding_affected": {
             "field_type": "checkbox",
             "validation": "string",
-            "label_t": "formLabels.member_of_assessing_organization",
+            "label_t": "formLabels.outbuilding_affected",
             "help_text_t": null,
-            "data_sensitivity": "orgSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
+          },
+          "exterior_property_affected": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.exterior_property_affected",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
+          },
+          "destruction_level": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.destruction_level",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit",
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
+              },
+              {
+                "value": "minor",
+                "name_t": "formOptions.minor"
+              },
+              {
+                "value": "moderate",
+                "name_t": "formOptions.moderate"
+              },
+              {
+                "value": "major",
+                "name_t": "formOptions.major"
+              },
+              {
+                "value": "extreme",
+                "name_t": "formOptions.extreme"
+              },
+              {
+                "value": "destroyed",
+                "name_t": "formOptions.destroyed"
+              }
+            ]
+          },
+          "house_roof_damage": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.house_roof_damage",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
+          },
+          "outbuilding_roof_damage": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.outbuilding_roof_damage",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "inherit"
+          },
+          "unsalvageable_structure": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.unsalvageable_structure",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "structure"
           },
           "first_responder": {
             "field_type": "checkbox",
@@ -275,51 +422,6 @@
             "data_type": "personalInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.special_needs_placeholder"
-          },
-          "severity": {
-            "field_type": "select",
-            "validation": "string",
-            "label_t": "formLabels.severity",
-            "help_text_t": "formLabels.severity_help",
-            "data_sensitivity": "lessSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "options": [
-              {
-                "value": null,
-                "name_t": "actions.choose_one_number_select"
-              },
-              {
-                "value": "1",
-                "name_t": "formOptions.one"
-              },
-              {
-                "value": "2",
-                "name_t": "formOptions.two"
-              },
-              {
-                "value": "3",
-                "name_t": "formOptions.three"
-              },
-              {
-                "value": "4",
-                "name_t": "formOptions.four"
-              },
-              {
-                "value": "5",
-                "name_t": "formOptions.five"
-              }
-            ]
-          },
-          "damage_notes": {
-            "field_type": "textarea",
-            "validation": "string",
-            "label_t": "formLabels.damage_notes",
-            "help_text_t": null,
-            "data_sensitivity": "verySensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": null
           }
         }
       },
@@ -332,236 +434,6 @@
         "data_type": "workInfo",
         "if_selected_then_work_type": null,
         "fields": {
-          "flood_damage_info": {
-            "field_type": "section",
-            "validation": null,
-            "label_t": "formLabels.flood_damage_info",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "workInfo",
-            "if_selected_then_work_type": "flood",
-            "fields": {
-              "dump_trailer_needed": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.dump_trailer_needed",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "chainsaw_needed": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.chainsaw_needed",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "flood_height": {
-                "field_type": "text",
-                "validation": "integer",
-                "label_t": "formLabels.flood_height",
-                "help_text_t": "formLabels.flood_height_help",
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
-                "placeholder_t": "formLabels.flood_height_placeholder"
-              },
-              "floors_affected": {
-                "field_type": "select",
-                "validation": "string",
-                "label_t": "formLabels.floors_affected",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "value": null,
-                    "name_t": "actions.choose_one_select"
-                  },
-                  {
-                    "value": "ground_floor_only",
-                    "name_t": "formOptions.ground_floor_only"
-                  },
-                  {
-                    "value": "crawlspace",
-                    "name_t": "formOptions.crawlspace"
-                  },
-                  {
-                    "value": "basement_only",
-                    "name_t": "formOptions.basement_only"
-                  },
-                  {
-                    "value": "basement_and_ground_floor",
-                    "name_t": "formOptions.basement_and_ground_floor"
-                  },
-                  {
-                    "value": "none",
-                    "name_t": "formOptions.none"
-                  }
-                ]
-              },
-              "carpet_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.carpet_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "hardwood_floor_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.hardwood_floor_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "drywall_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.drywall_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "appliance_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.appliance_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "heavy_item_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.heavy_item_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "standing_water": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.standing_water",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "mold_remediation": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.mold_remediation",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "mold_remediation"
-              },
-              "pump_needed": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.pump_needed",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "work_requested": {
-                "field_type": "textarea",
-                "validation": "string",
-                "label_t": "formLabels.work_requested",
-                "help_text_t": null,
-                "data_sensitivity": "verySensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.work_requested_placeholder"
-              },
-              "notes": {
-                "field_type": "textarea",
-                "validation": "string",
-                "label_t": "formLabels.notes",
-                "help_text_t": null,
-                "data_sensitivity": "verySensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.notes_placeholder"
-              }
-            }
-          },
-          "debris_info": {
-            "field_type": "section",
-            "validation": null,
-            "label_t": "formLabels.debris_info",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "workInfo",
-            "if_selected_then_work_type": "debris",
-            "fields": {
-              "nonvegitative_debris_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.nonvegitative_debris_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "vegitative_debris_removal": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.vegitative_debris_removal",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
-              },
-              "debris_blocking": {
-                "field_type": "select",
-                "validation": "string",
-                "label_t": "formLabels.debris_blocking",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "value": null,
-                    "name_t": "actions.choose_one_select"
-                  },
-                  {
-                    "value": "no_blocking",
-                    "name_t": "formOptions.no_blocking"
-                  },
-                  {
-                    "value": "house",
-                    "name_t": "formOptions.house"
-                  },
-                  {
-                    "value": "outbuilding",
-                    "name_t": "formOptions.outbuilding"
-                  },
-                  {
-                    "value": "driveway",
-                    "name_t": "formOptions.driveway"
-                  },
-                  {
-                    "value": "other",
-                    "name_t": "workType.other"
-                  }
-                ]
-              }
-            }
-          },
           "tree_info": {
             "field_type": "section",
             "validation": null,
@@ -641,40 +513,161 @@
                   }
                 ]
               },
-              "trees_blocking": {
-                "field_type": "select",
+              "work_requested": {
+                "field_type": "textarea",
                 "validation": "string",
-                "label_t": "formLabels.trees_blocking",
+                "label_t": "formLabels.work_requested",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.work_requested_placeholder"
+              },
+              "notes": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.notes",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.notes_placeholder"
+              }
+            }
+          },
+          "debris_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.debris_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "debris",
+            "fields": {
+              "hazardous_debris_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.hazardous_debris_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              },
+              "building_materials_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.building_materials_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              },
+              "nonvegitative_debris_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.nonvegitative_debris_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              },
+              "vegitative_debris_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.vegitative_debris_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              },
+              "heavy_machinary_required": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.heavy_machinary_required",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              }
+            }
+          },
+          "tarping_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.tarping_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "tarp",
+            "fields": {
+              "outbuilding_roof_damage": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.outbuilding_roof_damage",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              },
+              "tarps_needed": {
+                "field_type": "text",
+                "validation": "integer",
+                "label_t": "formLabels.tarps_needed",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "inherit",
-                "options": [
-                  {
-                    "value": null,
-                    "name_t": "actions.choose_one_select"
-                  },
-                  {
-                    "value": "no_blocking",
-                    "name_t": "formOptions.no_blocking"
-                  },
-                  {
-                    "value": "house",
-                    "name_t": "formOptions.house"
-                  },
-                  {
-                    "value": "outbuilding",
-                    "name_t": "formOptions.outbuilding"
-                  },
-                  {
-                    "value": "driveway",
-                    "name_t": "formOptions.driveway"
-                  },
-                  {
-                    "value": "other",
-                    "name_t": "workType.other"
-                  }
-                ]
+                "placeholder_t": null
+              },
+              "help_install_tarp": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.help_install_tarp",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit"
+              }
+            }
+          },
+          "fencing_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.fencing_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "fence",
+            "fields": {
+              "damaged_fence_length": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.damaged_fence_length",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit",
+                "placeholder_t": null
+              },
+              "fence_type": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.fence_type",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit",
+                "placeholder_t": null
+              },
+              "fence_notes": {
+                "field_type": "text",
+                "validation": "string",
+                "label_t": "formLabels.fence_notes",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "inherit",
+                "placeholder_t": null
               }
             }
           }
