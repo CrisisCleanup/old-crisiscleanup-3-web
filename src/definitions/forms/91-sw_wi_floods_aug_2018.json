@@ -1,6 +1,6 @@
 {
   "event_id": 91,
-  "last_updated": "2018-08-21",
+  "last_updated": "2018-08-23",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -207,6 +207,53 @@
               {
                 "value": "non_residence",
                 "name_t": "formOptions.non_residence"
+              }
+            ]
+          },
+          "dwelling_type": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.dwelling_type",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
+              },
+              {
+                "value": "house",
+                "name_t": "formOptions.house"
+              },
+              {
+                "value": "duplex",
+                "name_t": "formOptions.duplex"
+              },
+              {
+                "value": "mobile_home",
+                "name_t": "formOptions.mobile_home"
+              },
+              {
+                "value": "apartment",
+                "name_t": "formOptions.apartment"
+              },
+              {
+                "value": "condo",
+                "name_t": "formOptions.condo"
+              },
+              {
+                "value": "townhouse",
+                "name_t": "formOptions.townhouse"
+              },
+              {
+                "value": "rv",
+                "name_t": "formOptions.rv"
+              },
+              {
+                "value": "other",
+                "name_t": "workType.other"
               }
             ]
           },
