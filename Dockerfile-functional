@@ -1,5 +1,3 @@
-#!/bin/sh
-
 FROM node:8 as node
 WORKDIR /app
 COPY package.json /app/
