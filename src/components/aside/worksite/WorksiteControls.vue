@@ -41,26 +41,29 @@ export default {
       });
       this.$store.commit('resetCurrentSiteData');
       this.$store.commit('setSiteFormErrors', {})
-
-     this.$notify({
-        type: 'warn',
-        group: 'core',
-        title: this.$t('notify.new_worksite_form'),
-        text: '',
-        width: 500,
-        animation: 'Velocity',
-        speed: 1000,
-        duration: 3000
-      });
+      if (this.$notify) {
+        this.$notify({
+          type: 'warn',
+          group: 'core',
+          title: this.$t('notify.new_worksite_form'),
+          text: '',
+          width: 500,
+          animation: 'Velocity',
+          speed: 1000,
+          duration: 3000
+        });
+      }
     },
     saveForm() {
-      this.$notify({
-        group: 'core',
-        title: this.$t('notify.saving'),
-        //text: '',
-        width: 500,
-        duration: 250
-      });
+      if (this.$notify) {
+        this.$notify({
+          group: 'core',
+          title: this.$t('notify.saving'),
+          //text: '',
+          width: 500,
+          duration: 250
+        });
+      }
       this.$store.dispatch('saveSite').then((result) => {
         setTimeout(() => {
           this.$notify({

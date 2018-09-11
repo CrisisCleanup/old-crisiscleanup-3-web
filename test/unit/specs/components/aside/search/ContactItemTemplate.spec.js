@@ -18,7 +18,8 @@ describe('ContactItemTemplate.vue', function () {
       last_name: 'Doe'
     };
     const wrapper = createBaseWrapper({
-      item: mockItem
+      item: mockItem,
+      searchText: ''
     });
     expect(wrapper.exists()).to.be.true;
     expect(wrapper.props().item).to.equal(mockItem)
