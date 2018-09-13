@@ -251,11 +251,15 @@ export default {
       const event = state.participatingEvents.find(val => val.id == eventId);
       commit('setEventContextJustChanged', true);
       commit('setEventContext', event);
-      await dispatch('getWorksiteStats');
-      await dispatch('getDashboardWorksites');
-      commit('resetCurrentSiteData');
-      commit('setSiteFormErrors', {});
-      await dispatch('map/getWorksites', eventId);
+      try {
+        await dispatch('getWorksiteStats');
+        await dispatch('getDashboardWorksites');
+        commit('resetCurrentSiteData');
+        commit('setSiteFormErrors', {});
+        await dispatch('map/getWorksites', eventId);        
+      } catch (ex) {
+        console.log(ex);
+      }
     },
     searchWorksites({commit, dispatch, state}, searchCriteria) {
       Vue.axios.get(`/worksites?limit=10&event=${state.event.id}&search=${searchCriteria}`).then(resp => {
