@@ -15,8 +15,7 @@
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",
         "if_selected_then_work_type": null,
-        "fields": {
-        }
+        "fields": {}
       }
     }
   },
@@ -323,926 +322,926 @@
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.work_requested_placeholder"
           },
-              "utilities_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.utilities_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": null,
-                "fields": {
-                  "water_status": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.water_status",
-                    "help_text_t": null,
-                    "data_sensitivity": "public",
-                    "data_type": "caseInfo",
-                    "if_selected_then_work_type": null,
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "on",
-                        "name_t": "formOptions.on"
-                      },
-                      {
-                        "value": "off",
-                        "name_t": "formOptions.off"
-                      }
-                    ]
-                  },
-                  "gas_status": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.gas_status",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": null,
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "on",
-                        "name_t": "formOptions.on"
-                      },
-                      {
-                        "value": "off",
-                        "name_t": "formOptions.off"
-                      }
-                    ]
-                  },
-                  "power_status": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.power_status",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": null,
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "on",
-                        "name_t": "formOptions.on"
-                      },
-                      {
-                        "value": "off",
-                        "name_t": "formOptions.off"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "work_info": {
+          "utilities_info": {
             "field_type": "section",
             "validation": null,
-            "label_t": "formLabels.work_info",
-            "help_text_t": "formLabels.work_info_help",
+            "label_t": "formLabels.utilities_info",
+            "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
             "if_selected_then_work_type": null,
             "fields": {
-              "muck_out_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.muck_out_info",
+              "water_status": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.water_status",
+                "help_text_t": null,
+                "data_sensitivity": "public",
+                "data_type": "caseInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "on",
+                    "name_t": "formOptions.on"
+                  },
+                  {
+                    "value": "off",
+                    "name_t": "formOptions.off"
+                  }
+                ]
+              },
+              "gas_status": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.gas_status",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "on",
+                    "name_t": "formOptions.on"
+                  },
+                  {
+                    "value": "off",
+                    "name_t": "formOptions.off"
+                  }
+                ]
+              },
+              "power_status": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.power_status",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null,
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "on",
+                    "name_t": "formOptions.on"
+                  },
+                  {
+                    "value": "off",
+                    "name_t": "formOptions.off"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "work_info": {
+        "field_type": "section",
+        "validation": null,
+        "label_t": "formLabels.work_info",
+        "help_text_t": "formLabels.work_info_help",
+        "data_sensitivity": "lessSensitive",
+        "data_type": "workInfo",
+        "if_selected_then_work_type": null,
+        "fields": {
+          "muck_out_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.muck_out_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "muck_out",
+            "fields": {
+              "floors_affected": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.floors_affected",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "muck_out",
-                "fields": {
-                  "floors_affected": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.floors_affected",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out",
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "ground_floor_only",
-                        "name_t": "formOptions.ground_floor_only"
-                      },
-                      {
-                        "value": "crawlspace",
-                        "name_t": "formOptions.crawlspace"
-                      },
-                      {
-                        "value": "basement_only",
-                        "name_t": "formOptions.basement_only"
-                      },
-                      {
-                        "value": "basement_and_ground_floor",
-                        "name_t": "formOptions.basement_and_ground_floor"
-                      },
-                      {
-                        "value": "none",
-                        "name_t": "formOptions.none"
-                      }
-                    ]
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
                   },
-                  "flood_height_select": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.flood_height_select",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out",
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "zero_3in",
-                        "name_t": "formOptions.zero_3in"
-                      },
-                      {
-                        "value": "three_6in",
-                        "name_t": "formOptions.three_6in"
-                      },
-                      {
-                        "value": "six_12in",
-                        "name_t": "formOptions.six_12in"
-                      },
-                      {
-                        "value": "twelve_18in",
-                        "name_t": "formOptions.twelve_18in"
-                      },
-                      {
-                        "value": "eighteen_in_2ft",
-                        "name_t": "formOptions.eighteen_in_2ft"
-                      },
-                      {
-                        "value": "two_3ft",
-                        "name_t": "formOptions.two_3ft"
-                      },
-                      {
-                        "value": "three_4ft",
-                        "name_t": "formOptions.three_4ft"
-                      },
-                      {
-                        "value": "four_5ft",
-                        "name_t": "formOptions.four_5ft"
-                      },
-                      {
-                        "value": "five_6ft",
-                        "name_t": "formOptions.five_6ft"
-                      },
-                      {
-                        "value": "six_7ft",
-                        "name_t": "formOptions.six_7ft"
-                      },
-                      {
-                        "value": "seven_8ft",
-                        "name_t": "formOptions.seven_8ft"
-                      },
-                      {
-                        "value": "above_the_ceiling",
-                        "name_t": "formOptions.above_the_ceiling"
-                      },
-                      {
-                        "value": "in_the_attic",
-                        "name_t": "formOptions.in_the_attic"
-                      },
-                      {
-                        "value": "over_the_house",
-                        "name_t": "formOptions.over_the_house"
-                      }
-                    ]
+                  {
+                    "value": "ground_floor_only",
+                    "name_t": "formOptions.ground_floor_only"
                   },
-                  "carpet_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.carpet_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
+                  {
+                    "value": "crawlspace",
+                    "name_t": "formOptions.crawlspace"
                   },
-                  "hardwood_floor_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.hardwood_floor_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
+                  {
+                    "value": "basement_only",
+                    "name_t": "formOptions.basement_only"
                   },
-                  "tile_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.tile_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
+                  {
+                    "value": "basement_and_ground_floor",
+                    "name_t": "formOptions.basement_and_ground_floor"
                   },
-                  "drywall_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.drywall_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
-                  },
-                  "appliance_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.appliance_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
-                  },
-                  "heavy_item_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.heavy_item_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "muck_out"
+                  {
+                    "value": "none",
+                    "name_t": "formOptions.none"
                   }
-                }
+                ]
               },
-              "mold_remediation_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.mold_remediation_info",
+              "flood_height_select": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.flood_height_select",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out",
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
+                  },
+                  {
+                    "value": "zero_3in",
+                    "name_t": "formOptions.zero_3in"
+                  },
+                  {
+                    "value": "three_6in",
+                    "name_t": "formOptions.three_6in"
+                  },
+                  {
+                    "value": "six_12in",
+                    "name_t": "formOptions.six_12in"
+                  },
+                  {
+                    "value": "twelve_18in",
+                    "name_t": "formOptions.twelve_18in"
+                  },
+                  {
+                    "value": "eighteen_in_2ft",
+                    "name_t": "formOptions.eighteen_in_2ft"
+                  },
+                  {
+                    "value": "two_3ft",
+                    "name_t": "formOptions.two_3ft"
+                  },
+                  {
+                    "value": "three_4ft",
+                    "name_t": "formOptions.three_4ft"
+                  },
+                  {
+                    "value": "four_5ft",
+                    "name_t": "formOptions.four_5ft"
+                  },
+                  {
+                    "value": "five_6ft",
+                    "name_t": "formOptions.five_6ft"
+                  },
+                  {
+                    "value": "six_7ft",
+                    "name_t": "formOptions.six_7ft"
+                  },
+                  {
+                    "value": "seven_8ft",
+                    "name_t": "formOptions.seven_8ft"
+                  },
+                  {
+                    "value": "above_the_ceiling",
+                    "name_t": "formOptions.above_the_ceiling"
+                  },
+                  {
+                    "value": "in_the_attic",
+                    "name_t": "formOptions.in_the_attic"
+                  },
+                  {
+                    "value": "over_the_house",
+                    "name_t": "formOptions.over_the_house"
+                  }
+                ]
+              },
+              "carpet_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.carpet_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              },
+              "hardwood_floor_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.hardwood_floor_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              },
+              "tile_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.tile_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              },
+              "drywall_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.drywall_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              },
+              "appliance_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.appliance_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              },
+              "heavy_item_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.heavy_item_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "muck_out"
+              }
+            }
+          },
+          "mold_remediation_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.mold_remediation_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "mold_remediation",
+            "fields": {
+              "mold_amount": {
+                "field_type": "select",
+                "validation": "string",
+                "label_t": "formLabels.mold_amount",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "mold_remediation",
-                "fields": {
-                  "mold_amount": {
-                    "field_type": "select",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_amount",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation",
-                    "options": [
-                      {
-                        "value": null,
-                        "name_t": "actions.choose_one_select"
-                      },
-                      {
-                        "value": "small_isolated_area",
-                        "name_t": "formOptions.small_isolated_area"
-                      },
-                      {
-                        "value": "medium_isolated_area",
-                        "name_t": "formOptions.medium_isolated_area"
-                      },
-                      {
-                        "value": "large_area",
-                        "name_t": "formOptions.large_area"
-                      },
-                      {
-                        "value": "extensive_mold_throughout",
-                        "name_t": "formOptions.extensive_mold_throughout"
-                      },
-                      {
-                        "value": "other",
-                        "name_t": "workType.other"
-                      }
-                    ]
+                "options": [
+                  {
+                    "value": null,
+                    "name_t": "actions.choose_one_select"
                   },
-                  "mold_drying": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_drying",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation"
+                  {
+                    "value": "small_isolated_area",
+                    "name_t": "formOptions.small_isolated_area"
                   },
-                  "mold_scraping": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_scraping",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation"
+                  {
+                    "value": "medium_isolated_area",
+                    "name_t": "formOptions.medium_isolated_area"
                   },
-                  "mold_spraying": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_spraying",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation"
+                  {
+                    "value": "large_area",
+                    "name_t": "formOptions.large_area"
                   },
-                  "mold_replace_studs": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_replace_studs",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation"
+                  {
+                    "value": "extensive_mold_throughout",
+                    "name_t": "formOptions.extensive_mold_throughout"
                   },
-                  "mold_hvac": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.mold_hvac",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "mold_remediation"
-                  },
-                  "notes": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.notes",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": null,
-                    "placeholder_t": "formLabels.notes_placeholder"
+                  {
+                    "value": "other",
+                    "name_t": "workType.other"
                   }
-                }
+                ]
               },
-              "debris_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.debris_info",
+              "mold_drying": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.mold_drying",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "debris",
-                "fields": {
-                  "nonvegitative_debris_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.nonvegitative_debris_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris"
-                  },
-                  "vegitative_debris_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.vegitative_debris_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris"
-                  },
-                  "debris_description": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.debris_description",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris",
-                    "placeholder_t": null
-                  }
-                }
+                "if_selected_then_work_type": "mold_remediation"
               },
-              "tarping_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.tarping_info",
+              "mold_scraping": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.mold_scraping",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "mold_remediation"
+              },
+              "mold_spraying": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.mold_spraying",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "mold_remediation"
+              },
+              "mold_replace_studs": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.mold_replace_studs",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "mold_remediation"
+              },
+              "mold_hvac": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.mold_hvac",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "mold_remediation"
+              },
+              "notes": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.notes",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": null,
+                "placeholder_t": "formLabels.notes_placeholder"
+              }
+            }
+          },
+          "debris_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.debris_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "debris",
+            "fields": {
+              "nonvegitative_debris_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.nonvegitative_debris_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "debris"
+              },
+              "vegitative_debris_removal": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.vegitative_debris_removal",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "debris"
+              },
+              "debris_description": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.debris_description",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "debris",
+                "placeholder_t": null
+              }
+            }
+          },
+          "tarping_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.tarping_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "tarp",
+            "fields": {
+              "house_roof_damage": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.house_roof_damage",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "tarp"
+              },
+              "outbuilding_roof_damage": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.outbuilding_roof_damage",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "tarp"
+              },
+              "tarps_needed": {
+                "field_type": "text",
+                "validation": "integer",
+                "label_t": "formLabels.tarps_needed",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "tarp",
-                "fields": {
-                  "house_roof_damage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.house_roof_damage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  },
-                  "outbuilding_roof_damage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.outbuilding_roof_damage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  },
-                  "tarps_needed": {
-                    "field_type": "text",
-                    "validation": "integer",
-                    "label_t": "formLabels.tarps_needed",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp",
-                    "placeholder_t": null
-                  },
-                  "help_install_tarp": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.help_install_tarp",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  }
-                }
+                "placeholder_t": null
               },
-              "tree_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.tree_info",
+              "help_install_tarp": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.help_install_tarp",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "tarp"
+              }
+            }
+          },
+          "tree_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.tree_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "trees",
+            "fields": {
+              "num_trees_down": {
+                "field_type": "select",
+                "validation": "integer",
+                "label_t": "formLabels.num_trees_down",
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
                 "if_selected_then_work_type": "trees",
-                "fields": {
-                  "num_trees_down": {
-                    "field_type": "select",
-                    "validation": "integer",
-                    "label_t": "formLabels.num_trees_down",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "trees",
-                    "options": [
-                      {
-                        "value": "0",
-                        "name_t": "formOptions.zero"
-                      },
-                      {
-                        "value": "1",
-                        "name_t": "formOptions.one"
-                      },
-                      {
-                        "value": "2",
-                        "name_t": "formOptions.two"
-                      },
-                      {
-                        "value": "3",
-                        "name_t": "formOptions.three"
-                      },
-                      {
-                        "value": "4",
-                        "name_t": "formOptions.four"
-                      },
-                      {
-                        "value": "5",
-                        "name_t": "5+"
-                      }
-                    ]
-                  },
-                  "num_wide_trees": {
-                    "field_type": "select",
-                    "validation": "integer",
-                    "label_t": "formLabels.num_wide_trees",
-                    "help_text_t": "formLabels.num_wide_trees_help",
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "trees",
-                    "options": [
-                      {
-                        "value": "0",
-                        "name_t": "formOptions.zero"
-                      },
-                      {
-                        "value": "1",
-                        "name_t": "formOptions.one"
-                      },
-                      {
-                        "value": "2",
-                        "name_t": "formOptions.two"
-                      },
-                      {
-                        "value": "3",
-                        "name_t": "formOptions.three"
-                      },
-                      {
-                        "value": "4",
-                        "name_t": "formOptions.four"
-                      },
-                      {
-                        "value": "5",
-                        "name_t": "5+"
-                      }
-                    ]
-                  }
-                }
-              },
-              "maintenance_reconstruction_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.maintenance_reconstruction_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "rebuild",
-                "fields": {
-                  "needs_visual": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.needs_visual",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_furnace": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_furnace",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_water_heater": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_water_heater",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_plumbing": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_plumbing",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_drainage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_drainage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_sewer_septic": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_sewer_septic",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_caulking": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_caulking",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_appliances": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_appliances",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild",
-                    "placeholder_t": null
-                  },
-                  "maintenance_hvac": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_hvac",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_electrical": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_electrical",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_roof": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_roof",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_siding": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_siding",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_doors": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_doors",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_windows": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_windows",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "other_needs": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.other_needs",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild",
-                    "placeholder_t": null
-                  }
-                }
-              }
-            }
-          },
-          "hazards_info": {
-            "field_type": "section",
-            "validation": null,
-            "label_t": "formLabels.hazards_info",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
-            "data_type": "caseInfo",
-            "if_selected_then_work_type": null,
-            "fields": {
-              "habitable": {
-                "field_type": "select",
-                "validation": "string",
-                "label_t": "formLabels.habitable",
-                "help_text_t": null,
-                "data_sensitivity": "sensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
                 "options": [
                   {
-                    "value": null,
-                    "name_t": "actions.choose_one_select"
+                    "value": "0",
+                    "name_t": "formOptions.zero"
                   },
                   {
-                    "value": "yes",
-                    "name_t": "formOptions.yes"
+                    "value": "1",
+                    "name_t": "formOptions.one"
                   },
                   {
-                    "value": "no",
-                    "name_t": "formOptions.no"
+                    "value": "2",
+                    "name_t": "formOptions.two"
+                  },
+                  {
+                    "value": "3",
+                    "name_t": "formOptions.three"
+                  },
+                  {
+                    "value": "4",
+                    "name_t": "formOptions.four"
+                  },
+                  {
+                    "value": "5",
+                    "name_t": "5+"
                   }
                 ]
               },
-              "hoarder": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.hoarder",
-                "help_text_t": null,
-                "data_sensitivity": "sensitive",
-                "data_type": "personalInfo",
-                "if_selected_then_work_type": null
-              },
-              "possible_asbestos": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.possible_asbestos",
-                "help_text_t": null,
-                "data_sensitivity": "sensitive",
+              "num_wide_trees": {
+                "field_type": "select",
+                "validation": "integer",
+                "label_t": "formLabels.num_wide_trees",
+                "help_text_t": "formLabels.num_wide_trees_help",
+                "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": null
-              },
-              "known_lead_paint": {
-                "field_type": "checkbox",
-                "validation": "string",
-                "label_t": "formLabels.known_lead_paint",
-                "help_text_t": null,
-                "data_sensitivity": "sensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null
-              },
-              "other_hazards": {
-                "field_type": "textarea",
-                "validation": "string",
-                "label_t": "formLabels.other_hazards",
-                "help_text_t": null,
-                "data_sensitivity": "verySensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": null
+                "if_selected_then_work_type": "trees",
+                "options": [
+                  {
+                    "value": "0",
+                    "name_t": "formOptions.zero"
+                  },
+                  {
+                    "value": "1",
+                    "name_t": "formOptions.one"
+                  },
+                  {
+                    "value": "2",
+                    "name_t": "formOptions.two"
+                  },
+                  {
+                    "value": "3",
+                    "name_t": "formOptions.three"
+                  },
+                  {
+                    "value": "4",
+                    "name_t": "formOptions.four"
+                  },
+                  {
+                    "value": "5",
+                    "name_t": "5+"
+                  }
+                ]
               }
             }
           },
-          "claim_status_report_info": {
+          "maintenance_reconstruction_info": {
             "field_type": "section",
             "validation": null,
-            "label_t": "formLabels.claim_status_report_info",
+            "label_t": "formLabels.maintenance_reconstruction_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "rebuild",
+            "fields": {
+              "needs_visual": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.needs_visual",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_furnace": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_furnace",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_water_heater": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_water_heater",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_plumbing": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_plumbing",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_drainage": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_drainage",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_sewer_septic": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_sewer_septic",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_caulking": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_caulking",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_appliances": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_appliances",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild",
+                "placeholder_t": null
+              },
+              "maintenance_hvac": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_hvac",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_electrical": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_electrical",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_roof": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_roof",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_siding": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_siding",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_doors": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_doors",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_windows": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_windows",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "other_needs": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.other_needs",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild",
+                "placeholder_t": null
+              }
+            }
+          }
+        }
+      },
+      "hazards_info": {
+        "field_type": "section",
+        "validation": null,
+        "label_t": "formLabels.hazards_info",
+        "help_text_t": null,
+        "data_sensitivity": "lessSensitive",
+        "data_type": "caseInfo",
+        "if_selected_then_work_type": null,
+        "fields": {
+          "habitable": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.habitable",
             "help_text_t": null,
             "data_sensitivity": "sensitive",
             "data_type": "caseInfo",
             "if_selected_then_work_type": null,
-            "fields": {
-              "status": {
-                "field_type": "select",
-                "validation": "string",
-                "label_t": "formLabels.status",
-                "help_text_t": "formLabels.status_help",
-                "data_sensitivity": "public",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "options": [
-                  {
-                    "value": "open_unassigned",
-                    "name_t": "status.open_unassigned"
-                  },
-                  {
-                    "value": "open_assigned",
-                    "name_t": "status.open_assigned"
-                  },
-                  {
-                    "value": "open_partially_completed",
-                    "name_t": "status.open_partially_completed"
-                  },
-                  {
-                    "value": "open_needs_follow_up",
-                    "name_t": "status.open_needs_follow_up"
-                  },
-                  {
-                    "value": "closed_completed",
-                    "name_t": "status.closed_completed"
-                  },
-                  {
-                    "value": "closed_incomplete",
-                    "name_t": "status.closed_incomplete"
-                  },
-                  {
-                    "value": "closed_out_of_scope",
-                    "name_t": "status.closed_out_of_scope"
-                  },
-                  {
-                    "value": "closed_done_by_others",
-                    "name_t": "status.closed_done_by_others"
-                  },
-                  {
-                    "value": "closed_no_help_wanted",
-                    "name_t": "status.closed_no_help_wanted"
-                  },
-                  {
-                    "value": "closed_rejected",
-                    "name_t": "status.closed_rejected"
-                  },
-                  {
-                    "value": "closed_duplicate",
-                    "name_t": "status.closed_duplicate"
-                  }
-                ]
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
               },
-              "debris_status": {
-                "field_type": "select",
-                "validation": "string",
-                "label_t": "formLabels.debris_status",
-                "help_text_t": null,
-                "data_sensitivity": "public",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "options": [
-                  {
-                    "value": null,
-                    "name_t": "actions.choose_one_select"
-                  },
-                  {
-                    "value": "untouched",
-                    "name_t": "formOptions.untouched"
-                  },
-                  {
-                    "value": "piled_on_property",
-                    "name_t": "formOptions.piled_on_property"
-                  },
-                  {
-                    "value": "piled_on_public_right_of_way",
-                    "name_t": "formOptions.piled_on_public_right_of_way"
-                  },
-                  {
-                    "value": "removed_from_property_public_right_of_way",
-                    "name_t": "formOptions.removed_from_property_public_right_of_way"
-                  }
-                ]
+              {
+                "value": "yes",
+                "name_t": "formOptions.yes"
               },
-              "assigned_to": {
-                "field_type": "text",
-                "validation": "string",
-                "label_t": "formLabels.assigned_to",
-                "help_text_t": "formLabels.assigned_to_help",
-                "is_hidden_default": true,
-                "data_sensitivity": "orgSensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.assigned_to_placeholder"
-              },
-              "total_volunteers": {
-                "field_type": "text",
-                "validation": "integer",
-                "label_t": "formLabels.total_volunteers",
-                "help_text_t": "formLabels.total_volunteers_help",
-                "data_sensitivity": "orgSensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.total_volunteers_placeholder"
-              },
-              "hours_worked_per_volunteer": {
-                "field_type": "text",
-                "validation": "float",
-                "label_t": "formLabels.hours_worked_per_volunteer",
-                "help_text_t": "formLabels.hours_worked_per_volunteer_help",
-                "data_sensitivity": "orgSensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.hours_worked_per_volunteer_placeholder"
-              },
-              "initials_of_resident_present": {
-                "field_type": "text",
-                "validation": "string",
-                "label_t": "formLabels.initials_of_resident_present",
-                "help_text_t": "formLabels.initials_of_resident_present_help",
-                "data_sensitivity": "sensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": null
-              },
-              "status_notes": {
-                "field_type": "textarea",
-                "validation": "string",
-                "label_t": "formLabels.status_notes",
-                "help_text_t": null,
-                "data_sensitivity": "verySensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": null
-              },
-              "prepared_by": {
-                "field_type": "text",
-                "validation": "string",
-                "label_t": "formLabels.prepared_by",
-                "help_text_t": "formLabels.prepared_by_help",
-                "data_sensitivity": "orgSensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.prepared_by_placeholder"
-              },
-              "do_not_work_before": {
-                "field_type": "text",
-                "validation": "string",
-                "label_t": "formLabels.do_not_work_before",
-                "help_text_t": null,
-                "data_sensitivity": "sensitive",
-                "data_type": "caseInfo",
-                "if_selected_then_work_type": null,
-                "placeholder_t": "formLabels.do_not_work_before_placeholder"
+              {
+                "value": "no",
+                "name_t": "formOptions.no"
               }
-            }
+            ]
+          },
+          "hoarder": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.hoarder",
+            "help_text_t": null,
+            "data_sensitivity": "sensitive",
+            "data_type": "personalInfo",
+            "if_selected_then_work_type": null
+          },
+          "possible_asbestos": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.possible_asbestos",
+            "help_text_t": null,
+            "data_sensitivity": "sensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": null
+          },
+          "known_lead_paint": {
+            "field_type": "checkbox",
+            "validation": "string",
+            "label_t": "formLabels.known_lead_paint",
+            "help_text_t": null,
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null
+          },
+          "other_hazards": {
+            "field_type": "textarea",
+            "validation": "string",
+            "label_t": "formLabels.other_hazards",
+            "help_text_t": null,
+            "data_sensitivity": "verySensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": null
           }
+        }
+      },
+      "claim_status_report_info": {
+        "field_type": "section",
+        "validation": null,
+        "label_t": "formLabels.claim_status_report_info",
+        "help_text_t": null,
+        "data_sensitivity": "sensitive",
+        "data_type": "caseInfo",
+        "if_selected_then_work_type": null,
+        "fields": {
+          "status": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.status",
+            "help_text_t": "formLabels.status_help",
+            "data_sensitivity": "public",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "options": [
+              {
+                "value": "open_unassigned",
+                "name_t": "status.open_unassigned"
+              },
+              {
+                "value": "open_assigned",
+                "name_t": "status.open_assigned"
+              },
+              {
+                "value": "open_partially_completed",
+                "name_t": "status.open_partially_completed"
+              },
+              {
+                "value": "open_needs_follow_up",
+                "name_t": "status.open_needs_follow_up"
+              },
+              {
+                "value": "closed_completed",
+                "name_t": "status.closed_completed"
+              },
+              {
+                "value": "closed_incomplete",
+                "name_t": "status.closed_incomplete"
+              },
+              {
+                "value": "closed_out_of_scope",
+                "name_t": "status.closed_out_of_scope"
+              },
+              {
+                "value": "closed_done_by_others",
+                "name_t": "status.closed_done_by_others"
+              },
+              {
+                "value": "closed_no_help_wanted",
+                "name_t": "status.closed_no_help_wanted"
+              },
+              {
+                "value": "closed_rejected",
+                "name_t": "status.closed_rejected"
+              },
+              {
+                "value": "closed_duplicate",
+                "name_t": "status.closed_duplicate"
+              }
+            ]
+          },
+          "debris_status": {
+            "field_type": "select",
+            "validation": "string",
+            "label_t": "formLabels.debris_status",
+            "help_text_t": null,
+            "data_sensitivity": "public",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "options": [
+              {
+                "value": null,
+                "name_t": "actions.choose_one_select"
+              },
+              {
+                "value": "untouched",
+                "name_t": "formOptions.untouched"
+              },
+              {
+                "value": "piled_on_property",
+                "name_t": "formOptions.piled_on_property"
+              },
+              {
+                "value": "piled_on_public_right_of_way",
+                "name_t": "formOptions.piled_on_public_right_of_way"
+              },
+              {
+                "value": "removed_from_property_public_right_of_way",
+                "name_t": "formOptions.removed_from_property_public_right_of_way"
+              }
+            ]
+          },
+          "assigned_to": {
+            "field_type": "text",
+            "validation": "string",
+            "label_t": "formLabels.assigned_to",
+            "help_text_t": "formLabels.assigned_to_help",
+            "is_hidden_default": true,
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.assigned_to_placeholder"
+          },
+          "total_volunteers": {
+            "field_type": "text",
+            "validation": "integer",
+            "label_t": "formLabels.total_volunteers",
+            "help_text_t": "formLabels.total_volunteers_help",
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.total_volunteers_placeholder"
+          },
+          "hours_worked_per_volunteer": {
+            "field_type": "text",
+            "validation": "float",
+            "label_t": "formLabels.hours_worked_per_volunteer",
+            "help_text_t": "formLabels.hours_worked_per_volunteer_help",
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.hours_worked_per_volunteer_placeholder"
+          },
+          "initials_of_resident_present": {
+            "field_type": "text",
+            "validation": "string",
+            "label_t": "formLabels.initials_of_resident_present",
+            "help_text_t": "formLabels.initials_of_resident_present_help",
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": null
+          },
+          "status_notes": {
+            "field_type": "textarea",
+            "validation": "string",
+            "label_t": "formLabels.status_notes",
+            "help_text_t": null,
+            "data_sensitivity": "verySensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": null
+          },
+          "prepared_by": {
+            "field_type": "text",
+            "validation": "string",
+            "label_t": "formLabels.prepared_by",
+            "help_text_t": "formLabels.prepared_by_help",
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.prepared_by_placeholder"
+          },
+          "do_not_work_before": {
+            "field_type": "text",
+            "validation": "string",
+            "label_t": "formLabels.do_not_work_before",
+            "help_text_t": null,
+            "data_sensitivity": "sensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.do_not_work_before_placeholder"
+          }
+        }
+      }
     }
   },
   "phase_rebuild": {
@@ -1259,8 +1258,7 @@
         "help_text_t": "formLabels.not_created_info_help",
         "allow_edit_break_glass": true,
         "if_selected_then_work_type": null,
-        "fields": {
-        }
+        "fields": {}
       }
     }
   }

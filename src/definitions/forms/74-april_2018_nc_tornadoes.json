@@ -15,8 +15,7 @@
         "label_t": "formLabels.not_created_info",
         "help_text_t": "formLabels.not_created_info_help",
         "if_selected_then_work_type": null,
-        "fields": {
-        }
+        "fields": {}
       }
     }
   },
@@ -928,8 +927,7 @@
         "help_text_t": "formLabels.not_created_info_help",
         "allow_edit_break_glass": true,
         "if_selected_then_work_type": null,
-        "fields": {
-        }
+        "fields": {}
       }
     }
   }
