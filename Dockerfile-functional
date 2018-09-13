@@ -5,7 +5,7 @@ COPY yarn.lock /app/
 RUN yarn install
 COPY ./ /app/
 ARG APP_ENV=functional
-RUN yarn run build
+RUN yarn run build --report
 
 FROM nginx:latest
 COPY --from=node /app/dist/ /usr/share/nginx/html
