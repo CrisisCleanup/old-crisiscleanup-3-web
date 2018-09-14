@@ -1,6 +1,6 @@
 {
   "event_id": 64,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -323,7 +323,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -382,7 +382,7 @@
               },
               {
                 "value": "5",
-                "name_t": "formOptions.five_plus"
+                "name_t": "5+"
               }
             ]
           },
@@ -440,7 +440,7 @@
             "help_text_t": null,
             "data_sensitivity": "sensitive",
             "data_type": "personalInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -553,7 +553,7 @@
                 "help_text_t": "formLabels.rebuild_adobe_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "rebuild_bajereque": {
                 "field_type": "checkbox",
@@ -562,7 +562,7 @@
                 "help_text_t": "formLabels.rebuild_bajereque_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "rebuild_hollow_block": {
                 "field_type": "checkbox",
@@ -571,7 +571,7 @@
                 "help_text_t": "formLabels.rebuild_hollow_block_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "rebuild_block": {
                 "field_type": "checkbox",
@@ -580,7 +580,7 @@
                 "help_text_t": "formLabels.rebuild_block_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "rebuild_details": {
                 "field_type": "textarea",
@@ -589,7 +589,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "notes": {
@@ -620,7 +620,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "interior_debris_removal": {
                 "field_type": "checkbox",
@@ -629,7 +629,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "yard_debris": {
                 "field_type": "checkbox",
@@ -638,7 +638,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "heavy_machinary_required": {
                 "field_type": "checkbox",
@@ -647,7 +647,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "garbage_service": {
                 "field_type": "checkbox",
@@ -685,7 +685,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "structure"
               },
               "structure_demolition": {
                 "field_type": "checkbox",
@@ -703,7 +703,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "demolition"
               },
               "broken_windows": {
                 "field_type": "select",
@@ -712,7 +712,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "demolition",
                 "options": [
                   {
                     "value": "0",
@@ -736,7 +736,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               }
@@ -790,7 +790,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": null,
                 "options": [
                   {
                     "value": null,
@@ -824,7 +824,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "sensitive",
                 "data_type": "personalInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "core_relief_items"
               },
               "cleaning_items_count": {
                 "field_type": "checkbox",
@@ -833,7 +833,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "core_relief_items"
               },
               "medicine_count": {
                 "field_type": "checkbox",
@@ -851,7 +851,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "pill"
               },
               "pet_food_count": {
                 "field_type": "checkbox",
@@ -860,7 +860,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "pill"
               },
               "clothing_count": {
                 "field_type": "checkbox",
@@ -869,7 +869,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "pill"
               },
               "basic_needs_details": {
                 "field_type": "textarea",
@@ -878,7 +878,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "pill",
                 "placeholder_t": null
               },
               "spiritual_emotional_psychological_care": {
@@ -906,7 +906,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "other",
                 "options": [
                   {
                     "value": null,
@@ -961,7 +961,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "other",
                 "placeholder_t": null
               }
             }

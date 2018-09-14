@@ -1,6 +1,6 @@
 {
   "event_id": 20,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -207,7 +207,7 @@
             "help_text_t": null,
             "data_sensitivity": "sensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": "water_filter"
           },
           "water_delivered_date": {
             "field_type": "text",
@@ -216,7 +216,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": "water_filter",
             "placeholder_t": null
           },
           "notified_flyer": {
@@ -226,7 +226,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": "water_filter"
           },
           "notified_in_person": {
             "field_type": "checkbox",
@@ -235,7 +235,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": "water_filter"
           },
           "notified_police": {
             "field_type": "checkbox",
@@ -244,7 +244,7 @@
             "help_text_t": null,
             "data_sensitivity": "sensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": "water_filter"
           },
           "notified_other": {
             "field_type": "checkbox",
@@ -253,7 +253,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": "water_filter"
           },
           "notes": {
             "field_type": "textarea",
@@ -415,7 +415,7 @@
             "help_text_t": null,
             "data_sensitivity": "public",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,

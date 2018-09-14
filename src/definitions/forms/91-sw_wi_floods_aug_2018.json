@@ -1,6 +1,6 @@
 {
-  "event_id": 60,
-  "last_updated": "2018-08-14",
+  "event_id": 91,
+  "last_updated": "2018-08-23",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -165,16 +165,6 @@
             "field_type": "text",
             "validation": "string",
             "label_t": "formLabels.phone2",
-            "help_text_t": null,
-            "data_sensitivity": "verySensitive",
-            "data_type": "personalInfo",
-            "if_selected_then_work_type": null,
-            "placeholder_t": null
-          },
-          "email": {
-            "field_type": "text",
-            "validation": "email",
-            "label_t": "formLabels.email",
             "help_text_t": null,
             "data_sensitivity": "verySensitive",
             "data_type": "personalInfo",
@@ -642,174 +632,6 @@
                   }
                 }
               },
-              "tree_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.tree_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "trees",
-                "fields": {
-                  "num_trees_down": {
-                    "field_type": "select",
-                    "validation": "integer",
-                    "label_t": "formLabels.num_trees_down",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "trees",
-                    "options": [
-                      {
-                        "value": "0",
-                        "name_t": "formOptions.zero"
-                      },
-                      {
-                        "value": "1",
-                        "name_t": "formOptions.one"
-                      },
-                      {
-                        "value": "2",
-                        "name_t": "formOptions.two"
-                      },
-                      {
-                        "value": "3",
-                        "name_t": "formOptions.three"
-                      },
-                      {
-                        "value": "4",
-                        "name_t": "formOptions.four"
-                      },
-                      {
-                        "value": "5",
-                        "name_t": "5+"
-                      }
-                    ]
-                  },
-                  "num_wide_trees": {
-                    "field_type": "select",
-                    "validation": "integer",
-                    "label_t": "formLabels.num_wide_trees",
-                    "help_text_t": "formLabels.num_wide_trees_help",
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "trees",
-                    "options": [
-                      {
-                        "value": "0",
-                        "name_t": "formOptions.zero"
-                      },
-                      {
-                        "value": "1",
-                        "name_t": "formOptions.one"
-                      },
-                      {
-                        "value": "2",
-                        "name_t": "formOptions.two"
-                      },
-                      {
-                        "value": "3",
-                        "name_t": "formOptions.three"
-                      },
-                      {
-                        "value": "4",
-                        "name_t": "formOptions.four"
-                      },
-                      {
-                        "value": "5",
-                        "name_t": "5+"
-                      }
-                    ]
-                  }
-                }
-              },
-              "tarping_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.tarping_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "tarp",
-                "fields": {
-                  "house_roof_damage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.house_roof_damage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  },
-                  "outbuilding_roof_damage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.outbuilding_roof_damage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  },
-                  "tarps_needed": {
-                    "field_type": "text",
-                    "validation": "integer",
-                    "label_t": "formLabels.tarps_needed",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp",
-                    "placeholder_t": null
-                  },
-                  "help_install_tarp": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.help_install_tarp",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "tarp"
-                  }
-                }
-              },
-              "debris_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.debris_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "debris",
-                "fields": {
-                  "nonvegitative_debris_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.nonvegitative_debris_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris"
-                  },
-                  "vegitative_debris_removal": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.vegitative_debris_removal",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris"
-                  },
-                  "debris_description": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.debris_description",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "debris",
-                    "placeholder_t": null
-                  }
-                }
-              },
               "mold_remediation_info": {
                 "field_type": "section",
                 "validation": null,
@@ -908,6 +730,174 @@
                     "data_type": "workInfo",
                     "if_selected_then_work_type": null,
                     "placeholder_t": "formLabels.notes_placeholder"
+                  }
+                }
+              },
+              "debris_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.debris_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "debris",
+                "fields": {
+                  "nonvegitative_debris_removal": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.nonvegitative_debris_removal",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "debris"
+                  },
+                  "vegitative_debris_removal": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.vegitative_debris_removal",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "debris"
+                  },
+                  "debris_description": {
+                    "field_type": "textarea",
+                    "validation": "string",
+                    "label_t": "formLabels.debris_description",
+                    "help_text_t": null,
+                    "data_sensitivity": "verySensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "debris",
+                    "placeholder_t": null
+                  }
+                }
+              },
+              "tarping_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.tarping_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "tarp",
+                "fields": {
+                  "house_roof_damage": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.house_roof_damage",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "tarp"
+                  },
+                  "outbuilding_roof_damage": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.outbuilding_roof_damage",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "tarp"
+                  },
+                  "tarps_needed": {
+                    "field_type": "text",
+                    "validation": "integer",
+                    "label_t": "formLabels.tarps_needed",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "tarp",
+                    "placeholder_t": null
+                  },
+                  "help_install_tarp": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.help_install_tarp",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "tarp"
+                  }
+                }
+              },
+              "tree_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.tree_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "trees",
+                "fields": {
+                  "num_trees_down": {
+                    "field_type": "select",
+                    "validation": "integer",
+                    "label_t": "formLabels.num_trees_down",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "trees",
+                    "options": [
+                      {
+                        "value": "0",
+                        "name_t": "formOptions.zero"
+                      },
+                      {
+                        "value": "1",
+                        "name_t": "formOptions.one"
+                      },
+                      {
+                        "value": "2",
+                        "name_t": "formOptions.two"
+                      },
+                      {
+                        "value": "3",
+                        "name_t": "formOptions.three"
+                      },
+                      {
+                        "value": "4",
+                        "name_t": "formOptions.four"
+                      },
+                      {
+                        "value": "5",
+                        "name_t": "5+"
+                      }
+                    ]
+                  },
+                  "num_wide_trees": {
+                    "field_type": "select",
+                    "validation": "integer",
+                    "label_t": "formLabels.num_wide_trees",
+                    "help_text_t": "formLabels.num_wide_trees_help",
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "trees",
+                    "options": [
+                      {
+                        "value": "0",
+                        "name_t": "formOptions.zero"
+                      },
+                      {
+                        "value": "1",
+                        "name_t": "formOptions.one"
+                      },
+                      {
+                        "value": "2",
+                        "name_t": "formOptions.two"
+                      },
+                      {
+                        "value": "3",
+                        "name_t": "formOptions.three"
+                      },
+                      {
+                        "value": "4",
+                        "name_t": "formOptions.four"
+                      },
+                      {
+                        "value": "5",
+                        "name_t": "5+"
+                      }
+                    ]
                   }
                 }
               },

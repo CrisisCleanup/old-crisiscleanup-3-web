@@ -1,6 +1,6 @@
 {
   "event_id": 34,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -362,7 +362,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "mold_supression_done": {
             "field_type": "checkbox",
@@ -371,7 +371,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           }
         }
       },
@@ -403,7 +403,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "walls_status": {
@@ -413,7 +413,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -476,7 +476,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "walls_gutting": {
@@ -486,7 +486,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_mold_remediation": {
                 "field_type": "checkbox",
@@ -495,7 +495,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_framing": {
                 "field_type": "checkbox",
@@ -504,7 +504,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_drywall": {
                 "field_type": "checkbox",
@@ -513,7 +513,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_insulation": {
                 "field_type": "checkbox",
@@ -522,7 +522,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_damage_description": {
                 "field_type": "textarea",
@@ -531,7 +531,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "walls_floors_affected": {
@@ -541,7 +541,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -576,7 +576,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_waste_removal_required": {
                 "field_type": "checkbox",
@@ -585,7 +585,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_waiver_signed": {
                 "field_type": "checkbox",
@@ -594,7 +594,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_permits_acquired": {
                 "field_type": "checkbox",
@@ -603,7 +603,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "walls_notes": {
                 "field_type": "textarea",
@@ -612,7 +612,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -636,7 +636,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "electrical_status": {
@@ -646,7 +646,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -709,7 +709,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "electrical_floors_affected": {
@@ -719,7 +719,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -754,7 +754,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "electrical_waste_removal_required": {
                 "field_type": "checkbox",
@@ -763,7 +763,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "electrical_waiver_signed": {
                 "field_type": "checkbox",
@@ -772,7 +772,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "electrical_permits_acquired": {
                 "field_type": "checkbox",
@@ -781,7 +781,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "electrical_notes": {
                 "field_type": "textarea",
@@ -790,7 +790,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -814,7 +814,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "floors_status": {
@@ -824,7 +824,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -887,7 +887,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_hardwood_floor": {
                 "field_type": "checkbox",
@@ -896,7 +896,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_subfloor": {
                 "field_type": "checkbox",
@@ -905,7 +905,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_damage_description": {
                 "field_type": "textarea",
@@ -914,7 +914,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "floors_floors_affected": {
@@ -924,7 +924,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -959,7 +959,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_waste_removal_required": {
                 "field_type": "checkbox",
@@ -968,7 +968,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_waiver_signed": {
                 "field_type": "checkbox",
@@ -977,7 +977,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_permits_acquired": {
                 "field_type": "checkbox",
@@ -986,7 +986,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "floors_notes": {
                 "field_type": "textarea",
@@ -995,7 +995,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1019,7 +1019,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "plumbing_status": {
@@ -1029,7 +1029,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1092,7 +1092,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "plumbing_damage_description": {
                 "field_type": "textarea",
@@ -1101,7 +1101,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "plumbing_floors_affected": {
@@ -1111,7 +1111,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -1146,7 +1146,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "plumbing_waste_removal_required": {
                 "field_type": "checkbox",
@@ -1155,7 +1155,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "plumbing_waiver_signed": {
                 "field_type": "checkbox",
@@ -1164,7 +1164,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "plumbing_permits_acquired": {
                 "field_type": "checkbox",
@@ -1173,7 +1173,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "plumbing_notes": {
                 "field_type": "textarea",
@@ -1182,7 +1182,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1206,7 +1206,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "kitchen_bath_status": {
@@ -1216,7 +1216,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1279,7 +1279,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "kitchen_bath_floors_affected": {
@@ -1289,7 +1289,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -1324,7 +1324,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "kitchen_bath_waste_removal_required": {
                 "field_type": "checkbox",
@@ -1333,7 +1333,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "kitchen_bath_waiver_signed": {
                 "field_type": "checkbox",
@@ -1342,7 +1342,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "kitchen_bath_permits_acquired": {
                 "field_type": "checkbox",
@@ -1351,7 +1351,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "kitchen_bath_notes": {
                 "field_type": "textarea",
@@ -1360,7 +1360,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1384,7 +1384,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "hvac_status": {
@@ -1394,7 +1394,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1457,7 +1457,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "hvac_floors_affected": {
@@ -1467,7 +1467,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -1502,7 +1502,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "hvac_waste_removal_required": {
                 "field_type": "checkbox",
@@ -1511,7 +1511,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "hvac_waiver_signed": {
                 "field_type": "checkbox",
@@ -1520,7 +1520,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "hvac_permits_acquired": {
                 "field_type": "checkbox",
@@ -1529,7 +1529,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "hvac_notes": {
                 "field_type": "textarea",
@@ -1538,7 +1538,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1562,7 +1562,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "appliances_status": {
@@ -1572,7 +1572,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1635,7 +1635,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "appliances_floors_affected": {
@@ -1645,7 +1645,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -1680,7 +1680,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "appliances_waste_removal_required": {
                 "field_type": "checkbox",
@@ -1689,7 +1689,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "appliances_waiver_signed": {
                 "field_type": "checkbox",
@@ -1698,7 +1698,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "appliances_permits_acquired": {
                 "field_type": "checkbox",
@@ -1707,7 +1707,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "appliances_notes": {
                 "field_type": "textarea",
@@ -1716,7 +1716,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1740,7 +1740,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "doors_status": {
@@ -1750,7 +1750,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1813,7 +1813,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "doors_floors_affected": {
@@ -1823,7 +1823,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -1858,7 +1858,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "doors_waste_removal_required": {
                 "field_type": "checkbox",
@@ -1867,7 +1867,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "doors_waiver_signed": {
                 "field_type": "checkbox",
@@ -1876,7 +1876,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "doors_permits_acquired": {
                 "field_type": "checkbox",
@@ -1885,7 +1885,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "doors_notes": {
                 "field_type": "textarea",
@@ -1894,7 +1894,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -1918,7 +1918,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "windows_status": {
@@ -1928,7 +1928,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -1991,7 +1991,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "windows_floors_affected": {
@@ -2001,7 +2001,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -2036,7 +2036,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "windows_waste_removal_required": {
                 "field_type": "checkbox",
@@ -2045,7 +2045,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "windows_waiver_signed": {
                 "field_type": "checkbox",
@@ -2054,7 +2054,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "windows_permits_acquired": {
                 "field_type": "checkbox",
@@ -2063,7 +2063,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "windows_notes": {
                 "field_type": "textarea",
@@ -2072,7 +2072,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -2096,7 +2096,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "siding_status": {
@@ -2106,7 +2106,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -2169,7 +2169,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "siding_floors_affected": {
@@ -2179,7 +2179,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -2214,7 +2214,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "siding_waste_removal_required": {
                 "field_type": "checkbox",
@@ -2223,7 +2223,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "siding_waiver_signed": {
                 "field_type": "checkbox",
@@ -2232,7 +2232,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "siding_permits_acquired": {
                 "field_type": "checkbox",
@@ -2241,7 +2241,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "siding_notes": {
                 "field_type": "textarea",
@@ -2250,7 +2250,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -2274,7 +2274,7 @@
                 "allow_edit_break_glass": true,
                 "data_sensitivity": "orgSensitive",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "roof_gutters_status": {
@@ -2284,7 +2284,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": "not_requested",
@@ -2347,7 +2347,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_tarping": {
                 "field_type": "checkbox",
@@ -2356,7 +2356,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_damage_description": {
                 "field_type": "textarea",
@@ -2365,7 +2365,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               },
               "roof_gutters_floors_affected": {
@@ -2375,7 +2375,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "options": [
                   {
                     "value": null,
@@ -2410,7 +2410,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_waste_removal_required": {
                 "field_type": "checkbox",
@@ -2419,7 +2419,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_waiver_signed": {
                 "field_type": "checkbox",
@@ -2428,7 +2428,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_permits_acquired": {
                 "field_type": "checkbox",
@@ -2437,7 +2437,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "rebuild"
               },
               "roof_gutters_notes": {
                 "field_type": "textarea",
@@ -2446,7 +2446,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "verySensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
@@ -2595,7 +2595,7 @@
             "help_text_t": null,
             "data_sensitivity": "public",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,

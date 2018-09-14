@@ -2,7 +2,7 @@
   "redactionConditions": [
     {
       "techDescription": "For a any type of user, show all case information for cases the user has either claimed or reported, regardless of the medium or location.",
-      "relationship": "claimedOrReportedCase",
+      "caseRelationship": "claimedOrReportedCase",
       "redactionPatterns": [
         "noRedaction"
       ]
@@ -10,7 +10,7 @@
     {
       "techDescription": "For a Public user, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "hideField"
@@ -19,7 +19,7 @@
     {
       "techDescription": "For a Public user, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "hideField"
@@ -28,7 +28,7 @@
     {
       "techDescription": "For a Public user, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "hideField"
@@ -37,7 +37,7 @@
     {
       "techDescription": "For a Public user, truncate all zip codes to five digits, and replace numbers with Xs in all other fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "truncateToFive", "redactDigits"
@@ -46,7 +46,7 @@
     {
       "techDescription": "For a Public user, display all public class information, regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -55,7 +55,7 @@
     {
       "techDescription": "For a Public user, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
       "orgRole": "public",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "else",
       "redactionPatterns": [
         "hideField"
@@ -64,7 +64,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "hideField"
@@ -73,7 +73,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "hideField"
@@ -82,7 +82,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "hideField"
@@ -91,7 +91,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, truncate all zip codes to five digits, and replace numbers with Xs in all other fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "truncateToFive", "redactDigits"
@@ -100,7 +100,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, display all public class information, regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -109,7 +109,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Preliminary Access role, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
       "orgRole": "preliminary",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "else",
       "redactionPatterns": [
         "hideField"
@@ -118,7 +118,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, hide all verySensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "hideField"
@@ -127,7 +127,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, hide all orgSensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "hideField"
@@ -136,7 +136,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, hide all sensitive class information, as though it does not exist, regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "hideField"
@@ -145,7 +145,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "truncateToFive", "redactDigits"
@@ -154,7 +154,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, display all public class information, regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -163,7 +163,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Statistics Access role, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location.",
       "orgRole": "statistics",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "else",
       "redactionPatterns": [
         "hideField"
@@ -172,8 +172,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, replace verySensitive class information with a translated message if the case is within the users geofence, regardless of the medium if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "insideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": true,
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "inherit",
@@ -185,8 +185,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, show all case data for any other sensitivity class if the case is inside the users geofence, regardless of the medium, if the user has not claimed or reported the case.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "insideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": true,
       "sensitivity": "else",
       "redactionPatterns": [
         "noRedaction"
@@ -195,8 +195,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, replace verySensitive class information with a translated message if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "inherit",
@@ -208,8 +208,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, convert orgSensitive class information to a boolean true/false if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "inherit", "convertToBoolean"
@@ -218,8 +218,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, hide all sensitive class information, as though it does not exist, if the case is outside the users geofence, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -228,8 +228,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), if the case is outside the users geofence and the user has not claimed or reported the case, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "inherit", "truncateToFive", "redactDigits"
@@ -238,8 +238,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, show all public class information, if the case is outside the users geofence, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -248,8 +248,8 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, hide all information by default, if it does not fall into one of the previous rules, if the case is outside the users geofence, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "situationalAwareness",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "else",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -258,7 +258,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Coordination Access role, replace verySensitive class information with a translated message, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "inherit",
@@ -270,7 +270,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Coordination Access role, convert orgSensitive class information to a boolean true/false, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "inherit", "convertToBoolean"
@@ -279,7 +279,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Coordination Access role, hide all sensitive class information, as though it does not exist, regardless of the location or medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -288,7 +288,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Coordination Access role, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), regardless of the location or medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "inherit", "truncateToFive", "redactDigits"
@@ -297,7 +297,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Coordination Access role, show all public class information, regardless of the location or medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -306,7 +306,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Situational Awareness role, hide all information by default, if it does not fall into one of the previous rules, regardless of the medium or location. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "coordination",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "sensitivity": "else",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -315,8 +315,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, show all case information inside the users geofence, regardless of who reported or claimed it, and regardless of the medium.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "insideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": true,
       "redactionPatterns": [
         "noRedaction"
       ]
@@ -324,8 +324,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, replace verySensitive class information with a translated message, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "verySensitive",
       "redactionPatterns": [
         "inherit",
@@ -337,8 +337,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, convert orgSensitive class information to a boolean true/false, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "orgSensitive",
       "redactionPatterns": [
         "inherit", "convertToBoolean"
@@ -347,8 +347,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, hide all sensitive class information, as though it does not exist, if the case is outside the users geocode, regardless of the medium, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "sensitive",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -357,8 +357,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, truncate all zip codes to five digits, and replace numbers with Xs in all other lessSensitive class fields (e.g. phone numbers and address numbers), if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "lessSensitive",
       "redactionPatterns": [
         "inherit", "truncateToFive", "redactDigits"
@@ -367,8 +367,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, show all public class information, if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "public",
       "redactionPatterns": [
         "noRedaction"
@@ -377,8 +377,8 @@
     {
       "techDescription": "For a user belonging to an organization with an LTR Access role, hide all information by default, if it does not fall into one of the previous rules, if the case is outside the users geocode, regardless of the medium. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "ltr",
-      "relationship": "noRelationship",
-      "geofence": "outsideGeofence",
+      "caseRelationship": "noRelationship",
+      "insideGeofence": false,
       "sensitivity": "else",
       "redactionPatterns": [
         "inherit", "hideField"
@@ -387,7 +387,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Recovery Access role, replace verySensitive class information with a translated message, regardless of the location, if the medium is download, if the user has not claimed or reported the case. However, inherit any higher level access from affiliated organizations.",
       "orgRole": "recovery",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "medium": "download",
       "sensitivity": "verySensitive",
       "redactionPatterns": [
@@ -400,7 +400,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Recovery Access role, show all other case information, regardless of the location, if the medium is download, if the user has not claimed or reported the case.",
       "orgRole": "recovery",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "medium": "download",
       "sensitivity": "else",
       "redactionPatterns": [
@@ -410,7 +410,7 @@
     {
       "techDescription": "For a user belonging to an organization with a Recovery Access role, show all other case information, regardless of the location, if the medium is anything other than download, if the user has not claimed or reported the case.",
       "orgRole": "recovery",
-      "relationship": "noRelationship",
+      "caseRelationship": "noRelationship",
       "medium": "else",
       "redactionPatterns": [
         "noRedaction"

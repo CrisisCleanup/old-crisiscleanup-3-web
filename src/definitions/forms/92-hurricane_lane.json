@@ -1,6 +1,6 @@
 {
-  "event_id": 60,
-  "last_updated": "2018-08-14",
+  "event_id": 92,
+  "last_updated": "2018-09-01",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -339,15 +339,6 @@
             "label_t": "formLabels.insured",
             "help_text_t": null,
             "data_sensitivity": "verySensitive",
-            "data_type": "workInfo",
-            "if_selected_then_work_type": null
-          },
-          "unrestrained_animals": {
-            "field_type": "checkbox",
-            "validation": "string",
-            "label_t": "formLabels.unrestrained_animals",
-            "help_text_t": null,
-            "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
             "if_selected_then_work_type": null
           },
@@ -807,6 +798,24 @@
                     "data_type": "workInfo",
                     "if_selected_then_work_type": "debris",
                     "placeholder_t": null
+                  },
+                  "unsalvageable_structure": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.unsalvageable_structure",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "structure"
+                  },
+                  "heavy_machinary_required": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.heavy_machinary_required",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "structure"
                   }
                 }
               },
@@ -908,6 +917,64 @@
                     "data_type": "workInfo",
                     "if_selected_then_work_type": null,
                     "placeholder_t": "formLabels.notes_placeholder"
+                  }
+                }
+              },
+              "ash_sifting_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.ash_sifting_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "ash",
+                "fields": {
+                  "ash_sifting": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.ash_sifting",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "ash"
+                  }
+                }
+              },
+              "retardant_info": {
+                "field_type": "section",
+                "validation": null,
+                "label_t": "formLabels.retardant_info",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "retardant_cleanup",
+                "fields": {
+                  "retardant_clean_home": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_home",
+                    "help_text_t": "formLabels.retardant_clean_home_help",
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "retardant_cleanup"
+                  },
+                  "retardant_clean_outbuilding": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_outbuilding",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "retardant_cleanup"
+                  },
+                  "retardant_clean_vehicle": {
+                    "field_type": "checkbox",
+                    "validation": "string",
+                    "label_t": "formLabels.retardant_clean_vehicle",
+                    "help_text_t": null,
+                    "data_sensitivity": "lessSensitive",
+                    "data_type": "workInfo",
+                    "if_selected_then_work_type": "retardant_cleanup"
                   }
                 }
               },

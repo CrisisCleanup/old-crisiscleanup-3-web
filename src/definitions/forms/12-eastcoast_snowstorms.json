@@ -1,6 +1,6 @@
 {
   "event_id": 12,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -266,7 +266,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "verySensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "snow_ground",
                     "placeholder_t": null
                   },
                   "roof_clearing": {
@@ -285,7 +285,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "snow_roof"
                   },
                   "ice_removal": {
                     "field_type": "checkbox",
@@ -303,7 +303,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "snow_ground"
                   },
                   "walkway_clearing": {
                     "field_type": "checkbox",
@@ -321,7 +321,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "snow_ground"
                   },
                   "ramp_clearing": {
                     "field_type": "checkbox",
@@ -330,7 +330,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "snow_ground"
                   },
                   "deck_clearing": {
                     "field_type": "checkbox",
@@ -339,7 +339,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "snow_ground"
                   }
                 }
               },
@@ -368,7 +368,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "leak"
                   },
                   "roof_collapse": {
                     "field_type": "checkbox",
@@ -397,7 +397,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "needs_clothing": {
                     "field_type": "checkbox",
@@ -406,7 +406,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "needs_shelter": {
                     "field_type": "checkbox",
@@ -415,7 +415,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "sensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "needs_fuel": {
                     "field_type": "checkbox",
@@ -424,7 +424,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "needs_tarp": {
                     "field_type": "checkbox",
@@ -433,7 +433,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "tree_debris": {
                     "field_type": "checkbox",
@@ -442,7 +442,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   },
                   "needs_visual": {
                     "field_type": "checkbox",
@@ -451,7 +451,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "goods_or_services"
                   }
                 }
               },
@@ -549,7 +549,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": null,
                 "options": [
                   {
                     "value": null,

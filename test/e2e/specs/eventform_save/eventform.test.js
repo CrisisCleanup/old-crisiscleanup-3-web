@@ -48,10 +48,10 @@ let mainTest = function (browser, testCaseID, record) {
           browser.setValue(`#${key}CCU`, browser.Keys.ENTER)
           browser.pause(5000);
           takeScreenshot(browser, testCaseID);
-          // browser.expect.element('#cityCCU').to.have.value.not.equals('');
-          // browser.expect.element('#countyCCU').to.have.value.not.equals('');
-          // browser.expect.element('#stateCCU').to.have.value.not.equals('');
-          // browser.expect.element('#zip_codeCCU').to.have.value.not.equals('');
+          // browser.expect.element('#cityCCU').to.have.value.not.equals("");
+          // browser.expect.element('#countyCCU').to.have.value.not.equals("");
+          // browser.expect.element('#stateCCU').to.have.value.not.equals("");
+          // browser.expect.element('#zip_codeCCU').to.have.value.not.equals("");
         });
       } else {
         eventform.setValue(`#${key}CCU`, record[key]);

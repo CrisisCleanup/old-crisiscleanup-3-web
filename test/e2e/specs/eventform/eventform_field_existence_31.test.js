@@ -10,7 +10,7 @@ module.exports = {
   '36-south_holland_il_flood.json': function (browser) { eventform_helper.runTest(browser, 36); },
   '37-la_ms_flood_aug_2016.json': function (browser) { eventform_helper.runTest(browser, 37); },
   '38-wyoming_mi_tornado_aug_2016.json': function (browser) { eventform_helper.runTest(browser, 38); },
-  '40-mn_wi_ia_flood_sep_2016.json': function (browser) { eventform_helper.runTest(browser, 40 - 1); },
+  '40-mn_wi_ia_flood_sep_2016.json': function (browser) { eventform_helper.runTest(browser, 40); },
 };
 
 

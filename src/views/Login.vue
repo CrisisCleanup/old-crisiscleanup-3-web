@@ -72,12 +72,14 @@
     methods: {
       login(evt) {
         evt.preventDefault();
-        this.$notify({
-          group: 'core',
-          title: this.$t('notify.login_attempt'),
-          text: this.$t('notify.logging_in'),
-          width: 500,
-        });
+        if (this.$notify) {
+          this.$notify({
+            group: 'core',
+            title: this.$t('notify.login_attempt'),
+            text: this.$t('notify.logging_in'),
+            width: 500,
+          });
+        }
         // this.loginTriggered = true;
         this.$store.commit('auth/setLoginErrors', {hasError: null});
         const user = {
@@ -92,24 +94,28 @@
           const failedMsg = this.$t('notify.login_failed_msg');
 
           setTimeout(() => {
-            this.$notify({
-              type: 'success',
-              group: 'core',
-              title: successMsg,
-              text: '',
-              width: 500,
-            });
+            if (this.$notify) {
+              this.$notify({
+                type: 'success',
+                group: 'core',
+                title: successMsg,
+                text: '',
+                width: 500,
+              });
+            }
           }, 1000);
 
         }, (error) => {
            setTimeout(() => {
-            this.$notify({
-              type: 'error',
-              group: 'core',
-              title: failMsg,
-              text: failedMsg,
-              width: 500,
-            });
+            if (this.$notify) {
+              this.$notify({
+                type: 'error',
+                group: 'core',
+                title: failMsg,
+                text: failedMsg,
+                width: 500,
+              });
+            }
           }, 1000);
         });
       }

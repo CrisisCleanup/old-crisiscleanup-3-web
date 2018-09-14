@@ -1,6 +1,6 @@
 {
   "event_id": 67,
-  "last_updated": "2018-03-10",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -322,7 +322,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "exterior_property_affected": {
             "field_type": "checkbox",
@@ -331,7 +331,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "destruction_level": {
             "field_type": "select",
@@ -340,7 +340,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -375,7 +375,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "outbuilding_roof_damage": {
             "field_type": "checkbox",
@@ -384,7 +384,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "unsalvageable_structure": {
             "field_type": "checkbox",
@@ -450,7 +450,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -474,7 +474,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -485,7 +485,7 @@
                 "help_text_t": "formLabels.num_wide_trees_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -509,7 +509,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -551,7 +551,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "building_materials_removal": {
                 "field_type": "checkbox",
@@ -560,7 +560,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "nonvegitative_debris_removal": {
                 "field_type": "checkbox",
@@ -569,7 +569,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "vegitative_debris_removal": {
                 "field_type": "checkbox",
@@ -578,7 +578,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "heavy_machinary_required": {
                 "field_type": "checkbox",
@@ -587,7 +587,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               }
             }
           },
@@ -607,7 +607,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "tarp"
               },
               "tarps_needed": {
                 "field_type": "text",
@@ -616,7 +616,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "tarp",
                 "placeholder_t": null
               },
               "help_install_tarp": {
@@ -626,7 +626,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "tarp"
               }
             }
           },
@@ -646,7 +646,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "fence",
                 "placeholder_t": null
               },
               "fence_type": {
@@ -656,7 +656,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "fence",
                 "placeholder_t": null
               },
               "fence_notes": {
@@ -666,7 +666,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "fence",
                 "placeholder_t": null
               }
             }
@@ -815,7 +815,7 @@
             "help_text_t": null,
             "data_sensitivity": "public",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,

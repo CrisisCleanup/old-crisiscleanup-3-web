@@ -1,6 +1,6 @@
 {
   "event_id": 35,
-  "last_updated": "2018-08-08",
+  "last_updated": "2018-08-14",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -388,7 +388,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "debris"
                   },
                   "vegitative_debris_removal": {
                     "field_type": "checkbox",
@@ -397,7 +397,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "debris"
                   }
                 }
               },
@@ -417,7 +417,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "trees",
                     "options": [
                       {
                         "value": "0",
@@ -452,7 +452,7 @@
                     "help_text_t": "formLabels.num_wide_trees_help",
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "trees",
                     "options": [
                       {
                         "value": "0",
@@ -487,7 +487,7 @@
                     "help_text_t": "formLabels.num_burned_trees_help",
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "trees",
                     "placeholder_t": null
                   }
                 }
@@ -508,7 +508,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "fire"
                   },
                   "ash_removal": {
                     "field_type": "checkbox",
@@ -517,7 +517,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "fire"
                   },
                   "smoke_damage": {
                     "field_type": "checkbox",
@@ -526,7 +526,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "fire"
                   },
                   "well_head_replacement": {
                     "field_type": "checkbox",
@@ -555,7 +555,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "fence",
                     "placeholder_t": null
                   },
                   "fence_replacement": {
@@ -565,7 +565,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "fence",
                     "placeholder_t": null
                   },
                   "fence_type": {
@@ -575,7 +575,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "fence",
                     "placeholder_t": null
                   },
                   "fence_purpose": {
@@ -585,7 +585,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit",
+                    "if_selected_then_work_type": "fence",
                     "options": [
                       {
                         "value": null,
@@ -619,7 +619,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "landslide"
                   },
                   "erosion_repair": {
                     "field_type": "checkbox",
@@ -628,7 +628,7 @@
                     "help_text_t": null,
                     "data_sensitivity": "lessSensitive",
                     "data_type": "workInfo",
-                    "if_selected_then_work_type": "inherit"
+                    "if_selected_then_work_type": "landslide"
                   }
                 }
               }
@@ -785,7 +785,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "public",
                 "data_type": "caseInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": null,
                 "options": [
                   {
                     "value": null,

@@ -26,7 +26,9 @@
     methods: {
       viewSite() {
         this.$store.dispatch('getSite', this.item.id).then(() => {
-          this.$router.push({path: 'map'});
+          if (this.$router) {
+            this.$router.push({ path: 'map' });
+          }
           CCUMapEventHub.$emit('site-search');
         })
       }
