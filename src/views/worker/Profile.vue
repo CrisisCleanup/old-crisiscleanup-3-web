@@ -180,10 +180,9 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex';
-import { validationMixin } from "vuelidate"
-import { required, minLength } from "vuelidate/lib/validators"
-
-import UserRoles from '../../definitions/userroles/userRoles.json';
+import { validationMixin } from 'vuelidate'
+import { required, minLength } from 'vuelidate/lib/validators'
+import UserRoles from '../../definitions/userroles/userRoles.json'
 
 export default {
   name: 'Profile',
@@ -376,10 +375,6 @@ export default {
 }
 </script>
 <style scoped>
-  /*.input-group {*/
-    /*padding-bottom: 1em;*/
-  /*}*/
-
   .input-group .invalid-feedback {
     position: absolute;
     left: 0;
