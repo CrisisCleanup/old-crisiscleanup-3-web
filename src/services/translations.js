@@ -1780,6 +1780,8 @@ const messages = {
       "first_name_error": "First Name is required",
       "last_name_error": "Last Name is required",
       "role_error": "Role is required",
+      "assets_error": "Assets is required",
+      "email_error": "Email is required",
       "mobile_phone_error": "Mobile Phone is required"
     },
     "languages": {
@@ -3587,6 +3589,8 @@ const messages = {
       "first_name_error": "Se requiere el primer nombre",
       "last_name_error": "Se requiere Apellido",
       "role_error": "Se requiere papel",
+      "assets_error": "Assets is required",
+      "email_error": "Email is required",
       "mobile_phone_error": "Se requiere teléfono móvil"
     },
     "languages": {
