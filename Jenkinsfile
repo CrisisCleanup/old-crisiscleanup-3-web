@@ -37,12 +37,7 @@ pipeline {
     }
     stage('Deploy pull request to dev and staging') {
       when {
-        allOf {
-          changeRequest()
-          not {
-            branch 'master'
-          }
-        }
+        branch 'staging'
       }
       steps {
         build(job: 'crisiscleanup-web-deploy',
