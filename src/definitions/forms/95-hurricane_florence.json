@@ -1,6 +1,6 @@
 {
   "event_id": 95,
-  "last_updated": "2018-09-08",
+  "last_updated": "2018-09-15",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -919,154 +919,6 @@
                     "placeholder_t": "formLabels.notes_placeholder"
                   }
                 }
-              },
-              "maintenance_reconstruction_info": {
-                "field_type": "section",
-                "validation": null,
-                "label_t": "formLabels.maintenance_reconstruction_info",
-                "help_text_t": null,
-                "data_sensitivity": "lessSensitive",
-                "data_type": "workInfo",
-                "if_selected_then_work_type": "rebuild",
-                "fields": {
-                  "needs_visual": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.needs_visual",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_furnace": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_furnace",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_water_heater": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_water_heater",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_plumbing": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_plumbing",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_drainage": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_drainage",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_sewer_septic": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_sewer_septic",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_caulking": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_caulking",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_appliances": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_appliances",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild",
-                    "placeholder_t": null
-                  },
-                  "maintenance_hvac": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_hvac",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_electrical": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_electrical",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_roof": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_roof",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_siding": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_siding",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_doors": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_doors",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "maintenance_windows": {
-                    "field_type": "checkbox",
-                    "validation": "string",
-                    "label_t": "formLabels.maintenance_windows",
-                    "help_text_t": null,
-                    "data_sensitivity": "lessSensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild"
-                  },
-                  "other_needs": {
-                    "field_type": "textarea",
-                    "validation": "string",
-                    "label_t": "formLabels.other_needs",
-                    "help_text_t": null,
-                    "data_sensitivity": "verySensitive",
-                    "data_type": "workInfo",
-                    "if_selected_then_work_type": "rebuild",
-                    "placeholder_t": null
-                  }
-                }
               }
             }
           },
@@ -1137,6 +989,154 @@
                 "data_sensitivity": "verySensitive",
                 "data_type": "caseInfo",
                 "if_selected_then_work_type": null,
+                "placeholder_t": null
+              }
+            }
+          },
+          "maintenance_reconstruction_info": {
+            "field_type": "section",
+            "validation": null,
+            "label_t": "formLabels.maintenance_reconstruction_info",
+            "help_text_t": null,
+            "data_sensitivity": "lessSensitive",
+            "data_type": "workInfo",
+            "if_selected_then_work_type": "rebuild",
+            "fields": {
+              "needs_visual": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.needs_visual",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_furnace": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_furnace",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_water_heater": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_water_heater",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_plumbing": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_plumbing",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_drainage": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_drainage",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_sewer_septic": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_sewer_septic",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_caulking": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_caulking",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_appliances": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_appliances",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild",
+                "placeholder_t": null
+              },
+              "maintenance_hvac": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_hvac",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_electrical": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_electrical",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_roof": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_roof",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_siding": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_siding",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_doors": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_doors",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "maintenance_windows": {
+                "field_type": "checkbox",
+                "validation": "string",
+                "label_t": "formLabels.maintenance_windows",
+                "help_text_t": null,
+                "data_sensitivity": "lessSensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild"
+              },
+              "other_needs": {
+                "field_type": "textarea",
+                "validation": "string",
+                "label_t": "formLabels.other_needs",
+                "help_text_t": null,
+                "data_sensitivity": "verySensitive",
+                "data_type": "workInfo",
+                "if_selected_then_work_type": "rebuild",
                 "placeholder_t": null
               }
             }
