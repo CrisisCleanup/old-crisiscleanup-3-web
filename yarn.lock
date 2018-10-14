@@ -7491,6 +7491,10 @@ vue@^2.5.2:
   version "2.5.9"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.9.tgz#b2380cd040915dca69881dafd121d760952e65f7"
 
+vuelidate@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
+
 vuenit@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vuenit/-/vuenit-1.1.1.tgz#cf26a360dbe83c0fa8afea42059f04d1be7d5ef6"
