@@ -7,10 +7,11 @@
       <b-nav-item class="px-3"><router-link to="map#go-poweredby">{{ $t('publicHeader.poweredby') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-whoweserve">{{ $t('publicHeader.who_serve') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-whyccu">{{ $t('publicHeader.testimonials') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="about">{{ $t('publicHeader.about') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link to="map#go-join">{{ $t('publicHeader.join') }}</router-link></b-nav-item>
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
-      <b-nav-item class="px-3"><router-link to="register-organization">{{ $t('publicHeader.register') }}</router-link></b-nav-item>
+      <b-nav-item class="px-3"><router-link to="register">{{ $t('publicHeader.register') }}</router-link></b-nav-item>
       <b-nav-item class="px-3"><router-link :to="loginRouteState">{{loginState}}</router-link></b-nav-item>
     </b-navbar-nav>
   </header>

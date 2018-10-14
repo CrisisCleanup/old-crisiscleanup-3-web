@@ -8,7 +8,7 @@
           <div class="volunteer-subtext">
             {{ $t('donation.your_donation_msg') }}
           </div>
-          <img class="img-fluid mb-2" src="/static/img/front_end/movie-placeholder.png" alt="">
+          <img class="img-fluid mb-2" src="/static/img/front_end/movie-placeholder.jpg" alt="">
           <br>
           {{ $t('donation.turn_100_to_1000_msg') }}
         </div>

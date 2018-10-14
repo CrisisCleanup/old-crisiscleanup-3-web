@@ -19,7 +19,7 @@ export default {
   state: {
     participatingEvents: [],
     event: {
-      id: 60,
+      id: 55,
       uid: '',
     },
     eventJustChanged: false,
@@ -29,7 +29,6 @@ export default {
       data: {}
     },
     isNewSite: false,
-    mapViewingArea: {},
     dashboardWorksites: {
       offset: 0,
       limit: 4,
@@ -105,9 +104,6 @@ export default {
     setIsNewSite (state, payload) {
       state.isNewSite = payload;
     },
-    setMapViewingArea (state, payload) {
-      state.mapViewingArea = payload;
-    },
     setDashboardWorksites (state, payload) {
       state.dashboardWorksites.worksites = payload;
     },
@@ -168,13 +164,18 @@ export default {
 
   actions: {
     getSite({ commit, state, dispatch }, siteId) {
-      startLoading(dispatch, 'getSite');
-      return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
-        commit('setCurrentSiteData', resp.data);
-        commit('setIsNewSite', false);
-        commit('setSiteFormErrors', {})
-        commit('setActiveWorksiteView', {view: 'editWorksite'});
-        endLoading(dispatch, 'getSite');
+      return new Promise((resolve, reject) => {
+        startLoading(dispatch, 'getSite');
+        return Vue.axios.get(`/worksites/${siteId}`).then(resp => {
+          commit('setCurrentSiteData', resp.data);
+          commit('setIsNewSite', false);
+          commit('setSiteFormErrors', {})
+          commit('setActiveWorksiteView', {view: 'editWorksite'});
+          endLoading(dispatch, 'getSite');
+          resolve(resp.data);
+        }, function (error) {
+          reject(error);
+        });
       });
     },
     claimSite({commit, state}) {
@@ -250,11 +251,15 @@ export default {
       const event = state.participatingEvents.find(val => val.id == eventId);
       commit('setEventContextJustChanged', true);
       commit('setEventContext', event);
-      await dispatch('getWorksiteStats');
-      await dispatch('getDashboardWorksites');
-      commit('resetCurrentSiteData');
-      commit('setSiteFormErrors', {});
-      await dispatch('map/getWorksites', eventId);
+      try {
+        await dispatch('getWorksiteStats');
+        await dispatch('getDashboardWorksites');
+        commit('resetCurrentSiteData');
+        commit('setSiteFormErrors', {});
+        await dispatch('map/getWorksites', eventId);        
+      } catch (ex) {
+        console.log(ex);
+      }
     },
     searchWorksites({commit, dispatch, state}, searchCriteria) {
       Vue.axios.get(`/worksites?limit=10&event=${state.event.id}&search=${searchCriteria}`).then(resp => {

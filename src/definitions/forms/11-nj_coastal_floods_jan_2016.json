@@ -1,6 +1,6 @@
 {
   "event_id": 11,
-  "last_updated": "2018-03-12",
+  "last_updated": "2018-08-22",
   "phase_pda": {
     "attribute_default": false,
     "preamble_t": "forms.preamble_default_1",
@@ -208,7 +208,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "work_requested": {
             "field_type": "textarea",
@@ -227,7 +227,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "outbuilding_affected": {
             "field_type": "checkbox",
@@ -236,7 +236,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "exterior_property_affected": {
             "field_type": "checkbox",
@@ -245,7 +245,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "destruction_level": {
             "field_type": "select",
@@ -254,7 +254,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -412,7 +412,7 @@
                 "help_text_t": "formLabels.flood_height_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "flood",
                 "placeholder_t": "formLabels.flood_height_placeholder"
               },
               "floors_affected": {
@@ -422,7 +422,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "flood",
                 "options": [
                   {
                     "value": null,
@@ -457,7 +457,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "hardwood_floor_removal": {
                 "field_type": "checkbox",
@@ -466,7 +466,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "drywall_removal": {
                 "field_type": "checkbox",
@@ -475,7 +475,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "appliance_removal": {
                 "field_type": "checkbox",
@@ -484,7 +484,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "heavy_item_removal": {
                 "field_type": "checkbox",
@@ -493,7 +493,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "standing_water": {
                 "field_type": "checkbox",
@@ -502,7 +502,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "flood"
               },
               "mold_remediation": {
                 "field_type": "checkbox",
@@ -520,7 +520,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "mold_remediation"
               },
               "notes": {
                 "field_type": "textarea",
@@ -550,7 +550,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "vegitative_debris_removal": {
                 "field_type": "checkbox",
@@ -559,7 +559,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "debris"
               },
               "debris_blocking": {
                 "field_type": "select",
@@ -568,7 +568,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "debris",
                 "options": [
                   {
                     "value": null,
@@ -614,7 +614,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "tarp"
               },
               "outbuilding_roof_damage": {
                 "field_type": "checkbox",
@@ -623,7 +623,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "tarp"
               },
               "tarps_needed": {
                 "field_type": "text",
@@ -632,7 +632,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "tarp",
                 "placeholder_t": null
               },
               "help_install_tarp": {
@@ -642,7 +642,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit"
+                "if_selected_then_work_type": "tarp"
               }
             }
           },
@@ -662,7 +662,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -686,7 +686,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -697,7 +697,7 @@
                 "help_text_t": "formLabels.num_wide_trees_help",
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": "0",
@@ -721,7 +721,7 @@
                   },
                   {
                     "value": "5",
-                    "name_t": "formOptions.five_plus"
+                    "name_t": "5+"
                   }
                 ]
               },
@@ -732,7 +732,7 @@
                 "help_text_t": null,
                 "data_sensitivity": "lessSensitive",
                 "data_type": "workInfo",
-                "if_selected_then_work_type": "inherit",
+                "if_selected_then_work_type": "trees",
                 "options": [
                   {
                     "value": null,
@@ -798,7 +798,7 @@
             "help_text_t": null,
             "data_sensitivity": "lessSensitive",
             "data_type": "workInfo",
-            "if_selected_then_work_type": "inherit"
+            "if_selected_then_work_type": null
           },
           "electrical_lines": {
             "field_type": "checkbox",
@@ -901,7 +901,7 @@
             "help_text_t": null,
             "data_sensitivity": "public",
             "data_type": "caseInfo",
-            "if_selected_then_work_type": "inherit",
+            "if_selected_then_work_type": null,
             "options": [
               {
                 "value": null,
@@ -995,6 +995,16 @@
             "data_type": "caseInfo",
             "if_selected_then_work_type": null,
             "placeholder_t": "formLabels.do_not_work_before_placeholder"
+          },
+          "prepared_by": {
+            "field_type": "text",
+            "validation": "string",
+            "label_t": "formLabels.prepared_by",
+            "help_text_t": "formLabels.prepared_by_help",
+            "data_sensitivity": "orgSensitive",
+            "data_type": "caseInfo",
+            "if_selected_then_work_type": null,
+            "placeholder_t": "formLabels.prepared_by_placeholder"
           }
         }
       }

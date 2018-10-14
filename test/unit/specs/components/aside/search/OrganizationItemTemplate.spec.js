@@ -18,7 +18,8 @@ describe('OrganizationItemTemplate.vue', function () {
     };
 
     const wrapper = createBaseWrapper({
-      item: mockItem
+      item: mockItem,
+      searchText: ''
     });
 
     expect(wrapper.exists()).to.be.true;

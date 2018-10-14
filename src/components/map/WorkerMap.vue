@@ -1,35 +1,31 @@
 <template>
   <div class="fullsize-map">
-    <WorkerCCUMap></WorkerCCUMap>
+    <component :is="mapImpl"></component>
   </div>
 </template>
 <script>
-  import CCUMapEventHub from '../../events/CCUMapEventHub';
-  import WorkerCCUMap from './WorkerCCUMap.vue';
+  import LeafletMap from './maps/LeafletMap';
 
   export default {
+    props: {
+      mapImpl: {
+        type: String,
+        default: 'leaflet-map'
+      }
+    },
     name: 'WorkerMap',
     components: {
-      WorkerCCUMap,
+      LeafletMap
     },
     data() {
       return {
-        showInfoBox: false
       }
-    },
-    mounted: function () {
-      CCUMapEventHub.$on('site-clicked', (e) => {
-        this.showInfoBox = true;
-        // filters anchor
-        // Show filters
-      });
-      CCUMapEventHub.$on('close-infobox', () => {
-        this.showInfoBox = false;
-        // filters anchor
-        // Show filters
-      });
     },
   }
 </script>
 <style>
+  .fullsize-map {
+    height: 100%;
+    width: 100%;
+  }
 </style>

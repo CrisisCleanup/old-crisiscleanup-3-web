@@ -19,6 +19,16 @@ workType. = {
     "lastUpdated" : "2018-01-15",
     "depreciatedDate" : "2018-01-15"
   },
+  "catchment_gutters" : {
+    "key" : "catchment_gutters",
+    "filePrefix" : "Catchment_Gutters",
+    "name_t" : "workType.catchment_gutters",
+    "description_t" : "workTypeDescription.catchment_gutters",
+    "commercialValue" : 750,
+    "comment_t" : null,
+    "lastUpdated" : "2018-09-16",
+    "depreciatedDate" : ""
+  },
   "construction_consultation" : {
     "key" : "construction_consultation",
     "filePrefix" : "Construction_Consultation",
@@ -498,6 +508,16 @@ workType. = {
     "comment_t" : null,
     "lastUpdated" : "2018-01-15",
     "depreciatedDate" : null
+  },
+  "tephra" : {
+    "key" : "tephra",
+    "filePrefix" : "Tephra",
+    "name_t" : "workType.tephra",
+    "description_t" : "workTypeDescription.tephra",
+    "commercialValue" : 1000,
+    "comment_t" : null,
+    "lastUpdated" : "2018-09-16",
+    "depreciatedDate" : ""
   },
   "tornado" : {
     "key" : "tornado",

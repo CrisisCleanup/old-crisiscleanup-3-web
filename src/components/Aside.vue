@@ -10,11 +10,11 @@
       <b-tab id="ccu-map-filter-aside" title="<i class='fa fa-filter'></i>">
         <MapFilterAside/>
       </b-tab>
+      <b-tab title="<i class='icon-settings'></i>">
+        <MapLayersAside/>
+      </b-tab>
       <b-tab id="ccu-notification-aside" title="<i class='icon-printer'></i>">
         <NotificationAside/>
-      </b-tab>
-      <b-tab title="<i class='icon-settings'></i>">
-        <SettingsAside/>
       </b-tab>
       <b-tab title="<i class='icon-folder-alt'></i>">
       </b-tab>
@@ -31,12 +31,14 @@
   import WorksiteAside from './aside/worksite/WorksiteAside.vue';
   import SearchFilterAside from './aside/SearchFilterAside';
   import MapFilterAside from "./aside/MapFilterAside";
+  import MapLayersAside from "./aside/MapLayersAside";
 
   export default {
     name: 'aside',
     computed: {
     },
     components: {
+      MapLayersAside,
       MapFilterAside,
       WorksiteAside,
       IconListAside,

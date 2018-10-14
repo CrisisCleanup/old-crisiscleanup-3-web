@@ -1,10 +1,10 @@
 var commands = {
   clickDashboardLink: function () {
-    return this.waitForElementVisible('@dashboardLink', 1000)
+    return this.waitForElementVisible('@dashboardLink', 5000)
       .click('@dashboardLink')
   },
   clickWorkerMapLink: function () {
-    return this.waitForElementVisible('@workerMapLink', 1000)
+    return this.waitForElementVisible('@workerMapLink', 5000)
       .click('@workerMapLink')
   },
 };

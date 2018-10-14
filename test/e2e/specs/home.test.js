@@ -1,5 +1,5 @@
 module.exports = {
-  '@tags': ['home'],
+  '@tags': ['home', 'smoke'],
   'basic home visibility test': function (browser) {
     let homePage = browser.page.home();
     homePage.navigate();

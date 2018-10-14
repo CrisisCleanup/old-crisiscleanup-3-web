@@ -1,13 +1,8 @@
 <template>
   <div>
-    <WorkerMap/>
+    <WorkerMap :map-impl="mapImpl"/>
   </div>
 </template>
-
-<style lang="scss">
-  // Import Main styles for this application
-  @import "./scss/crisiscleanup/_pins.scss";
-</style>
 
 <script>
   import WorkerMap from '@/components/map/WorkerMap.vue';
@@ -24,6 +19,12 @@
 
   export default {
     name: 'WorkerMapView',
+    props: {
+      mapImpl: {
+        type: String,
+        default: 'leaflet-map'
+      }
+    },
     components: {
       WorkerMap
     },

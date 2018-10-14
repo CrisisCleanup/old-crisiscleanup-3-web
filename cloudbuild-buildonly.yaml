@@ -7,4 +7,4 @@ steps:
          '.']
 images: ['gcr.io/$PROJECT_ID/ccu3-web:${_APP_ENV}']
 substitutions:
-    _APP_ENV: realstaging
+    _APP_ENV: realdev

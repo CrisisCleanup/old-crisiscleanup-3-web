@@ -21,10 +21,11 @@ export default {
       maxLon: null,
       maxLat: null
     },
-    points: [],
-    tempMarkers: [],
+    pointParams: {},
     getMarkersFunc: null,
     activeMapFilters: [],
+    pointsLoading: false,
+    mapViewingArea: null,
   },
 
   mutations: {
@@ -49,28 +50,30 @@ export default {
     setBounds (state, value) {
       state.bounds = value;
     },
-    setTempMarkers (state, value) {
-      state.tempMarkers = value;
+    setPointParams (state, value) {
+      state.pointParams = value;
     },
     addMapFilter (state, value) {
       state.activeMapFilters.push(value);
     },
     removeMapFilter (state, value) {
       state.activeMapFilters.pop(value);
+    },
+    setMapViewingArea (state, payload) {
+      state.mapViewingArea = payload;
     }
   },
 
   getters: {
+    getMapViewingArea: state => state.mapViewingArea,
   },
 
   actions: {
     getWorksites({ commit, state, rootState}, eventId) {
-      const fields = "id,lat,lng,status,claimed_by,work_type,city,reported_by_uid,name";
 
       const params = {
-        limit: 1000,
+        // limit: 100,
         event: eventId,
-        fields: fields
       };
 
       if (rootState.filters.claimedByNone) {
@@ -119,9 +122,7 @@ export default {
         params.worktypes_list = worktypes.join(',')
       }
 
-      return Vue.axios.get('/worksites', {params: params}).then(resp => {
-        commit('setTempMarkers', resp.data.results);
-      });
+      commit('setPointParams', params);
     },
     setMarkers({ commit, state }, markers) {
       commit('setMarkers', markers);

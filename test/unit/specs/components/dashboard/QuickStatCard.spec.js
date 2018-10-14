@@ -25,7 +25,7 @@ describe('QuickStatCard.vue', function() {
       const statQuantityWrapper = wrapper.find('#statQuantityId');
       expect(statQuantityWrapper.text()).to.eq(statQuantity);
       const bCardWrapper = wrapper.find('b-card');
-      expect(bCardWrapper.hasClass(className)).to.be.true;
+      expect(bCardWrapper.classes().indexOf(className) > -1).to.be.true;
     });
   });
 });

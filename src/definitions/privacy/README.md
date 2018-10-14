@@ -64,7 +64,7 @@ Root Attributes of `accessRedaction.json`
 
 Access Profile Attributes
 -------------
- - `name_t`: A translated human-readable name of each access type, e.g. "Public", or "Situational Awareness"
+ - `name_t`: A translated human-readable name of each organization role, e.g. "Public", or "Situational Awareness"
    - Applies to: `accessTypes`
    - Possible Values: string defined in translations.js
    - Required: Yes
