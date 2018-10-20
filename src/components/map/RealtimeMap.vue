@@ -64,7 +64,7 @@
   import 'leaflet-loading';
   import 'leaflet.gridlayer.googlemutant';
   import { mapGetters } from 'vuex';
-  import CCUMapEventHub from "@/events/CCUMapEventHub";
+  import CCUMapEventHub from '@/events/CCUMapEventHub';
 
   L.Icon.Default.imagePath = '.';
   // OR
@@ -88,37 +88,29 @@
         points: [],
         autoplay: true,
         mapTimers: [],
-        tileLayer: L.tileLayer('https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/normal.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
-          attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
-          subdomains: '1234',
-          mapID: 'newest',
-          app_id: process.env.LEAFLET_MAP_APP_ID,
-          app_code: process.env.LEAFLET_MAP_APP_CODE,
-          base: 'base',
+        tileLayer: L.tileLayer('https://api.pitneybowes.com/location-intelligence/geomap/v1/tile/osm/{z}/{x}/{y}.png?api_key={api_key}', {
+          api_key: process.env.PITNEYBOWES_API_KEY,
           maxZoom: 18,
-          type: 'maptile',
-          language: 'eng',
-          format: 'png8',
-          size: '256'
+          attribution: '<a target="_blank" href="http://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>',
         }),
-      }
+      };
     },
     computed: {
-      ...mapGetters('map', [ 'getMapViewingArea' ]),
+      ...mapGetters('map', ['getMapViewingArea']),
     },
     mounted() {
-      let center = this.getMapViewingArea && this.getMapViewingArea.center;
-      let zoom = this.getMapViewingArea && this.getMapViewingArea.zoom;
-      let options = {
-        center: center ? center : L.latLng(39, -90),
-        zoom: zoom ? zoom : 4,
-        loadingControl: true
+      const center = this.getMapViewingArea && this.getMapViewingArea.center;
+      const zoom = this.getMapViewingArea && this.getMapViewingArea.zoom;
+      const options = {
+        center: center || L.latLng(39, -90),
+        zoom: zoom || 4,
+        loadingControl: true,
       };
       this.initMap(options);
       this.ready = true;
       CCUMapEventHub.$on('aside-changed', () => {
-        setTimeout(() => { this.map.invalidateSize()}, 400);
-      })
+        setTimeout(() => { this.map.invalidateSize(); }, 400);
+      });
     },
     // beforeDestroy: function () {
     //   for (var i = 0; i < this.mapTimers.length; i++) {
@@ -141,7 +133,7 @@
       mapIsClicked() {
         this.autoplay = false;
       },
-      draggingEnded(event) {
+      draggingEnded() {
         this.autoplay = false;
       },
       // pullSites(eventId, lastViewport) {
@@ -155,7 +147,7 @@
             // this.$refs.map.$mapObject.setZoom(6);
             // this.$refs.map.$mapObject.panTo(m.getPosition());
           }
-        }
+        };
       },
       // renderMarkers(serverMarkers = [], lastViewport) {
       //   var timer = 0;
@@ -196,8 +188,8 @@
       //     this.mapTimers.push(t);
       //   });
       // },
-    }
-  }
+    },
+  };
 </script>
 
 <style>

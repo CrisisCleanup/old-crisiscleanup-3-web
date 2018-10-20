@@ -25,6 +25,11 @@
           :value="getFormDataValue(key)"
           :update-value="updateEventFormData"
           :field-key="key"
+          :update-auto-complete-items="updateItems"
+          :auto-complete-item-selected="autoCompleteItemSelected"
+          :auto-complete-items="items"
+          :auto-complete-item-template="itemTemplate"
+          :auto-complete-item-get-label="getLabel"
         />
       </div>
       <div v-else-if="value.field_type=='textarea'">
@@ -111,43 +116,50 @@
   import TextAreaField from './TextAreaField';
   import SelectField from './SelectField';
   import coreFields from './coreFields';
+  import ItemTemplate from './ItemTemplate.vue';
+  import geoCoder from '../../utils/geocoder';
 
   export default {
     name: 'FormSection',
     props: {
       titleLabel: {
-        type: String
+        type: String,
       },
       labelName: {
-        type: String
+        type: String,
       },
       formData: {
-        type: Object
+        type: Object,
       },
       titleHelp: {
-        type: String
+        type: String,
       },
       isRequired: {
-        type: Boolean
+        type: Boolean,
       },
       eventFormData: {
-        type: Object
+        type: Object,
       },
       updateEventFormData: {
-        type: Function
+        type: Function,
       },
-      sectionLevel: {}
+      autoCompleteItemSelected: {
+        type: Function,
+      },
+      sectionLevel: {},
     },
     data() {
       return {
-      }
+        items: [],
+        itemTemplate: ItemTemplate,
+      };
     },
     computed: {},
     components: {
       TextField,
       CheckboxField,
       TextAreaField,
-      SelectField
+      SelectField,
     },
     methods: {
       getFormDataValue(key) {
@@ -155,7 +167,15 @@
           return this.eventFormData.data[key];
         }
         return this.eventFormData[key];
-      }
-    }
-  }
+      },
+      getLabel(item) {
+        return item.address.mainAddressLine;
+      },
+      updateItems(text) {
+        geoCoder.getMatchingAddresses(text, 'USA').then((candidates) => {
+          this.items = candidates;
+        });
+      },
+    },
+  };
 </script>
