@@ -11,60 +11,60 @@ module.exports = {
       globals: {
         devServerURL: 'http://webapp',
       },
-      launch_url: "http://webapp",
+      launch_url: 'http://webapp',
       end_session_on_fail: true,
       skip_testcases_on_fail: false,
-      "screenshots" : {
-        "enabled" : true,
-        "path" : "/home/node/testing/reports/errors_screenshots",
-        "on_failure" : true,
-        "on_error" : false
+      screenshots: {
+        enabled: true,
+        path: '/home/node/testing/reports/errors_screenshots',
+        on_failure: true,
+        on_error: false,
       },
-      selenium_host: "chromedriver"
+      selenium_host: 'chromedriver',
     },
     jenkins: {
       globals: {
         devServerURL: 'http://localhost',
       },
-      launch_url: "http://localhost",
+      launch_url: 'http://localhost',
       end_session_on_fail: false,
       skip_testcases_on_fail: false,
-      "screenshots" : {
-        "enabled" : true,
-        "path" : "./screenshots",
-        "on_failure" : true,
-        "on_error" : true
+      screenshots: {
+        enabled: true,
+        path: './screenshots',
+        on_failure: true,
+        on_error: true,
       },
-      selenium_host: "localhost"
+      selenium_host: 'localhost',
     },
     local: {
       globals: {
         devServerURL: 'http://localhost:8080',
       },
-      launch_url: "http://localhost:8080",
+      launch_url: 'http://localhost:8080',
       end_session_on_fail: true,
       skip_testcases_on_fail: false,
-      "screenshots" : {
-        "enabled" : true,
-        "path" : "/tmp/screenshots",
-        "on_failure" : true,
-        "on_error" : false
+      screenshots: {
+        enabled: true,
+        path: '/tmp/screenshots',
+        on_failure: true,
+        on_error: false,
       },
-      selenium_host: "localhost"
+      selenium_host: 'localhost',
     },
     grid: {
       globals: {
-        devServerURL: 'http://webapp'
+        devServerURL: 'http://webapp',
       },
-      launch_url: "http://webapp",
+      launch_url: 'http://webapp',
       end_session_on_fail: false,
       skip_testcases_on_fail: false,
-      selenium_host: "hub",
+      selenium_host: 'hub',
       selenium_port: 4444,
-      "desiredCapabilities": {
-        "browserName": "chrome"
+      desiredCapabilities: {
+        browserName: 'chrome',
       },
     },
 
-  }
-}
+  },
+};

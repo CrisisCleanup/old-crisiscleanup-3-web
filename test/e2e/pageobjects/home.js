@@ -1,21 +1,24 @@
-var commands = {
-  goToHome: function() {
+const commands = {
+  goToHome() {
     return this.waitForElementVisible('@logo', 5000)
-      .click('@logo')
+      .click('@logo');
   },
-  goToLogin: function() {
-    return this.section.header.click('@loginLink')
+  goToLogin() {
+    return this.section.header.click('@loginLink');
   },
 };
 
 module.exports = {
-  url: function() {
+  url() {
     return this.api.launch_url;
   },
   commands: [commands],
   elements: {
     logo: {
-      selector: '.navbar-brand'
+      selector: '.navbar-brand',
+    },
+    attribution: {
+      selector: '.leaflet-attribution',
     },
   },
   sections: {
@@ -23,27 +26,30 @@ module.exports = {
       selector: '.app-header',
       elements: {
         logo: {
-          selector: '.navbar-brand'
+          selector: '.navbar-brand',
+        },
+        attribution: {
+          selector: '.leaflet-attribution',
         },
         realtimeMapLink: {
-          selector: "a[href='/map']"
+          selector: "a[href='/map']",
         },
         donateLink: {
-          selector: "a[href='/map#go-donate']"
+          selector: "a[href='/map#go-donate']",
         },
         poweredByLink: {
-          selector: "a[href='/map#go-poweredby']"
+          selector: "a[href='/map#go-poweredby']",
         },
         whoweserveLink: {
-          selector: "a[href='/map#go-whoweserve']"
+          selector: "a[href='/map#go-whoweserve']",
         },
         registerOrganizationLink: {
-          selector: "a[href='/register']"
+          selector: "a[href='/register']",
         },
         loginLink: {
-          selector: "a[href='/login']"
-        }
-      }
-    }
-  }
+          selector: "a[href='/login']",
+        },
+      },
+    },
+  },
 };

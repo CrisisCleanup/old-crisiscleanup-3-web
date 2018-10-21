@@ -1,14 +1,15 @@
-var parse = require('csv-parse/lib/sync');
-var fs = require('fs');
-var path = './test.csv';
-var hurricaneHarveyFormDefinition = require('../definitions/forms/60-hurricane_harvey.json');
+const parse = require('csv-parse/lib/sync');
+const fs = require('fs');
 
-var data = [];
-var contents = fs.readFileSync(path);
-var records = parse(contents, {delimiter: ',', columns: true});
+const path = './test.csv';
+const hurricaneHarveyFormDefinition = require('../definitions/forms/60-hurricane_harvey.json');
 
-let login = function (browser) {
-  let record = records[0];
+const data = [];
+const contents = fs.readFileSync(path);
+const records = parse(contents, { delimiter: ',', columns: true });
+
+const login = function (browser) {
+  const record = records[0];
   browser.page.login().navigate()
     .submitCredentials(record.email, 'ccu12345')
     .waitForElementVisible('#worker-dashboard', 5000)
@@ -16,68 +17,94 @@ let login = function (browser) {
 };
 
 
-let getAllSections =  function(fields) {
-  let sections = [];
+const getAllSections = function (fields) {
+  const sections = [];
 
-  let traverseFields = function (fields, parent={}) {
+  const traverseFields = function (fields, parent = {}) {
     for (const key in fields) {
       const value = fields[key];
-      if (value['field_type'] === 'section') {
+      if (value.field_type === 'section') {
         sections[key] = {
-          'work_type': value['if_selected_then_work_type'],
-          'children': []
+          work_type: value.if_selected_then_work_type,
+          children: [],
         };
         traverseFields(value.fields, sections[key]);
       } else if (value && value.hasOwnProperty('if_selected_then_work_type')) {
-        parent.children[key] = value['if_selected_then_work_type'];
+        parent.children[key] = value.if_selected_then_work_type;
       }
     }
   };
   traverseFields(fields);
-  return sections
+  return sections;
 };
 
 module.exports = {
-  '@tags': ['eventform', 'smoke'],
+  '@tags': ['mytag', 'smoke'],
   'event form renders': function (browser) {
     login(browser);
     browser.page.leftaside().clickWorkerMapLink();
 
-    let eventform = browser.page.eventform();
+    const eventform = browser.page.eventform();
     eventform.expect.element('@newWorksiteBtn').to.be.visible;
     eventform.createNewWorksite();
     eventform.expect.section('@propertyInfo').to.be.visible;
 
-    let propertyInfoSection = eventform.section.propertyInfo;
+    const propertyInfoSection = eventform.section.propertyInfo;
     propertyInfoSection.setValue('@name', 'John Doe');
     propertyInfoSection.expect.element('@name').value.to.equal('John Doe');
 
     // browser.pause()
     browser.end();
   },
+  'geocoder sets address properly and adds marker to map': function (browser) {
+    login(browser);
+    browser.page.leftaside().clickWorkerMapLink();
+
+    browser.page.header().setEventContext(60);
+
+    const eventform = browser.page.eventform();
+    eventform.expect.element('@newWorksiteBtn').to.be.visible;
+    eventform.createNewWorksite();
+
+    const propertyInfoSection = eventform.section.propertyInfo;
+    propertyInfoSection.setValue('@address', '100 Broadway NYC');
+    propertyInfoSection.click('@address');
+    propertyInfoSection.waitForElementVisible('@autocomplete_list', 5000);
+    propertyInfoSection.expect.element('@autocomplete_list_item').to.be.visible;
+    propertyInfoSection.click('@autocomplete_list_item');
+
+    propertyInfoSection.expect.element('@address').value.to.equal('100 BROADWAY');
+    propertyInfoSection.expect.element('@city').value.to.equal('NEW YORK');
+    propertyInfoSection.expect.element('@county').value.to.equal('NEW YORK COUNTY');
+    propertyInfoSection.expect.element('@state').value.to.equal('NY');
+    propertyInfoSection.expect.element('@zip_code').value.to.equal('10005-1983');
+
+    const map = eventform.section.map;
+    map.expect.element('@marker').to.be.visible;
+  },
+
   'hurricane harvey': function (browser) {
     login(browser);
     browser.page.leftaside().clickWorkerMapLink();
 
     browser.page.header().setEventContext(60);
 
-    let eventform = browser.page.eventform();
+    const eventform = browser.page.eventform();
     eventform.expect.element('@newWorksiteBtn').to.be.visible;
     eventform.createNewWorksite();
 
     const fields = hurricaneHarveyFormDefinition.phase_cleanup.fields;
     const sections = getAllSections(fields);
 
-    for (let sectionKey in sections) {
-      let section = sections[sectionKey];
+    for (const sectionKey in sections) {
+      const section = sections[sectionKey];
       eventform.expect.element(`#ccu-section-${sectionKey}`).to.be.visible;
-      for (let fieldKey in section.children) {
+      for (const fieldKey in section.children) {
         if (['latitude', 'longitude'].includes(fieldKey)) {
           continue;
         }
         eventform.expect.element(`#${fieldKey}CCU`).to.be.visible;
       }
     }
-
   },
 };
