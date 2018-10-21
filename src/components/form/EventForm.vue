@@ -404,7 +404,7 @@
           county: item.address.areaName2,
           state: item.address.areaName1,
           country: item.address.country,
-          zip_code: `${item.address.postCode1}${item.address.postCode2 ? '-' : ''}${item.address.postCode2 || ''}`,
+          zip_code: `${item.address.postCode1 || ''}${item.address.postCode2 ? '-' : ''}${item.address.postCode2 || ''}`,
         });
 
         if (item.geometry && window.maps) {

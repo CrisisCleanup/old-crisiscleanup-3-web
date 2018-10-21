@@ -3,10 +3,6 @@ class MapModel {
 
 }
 
-class GoogleMapModel extends MapModel {
-
-}
-
 class LeafletMapModel extends MapModel{
 
 }
