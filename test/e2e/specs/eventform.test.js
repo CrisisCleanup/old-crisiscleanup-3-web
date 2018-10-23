@@ -81,6 +81,7 @@ module.exports = {
 
     const map = eventform.section.map;
     map.expect.element('@marker').to.be.visible;
+    browser.end();
   },
 
   'hurricane harvey': function (browser) {
@@ -106,5 +107,6 @@ module.exports = {
         eventform.expect.element(`#${fieldKey}CCU`).to.be.visible;
       }
     }
+    browser.end();
   },
 };
