@@ -27,7 +27,7 @@ module.exports = {
         devServerURL: 'http://localhost',
       },
       launch_url: 'http://localhost',
-      end_session_on_fail: false,
+      end_session_on_fail: true,
       skip_testcases_on_fail: false,
       screenshots: {
         enabled: true,
