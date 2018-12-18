@@ -1818,7 +1818,7 @@ const messages = {
       "es-mx": "Mexican Spanish",
       "cs": "Czech"
     },
-    "assets": {
+    "equipment": {
       "chainsaw": "Chainsaw",
       "van": "Van",
       "bus": "Bus",
@@ -3668,7 +3668,7 @@ const messages = {
       "es-mx": "español mexicano",
       "cs": "checo"
     },
-    "assets": {
+    "equipment": {
       "chainsaw": "motosierra",
       "van": "camioneta",
       "bus": "Autobús",
@@ -5518,7 +5518,7 @@ const messages = {
       "es-mx": "Španělština",
       "cs": "čeština"
     },
-    "assets": {
+    "equipment": {
       "chainsaw": "Motorová pila",
       "van": "Dodávka",
       "bus": "Autobus",
