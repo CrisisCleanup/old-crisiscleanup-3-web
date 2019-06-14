@@ -3,7 +3,7 @@
 
 # Crisis Cleanup (3.X beta)
 
-Crisis Cleanup is a web platform that connects disaster recovery organization volunteers with people who need help after a disaster. The Crisis Cleanup platform has been used to connected 519,400 volunteers from 1,588 organizations with 77,054 households in 40 states and 124 disasters in 6 countries; a new disaster every two weeks.
+Crisis Cleanup is a web platform that connects disaster recovery organization volunteers with people who need help after a disaster. The Crisis Cleanup platform has been used to connected 519,480 volunteers from 1,591 organizations with 77,158 households in 40 states and 124 disasters in 6 countries; a new disaster every two weeks.
 
 Crisis Cleanup works best in a collaborative environment where multiple voluntary organizations and agencies work together and coordinate efforts. Because these organizations do not take orders from one another, Crisis Cleanup is designed to facilitate Collaborative Accountability models of inter-agency interaction, rather than command-and-control operations, or or heirarchical accountability models of interaction. 
 
