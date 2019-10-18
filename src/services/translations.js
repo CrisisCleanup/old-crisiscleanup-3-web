@@ -9062,11 +9062,41 @@ const messages = {
       "tribes_notes": "Native tribe boundaries."
     },
     "reportGroup": {
-      "personal_info_title": "Personal Information",
       "worksite_info_title": "Worksite Information",
+      "work_info_title": "Description of Work",
       "rebuild_info_title": "Rebuild Information",
-      "case_title": "Case Assessment",
-      "hazards_title": "Hazards"
+      "case_info_title": "Case Assessment",
+      "hazards_info_title": "Hazards"
+    },
+    "flag": {
+      "worksite_high_priority": "High Priority",
+      "worksite_low_priority": "Low Priority",
+      "worksite_mark_for_deletion": "Mark for Deletion",
+      "worksite_abuse": "Report Abuse",
+      "file_abuse": "Report Abuse",
+      "file_copyright": "Copyright Infringement",
+      "file_mark_for_deletion": "Mark for Deletion",
+      "file_detach": "Remove or Detach",
+      "user_abuse": "Report Abuse",
+      "ghost_user_abuse": "Report Abuse",
+      "layer_copyright": "Copyright Infringement",
+      "layer_mark_for_deletion": "Mark for Deletion",
+      "layer_detach": "Remove or Detach",
+      "organization_abuse": "Report Abuse",
+      "worksite_high_priority_description": "This case is a high priority. Please provide details.",
+      "worksite_low_priority_description": "This case is a low priority. Please provide details.",
+      "worksite_mark_for_deletion_description": "This case should be deleted. Please provide details.",
+      "worksite_abuse_description": "This case is an abuse of the system. Please provide details.",
+      "file_abuse_description": "This file or image contains material that is inappropriate or abusive.",
+      "file_copyright_description": "This file or image may violate copyrights.",
+      "file_mark_for_deletion_description": "Mark this file for deletion. Please provide details.",
+      "file_detach_description": "Remove or detach his file or image. The file is OK, but does not belong here.",
+      "user_abuse_description": "This user is engaging in inappropriate or abusive behavior.",
+      "ghost_user_abuse_description": "This person is engaging in inappropriate or abusive behavior.",
+      "layer_copyright_description": "This layer may violate copyrights.",
+      "layer_mark_for_deletion_description": "Mark this layer for deletion. Please provide details.",
+      "layer_detach_description": "Remove or detach his layer. The layer is OK, but does not belong here.",
+      "organization_abuse_description": "This organization is engaging in inappropriate or abusive behavior."
     }
   },
   "es-MX": {
@@ -18132,11 +18162,41 @@ const messages = {
       "tribes_notes": "límites de la tribu nativa."
     },
     "reportGroup": {
-      "personal_info_title": "Informacion personal",
       "worksite_info_title": "Información lugar de trabajo",
+      "work_info_title": "Descripción del trabajo",
       "rebuild_info_title": "reconstruir Información",
-      "case_title": "Evaluación caso",
-      "hazards_title": "Peligros"
+      "case_info_title": "Evaluación caso",
+      "hazards_info_title": "Peligros"
+    },
+    "flag": {
+      "worksite_high_priority": "Alta prioridad",
+      "worksite_low_priority": "Baja prioridad",
+      "worksite_mark_for_deletion": "Marca para eliminar",
+      "worksite_abuse": "Reportar abuso",
+      "file_abuse": "Reportar abuso",
+      "file_copyright": "Infracción de copyright",
+      "file_mark_for_deletion": "Marca para eliminar",
+      "file_detach": "Remover o separar",
+      "user_abuse": "Reportar abuso",
+      "ghost_user_abuse": "Reportar abuso",
+      "layer_copyright": "Infracción de copyright",
+      "layer_mark_for_deletion": "Marca para eliminar",
+      "layer_detach": "Remover o separar",
+      "organization_abuse": "Reportar abuso",
+      "worksite_high_priority_description": "Este caso es de alta prioridad. Por favor proporcione detalles.",
+      "worksite_low_priority_description": "Este caso es una prioridad baja. Por favor proporcione detalles.",
+      "worksite_mark_for_deletion_description": "Este caso debe suprimirse. Por favor proporcione detalles.",
+      "worksite_abuse_description": "Este caso es un abuso del sistema. Por favor proporcione detalles.",
+      "file_abuse_description": "Este archivo o imagen contiene material inapropiado o abusivo.",
+      "file_copyright_description": "Este archivo o imagen puede violar los derechos de autor.",
+      "file_mark_for_deletion_description": "Marcar este archivo para su eliminación. Por favor proporcione detalles.",
+      "file_detach_description": "Quitar o separar su archivo o imagen. El archivo está bien, pero no es de aquí.",
+      "user_abuse_description": "Este usuario está participando en un comportamiento inapropiado o abusivo.",
+      "ghost_user_abuse_description": "Esta persona está participando en un comportamiento inapropiado o abusivo.",
+      "layer_copyright_description": "Esta capa puede violar los derechos de autor.",
+      "layer_mark_for_deletion_description": "Marque esta capa para eliminación. Por favor proporcione detalles.",
+      "layer_detach_description": "Quitar o separar su capa. La capa está bien, pero no es de aquí.",
+      "organization_abuse_description": "Esta organización está participando en un comportamiento inapropiado o abusivo."
     }
   },
   "cs": {
@@ -27202,11 +27262,41 @@ const messages = {
       "tribes_notes": "Nativní kmen hranice."
     },
     "reportGroup": {
-      "personal_info_title": "Osobní informace",
       "worksite_info_title": "pracoviště Informace",
+      "work_info_title": "Popis práce",
       "rebuild_info_title": "přestavět Informace",
-      "case_title": "Posuzování případ",
-      "hazards_title": "nebezpečnosti"
+      "case_info_title": "Posuzování případ",
+      "hazards_info_title": "nebezpečnosti"
+    },
+    "flag": {
+      "worksite_high_priority": "S vysokou prioritou",
+      "worksite_low_priority": "nízká priorita",
+      "worksite_mark_for_deletion": "K odstranění",
+      "worksite_abuse": "Nahlásit zneužití",
+      "file_abuse": "Nahlásit zneužití",
+      "file_copyright": "Porušení autorských práv",
+      "file_mark_for_deletion": "K odstranění",
+      "file_detach": "Odebrat nebo odpojit",
+      "user_abuse": "Nahlásit zneužití",
+      "ghost_user_abuse": "Nahlásit zneužití",
+      "layer_copyright": "Porušení autorských práv",
+      "layer_mark_for_deletion": "K odstranění",
+      "layer_detach": "Odebrat nebo odpojit",
+      "organization_abuse": "Nahlásit zneužití",
+      "worksite_high_priority_description": "Tento případ je vysokou prioritou. Uveďte podrobnosti.",
+      "worksite_low_priority_description": "Tento případ je s nízkou prioritou. Uveďte podrobnosti.",
+      "worksite_mark_for_deletion_description": "Tento případ by měl být vypuštěn. Uveďte podrobnosti.",
+      "worksite_abuse_description": "Tento případ je zneužití systému. Uveďte podrobnosti.",
+      "file_abuse_description": "Tento soubor nebo obrázek obsahuje materiál, který je nevhodné nebo urážlivé.",
+      "file_copyright_description": "Tento soubor nebo obrázek by mohl porušovat autorská práva.",
+      "file_mark_for_deletion_description": "Označte tento soubor ke smazání. Uveďte podrobnosti.",
+      "file_detach_description": "Odebrat nebo odpojit svůj soubor nebo obrázek. Soubor je v pořádku, ale to sem nepatří.",
+      "user_abuse_description": "Tento uživatel je zapojen do nevhodného nebo urážlivého chování.",
+      "ghost_user_abuse_description": "Tato osoba je zapojen do nevhodného nebo urážlivého chování.",
+      "layer_copyright_description": "Tato vrstva může porušovat autorská práva.",
+      "layer_mark_for_deletion_description": "Označte tuto vrstvu pro odstranění. Uveďte podrobnosti.",
+      "layer_detach_description": "Odebrat nebo odpojit jeho vrstvy. Vrstva je v pořádku, ale to sem nepatří.",
+      "organization_abuse_description": "Tato organizace je zapojen do nevhodného nebo urážlivého chování."
     }
   }
 }
