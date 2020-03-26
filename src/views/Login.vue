@@ -7,19 +7,19 @@
             <div class="card p-4">
               <div class="card-body">
                 <h1>{{ $t('actions.login') }}</h1>
-                <p class="text-muted">{{ $t('login.sign_in_msg') }}</p>
-                <p class="red-text" v-if="loginErrors">{{ $t('login.invalid_credentials_msg') }}</p>
+                <p class="text-muted">{{ $t('loginForm.sign_in_msg') }}</p>
+                <p class="red-text" v-if="loginErrors">{{ $t('loginForm.invalid_credentials_msg') }}</p>
                 <b-form @submit="login" id="login-form">
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="icon-user"></i></span>
                     <b-form-input id="login-email" v-model="email" type="email" required autofocus
-                                  v-bind:placeholder="$t('login.email_placeholder')" :state="loginErrors ? false : null"/>
+                                  v-bind:placeholder="$t('loginForm.email_placeholder')" :state="loginErrors ? false : null"/>
                   </div>
                   <div class="input-group mb-4">
                     <span class="input-group-addon"><i class="icon-lock"></i></span>
                     <b-form-input id="login-password" v-model="password" type="password" required
                                   :state="loginErrors ? false : null"
-                                  v-bind:placeholder="$t('login.password_placeholder')"/>
+                                  v-bind:placeholder="$t('loginForm.password_placeholder')"/>
                   </div>
                   <div class="row">
                     <div class="col-6">
