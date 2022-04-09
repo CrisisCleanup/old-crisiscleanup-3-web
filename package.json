@@ -36,7 +36,7 @@
     "leaflet.gridlayer.googlemutant": "^0.6.4",
     "lodash": "^4.17.4",
     "marker-clusterer-plus": "^2.1.4",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "odometer": "^0.4.8",
     "raven-js": "^3.17.0",
     "simple-line-icons": "^2.4.1",
