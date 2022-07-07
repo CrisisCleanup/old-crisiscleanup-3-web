@@ -4918,9 +4918,9 @@ mock-vuex@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/mock-vuex/-/mock-vuex-0.2.0.tgz#852bc30a6fd9622fe9086ae24ac03d9cc85dcde0"
 
-moment@^2.10.6, moment@^2.18.1:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+moment@^2.10.6, moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
 
 ms@0.7.1:
   version "0.7.1"
